@@ -11,15 +11,73 @@ namespace Prueba.Controllers
     public class ConvocatoriaController : ApiController
     {
         Convocatoria conv = new Convocatoria();
-        public IHttpActionResult getConvocatoria()
+        public IHttpActionResult ConsultarConvocatoria()
         {
-          return Json(conv.Agregar());
+            return Json(conv.ConsultarConvocatoria());
         }
-        public IHttpActionResult ConsultarInstanciaConvocatoria(Convocatoria convo )
+        public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
         {
-            return Json( conv.ConsultaPorId());
+            return Json(conv.ConsultaConvocaotoriaPorFecha());
+        }
+        public IHttpActionResult ConsultarConvocatoriaPorNumero(Convocatoria obj)
+        {
+            return Json(conv.ConsultarConvocatoriaPorNumero(obj));
         }
 
+        public IHttpActionResult InsertarConvocatoria(Convocatoria obj)
+        {
 
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (conv.ModificarConvocatoria(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+
+            }
+        }
+
+        public IHttpActionResult ModificarConvocatoria(Convocatoria obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (conv.ModificarConvocatoria(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+
+            }
+        }
     }
 }
+    

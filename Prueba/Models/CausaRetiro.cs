@@ -55,28 +55,34 @@ namespace Prueba.Models
         }
 
 
-        public DataTable Consultar()
+        public Parametro[] AgregarParametros(CausaRetiro obj)
         {
-           
+            para = new Parametro[1];
+            para[0] = new Parametro("PCAUR_NOMBRE", obj.NombreCausaretiro);
+
+            return para;
+        }
+
+
+        public DataTable ConsultarCausaRetiro()
+        {         
             return conx.realizarConsulta("PR_CNST_CAUR", "CR_CNST_CAUR", null);
         }
-        //public Parametro[] Insertar()
-        //{
-        //    para = new Parametro[1];
-        //    para[0] = new Parametro("PCAUR_NOMBRE", NombreCausaretiro);
 
-        //    return para;
-        //}
+        public bool InsertarCausaRetiro(CausaRetiro obj)
+        {
 
-        //public Parametro[] Modificar()
-        //{
-        //    para = new Parametro[3];
-        //    para[0] = new Parametro("PCAUR_ID", IdCausaretiro);
-        //    para[1] = new Parametro("PCAUR_NOMBRE", NombreCausaretiro);
-        //    para[2] = new Parametro("PCAUR_ESTADO", EstadoCausaretiro);
+            Transacion[] tran = new Transacion[1];
+            tran[0] = new Transacion("PR_NSTR_CAUR", AgregarParametros(obj));
+            return conx.realizarTransaccion(tran);
+        }
 
-        //    return para;
-        //}
+        public bool ModificarCausaRetiro(CausaRetiro obj)
+        {
+            Transacion[] tran = new Transacion[1];
+            tran[0] = new Transacion("PR_UPDT_CAUR", AgregarParametros(obj));
+            return conx.realizarTransaccion(tran);
+        }
 
     }
 }

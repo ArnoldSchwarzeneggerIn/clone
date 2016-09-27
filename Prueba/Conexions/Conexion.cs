@@ -11,6 +11,7 @@ namespace Prueba.Conexions
 {
     public class Conexion
     {
+        
         public string stringConnection = ConfigurationManager.ConnectionStrings["oracleConexion"].ConnectionString;
 
         public OracleConnection ConexionOracle()
@@ -58,52 +59,52 @@ namespace Prueba.Conexions
             }
         }
 
-        //public bool realizarTransaccion(Transaction[] list)
-        //{
-        //    bool state = false;
-        //    OracleConnection conn = new OracleConnection();
-        //    OracleCommand cmd = null;
-        //    conn = ConexionOracle();
+        public bool realizarTransaccion(Transacion[] list)
+        {
+            bool state = false;
+            OracleConnection conn = new OracleConnection();
+            OracleCommand cmd = null;
+            conn = ConexionOracle();
 
-        //    OracleTransaction Transa = conn.BeginTransaction();
+            OracleTransaction Transa = conn.BeginTransaction();
 
-        //    try
-        //    {
-        //        for (int i = 0; i < list.Length; i++)
-        //        {
-        //            if (list[i] != null)
-        //            {
-        //                cmd = new OracleCommand(list[i].Procedure, conn);
-        //                cmd.CommandType = CommandType.StoredProcedure;
-        //                foreach (Parametro obj in list[i].Parameters)
-        //                {
-        //                    cmd.Parameters.Add(obj.Nombre, obj.Value);
-        //                }
-        //                cmd.Transaction = Transa;
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //        }
-        //        Transa.Commit();
-        //        conn.Close();
-        //        conn.Dispose();
-        //        Transa.Dispose();
-        //        state = true;
-        //    }
-        //    catch
-        //    {
-        //        Transa.Rollback();
-        //        conn.Close();
-        //        conn.Dispose();
-        //        state = false;
-        //    }
-        //    finally
-        //    {
-        //        if (cmd != null)
-        //        {
-        //            cmd.Dispose();
-        //        }
-        //    }
-        //    return state;
-        //}
+            try
+            {
+                for (int i = 0; i < list.Length; i++)
+                {
+                    if (list[i] != null)
+                    {
+                        cmd = new OracleCommand(list[i].Procedure, conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        foreach (Parametro obj in list[i].Parameters)
+                        {
+                            cmd.Parameters.Add(obj.Nombre, obj.Value);
+                        }
+                        cmd.Transaction = Transa;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                Transa.Commit();
+                conn.Close();
+                conn.Dispose();
+                Transa.Dispose();
+                state = true;
+            }
+            catch
+            {
+                Transa.Rollback();
+                conn.Close();
+                conn.Dispose();
+                state = false;
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+            }
+            return state;
+        }
     }
 }

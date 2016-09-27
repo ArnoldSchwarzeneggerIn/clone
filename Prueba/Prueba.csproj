@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Conexions\Conexion.cs" />
+    <Compile Include="Controllers\CandidatoController.cs" />
     <Compile Include="Controllers\CausaRetiroController.cs" />
     <Compile Include="Controllers\CoberturaController.cs" />
     <Compile Include="Controllers\ConvocatoriaController.cs" />
