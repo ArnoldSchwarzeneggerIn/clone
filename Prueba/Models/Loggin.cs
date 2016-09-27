@@ -43,10 +43,10 @@ namespace Prueba.Models
             return para;
         }
 
-        public DataTable ConsultarCedulaCandidato(Loggin obj)
-        {
-            //return cond.realizarConsulta();
-        }
+        //public DataTable ConsultarCedulaCandidato(Loggin obj)
+        //{
+        //    //return cond.realizarConsulta();
+        //}
 
     }
 }

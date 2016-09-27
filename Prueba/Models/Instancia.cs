@@ -130,13 +130,17 @@ namespace Prueba.Models
 
             return conx.realizarConsulta("PR_CNST_INST_PALA", "CR_CNST_INST_PALA", para);
         }
-        public Parametro[] Insertar()
+        public bool InsertarInstancia(Instancia obj)
         {
+           
             para = new Parametro[2];
-            para[0] = new Parametro("PINST_NOMBRE", NombreInstancia);
-            para[1] = new Parametro("PINST_COBERTURA", IdCobertura);
+            para[0] = new Parametro("PINST_NOMBRE", obj.NombreInstancia);
+            para[1] = new Parametro("PINST_COBERTURA", obj.IdCobertura);
 
-            return para;
+            Transacion[] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_NSRT_INST",para);
+
+            return conx.realizarTransaccion(trans);
         }
 
         public Parametro[] Modificar()
