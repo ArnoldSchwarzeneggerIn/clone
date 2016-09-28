@@ -15,13 +15,18 @@ namespace Prueba.Controllers
         [HttpGet]
         public IHttpActionResult ConsultarInstancia()
         {
-            return Json(inst.Consultar());
+            return Json(inst.ConsultarInstancia());
         }
+
+        //public IHttpActionResult ConsultarInstancia(Instancia obj)
+        //{
+        //    //return Json(inst.Consultar());
+        //}
 
         [HttpGet]
         public IHttpActionResult ConsultarInstanciaNombre()
         {
-            return Json(inst.ConsultarNombre());
+            return Json(inst.ConsultarInstanciaNombre());
         }
 
         [HttpPost]
@@ -30,17 +35,26 @@ namespace Prueba.Controllers
             return Json(inst.ConsultarPorPalabras(obj));
         }
 
+        [HttpPost]
+        public IHttpActionResult InsertarInstancia(Instancia obj)
+        {
+            return Json(inst.InsertarInstancia(obj));
+        }
+
+        [HttpPost]
+        public IHttpActionResult ModificarInstancia(Instancia obj)
+        {
+            return Json(inst.ModificarInstancia(obj));
+        }
+
+
         //[HttpGet]
         //public IHttpActionResult ConsultarInstanciaConvocatoria(Convocatoria obj)
         //{
         //    return Json(inst.Consultar(obj));
         //}
 
-        [HttpPost]
-        public IHttpActionResult InsertarInstancia(Instancia obj)
-        {
-            return Json(inst.InsertarInstancia(obj));
-        }
+
 
 
     }

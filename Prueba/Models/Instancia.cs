@@ -106,6 +106,16 @@ namespace Prueba.Models
         public Instancia()
         {
         }
+        public Parametro[] AgregarInstanciaModificar(Instancia obj)
+        {
+            para = new Parametro[4];
+            para[0] = new Parametro("PINST_ID", obj.IdCobertura);
+            para[1] = new Parametro("PINST_NOMBRE", obj.NombreInstancia);
+            para[2] = new Parametro("PINST_COBERTURA", obj.IdCobertura);
+            para[3] = new Parametro("PINST_ESTADO", obj.EstadoInstancia);
+
+            return para;
+        }
 
         public Parametro[] Consultar_instancia()
         {
@@ -143,16 +153,15 @@ namespace Prueba.Models
             return conx.realizarTransaccion(trans);
         }
 
-        public Parametro[] Modificar()
+        public bool ModificarInstancia(Instancia obj)
         {
-            para = new Parametro[4];
-            para[0] = new Parametro("PINST_ID", IdCobertura);
-            para[1] = new Parametro("PINST_NOMBRE", NombreInstancia);
-            para[2] = new Parametro("PINST_COBERTURA", IdCobertura);
-            para[3] = new Parametro("PINST_ESTADO", EstadoInstancia);
+            Transacion[] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_NSRT_INST", AgregarInstanciaModificar(obj));
 
-            return para;
+            return conx.realizarTransaccion(trans);
         }
+
+   
 
         public Parametro[] ConsultarCargosInstancia()
         {
@@ -161,12 +170,19 @@ namespace Prueba.Models
             return para;
         }
 
-        public DataTable Consultar()
+        public DataTable ConsultarInstancia()
         {
             return conx.realizarConsulta("PR_CNST_INST", "CR_CNST_INST", null);
         }
 
-        public DataTable ConsultarNombre()
+        //public DataTable ConsultarInstancia(Instancia obj)
+        //{
+        //    para = new Parametro[0];
+        //    para[0] = new Parametro("",);
+        //    return conx.realizarConsulta("PR_CNST_INST", "CR_CNST_INST", null);
+        //}
+
+        public DataTable ConsultarInstanciaNombre()
         {
             return conx.realizarConsulta("PR_CNST_INST_NMBR", "CR_CNST_INST_NMBR", null);
         }

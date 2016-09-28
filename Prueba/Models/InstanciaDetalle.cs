@@ -128,35 +128,44 @@ namespace Prueba.Models
         {
             return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", null);
         }
-        public Parametro[] Insertar()
+        public Parametro[] AgregarInstanciaDetalle(InstanciaDetalle obj)
         {
             para = new Parametro[6];
 
-            para[0] = new Parametro("PINSD_NOMBRE", NombreInstanciadetalle);
-            para[1] = new Parametro("PINSD_TIPO_ELECTOR", TipoDeElector);
-            para[2] = new Parametro("PINSD_VOTACION", VotacionInstanciadetalle);
-            para[3] = new Parametro("PINSD_CUPOS", CupoInstanciadetalle);
-            para[4] = new Parametro("PINSD_INSTANCIA", CupoInstanciadetalle);
-            para[5] = new Parametro("PINSD_PERIODO", PeriodoInstranciadetalle);
+            para[0] = new Parametro("PINSD_NOMBRE", obj.NombreInstanciadetalle);
+            para[1] = new Parametro("PINSD_TIPO_ELECTOR", obj.TipoDeElector);
+            para[2] = new Parametro("PINSD_VOTACION", obj.VotacionInstanciadetalle);
+            para[3] = new Parametro("PINSD_CUPOS", obj.CupoInstanciadetalle);
+            para[4] = new Parametro("PINSD_INSTANCIA", obj.CupoInstanciadetalle);
+            para[5] = new Parametro("PINSD_PERIODO", obj.PeriodoInstranciadetalle);
 
 
             return para;
         }
 
-        public Parametro[] Modificar()
+        public Parametro[] ModificarInstanciaDetalle(InstanciaDetalle obj)
         {
             para = new Parametro[8];
 
-            para[0] = new Parametro("PINSD_ID", IdInstanciadetalle);
-            para[1] = new Parametro("PINSD_NOMBRE", NombreInstanciadetalle);
-            para[2] = new Parametro("PINSD_TIPO_ELECTOR", TipoDeElector);
-            para[3] = new Parametro("PINSD_VOTACION", VotacionInstanciadetalle);
-            para[4] = new Parametro("PINSD_CUPOS", CupoInstanciadetalle);
-            para[5] = new Parametro("PINSD_ESTADO", EstadoInstanciadetalle);
-            para[6] = new Parametro("PINSD_INSTANCIA", IdInstancia);
-            para[7] = new Parametro("PINSD_PERIODO", PeriodoInstranciadetalle);
+            para[0] = new Parametro("PINSD_ID", obj.IdInstanciadetalle);
+            para[1] = new Parametro("PINSD_NOMBRE", obj.NombreInstanciadetalle);
+            para[2] = new Parametro("PINSD_TIPO_ELECTOR", obj.TipoDeElector);
+            para[3] = new Parametro("PINSD_VOTACION", obj.VotacionInstanciadetalle);
+            para[4] = new Parametro("PINSD_CUPOS", obj.CupoInstanciadetalle);
+            para[5] = new Parametro("PINSD_ESTADO", obj.EstadoInstanciadetalle);
+            para[6] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
+            para[7] = new Parametro("PINSD_PERIODO", obj.PeriodoInstranciadetalle);
 
             return para;
+        }
+
+
+        public DataTable ConsultarCargosInstancia(InstanciaDetalle obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
+
+            return conx.realizarConsulta("PR_CNST_INSD_POR_INST", "CR_CNST_INSD_POR_INST", para);
         }
 
     }
