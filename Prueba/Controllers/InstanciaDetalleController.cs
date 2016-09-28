@@ -16,5 +16,43 @@ namespace Prueba.Controllers
             //return Json(insd.);
             return null;
         }
+
+        [HttpPost]
+        public IHttpActionResult ConsultarCargosInstancia(InstanciaDetalle obj)
+        {
+
+            return Json(insd.ConsultarCargosInstancia(obj));
+                    
+        }
+
+
+        //[HttpPost]
+        //public IHttpActionResult InstanciaDetalle(InstanciaDetalle obj)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    else
+        //    {
+        //        if (insd.ConsultarCargosInstancia(obj))
+        //        {
+        //            return Json(new
+        //            {
+        //                data = obj,
+        //                result = true
+        //            });
+        //        }
+        //        else
+        //        {
+        //            return Json(new
+        //            {
+        //                result = false
+        //            });
+        //        }
+        //    }
+
+        //}
+
     }
 }

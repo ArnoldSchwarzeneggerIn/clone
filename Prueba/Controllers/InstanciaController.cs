@@ -15,29 +15,47 @@ namespace Prueba.Controllers
         [HttpGet]
         public IHttpActionResult ConsultarInstancia()
         {
-            return Json(inst.Consultar());
+            return Json(inst.ConsultarInstancia());
         }
+
+        //public IHttpActionResult ConsultarInstancia(Instancia obj)
+        //{
+        //    //return Json(inst.Consultar());
+        //}
 
         [HttpGet]
         public IHttpActionResult ConsultarInstanciaNombre()
         {
-            return Json(inst.ConsultarNombre());
+            return Json(inst.ConsultarInstanciaNombre());
         }
 
         [HttpPost]
-        public IHttpActionResult ConsultarInstanciaPorPalabras(Instancia insta)
+        public IHttpActionResult ConsultarInstanciaPorPalabras(Instancia obj)
         {
-            return Json(inst.ConsultarPorPalabras(insta));
+            return Json(inst.ConsultarPorPalabras(obj));
         }
-        public IHttpActionResult getInstanciaConvocatoria(Convocatoria convo)
+
+        [HttpPost]
+        public IHttpActionResult InsertarInstancia(Instancia obj)
         {
-            return Json(inst.Consultar());
+            return Json(inst.InsertarInstancia(obj));
         }
-        public IHttpActionResult getInstancia(Instancia insta)
+
+        [HttpPost]
+        public IHttpActionResult ModificarInstancia(Instancia obj)
         {
-            return Json(inst.Consultar());
+            return Json(inst.ModificarInstancia(obj));
         }
-       
+
+
+        //[HttpGet]
+        //public IHttpActionResult ConsultarInstanciaConvocatoria(Convocatoria obj)
+        //{
+        //    return Json(inst.Consultar(obj));
+        //}
+
+
+
 
     }
 }

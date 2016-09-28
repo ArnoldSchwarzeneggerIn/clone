@@ -11,9 +11,71 @@ namespace Prueba.Controllers
     public class CoberturaController : ApiController
     {
         Cobertura cobe = new Cobertura();
-        public IHttpActionResult getCobertura()
+
+        [HttpPost]
+        public IHttpActionResult InsertarCobertura(Cobertura obj)
         {
-            return Json(cobe.Consultar());
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cobe.InsertarCobertura(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+
+            }
         }
-    }
+
+        [HttpGet]
+        public IHttpActionResult ConsultarCobertura()
+        {
+            return Json(cobe.ConsultarCobertura());
+        }
+
+       
+
+        [HttpPost]
+        public IHttpActionResult ModificarCobertura(Cobertura obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cobe.ModificarCobertura(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+
+            }
+        }
+
+        }
+    
 }
