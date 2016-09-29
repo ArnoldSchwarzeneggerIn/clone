@@ -18,11 +18,6 @@ namespace Prueba.Controllers
             return Json(inst.ConsultarInstancia());
         }
 
-        //public IHttpActionResult ConsultarInstancia(Instancia obj)
-        //{
-        //    //return Json(inst.Consultar());
-        //}
-
         [HttpGet]
         public IHttpActionResult ConsultarInstanciaNombre()
         {

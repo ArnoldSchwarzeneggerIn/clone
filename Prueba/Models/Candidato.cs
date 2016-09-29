@@ -10,7 +10,7 @@ namespace Prueba.Models
     public class Candidato
     {
         Conexion conx = new Conexion();
-        Loggin logi = new Loggin();
+        Login logi = new Login();
         private string Candidatura = string.Empty;
         private string FechaInscripcion = string.Empty;
         private string observacion = string.Empty;
@@ -110,7 +110,7 @@ namespace Prueba.Models
             }
         }
 
-        public Parametro[] GetParameters(Candidato obj)
+        public Parametro[] AgregarParametros(Candidato obj)
         {
             para = new Parametro[3];
 

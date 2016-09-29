@@ -63,6 +63,16 @@ namespace Prueba.Models
             return para;
         }
 
+        public Parametro[] ModificarParametros(CausaRetiro obj)
+        {
+            para = new Parametro[3];
+            para[0] = new Parametro("PCAUR_ID", obj.IdCausaretiro);
+            para[1] = new Parametro("PCAUR_NOMBRE", obj.NombreCausaretiro);
+            para[2] = new Parametro("PCAUR_ESTADO", obj.EstadoCausaretiro);
+
+            return para;
+        }
+
 
         public DataTable ConsultarCausaRetiro()
         {         
@@ -80,7 +90,7 @@ namespace Prueba.Models
         public bool ModificarCausaRetiro(CausaRetiro obj)
         {
             Transacion[] tran = new Transacion[1];
-            tran[0] = new Transacion("PR_UPDT_CAUR", AgregarParametros(obj));
+            tran[0] = new Transacion("PR_UPDT_CAUR", ModificarParametros(obj));
             return conx.realizarTransaccion(tran);
         }
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Prueba.Conexions;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +9,8 @@ namespace Prueba.Models
 {
     public class ConvocatoriaDetalle
     {
+
+        Conexion conx = new Conexion();
         private Parametro[] para;
         private Transacion[] tran;
         private string idConvocatoriaDetalle = string.Empty;
@@ -80,15 +84,13 @@ namespace Prueba.Models
             }
         }
 
-        public Parametro[] Agregar()
+        public Parametro[] AgregarParametros()
         {
             para = new Parametro[2];
             para[0] = new Parametro("PCOND_INSTANCIADETALLE", InstanciadetalleConvocatoriaDetalle);
             para[1] = new Parametro("PCOND_CUPOS", CuposConvocatoriaDetalle);
 
-
             return para;
-
 
         }
 
@@ -124,13 +126,19 @@ namespace Prueba.Models
             para[1] = new Parametro("INSTA", IdConvocatoriaDetalle);
             return para;
         }
+        
+        //public bool InsertarConvocatoriaDetalle(ConvocatoriaDetalle cond)
+        ////{
+        ////    tran = new Transacion[1];
+        ////    tran[0] = new Transacion("PR_NSTR_COND", cond.Agregar());
 
-        public Transacion [] Insertar(ConvocatoriaDetalle cond)
+        ////    return tran;
+        //}
+
+        public DataTable ConsultarConvocatoria()
         {
-            tran = new Transacion[1];
-            tran[0] = new Transacion("PR_NSTR_COND", cond.Agregar());
-
-            return tran;
+            return conx.realizarConsulta("","", null);
         }
+
     }
 }
