@@ -12,10 +12,10 @@ namespace Prueba.Controllers
     {
         ConvocatoriaDetalle cond = new ConvocatoriaDetalle();
         [HttpGet]
-        public IHttpActionResult ConsultarDetalleConvocatoria()
-        {
-            return cond.ConsultarConvocatoriaDetalle();
-        }
+        //public IHttpActionResult ConsultarDetalleConvocatoria()
+        //{
+        //    return cond.ConsultarConvocatoriaDetalle();
+        //}
 
         [HttpPost]
         public IHttpActionResult InsertarDetalleConvocatoria()
