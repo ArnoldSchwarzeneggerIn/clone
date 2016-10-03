@@ -163,16 +163,16 @@
                               
                                             <div class="form-group">
                                                 <label>cobertura</label>
-                                                <input type="text" class="form-control" id="Cobertura" placeholder="Instancia"  runat="server">
+                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server">
                                             </div>
                                              <div class="form-group">
                                                 <label>Estado</label>
-                                                <asp:DropDownList ID="Estado" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block">
+                                                <asp:DropDownList ID="Cobertura" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block">
                                                                
                                                  </asp:DropDownList>
                                             </div>
                                     
-                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar"  />
                                     <div class="footer">
 
                                     </div>

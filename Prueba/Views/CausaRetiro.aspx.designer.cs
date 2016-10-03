@@ -40,13 +40,13 @@ namespace Prueba.Views {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Control Instancia_tabla.
+        /// Control Causa_Retiro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Instancia_tabla;
+        protected global::System.Web.UI.WebControls.GridView Causa_Retiro;
         
         /// <summary>
         /// Control Ins.
@@ -58,13 +58,13 @@ namespace Prueba.Views {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Ins;
         
         /// <summary>
-        /// Control Estado.
+        /// Control causaretiro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Estado;
+        protected global::System.Web.UI.WebControls.DropDownList causaretiro;
         
         /// <summary>
         /// Control Button1.

@@ -143,7 +143,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" >
+                                     <asp:GridView runat="server" ID="Causa_Retiro" cssclass="table table-hover table-striped" >
                                        
 
 
@@ -164,17 +164,17 @@
                                
                               
                                             <div class="form-group">
-                                                <label>Instancia</label>
-                                                <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server">
+                                                <label>Causa retiro</label>
+                                                <input type="text" class="form-control" id="Ins" placeholder="Causa retiro"  runat="server">
                                             </div>
                                              <div class="form-group">
                                                 <label>Estado</label>
-                                                <asp:DropDownList ID="Estado" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block">
+                                                <asp:DropDownList ID="causaretiro" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block">
                                                                
                                                  </asp:DropDownList>
                                             </div>
                                     
-                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar"  />
                                     <div class="footer">
 
                                     </div>
