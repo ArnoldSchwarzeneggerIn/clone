@@ -11,19 +11,32 @@ namespace Prueba.Controllers
     public class ConvocatoriaController : ApiController
     {
         Convocatoria conv = new Convocatoria();
+
+        [HttpGet]
         public IHttpActionResult ConsultarConvocatoria()
         {
             return Json(conv.ConsultarConvocatoria());
         }
-        public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
+
+        [HttpGet]
+        public IHttpActionResult ConsultarConvocatoriaNumero()
         {
-            return Json(conv.ConsultaConvocaotoriaPorFecha());
+            return Json(conv.ConsultarConvocatoriaNumero());
         }
+
+        [HttpPost]
+        public IHttpActionResult ConsultarConvocatoriaPorFecha(Convocatoria obj)
+        {
+            return Json(conv.ConsultarConvocatoriaPorFecha(obj));
+        }
+
+        [HttpPost]
         public IHttpActionResult ConsultarConvocatoriaPorNumero(Convocatoria obj)
         {
             return Json(conv.ConsultarConvocatoriaPorNumero(obj));
         }
 
+        [HttpPost]
         public IHttpActionResult InsertarConvocatoria(Convocatoria obj)
         {
 
@@ -33,7 +46,7 @@ namespace Prueba.Controllers
             }
             else
             {
-                if (conv.ModificarConvocatoria(obj))
+                if (conv.InsertarConvocatoria(obj))
                 {
                     return Json(new
                     {
@@ -52,6 +65,7 @@ namespace Prueba.Controllers
             }
         }
 
+        [HttpPost]
         public IHttpActionResult ModificarConvocatoria(Convocatoria obj)
         {
             if (!ModelState.IsValid)

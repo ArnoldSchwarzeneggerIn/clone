@@ -9,10 +9,13 @@ namespace Prueba.Models
 {
     public class Cobertura
     {
-        private Parametro[] para;
+       
         private string idCobertura = string.Empty;
         private string nombreCobertura = string.Empty;
         private string estadoCobertura = string.Empty;
+
+        private Parametro[] para;
+
         Conexion conx = new Conexion();
 
         public string IdCobertura

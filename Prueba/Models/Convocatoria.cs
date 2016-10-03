@@ -136,7 +136,7 @@ namespace Prueba.Models
 
 
 
-        public Parametro[] AgregarParametroInsertar(Convocatoria obj)
+        public Parametro[] AgregarParametro(Convocatoria obj)
         {
             para = new Parametro[9];
             para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
@@ -152,18 +152,20 @@ namespace Prueba.Models
             return para;
         }
 
-        public Parametro[] AgregarParametroModificar(Convocatoria obj)
+        public Parametro[] ModificarParametro(Convocatoria obj)
         {
-            para = new Parametro[9];
+            para = new Parametro[11];
             para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
             para[1] = new Parametro("PCONV_NUMERO", obj.NumeroConvocatoria);
-            para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.FechainicioinscripcionConvocatoria);
-            para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.FechafininscripcionConvocatoria);
-            para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.FechapublicacionhabilitadoConvocatoria);
-            para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.FechapublicacionjuradosConvocatoria);
-            para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.FechaeleccionespresencialesConvocatoria);
-            para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.FechaeleccionesdistanciaConvocatoria);
-            para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.FechapublicacionresultadosConvocatoria);
+            para[2] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
+            para[3] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
+            para[4] = new Parametro("PCONV_FECH_INIC_INSC", obj.FechainicioinscripcionConvocatoria);
+            para[5] = new Parametro("PCONV_FECH_FIN_INSC", obj.FechafininscripcionConvocatoria);
+            para[6] = new Parametro("PCONV_FECH_PUBL_HABI", obj.FechapublicacionhabilitadoConvocatoria);
+            para[7] = new Parametro("PCONV_FECH_PUBL_JURA", obj.FechapublicacionjuradosConvocatoria);
+            para[8] = new Parametro("PCONV_FECH_ELEC_PRES", obj.FechaeleccionespresencialesConvocatoria);
+            para[9] = new Parametro("PCONV_FECH_ELEC_DIST", obj.FechaeleccionesdistanciaConvocatoria);
+            para[10] = new Parametro("PCONV_FECH_PUBL_RESU", obj.FechapublicacionresultadosConvocatoria);
 
             return para;
 
@@ -175,12 +177,16 @@ namespace Prueba.Models
             return conx.realizarConsulta("PR_CNST_CNVT", "CR_CNST_CNVT", null);
         }
 
+        public DataTable ConsultarConvocatoriaNumero()
+        {
+            return conx.realizarConsulta("PR_CNST_CNVT_NMRO", "CR_CNST_CNVT_NMRO", null);
+        }
 
-        public DataTable ConsultaConvocaotoriaPorFecha()
+        public DataTable ConsultarConvocatoriaPorFecha(Convocatoria obj)
         {
             para = new Parametro[2];
-            para[0] = new Parametro("PCONV_FECH_INIC_INSC", FechainicioinscripcionConvocatoria);
-            para[1] = new Parametro("PCONV_FECH_FIN_INSC", FechafininscripcionConvocatoria);
+            para[0] = new Parametro("PCONV_FECH_INIC_INSC", obj.FechainicioinscripcionConvocatoria);
+            para[1] = new Parametro("PCONV_FECH_FIN_INSC", obj.FechafininscripcionConvocatoria);
 
             return conx.realizarConsulta("PR_CNST_CNVT_POR_FECH", "CR_CNST_CNVT_POR_FECH", para);
 
@@ -202,7 +208,7 @@ namespace Prueba.Models
         public bool InsertarConvocatoria(Convocatoria obj)
         {
             Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_CNVT", AgregarParametroInsertar(obj));
+            trans[0] = new Transacion("PR_NSRT_CNVT", AgregarParametro(obj));
             return conx.realizarTransaccion(trans);
         }
 
@@ -210,7 +216,7 @@ namespace Prueba.Models
         {
 
             Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_CNVT", AgregarParametroModificar(obj));
+            trans[0] = new Transacion("PR_UPDT_CNVT", ModificarParametro(obj));
             return conx.realizarTransaccion(trans);
 
         }

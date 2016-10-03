@@ -10,7 +10,7 @@ namespace Prueba.Models
     public class Candidato
     {
         Conexion conx = new Conexion();
-        Loggin logi = new Loggin();
+        Login logi = new Login();
         private string Candidatura = string.Empty;
         private string FechaInscripcion = string.Empty;
         private string observacion = string.Empty;
@@ -110,7 +110,7 @@ namespace Prueba.Models
             }
         }
 
-        public Parametro[] GetParameters(Candidato obj)
+        public Parametro[] AgregarParametros(Candidato obj)
         {
             para = new Parametro[3];
 
@@ -133,12 +133,12 @@ namespace Prueba.Models
         //    return conx.realizarConsulta("PR_CONSULTARPROGRAMA", "CR_CONSP",)
         //}
 
-        public bool InsertarCandidato(Candidato obj)
-        {
-            Transacion[] list = new Transacion[1];
-            list[0] = new Transacion("PR_REGISTRARCANDIDATO", GetParameters(obj));
-            return conx.realizarTransaccion(list);
-        }
+        //public bool InsertarCandidato(Candidato obj)
+        //{
+        //    Transacion[] list = new Transacion[1];
+        //    list[0] = new Transacion("PR_REGISTRARCANDIDATO", GetParameters(obj));
+        //    return conx.realizarTransaccion(list);
+        //}
 
 
      

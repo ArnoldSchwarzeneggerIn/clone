@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prueba.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,17 @@ namespace Prueba.Controllers
 {
     public class ConvocatoriaDetalleController : ApiController
     {
+        ConvocatoriaDetalle cond = new ConvocatoriaDetalle();
+        [HttpGet]
+        //public IHttpActionResult ConsultarDetalleConvocatoria()
+        //{
+        //    return cond.ConsultarConvocatoriaDetalle();
+        //}
+
+        [HttpPost]
+        public IHttpActionResult InsertarDetalleConvocatoria()
+        {
+            return null;
+        }
     }
 }
