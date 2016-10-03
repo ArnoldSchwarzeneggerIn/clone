@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿
+using Oracle.DataAccess.Client;
 using Prueba.Models;
 using System;
 using System.Collections.Generic;
