@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Prueba.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,7 +16,7 @@ namespace Prueba.views
 {
     public partial class Instancias : System.Web.UI.Page
     {
-       
+      private static RestClient client = new RestClient("http://localhost:25597/api/instancia/");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,24 +64,29 @@ namespace Prueba.views
             Estado.DataBind();
             Estado.Items.Insert(0, new ListItem("Seleccione", ""));
         }
-        static async Task RunAsync()
+        protected void Correr()
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://191.102.85.226/Electoral/api/");
-                var Instancia = "{ NombreInstancia :" + "prueba" +", IdCobertura : 10.ToString() }";
-               var obj = JsonConvert.SerializeObject(Instancia);
-                var response = await client.PostAsJsonAsync("instancia/InsertarInstancia", obj);
 
-                if (response.IsSuccessStatusCode)
-                {
-                }
+            var Datos = new RestRequest("InsertarInstancia",Method.POST);
+            Instancia a = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia =Ins.Value };
+            Datos.AddJsonBody(a);
+            var REsponse= client.Execute(Datos);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','"+"Registro Exitoso"+"');", true);
+
+
             }
-        }
+            catch (Exception e)
+            {
 
-        protected void Button1_Click(object sender, EventArgs e)
+            }
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
         {
-            RunAsync().Wait();
+          Correr();
         }
     }
 }

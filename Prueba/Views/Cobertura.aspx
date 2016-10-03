@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Instancias.aspx.cs" Inherits="Prueba.views.Instancias" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cobertura.aspx.cs" Inherits="Prueba.Views.Cobertura" %>
 
 <!DOCTYPE html>
 
@@ -66,7 +66,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Instancia</a>
+                        <a class="navbar-brand" href="#">cobertura</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -128,7 +128,7 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Instancias registradas</h4>
+                                    <h4 class="title">coberturas registradas</h4>
                                     <p class="category"></p>
                                 </div>
                                 <div class="content table-responsive" >
@@ -141,7 +141,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" >
+                                     <asp:GridView runat="server" ID="Cobertura_tabla" cssclass="table table-hover table-striped" >
                                        
 
 
@@ -162,8 +162,8 @@
                                
                               
                                             <div class="form-group">
-                                                <label>Instancia</label>
-                                                <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server">
+                                                <label>cobertura</label>
+                                                <input type="text" class="form-control" id="Cobertura" placeholder="Instancia"  runat="server">
                                             </div>
                                              <div class="form-group">
                                                 <label>Estado</label>

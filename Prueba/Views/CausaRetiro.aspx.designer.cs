@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Prueba.views {
+namespace Prueba.Views {
     
     
-    public partial class Instancias {
+    public partial class CausaRetiro {
         
         /// <summary>
         /// Control form1.

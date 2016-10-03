@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Prueba.views {
+namespace Prueba.Views {
     
     
-    public partial class Instancias {
+    public partial class Cobertura {
         
         /// <summary>
         /// Control form1.
@@ -40,22 +40,22 @@ namespace Prueba.views {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Control Instancia_tabla.
+        /// Control Cobertura_tabla.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Instancia_tabla;
+        protected global::System.Web.UI.WebControls.GridView Cobertura_tabla;
         
         /// <summary>
-        /// Control Ins.
+        /// Control Cobertura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Ins;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Cobertura;
         
         /// <summary>
         /// Control Estado.

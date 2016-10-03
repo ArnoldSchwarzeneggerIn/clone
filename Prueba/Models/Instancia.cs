@@ -142,14 +142,12 @@ namespace Prueba.Models
         }
         public bool InsertarInstancia(Instancia obj)
         {
-           
             para = new Parametro[2];
             para[0] = new Parametro("PINST_NOMBRE", obj.NombreInstancia);
             para[1] = new Parametro("PINST_COBERTURA", obj.IdCobertura);
 
             Transacion[] trans = new Transacion[1];
             trans[0] = new Transacion("PR_NSRT_INST",para);
-
             return conx.realizarTransaccion(trans);
         }
 

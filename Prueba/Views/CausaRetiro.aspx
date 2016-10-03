@@ -1,6 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Instancias.aspx.cs" Inherits="Prueba.views.Instancias" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CausaRetiro.aspx.cs" Inherits="Prueba.Views.CausaRetiro" %>
 
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
