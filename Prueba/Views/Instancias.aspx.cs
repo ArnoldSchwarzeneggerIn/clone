@@ -70,7 +70,7 @@ namespace Prueba.views
             {
 
             var Datos = new RestRequest("InsertarInstancia",Method.POST);
-            Instancia a = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia =Ins.Value };
+            Instancia a = new Instancia(){ IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia =Ins.Value };          
             Datos.AddJsonBody(a);
             var REsponse= client.Execute(Datos);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','"+"Registro Exitoso"+"');", true);

@@ -7,63 +7,12 @@ namespace Prueba.Models
 {
     public class TipoElector
     {
-        private string idTipoElector = string.Empty;
-        private string nombreTipoElector = string.Empty;
-        private string estadoTipoElector = string.Empty;
-        private string IdConvocatoria = string.Empty;
+        public string IdTipoElector {get;set;}
+        public string NombreTipoElector {get;set;}
+        public string EstadoTipoElector {get;set;}
+        public string IdConvocatoria {get;set;}
         public Parametro[] para;
 
-        public string IdTipoElector
-        {
-            get
-            {
-                return idTipoElector;
-            }
-
-            set
-            {
-                idTipoElector = value;
-            }
-        }
-
-        public string NombreTipoElector
-        {
-            get
-            {
-                return nombreTipoElector;
-            }
-
-            set
-            {
-                nombreTipoElector = value;
-            }
-        }
-
-        public string EstadoTipoElector
-        {
-            get
-            {
-                return estadoTipoElector;
-            }
-
-            set
-            {
-                estadoTipoElector = value;
-            }
-        }
-
-        public string IdConvocatoria1
-        {
-            get
-            {
-                return IdConvocatoria;
-            }
-
-            set
-            {
-                IdConvocatoria = value;
-            }
-        }
 
         public Parametro[] Insertar()
         {
@@ -84,10 +33,10 @@ namespace Prueba.Models
             return para;
         }
 
-        public Parametro[] ConsultarInstanci()
+        public Parametro[] ConsultarInstancia()
         {
             para = new Parametro[2];
-            para[0] = new Parametro("PCONV_ID", IdConvocatoria1);
+            para[0] = new Parametro("PCONV_ID", IdConvocatoria);
             para[1] = new Parametro("ROL", IdTipoElector);
             return para;
         }

@@ -10,6 +10,7 @@ namespace Prueba.Controllers
 {
     public class ConvocatoriaController : ApiController
     {
+
         Convocatoria conv = new Convocatoria();
 
         [HttpGet]
@@ -17,26 +18,15 @@ namespace Prueba.Controllers
         {
             return Json(conv.ConsultarConvocatoria());
         }
-
-        [HttpGet]
-        public IHttpActionResult ConsultarConvocatoriaNumero()
+        public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
         {
-            return Json(conv.ConsultarConvocatoriaNumero());
+            return Json(conv.ConsultaConvocaotoriaPorFecha());
         }
-
-        [HttpPost]
-        public IHttpActionResult ConsultarConvocatoriaPorFecha(Convocatoria obj)
-        {
-            return Json(conv.ConsultarConvocatoriaPorFecha(obj));
-        }
-
-        [HttpPost]
         public IHttpActionResult ConsultarConvocatoriaPorNumero(Convocatoria obj)
         {
             return Json(conv.ConsultarConvocatoriaPorNumero(obj));
         }
 
-        [HttpPost]
         public IHttpActionResult InsertarConvocatoria(Convocatoria obj)
         {
 
@@ -46,7 +36,7 @@ namespace Prueba.Controllers
             }
             else
             {
-                if (conv.InsertarConvocatoria(obj))
+                if (conv.ModificarConvocatoria(obj))
                 {
                     return Json(new
                     {
@@ -65,7 +55,6 @@ namespace Prueba.Controllers
             }
         }
 
-        [HttpPost]
         public IHttpActionResult ModificarConvocatoria(Convocatoria obj)
         {
             if (!ModelState.IsValid)
