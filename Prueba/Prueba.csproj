@@ -154,12 +154,15 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Views\CausaRetiro.aspx" />
-    <Content Include="Views\Cobertura.aspx" />
-    <Content Include="Views\home.html" />
-    <Content Include="Views\HtmlPage1.html" />
-    <Content Include="Views\HtmlPage2.html" />
+    <Content Include="Views\Causaderetiro.aspx" />
+    <Content Include="Views\Index.aspx" />
+    <Content Include="Views\InstancConformacion.aspx" />
     <Content Include="Views\Instancias.aspx" />
+    <Content Include="Views\LanzarConvocatoria.aspx" />
+    <Content Include="Views\pruebajulian.aspx" />
+    <Content Include="Views\VCandidato.aspx" />
+    <Content Include="Views\VCobertura.aspx" />
+    <Content Include="Views\VConvocatoria.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +185,7 @@
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\CausaRetiro.cs" />
     <Compile Include="Models\Cobertura.cs" />
+    <Compile Include="Models\ConsumirAppi.cs" />
     <Compile Include="Models\Convocatoria.cs" />
     <Compile Include="Models\ConvocatoriaDetalle.cs" />
     <Compile Include="Models\Documentos.cs" />
@@ -192,23 +196,31 @@
     <Compile Include="Models\Parametro.cs" />
     <Compile Include="Models\Propuesta.cs" />
     <Compile Include="Models\Requisito.cs" />
+    <Compile Include="Models\Rutas.cs" />
     <Compile Include="Models\Testigos.cs" />
     <Compile Include="Models\TipoElector.cs" />
     <Compile Include="Models\Transacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\CausaRetiro.aspx.cs">
-      <DependentUpon>CausaRetiro.aspx</DependentUpon>
+    <Compile Include="Views\Causaderetiro.aspx.cs">
+      <DependentUpon>Causaderetiro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\CausaRetiro.aspx.designer.cs">
-      <DependentUpon>CausaRetiro.aspx</DependentUpon>
+    <Compile Include="Views\Causaderetiro.aspx.designer.cs">
+      <DependentUpon>Causaderetiro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cobertura.aspx.cs">
-      <DependentUpon>Cobertura.aspx</DependentUpon>
+    <Compile Include="Views\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Cobertura.aspx.designer.cs">
-      <DependentUpon>Cobertura.aspx</DependentUpon>
+    <Compile Include="Views\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstancConformacion.aspx.cs">
+      <DependentUpon>InstancConformacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InstancConformacion.aspx.designer.cs">
+      <DependentUpon>InstancConformacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Instancias.aspx.cs">
       <DependentUpon>Instancias.aspx</DependentUpon>
@@ -216,6 +228,41 @@
     </Compile>
     <Compile Include="Views\Instancias.aspx.designer.cs">
       <DependentUpon>Instancias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LanzarConvocatoria.aspx.cs">
+      <DependentUpon>LanzarConvocatoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LanzarConvocatoria.aspx.designer.cs">
+      <DependentUpon>LanzarConvocatoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\pruebajulian.aspx.cs">
+      <DependentUpon>pruebajulian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\pruebajulian.aspx.designer.cs">
+      <DependentUpon>pruebajulian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VCandidato.aspx.cs">
+      <DependentUpon>VCandidato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VCandidato.aspx.designer.cs">
+      <DependentUpon>VCandidato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VCobertura.aspx.cs">
+      <DependentUpon>VCobertura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VCobertura.aspx.designer.cs">
+      <DependentUpon>VCobertura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VConvocatoria.aspx.cs">
+      <DependentUpon>VConvocatoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VConvocatoria.aspx.designer.cs">
+      <DependentUpon>VConvocatoria.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -4,136 +4,184 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-	<meta charset="utf-8" />
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>HOME</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Bootstrap core CSS     -->
-    <link href="../Contents/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Animation library for notifications   -->
-    <link href="../Contents/css/animate.min.css" rel="stylesheet" />
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="../Contents/css/light-bootstrap-dashboard.css" rel="stylesheet" />
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="../Contents/JU/css/demo.css" rel="stylesheet" />
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="../Contents/JU/css/pe-icon-7-stroke.css" rel="stylesheet" />
+     <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Sistema Electoral</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/campos.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
+	<!-- /theme JS files -->
 </head>
 <body>
     <form id="form1" runat="server">
+     <!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
 
-     <div class="wrapper">
-        <div class="sidebar" data-color="purple" data-image="../Contents/img/sidebar-1.jpg">
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a href="#" class="simple-text">
-                       Sistema Electoral
-                    </a>
-                </div>
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+		</div>
 
-                <ul class="nav">
-                    <li class="active">
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Parametricas
-                            <b class="caret"> </b>
-                        </a>
-                     <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li><a href="#">Instancia</a></li>
-                            <li><a href="#">Coberturas</a></li>
-                            <li><a href="#"></a></li>
-                        </ul>
-                    </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default navbar-fixed">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Instancia</a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-left">
-                            <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-dashboard"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret"></b>
-                                    <span class="notification">1</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notificacion </a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </li>
-                        </ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/placeholder.jpg" alt="">
+						<span>Usuario</span>
+						<i class="caret"></i>
+					</a>
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="">
-                                    Cuenta
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                   Opciones
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#">opcion 1</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    salir
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+     <div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">Electoral</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small" > Prueba Token</i> 
+									</div>
+								</div>
+
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
+								<li><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
+								<li>
+									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
+									<ul>
+										<li><a href="layout_navbar_fixed.html">Gestionar convocatoria</a></li>
+                                        <li><a href="layout_navbar_fixed.html">Lanzar convocatoria</a></li>
+									</ul>
+								</li>
+                                <li>
+									<a href="#"><i class="icon-vcard"></i> <span>Candidatos</span></a>
+									<ul>
+										<li><a href="layout_navbar_fixed.html">Gestionar candidatos</a></li>
+                                        <li><a href="layout_navbar_fixed.html">Mi candidatura</a></li>
+									</ul>
+								</li>
+                                <li class="active">
+									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
+									<ul>
+										<li class="active"><a href="layout_navbar_fixed.html">Cobertura</a></li>
+                                        <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
+                                        <li><a href="layout_navbar_fixed.html">Instancias</a></li>
+                                        <li><a href="layout_navbar_fixed.html">Instancia conformacion</a></li>
+									</ul>
+								</li>
+                                 <li>
+									<a href="#"><i class="icon-stack-text"></i> <span>Votaciones</span></a>
+									<ul>
+										<li><a href="layout_navbar_fixed.html">Votar</a></li>
+                                        <li><a href="layout_navbar_fixed.html">Resultados</a></li>
+									</ul>
+								</li>
+                                
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<div class="page-header">
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="Index.aspx"><i class="icon-home2 position-left"></i> Index</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /page header -->
+
+
+				<!-- Content area -->
+				<div class="content">
+				<div class="row">
+                        <div class="panel panel-flat">
+                        <div class="panel-heading">
+									<h6 class="panel-title">Instancias</h6>
+									<div class="heading-elements">
+										<span class="label bg-success heading-text"> <asp:Label ID="NumeroR" runat="server" Text="Label"></asp:Label>  Registros</span>
+                                        <ul class="icons-list">
+                                      	    <li><a data-toggle="modal" href="#modal_form_vertical" title="Agregar"> <i class="icon-add"></i></a></li>
+                                         </ul>
+				                	</div>
+								</div>     
+                         <div class="panel-body">
+						    Las instancias son las que se pueden incluir en las convocatorias
+                         </div>
+        
+                               <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Instancias registradas</h4>
-                                    <p class="category"></p>
-                                </div>
-                                <div class="content table-responsive" >
-                                    
-                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+  
+                       <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                                         <Triggers>
                                             <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click"/>
                                         </Triggers>
@@ -142,15 +190,70 @@
 
                                    
                                      <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" >
-                                       
-
-
+                                       <Columns>
+                                           <asp:TemplateField HeaderText="Id">
+                                               <ItemTemplate>
+                                                   <asp:Label ID="Idl" runat="server" Text="EVal()"></asp:Label>
+                                               </ItemTemplate>
+                                               <EditItemTemplate>
+                                                   <asp:TextBox ID="id" runat="server"> </asp:TextBox>
+                                               </EditItemTemplate>
+                                           </asp:TemplateField>
+                                       </Columns>
                                     </asp:GridView>
                                        </ContentTemplate>
                                    </asp:UpdatePanel>
-                                </div>
-                            </div>
-                        </div>                      
+                          
+
+                   
+                        </div>
+                      </div>
+			
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+                    
+   	<div id="modal_form_vertical" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('cober');" >&times;</button>
+									<h5 class="modal-title">Agregar cobertura</h5>
+								</div>
+									<div class="modal-body">
+                                            <div class="form-group">
+                                                <label>cobertura</label>
+                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[a-z]"  title="Ingrese solo letras" >
+                                            </div>
+                                    </div>
+									<div class="modal-footer">
+									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
+                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar"   data-dismiss="modal" UseSubmitBehavior="false" />
+                                    </div>
+							</div>
+						</div>
+					</div>
+      
+        
+
+
+
+
+                        
                     
                         <div class="col-md-4">
                             <div class="card">
@@ -163,11 +266,11 @@
                               
                                             <div class="form-group">
                                                 <label>Instancia</label>
-                                                <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server">
+                                                <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server" pattern="[a-z]" required="required" >
                                             </div>
                                              <div class="form-group">
                                                 <label>Estado</label>
-                                                <asp:DropDownList ID="Estado" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block">
+                                                <asp:DropDownList ID="Estado" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block" required="required">
                                                                
                                                  </asp:DropDownList>
                                             </div>
@@ -181,73 +284,15 @@
                         </div>
 
                     
-                    
-                    </div>
-                </div>
-            </div>
+    
 
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <p class="copyright pull-right">
-                        &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
-                </div>
-            </footer>
 
-        </div>
-    </div>
     </form>
 </body>
  
 
 
-
-<!--   Core JS Files   -->
-<script src="../Contents/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="../Contents/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="../Contents/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="../Contents/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="../Contents/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="../Contents/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="../Contents/js/demo.js"></script>
 
 
 </html>

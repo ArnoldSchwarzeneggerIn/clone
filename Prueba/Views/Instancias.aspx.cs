@@ -16,7 +16,6 @@ namespace Prueba.views
 {
     public partial class Instancias : System.Web.UI.Page
     {
-      private static RestClient client = new RestClient("http://localhost:25597/api/instancia/");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,35 +28,13 @@ namespace Prueba.views
 
         protected void Cargar_instancias()
         {
-            List<Instancia> model = null;
-            var client = new HttpClient();
-            var task = client.GetAsync("http://191.102.85.226/Electoral/api/instancia/ConsultarInstancia")
-              .ContinueWith((taskwithresponse) =>
-              {
-                  var response = taskwithresponse.Result;
-                  var jsonString = response.Content.ReadAsStringAsync();
-                  jsonString.Wait();
-                  model = JsonConvert.DeserializeObject<List<Instancia>>(jsonString.Result);
-
-              });
-            task.Wait();
+            List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
             Instancia_tabla.DataSource = model;
             Instancia_tabla.DataBind();
         }
         protected void Cargar_cobertura()
         {
-            List<Cobertura> model = null;
-            var client = new HttpClient();
-            var task = client.GetAsync("http://191.102.85.226/Electoral/api/cobertura/ConsultarCobertura")
-              .ContinueWith((taskwithresponse) =>
-              {
-                  var response = taskwithresponse.Result;
-                  var jsonString = response.Content.ReadAsStringAsync();
-                  jsonString.Wait();
-                  model = JsonConvert.DeserializeObject<List<Cobertura>>(jsonString.Result);
-
-              });
-            task.Wait();
+            List<Cobertura> model = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
             Estado.DataSource = model;
             Estado.DataTextField = "nombrecobertura";
             Estado.DataValueField = "idCobertura";
@@ -68,25 +45,24 @@ namespace Prueba.views
         {
             try
             {
-
-            var Datos = new RestRequest("InsertarInstancia",Method.POST);
-            Instancia a = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia =Ins.Value };
-            Datos.AddJsonBody(a);
-            var REsponse= client.Execute(Datos);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','"+"Registro Exitoso"+"');", true);
-
-
+                Instancia Inst = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia = Ins.Value };
+                var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "Registro Exitoso" + "');", true);
             }
             catch (Exception e)
             {
-
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No ha sido registrado" + "');", true);
+                Estado.SelectedIndex = 0;
+                Ins.Value = "";
             }
 
     }
 
     protected void Button1_Click(object sender, EventArgs e)
         {
-          Correr();
+            Correr();
+            Estado.SelectedIndex = 0;
+            Ins.Value = "";
         }
     }
 }
