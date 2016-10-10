@@ -173,7 +173,14 @@
 
 				<!-- Content area -->
 				<div class="content">
-				
+				<div class="page-header page-header-lg panel border-top-primary" style="background-color: #fff;">
+							<div class="page-header-content">
+								<div class="page-title">
+									<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> <asp:Label ID="Token" runat="server" Text=""></asp:Label>  </span> - Large</h4>
+								</div>
+
+								
+							</div>
 
 
 					<!-- Footer -->

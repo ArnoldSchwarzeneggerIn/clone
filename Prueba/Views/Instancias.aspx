@@ -189,7 +189,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" >
+                                     <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" GridLines="None">
                                        <Columns>
                                            <asp:TemplateField HeaderText="Id">
                                                <ItemTemplate>
@@ -235,36 +235,7 @@
 									<h5 class="modal-title">Agregar cobertura</h5>
 								</div>
 									<div class="modal-body">
-                                            <div class="form-group">
-                                                <label>cobertura</label>
-                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[a-z]"  title="Ingrese solo letras" >
-                                            </div>
-                                    </div>
-									<div class="modal-footer">
-									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
-                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar"   data-dismiss="modal" UseSubmitBehavior="false" />
-                                    </div>
-							</div>
-						</div>
-					</div>
-      
-        
-
-
-
-
-                        
-                    
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Instancias</h4>
-                                    <p class="category">Creacion de instancias </p>
-                                </div>
-                                <div class="content">
-                               
-                              
-                                            <div class="form-group">
+                                           <div class="form-group">
                                                 <label>Instancia</label>
                                                 <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server" pattern="[a-z]" required="required" >
                                             </div>
@@ -274,20 +245,14 @@
                                                                
                                                  </asp:DropDownList>
                                             </div>
-                                    
-                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Button1_Click" />
-                                    <div class="footer">
-
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    
-    
-
-
-
+									<div class="modal-footer">
+									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
+                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Button1_Click" />
+                                    </div>
+							</div>
+						</div>
+					</div>
     </form>
 </body>
  

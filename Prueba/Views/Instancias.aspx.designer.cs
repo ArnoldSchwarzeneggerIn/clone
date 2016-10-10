@@ -58,24 +58,6 @@ namespace Prueba.views {
         protected global::System.Web.UI.WebControls.GridView Instancia_tabla;
         
         /// <summary>
-        /// Control cober.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cober;
-        
-        /// <summary>
-        /// Control AgregarCober.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AgregarCober;
-        
-        /// <summary>
         /// Control Ins.
         /// </summary>
         /// <remarks>

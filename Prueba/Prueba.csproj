@@ -164,6 +164,7 @@
     <Content Include="Views\VCandidato.aspx" />
     <Content Include="Views\VCobertura.aspx" />
     <Content Include="Views\VConvocatoria.aspx" />
+    <Content Include="Views\Votar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="Views\VConvocatoria.aspx.designer.cs">
       <DependentUpon>VConvocatoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Votar.aspx.cs">
+      <DependentUpon>Votar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Votar.aspx.designer.cs">
+      <DependentUpon>Votar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -176,6 +176,52 @@
 				<!-- Content area -->
 				<div class="content">
 				
+                    <div class="row">
+						<div class="col-md-6">
+
+							<!-- Simple list -->
+							<div class="panel panel-flat">
+								<div class="panel-heading">
+									<h5 class="panel-title">Comite curriculo</h5>
+									<div class="heading-elements">
+										<ul class="icons-list">
+					                		<li><a data-action=""></a></li>
+					                	</ul>
+				                	</div>
+								<a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
+
+								<div class="panel-body">
+									<ul class="media-list">
+										<li class="media-header">Profesores</li>
+										<li class="media">
+											<div class="media-left media-middle">
+												<a href="#">
+													<img src="assets/images/placeholder.jpg" class="img-circle" alt="">
+												</a>
+											</div>
+
+											<div class="media-body">
+												<div class="media-heading text-semibold">Candidato 1</div>
+												<span class="text-muted">Algo</span>
+											</div>
+
+											<div class="media-right media-middle">
+												<ul class="icons-list icons-list-extended text-nowrap">
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#call" data-original-title="Call"><i class="icon-phone2"></i></a></li>
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#chat" data-original-title="Chat"><i class="icon-comment"></i></a></li>
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#video" data-original-title="Video"><i class="icon-video-camera"></i></a></li>
+						                    	</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /simple list -->
+
+						</div>
+
+						
+					</div>
 
 
 					<!-- Footer -->

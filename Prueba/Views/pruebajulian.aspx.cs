@@ -13,7 +13,16 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
-                Session["Token"] =Request.QueryString["Token"].ToString();
+                try
+                {
+                    Session["Token"] = Request.QueryString["Token"].ToString();
+                    Token.Text = Session["Token"].ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    Token.Text = "Token no valido";
+                }
             }
         }
     }
