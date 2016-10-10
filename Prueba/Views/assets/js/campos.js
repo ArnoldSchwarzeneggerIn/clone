@@ -9,5 +9,6 @@ function limpiar_form(id_e) {
     for (var i = 0; i < arreglo.length; i++) {
         arreglo[i].value = '';
     }
-    
 }
+
+
