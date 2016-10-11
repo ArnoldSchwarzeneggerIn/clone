@@ -17,7 +17,7 @@ namespace Prueba.Views
                 {
                     Session["Token"] = Request.QueryString["Token"].ToString();
                     Token.Text = Session["Token"].ToString();
-
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: Token asignado '"+Token.Text+"',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                 }
                 catch (Exception ex)
                 {

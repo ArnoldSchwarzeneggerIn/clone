@@ -11,112 +11,23 @@ namespace Prueba.Models
     {
         Conexion conx = new Conexion();
         Login logi = new Login();
-        private string Candidatura = string.Empty;
-        private string FechaInscripcion = string.Empty;
-        private string observacion = string.Empty;
-        private string CandidatoCedula = string.Empty;
-        private string CandidatoConvocatoria = string.Empty;
-        private string CandidatoInstancia = string.Empty;
-        private string CandidatoPrograma = string.Empty;
         Parametro[] para;
-        public string CandidatoCedula1
-        {
-            get
-            {
-                return CandidatoCedula;
-            }
-
-            set
-            {
-                CandidatoCedula = value;
-            }
-        }
-
-        public string CandidatoConvocatoria1
-        {
-            get
-            {
-                return CandidatoConvocatoria;
-            }
-
-            set
-            {
-                CandidatoConvocatoria = value;
-            }
-        }
-
-        public string CandidatoInstancia1
-        {
-            get
-            {
-                return CandidatoInstancia;
-            }
-
-            set
-            {
-                CandidatoInstancia = value;
-            }
-        }
-
-        public string CandidatoPrograma1
-        {
-            get
-            {
-                return CandidatoPrograma;
-            }
-
-            set
-            {
-                CandidatoPrograma = value;
-            }
-        }
-
-        public string Observacion
-        {
-            get
-            {
-                return observacion;
-            }
-
-            set
-            {
-                observacion = value;
-            }
-        }
-
-        public string FechaInscripcion1
-        {
-            get
-            {
-                return FechaInscripcion;
-            }
-
-            set
-            {
-                FechaInscripcion = value;
-            }
-        }
-
-        public string Candidatura1
-        {
-            get
-            {
-                return Candidatura;
-            }
-
-            set
-            {
-                Candidatura = value;
-            }
-        }
+        public string Candidatura { get; set; }
+        public string FechaInscripcion { get; set; }
+        public string Observacion { get; set; }
+        public string CandidatoCedula { get; set; }
+        public string CandidatoConvocatoria { get; set; }
+        public string CandidatoInstancia { get; set; }
+        public string CandidatoPrograma { get; set; }
 
         public Parametro[] AgregarParametros(Candidato obj)
         {
             para = new Parametro[3];
 
             para[0] = new Parametro("CAND_OBSERVACION", obj.Observacion);
-            para[1] = new Parametro("CAND_CONVOCATORIA", obj.CandidatoConvocatoria1);
-            para[2] = new Parametro("CAND_FK_CEDU", obj.CandidatoCedula1);
+            para[1] = new Parametro("CAND_CONVOCATORIA", obj.CandidatoConvocatoria);
+            para[2] = new Parametro("CAND_FK_CEDU", obj.CandidatoCedula);
+
             return para;
         }
 
@@ -139,11 +50,6 @@ namespace Prueba.Models
         //    list[0] = new Transacion("PR_REGISTRARCANDIDATO", GetParameters(obj));
         //    return conx.realizarTransaccion(list);
         //}
-
-
-     
-
-
 
     }
 }

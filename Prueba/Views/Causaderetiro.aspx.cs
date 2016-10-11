@@ -31,9 +31,9 @@ namespace Prueba.Views
             }
             catch (Exception ex)
             {
-               // ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "Datos no cargados" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
             }
-        
+
 
         }
 
@@ -41,11 +41,10 @@ namespace Prueba.Views
         {
             try
             {
-                /*   CausaRetiro Caus = new CausaRetiro() { NombreCausaretiro = Causar.Value };
+                CausaRetiro Caus = new CausaRetiro() { NombreCausaretiro = Causar.Value };
                    var Response = ConsumirAppi.ConsumirPost(Rutas.CausaRetiro, new RestRequest("InsertarCausaRetiro", Method.POST), Caus);
-                   CargarCausa();*/
+                   CargarCausa();
 
-                //  ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
 
 

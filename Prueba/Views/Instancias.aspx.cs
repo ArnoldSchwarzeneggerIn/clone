@@ -42,17 +42,17 @@ namespace Prueba.views
             Estado.DataBind();
             Estado.Items.Insert(0, new ListItem("Seleccione", ""));
         }
-        protected void Correr()
+        protected void Agregar()
         {
             try
             {
                 Instancia Inst = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia = Ins.Value };
                 var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "Registro Exitoso" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
             }
             catch (Exception e)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No ha sido registrado" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                 Estado.SelectedIndex = 0;
                 Ins.Value = "";
             }
@@ -61,7 +61,7 @@ namespace Prueba.views
 
     protected void Button1_Click(object sender, EventArgs e)
         {
-            Correr();
+            Agregar();
             Estado.SelectedIndex = 0;
             Ins.Value = "";
         }

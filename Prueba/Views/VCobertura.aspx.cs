@@ -30,7 +30,7 @@ namespace Prueba.Views
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No se cargaron datos" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
             }
 
         }
@@ -41,12 +41,12 @@ namespace Prueba.Views
             {
                 var Cober = new Cobertura() { NombreCobertura = cober.Value};
                 var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura,new RestRequest("InsertarCobertura", Method.POST),Cober);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "Registro Exitoso" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
             }
             catch (Exception Ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No ha sido registrado" + "');", true);
-               
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+
             }
         }
 

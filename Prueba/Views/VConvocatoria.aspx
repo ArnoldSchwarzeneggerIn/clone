@@ -239,8 +239,8 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label> Numero convocatoria</label>
-                                                <input type="text" class="form-control"  placeholder="" runat="server" id="Numero">
+                                                <label> Titulo Convocatoria</label>
+                                                <input type="text" class="form-control"  placeholder="Titulo Convocatoria" runat="server" id="Numero">
                                             </div>
                                         </div>
                                         <div class="col-md-4">

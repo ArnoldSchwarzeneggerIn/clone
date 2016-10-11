@@ -10,119 +10,15 @@ namespace Prueba.Models
     public class InstanciaDetalle
     {
         Conexion conx = new Conexion();
-        private Parametro[] para;
-        private string idInstanciadetalle = string.Empty;
-        private string idInstancia = string.Empty;
-        private string nombreInstanciadetalle = string.Empty;
-        private string tipoDeElector = string.Empty;
-        private string cupoInstanciadetalle = string.Empty;
-        private string votacionInstanciadetalle = string.Empty;
-        private string estadoInstanciadetalle = string.Empty;
-        private string periodoInstranciadetalle = string.Empty;
-
-        public string IdInstanciadetalle
-        {
-            get
-            {
-                return idInstanciadetalle;
-            }
-
-            set
-            {
-                idInstanciadetalle = value;
-            }
-        }
-
-        public string IdInstancia
-        {
-            get
-            {
-                return idInstancia;
-            }
-
-            set
-            {
-                idInstancia = value;
-            }
-        }
-
-        public string NombreInstanciadetalle
-        {
-            get
-            {
-                return nombreInstanciadetalle;
-            }
-
-            set
-            {
-                nombreInstanciadetalle = value;
-            }
-        }
-
-        public string TipoDeElector
-        {
-            get
-            {
-                return tipoDeElector;
-            }
-
-            set
-            {
-                tipoDeElector = value;
-            }
-        }
-
-        public string CupoInstanciadetalle
-        {
-            get
-            {
-                return cupoInstanciadetalle;
-            }
-
-            set
-            {
-                cupoInstanciadetalle = value;
-            }
-        }
-
-        public string VotacionInstanciadetalle
-        {
-            get
-            {
-                return votacionInstanciadetalle;
-            }
-
-            set
-            {
-                votacionInstanciadetalle = value;
-            }
-        }
-
-        public string EstadoInstanciadetalle
-        {
-            get
-            {
-                return estadoInstanciadetalle;
-            }
-
-            set
-            {
-                estadoInstanciadetalle = value;
-            }
-        }
-
-        public string PeriodoInstranciadetalle
-        {
-            get
-            {
-                return periodoInstranciadetalle;
-            }
-
-            set
-            {
-                periodoInstranciadetalle = value;
-            }
-        }
+        public Parametro[] para;
+        public string IdInstanciadetalle {get;set;}
+        public string IdInstancia {get;set;}
+        public string NombreInstanciadetalle {get;set;}
+        public string TipoDeElector {get;set;}
+        public string CupoInstanciadetalle {get;set;}
+        public string VotacionInstanciadetalle {get;set;}
+        public string EstadoInstanciadetalle {get;set;}
+        public string PeriodoInstranciadetalle {get;set;}
 
         public DataTable Consultar()
         {

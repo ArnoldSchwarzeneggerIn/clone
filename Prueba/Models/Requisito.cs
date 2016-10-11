@@ -8,67 +8,17 @@ namespace Prueba.Models
     public class Requisito
     {
         public Parametro[] Para;
-        private string idRequisito = string.Empty;
-        public string IdRequisito
-        {
-            get { return idRequisito; }
-            set { idRequisito = value; }
-        }
+        public string IdRequisito {get;set;}
 
+        public string NombreRequisito {get;set;}
+     
+        public string EstadoRequisito {get;set;}
+      
+        public string SoporteRequisito {get;set;}
 
-        private string nombreRequisito = string.Empty;
-        public string NombreRequisito
-        {
-            get { return nombreRequisito; }
-            set { nombreRequisito = value; }
-        }
+        public string DetalleinstanciaRequisito {get;set;}
 
-
-        private string estadoRequisito = string.Empty;
-        public string EstadoRequisito
-        {
-            get
-            {
-                return estadoRequisito;
-            }
-
-            set
-            {
-                estadoRequisito = value;
-            }
-        }
-
-        private string soporteRequisito = string.Empty;
-
-        public string SoporteRequisito
-        {
-            get
-            {
-                return soporteRequisito;
-            }
-
-            set
-            {
-                soporteRequisito = value;
-            }
-        }
-
-        public string DetalleinstanciaRequisito
-        {
-            get
-            {
-                return detalleinstanciaRequisito;
-            }
-
-            set
-            {
-                detalleinstanciaRequisito = value;
-            }
-        }
-
-        private string detalleinstanciaRequisito = string.Empty;
-
-        public Parametro[] Insertar()
+        public Parametro[] ParametrosInsertar()
         {
             Para = new Parametro[3];
             Para[0] = new Parametro("PREQU_NOMBRE", NombreRequisito);
@@ -78,7 +28,7 @@ namespace Prueba.Models
             return Para;
         }
 
-        public Parametro[] Modificar()
+        public Parametro[] ParametrosModificar()
         {
             Para = new Parametro[3];
             Para[0] = new Parametro("PREQU_NOMBRE", NombreRequisito);
