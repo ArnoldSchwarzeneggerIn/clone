@@ -27,6 +27,7 @@
 	<!-- Theme JS files -->
 
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/pages/components_navs.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
 	<!-- /theme JS files -->
@@ -163,6 +164,60 @@
 
 				<!-- Content area -->
 				<div class="content">
+                <div class="row">
+                    <div class="col-md-6 panel">
+                        <h6 class="content-group text-semibold no-margin-top"> Instancias </h6>
+                              <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group1" aria-expanded="false" class="collapsed">Instancia 1</a>
+										</h6>
+                                        <div class="heading-elements">
+											<ul class="icons-list">
+						                		<li><a data-action=""></a></li>
+												<li><a data-action=""></a></li>
+						                		<li><a data-action=""></a></li>
+						                	</ul>
+					                	</div>
+									</div>
+									<div id="accordion-control-group1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group2" aria-expanded="false">Accordion Item #2</a>
+										</h6>
+									</div>
+									<div id="accordion-control-group2" class="panel-collapse collapse" aria-expanded="false">
+										<div class="panel-body">
+											Тon cupidatat skateboard dolor brunch. Тesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda.
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group3" aria-expanded="false">Accordion Item #3</a>
+										</h6>
+									</div>
+									<div id="accordion-control-group3" class="panel-collapse collapse" aria-expanded="false">
+										<div class="panel-body">
+											3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it.
+										</div>
+									</div>
+								</div>
+							</div>
+                    </div>
+                </div>
+          
+
 				<div class="row">
                         <div class="panel panel-flat">
                         <div class="panel-heading">

@@ -76,7 +76,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\..\..\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
@@ -117,41 +116,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Contents\css\animate.min.css" />
-    <Content Include="Contents\css\bootstrap.min.css" />
-    <Content Include="Contents\css\demo.css" />
-    <Content Include="Contents\css\light-bootstrap-dashboard.css" />
-    <Content Include="Contents\css\pe-icon-7-stroke.css" />
-    <Content Include="Contents\fonts\Pe-icon-7-stroke.svg" />
-    <Content Include="Contents\img\default-avatar.png" />
-    <Content Include="Contents\img\faces\face-0.jpg" />
-    <Content Include="Contents\img\faces\face-1.jpg" />
-    <Content Include="Contents\img\faces\face-2.jpg" />
-    <Content Include="Contents\img\faces\face-3.jpg" />
-    <Content Include="Contents\img\faces\face-4.jpg" />
-    <Content Include="Contents\img\faces\face-5.jpg" />
-    <Content Include="Contents\img\faces\face-6.jpg" />
-    <Content Include="Contents\img\faces\face-7.jpg" />
-    <Content Include="Contents\img\faces\tim_vector.jpe" />
-    <Content Include="Contents\img\favicon.ico" />
-    <Content Include="Contents\img\loading-bubbles.svg" />
-    <Content Include="Contents\img\mask.png" />
-    <Content Include="Contents\img\new_logo.png" />
-    <Content Include="Contents\img\sidebar-1.jpg" />
-    <Content Include="Contents\img\sidebar-2.jpg" />
-    <Content Include="Contents\img\sidebar-3.jpg" />
-    <Content Include="Contents\img\sidebar-4.jpg" />
-    <Content Include="Contents\img\sidebar-5.jpg" />
-    <Content Include="Contents\img\tim_80x80.png" />
-    <Content Include="Contents\jquery-3.1.1.min.js" />
-    <Content Include="Contents\js\bootstrap-checkbox-radio-switch.js" />
-    <Content Include="Contents\js\bootstrap-notify.js" />
-    <Content Include="Contents\js\bootstrap-select.js" />
-    <Content Include="Contents\js\bootstrap.min.js" />
-    <Content Include="Contents\js\chartist.min.js" />
-    <Content Include="Contents\js\demo.js" />
-    <Content Include="Contents\js\jquery-1.10.2.js" />
-    <Content Include="Contents\js\light-bootstrap-dashboard.js" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
@@ -165,7 +129,9 @@
     <Content Include="Views\VCobertura.aspx" />
     <Content Include="Views\VConvocatoria.aspx" />
     <Content Include="Views\Votar.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -279,38 +245,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Contents\fonts\Pe-icon-7-stroke.eot" />
-    <Content Include="Contents\fonts\Pe-icon-7-stroke.ttf" />
-    <Content Include="Contents\fonts\Pe-icon-7-stroke.woff" />
-    <Content Include="Contents\sass\lbd\mixins\_buttons.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_cards.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_chartist.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_icons.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_inputs.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_labels.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_morphing-buttons.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_navbars.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_social-buttons.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_tabs.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_transparency.scss" />
-    <Content Include="Contents\sass\lbd\mixins\_vendor-prefixes.scss" />
-    <Content Include="Contents\sass\lbd\_alerts.scss" />
-    <Content Include="Contents\sass\lbd\_buttons.scss" />
-    <Content Include="Contents\sass\lbd\_cards.scss" />
-    <Content Include="Contents\sass\lbd\_chartist.scss" />
-    <Content Include="Contents\sass\lbd\_checkbox-radio-switch.scss" />
-    <Content Include="Contents\sass\lbd\_dropdown.scss" />
-    <Content Include="Contents\sass\lbd\_footers.scss" />
-    <Content Include="Contents\sass\lbd\_inputs.scss" />
-    <Content Include="Contents\sass\lbd\_misc.scss" />
-    <Content Include="Contents\sass\lbd\_mixins.scss" />
-    <Content Include="Contents\sass\lbd\_navbars.scss" />
-    <Content Include="Contents\sass\lbd\_responsive.scss" />
-    <Content Include="Contents\sass\lbd\_sidebar-and-main-panel.scss" />
-    <Content Include="Contents\sass\lbd\_tables.scss" />
-    <Content Include="Contents\sass\lbd\_typography.scss" />
-    <Content Include="Contents\sass\lbd\_variables.scss" />
-    <Content Include="Contents\sass\light-bootstrap-dashboard.scss" />
+    <None Include="Properties\PublishProfiles\gustavo.pubxml" />
     <None Include="Properties\PublishProfiles\Perfil1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -321,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Contents\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

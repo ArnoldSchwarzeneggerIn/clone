@@ -28,9 +28,9 @@ namespace Prueba.views
 
         protected void Cargar_instancias()
         {
-            List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
-            Instancia_tabla.DataSource = model;
-            NumeroR.Text = model.Count.ToString();
+         //   List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
+           // Instancia_tabla.DataSource = model;
+           // NumeroR.Text = model.Count.ToString();
             Instancia_tabla.DataBind();
         }
         protected void Cargar_cobertura()
