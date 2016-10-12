@@ -13,6 +13,7 @@ namespace Prueba.Models
         private static RestClient instancia = new RestClient("http://localhost:25597/api/instancia/");
         private static RestClient instanciaConformacion = new RestClient("http://localhost:25597/api/instanciaconformacion/");
         private static RestClient causaRetiro = new RestClient("http://localhost:25597/api/causaretiro/");
+        private static RestClient instaciaDetalle = new RestClient("http://localhost:25597/api/InstanciaDetalle/");
 
 
         public static RestClient Convocatoria
@@ -77,6 +78,19 @@ namespace Prueba.Models
             set
             {
                 causaRetiro = value;
+            }
+        }
+
+        public static RestClient InstaciaDetalle
+        {
+            get
+            {
+                return instaciaDetalle;
+            }
+
+            set
+            {
+                instaciaDetalle = value;
             }
         }
     }

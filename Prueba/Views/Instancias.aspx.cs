@@ -4,6 +4,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -21,6 +22,7 @@ namespace Prueba.views
         {
             if (!IsPostBack)
             {
+                if (Session["token"] != null) Response.Redirect("https://simuladortokenlogin.herokuapp.com/users/open?id=232&redirect=localhost:25597/Views/pruebajulian.aspx");
                 Cargar_instancias();
                 Cargar_cobertura();
             }
@@ -28,9 +30,12 @@ namespace Prueba.views
 
         protected void Cargar_instancias()
         {
-         //   List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
-           // Instancia_tabla.DataSource = model;
-           // NumeroR.Text = model.Count.ToString();
+            List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
+            Instancia_tabla.DataSource = model;
+
+            Instanciaslista.DataSource = model;
+            Instanciaslista.DataBind();
+            NumeroR.Text = model.Count.ToString();
             Instancia_tabla.DataBind();
         }
         protected void Cargar_cobertura()
@@ -64,6 +69,21 @@ namespace Prueba.views
             Agregar();
             Estado.SelectedIndex = 0;
             Ins.Value = "";
+        }
+
+        protected void LinkButton1_Command(object sender, CommandEventArgs e)
+        {
+
+        }
+
+        protected void Instanciaslista_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            var inst =(Instancia)e.Item.DataItem ;
+            var instDetall = new InstanciaDetalle() { IdInstancia = inst.IdInstancia };
+            Repeater Repeate = (Repeater)e.Item.FindControl("InstanCargos");
+            List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
+            Repeate.DataSource = detall;
+            Repeate.DataBind();
         }
     }
 }

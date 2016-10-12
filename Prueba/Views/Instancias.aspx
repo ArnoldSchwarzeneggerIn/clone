@@ -164,18 +164,40 @@
 
 				<!-- Content area -->
 				<div class="content">
-                <div class="row">
-                    <div class="col-md-6 panel">
-                        <h6 class="content-group text-semibold no-margin-top"> Instancias </h6>
-                              <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
-								<div class="panel panel-white">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" >
+                        <ContentTemplate>                      
+                            <div class="row">
+                               <asp:Repeater ID="Instanciaslista" runat="server" OnItemDataBound="Instanciaslista_ItemDataBound">
+                        <ItemTemplate>
+                      <div class="col-md-6 panel">
+                             <div class="panel-heading">
+									<h6 class="panel-title"> 
+                                        <small><asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label></small> 
+									</h6>
+									<div class="heading-elements">
+                                       <span class="label bg-success heading-text"> <asp:Label ID="Cobertura" runat="server" Text='<% #Eval("IdCobertura") %>'></asp:Label>  </span>
+										<ul class="icons-list">
+					                		<li> <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="LinkButton1_Command"> <i class="icon-add" title="Agregar cargo"></i></asp:LinkButton>    </li>
+					                		<li><a data-action="reload"></a></li>
+					                		<li><a data-action="close"></a></li>
+					                	</ul>
+				                	</div>
+								<a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
+                          
+                          
+                           <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
+
+                               <asp:Repeater ID="InstanCargos" runat="server">
+                                   <ItemTemplate>                                  
+						    		<div class="panel panel-white">
 									<div class="panel-heading">
 										<h6 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group1" aria-expanded="false" class="collapsed">Instancia 1</a>
 										</h6>
                                         <div class="heading-elements">
 											<ul class="icons-list">
-						                		<li><a data-action=""></a></li>
+						                		<li><a data-action="reload"></a></li>
 												<li><a data-action=""></a></li>
 						                		<li><a data-action=""></a></li>
 						                	</ul>
@@ -187,36 +209,17 @@
 										</div>
 									</div>
 								</div>
+							     </ItemTemplate>
+                               </asp:Repeater>
 
-								<div class="panel panel-white">
-									<div class="panel-heading">
-										<h6 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group2" aria-expanded="false">Accordion Item #2</a>
-										</h6>
-									</div>
-									<div id="accordion-control-group2" class="panel-collapse collapse" aria-expanded="false">
-										<div class="panel-body">
-											Тon cupidatat skateboard dolor brunch. Тesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda.
-										</div>
-									</div>
-								</div>
 
-								<div class="panel panel-white">
-									<div class="panel-heading">
-										<h6 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group3" aria-expanded="false">Accordion Item #3</a>
-										</h6>
-									</div>
-									<div id="accordion-control-group3" class="panel-collapse collapse" aria-expanded="false">
-										<div class="panel-body">
-											3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it.
-										</div>
-									</div>
-								</div>
-							</div>
-                    </div>
-                </div>
-          
+                           </div>
+                      </div>
+                      </ItemTemplate>
+                    </asp:Repeater>
+                              </div>
+                         </ContentTemplate>
+                    </asp:UpdatePanel>
 
 				<div class="row">
                         <div class="panel panel-flat">
@@ -233,7 +236,7 @@
 						    Las instancias son las que se pueden incluir en las convocatorias
                          </div>
         
-                               <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                               
             
   
                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
