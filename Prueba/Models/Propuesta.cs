@@ -9,48 +9,9 @@ namespace Prueba.Models
     {
        
             Parametro[] para;
-            private string Candidatura = string.Empty;
-            private int IdPropuesta;
-            private string descripcionPropuesta = string.Empty;
-
-            public Propuesta(string v)
-            {
-                this.Candidatura1 = v;
-            }
-            public Propuesta(int Idpro)
-            {
-                this.IdPropuesta = Idpro;
-            }
-
-            public Propuesta()
-            {
-            }
-
-            public string Candidatura1
-            {
-                get
-                {
-                    return Candidatura;
-                }
-
-                set
-                {
-                    Candidatura = value;
-                }
-            }
-
-            public string DescripcionPropuesta
-            {
-                get
-                {
-                    return descripcionPropuesta;
-                }
-
-                set
-                {
-                    descripcionPropuesta = value;
-                }
-            }
+            public string prop_id{get; set;}
+            public int prop_cand { get; set; }
+            public string prop_detalle{get; set;}
 
             internal Parametro[] InsertarPropuesta()
             {

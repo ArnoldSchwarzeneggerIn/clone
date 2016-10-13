@@ -8,12 +8,12 @@ using System.Web.Http;
 
 namespace Prueba.Controllers
 {
-    public class CandidatoController : ApiController
+    public class CandidaturaController : ApiController
 
 
     {
 
-        Candidato cand = new Candidato();
+        Candidatura cand = new Candidatura();
         //Convocatoria conv = new Convocatoria();
         //[HttpGet]
         //public IHttpActionResult ConsultarCandidato(Convocatoria convo)
@@ -21,32 +21,32 @@ namespace Prueba.Controllers
         //    return Json(conv.ConsConsultarCandidato())));
         //}
 
-        //[HttpPost]
-        //public IHttpActionResult InsertarCandidato(Candidato obj)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    else
-        //    {
-        //        if (cand.InsertarCandidato(obj))
-        //        {
-        //            return Json(new
-        //            {
-        //                data = obj,
-        //                result = true
-        //            });
-        //        }
-        //        else
-        //        {
-        //            return Json(new
-        //            {
-        //                result = false
-        //            });
-        //        }
-        //    }
-        //}
+        [HttpPost]
+        public IHttpActionResult InsertarCandidatura(Candidatura obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cand.InsertarCandidadatura(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+        }
         //public DataTable ConsultarPrograma(Loggin log)
         //{
         //    return Conexion.ConsultarConParametros("PR_CONSULTARPROGRAMA", "CR_CONSP", log.ConsultarInstancia());
