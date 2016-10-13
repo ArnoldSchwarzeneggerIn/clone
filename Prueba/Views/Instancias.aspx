@@ -4,316 +4,337 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-     <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Sistema Electoral</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sistema Electoral</title>
 
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-	<!-- Core JS files -->
-	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
 
-	<!-- Theme JS files -->
+    <!-- Theme JS files -->
 
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/pages/components_navs.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
-	<!-- /theme JS files -->
+    <!-- /theme JS files -->
 </head>
 <body>
     <form id="form1" runat="server">
-     <!-- Main navbar -->
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+        <!-- Main navbar -->
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo_light.png" alt=""></a>
 
-			<ul class="nav navbar-nav visible-xs-block">
-				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
-		</div>
+                <ul class="nav navbar-nav visible-xs-block">
+                    <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                    <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+                </ul>
+            </div>
 
-		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav">
-				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
+            <div class="navbar-collapse collapse" id="navbar-mobile">
+                <ul class="nav navbar-nav">
+                    <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+                </ul>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown dropdown-user">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="assets/images/placeholder.jpg" alt="">
-						<span>Usuario</span>
-						<i class="caret"></i>
-					</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown dropdown-user">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="assets/images/placeholder.jpg" alt="">
+                            <span>Usuario</span>
+                            <i class="caret"></i>
+                        </a>
 
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!-- /main navbar -->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#"><i class="icon-switch2"></i>Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /main navbar -->
 
-     <div class="page-container">
+        <div class="page-container">
 
-		<!-- Page content -->
-		<div class="page-content">
+            <!-- Page content -->
+            <div class="page-content">
 
-			<!-- Main sidebar -->
-			<div class="sidebar sidebar-main">
-				<div class="sidebar-content">
+                <!-- Main sidebar -->
+                <div class="sidebar sidebar-main">
+                    <div class="sidebar-content">
 
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="category-content">
-							<div class="media">
-								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-								<div class="media-body">
-									<span class="media-heading text-semibold">Electoral</span>
-									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small" > Prueba Token</i> 
-									</div>
-								</div>
+                        <!-- User menu -->
+                        <div class="sidebar-user">
+                            <div class="category-content">
+                                <div class="media">
+                                    <a href="#" class="media-left">
+                                        <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+                                    <div class="media-body">
+                                        <span class="media-heading text-semibold">Electoral</span>
+                                        <div class="text-size-mini text-muted">
+                                            <i class="icon-pin text-size-small">Prueba Token</i>
+                                        </div>
+                                    </div>
 
-								<div class="media-right media-middle">
-									<ul class="icons-list">
-										<li>
-											<a href="#"><i class="icon-cog3"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-
-					<!-- Main navigation -->
-                    	<div class="sidebar-category sidebar-category-visible">
-						<div class="category-content no-padding">
-							<ul class="navigation navigation-main navigation-accordion">
-
-								<!-- Main -->
-								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-								<li class="active"><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
-								<li>
-									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
-									<ul>
-										<li><a href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
-                                        <li><a href="#">Lanzar convocatoria</a></li>
-									</ul>
-								</li>
-                                <li>
-									<a href="#"><i class="icon-vcard"></i> <span>Candidatos</span></a>
-									<ul>
-										<li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
-                                        <li><a href="#">Mi candidatura</a></li>
-									</ul>
-								</li>
-                                <li>
-									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
-									<ul>
-										<li><a href="VCobertura.aspx">Cobertura</a></li>
-                                        <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
-                                        <li><a href="Instancias.aspx">Instancias</a></li>
-                                        <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
-									</ul>
-								</li>
-                                 <li>
-									<a href="#"><i class="icon-stack-text"></i> <span>Votaciones</span></a>
-									<ul>
-										<li><a href="Votar.aspx">Votar</a></li>
-                                        <li><a href="#">Resultados</a></li>
-									</ul>
-								</li>
-                                
-							</ul>
-						</div>
-					</div>
-					<!-- /main navigation -->
-
-				</div>
-			</div>
-			<!-- /main sidebar -->
-
-
-			<!-- Main content -->
-			<div class="content-wrapper">
-				<div class="page-header">
-					<div class="breadcrumb-line">
-						<ul class="breadcrumb">
-							<li><a href="Index.aspx"><i class="icon-home2 position-left"></i> Index</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /page header -->
-
-
-				<!-- Content area -->
-				<div class="content">
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" >
-                        <ContentTemplate>                      
-                            <div class="row">
-                               <asp:Repeater ID="Instanciaslista" runat="server" OnItemDataBound="Instanciaslista_ItemDataBound">
-                        <ItemTemplate>
-                      <div class="col-md-6 panel">
-                             <div class="panel-heading">
-									<h6 class="panel-title"> 
-                                        <small><asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label></small> 
-									</h6>
-									<div class="heading-elements">
-                                       <span class="label bg-success heading-text"> <asp:Label ID="Cobertura" runat="server" Text='<% #Eval("IdCobertura") %>'></asp:Label>  </span>
-										<ul class="icons-list">
-					                		<li> <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="LinkButton1_Command"> <i class="icon-add" title="Agregar cargo"></i></asp:LinkButton>    </li>
-					                		<li><a data-action="reload"></a></li>
-					                		<li><a data-action="close"></a></li>
-					                	</ul>
-				                	</div>
-								<a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
-                          
-                          
-                           <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
-
-                               <asp:Repeater ID="InstanCargos" runat="server">
-                                   <ItemTemplate>                                  
-						    		<div class="panel panel-white">
-									<div class="panel-heading">
-										<h6 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion-control" href="#accordion-control-group1" aria-expanded="false" class="collapsed">Instancia 1</a>
-										</h6>
-                                        <div class="heading-elements">
-											<ul class="icons-list">
-						                		<li><a data-action="reload"></a></li>
-												<li><a data-action=""></a></li>
-						                		<li><a data-action=""></a></li>
-						                	</ul>
-					                	</div>
-									</div>
-									<div id="accordion-control-group1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-										<div class="panel-body">
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-										</div>
-									</div>
-								</div>
-							     </ItemTemplate>
-                               </asp:Repeater>
-
-
-                           </div>
-                      </div>
-                      </ItemTemplate>
-                    </asp:Repeater>
-                              </div>
-                         </ContentTemplate>
-                    </asp:UpdatePanel>
-
-				<div class="row">
-                        <div class="panel panel-flat">
-                        <div class="panel-heading">
-									<h6 class="panel-title">Instancias</h6>
-									<div class="heading-elements">
-										<span class="label bg-success heading-text"> <asp:Label ID="NumeroR" runat="server" Text="Label"></asp:Label>  Registros</span>
+                                    <div class="media-right media-middle">
                                         <ul class="icons-list">
-                                      	    <li><a data-toggle="modal" href="#modal_form_vertical" title="Agregar"> <i class="icon-add"></i></a></li>
-                                         </ul>
-				                	</div>
-								</div>     
-                         <div class="panel-body">
-						    Las instancias son las que se pueden incluir en las convocatorias
-                         </div>
-        
-                               
-            
-  
-                       <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                                        <Triggers>
-                                            <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click"/>
-                                        </Triggers>
-
-                                   <ContentTemplate>
-
-                                   
-                                     <asp:GridView runat="server" ID="Instancia_tabla" cssclass="table table-hover table-striped" GridLines="None">
-                                       <Columns>
-                                           <asp:TemplateField HeaderText="Id">
-                                               <ItemTemplate>
-                                                   <asp:Label ID="Idl" runat="server" Text="EVal()"></asp:Label>
-                                               </ItemTemplate>
-                                               <EditItemTemplate>
-                                                   <asp:TextBox ID="id" runat="server"> </asp:TextBox>
-                                               </EditItemTemplate>
-                                           </asp:TemplateField>
-                                       </Columns>
-                                    </asp:GridView>
-                                       </ContentTemplate>
-                                   </asp:UpdatePanel>
-                          
-
-                   
+                                            <li>
+                                                <a href="#"><i class="icon-cog3"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-			
+                        <!-- /user menu -->
 
-					<!-- Footer -->
-					<div class="footer text-muted">
-						&copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-					</div>
-					<!-- /footer -->
 
-				</div>
-				<!-- /content area -->
+                        <!-- Main navigation -->
+                        <div class="sidebar-category sidebar-category-visible">
+                            <div class="category-content no-padding">
+                                <ul class="navigation navigation-main navigation-accordion">
 
-			</div>
-			<!-- /main content -->
+                                    <!-- Main -->
+                                    <li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
+                                    <li class="active"><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
+                                    <li>
+                                        <a href="#"><i class="icon-stack2"></i><span>Convocatorias</span></a>
+                                        <ul>
+                                            <li><a href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
+                                            <li><a href="#">Lanzar convocatoria</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-vcard"></i><span>Candidatos</span></a>
+                                        <ul>
+                                            <li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
+                                            <li><a href="#">Mi candidatura</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-puzzle"></i><span>Parametricas</span></a>
+                                        <ul>
+                                            <li><a href="VCobertura.aspx">Cobertura</a></li>
+                                            <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
+                                            <li><a href="Instancias.aspx">Instancias</a></li>
+                                            <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-stack-text"></i><span>Votaciones</span></a>
+                                        <ul>
+                                            <li><a href="Votar.aspx">Votar</a></li>
+                                            <li><a href="#">Resultados</a></li>
+                                        </ul>
+                                    </li>
 
-		</div>
-		<!-- /page content -->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /main navigation -->
 
-	</div>
-                    
-   	<div id="modal_form_vertical" class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('cober');" >&times;</button>
-									<h5 class="modal-title">Agregar cobertura</h5>
-								</div>
-									<div class="modal-body">
-                                           <div class="form-group">
-                                                <label>Instancia</label>
-                                                <input type="text" class="form-control" id="Ins" placeholder="Instancia"  runat="server" pattern="[a-z]" required="required" >
+                    </div>
+                </div>
+                <!-- /main sidebar -->
+
+
+                <!-- Main content -->
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <div class="breadcrumb-line">
+                            <ul class="breadcrumb">
+                                <li><a href="Index.aspx"><i class="icon-home2 position-left"></i>Index/Instancia</a></li>
+                            </ul>
+                            <ul class="breadcrumb-elements">
+							<li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="icon-gear position-left"></i>
+									Settings
+									<span class="caret"></span>
+								</a>
+
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
+									<li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
+									<li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
+									<li class="divider"></li>
+									<li><a href="#"><i class="icon-gear"></i> All settings</a></li>
+								</ul>
+							</li>
+						</ul>
+
+
+
+                        </div>
+                    </div>
+                    <!-- /page header -->
+
+
+                    <!-- Content area -->
+                    <div class="content">
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+                        <div class="row">
+                            <asp:Repeater ID="Instanciaslista" runat="server" OnItemDataBound="Instanciaslista_ItemDataBound">
+                                <ItemTemplate>
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="Agregarcargo" EventName="Command" />
+                                        </Triggers>
+                                        <ContentTemplate>
+                                            <div class="col-md-6 panel">
+                                                <div class="panel-heading">
+                                                    <h6 class="panel-title">
+                                                        <small>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label></small>
+                                                    </h6>
+                                                    <div class="heading-elements">
+                                                        <span class="label bg-success heading-text">
+                                                            <asp:Label ID="Cobertura" runat="server" Text='<% #Eval("IdCobertura") %>'></asp:Label>
+                                                        </span>
+                                                        <ul class="icons-list">
+                                                            <li>
+                                                                <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="LinkButton1_Command"> <i class="icon-add" title="Agregar cargo"></i></asp:LinkButton>
+                                                            </li>
+                                                            <li>
+                                                                <a data-toggle="modal" href="#modal_form_vertical" title="Agregar"><i class="icon-add"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%#Eval("IdInstancia") %>'>LinkButton</asp:LinkButton>
+
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+                                                </div>
+
+
+                                                <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
+
+                                                    <asp:Repeater ID="InstanCargos" runat="server">
+                                                        <ItemTemplate>
+                                                            <div class="panel panel-white">
+                                                                <div class="panel-heading">
+                                                                    <h6 class="panel-title">
+                                                                        <a data-toggle="collapse" data-parent="#accordion-control" href="#accordion<%#Eval("IdInstanciadetalle") %>" aria-expanded="false" class="collapsed">Instancia 1</a>
+                                                                    </h6>
+                                                                    <div class="heading-elements">
+                                                                        <ul class="icons-list">
+                                                                            <li><a data-action="reload"></a></li>
+                                                                            <li><a data-action=""></a></li>
+                                                                            <li><a data-action=""></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="accordion<%#Eval("IdInstanciadetalle") %>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                                    <div class="panel-body">
+                                                                        cargar conformacion Instancia
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+
+
+                                                </div>
                                             </div>
-                                             <div class="form-group">
-                                                <label>Estado</label>
-                                                <asp:DropDownList ID="Estado" runat="server" CssClass="btn dropdown-toggle dtn-desault btn-block" required="required">
-                                                               
-                                                 </asp:DropDownList>
-                                            </div>
-                                    </div>
-									<div class="modal-footer">
-									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
-                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Button1_Click" />
-                                    </div>
-							</div>
-						</div>
-					</div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer text-muted">
+                            &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+                        </div>
+                        <!-- /footer -->
+
+                    </div>
+                    <!-- /content area -->
+
+                </div>
+                <!-- /main content -->
+
+            </div>
+            <!-- /page content -->
+
+        </div>
+
+        <div id="modal_form_vertical" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('cober');">&times;</button>
+                        <h5 class="modal-title">Agregar cargo instancia</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre del cargo</label>
+                            <input type="text" class="form-control" id="Ins" placeholder="Cargo instancia" runat="server" pattern="[a-z]" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo elector</label>
+                            <asp:DropDownList ID="TipoE" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
+                                <asp:ListItem Value="" Selected="true">Seleccione opcion...</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>Cupos</label>
+                            <asp:DropDownList ID="Cupos" runat="server" AppendDataBoundItems="True" CssClass="form-control" required>
+                                <asp:ListItem Value="">Seleccione opción...</asp:ListItem>
+                                <asp:ListItem Value="1">1</asp:ListItem>
+                                <asp:ListItem Value="2">2</asp:ListItem>
+                                <asp:ListItem Value="3">3</asp:ListItem>
+                                <asp:ListItem Value="4">4</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>Votacion</label>
+                            <asp:DropDownList ID="TipoV" runat="server" class="form-control">
+                                <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
+                                <asp:ListItem Value="Elegible">Elegible</asp:ListItem>
+                                <asp:ListItem Value="Designado">Designado  </asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                         <div class="form-group">
+                            <label>Perido</label>
+                             <asp:DropDownList ID="Perido" runat="server" class="form-control">
+                                <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
+                                <asp:ListItem Value="12">12</asp:ListItem>
+                                <asp:ListItem Value="24">24 </asp:ListItem>
+                                 <asp:ListItem Value="36">36 </asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');">Cerrar</button>
+                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnCommand="Button1_Command" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </form>
 </body>
- 
+
 
 
 

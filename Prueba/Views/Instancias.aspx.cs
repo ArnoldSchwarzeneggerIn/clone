@@ -24,32 +24,29 @@ namespace Prueba.views
             {
                 if (Session["token"] != null) Response.Redirect("https://simuladortokenlogin.herokuapp.com/users/open?id=232&redirect=localhost:25597/Views/pruebajulian.aspx");
                 Cargar_instancias();
-                Cargar_cobertura();
+              //  Cargar_cobertura();
             }
         }
 
         protected void Cargar_instancias()
         {
             List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
-            Instancia_tabla.DataSource = model;
-
             Instanciaslista.DataSource = model;
             Instanciaslista.DataBind();
-            NumeroR.Text = model.Count.ToString();
-            Instancia_tabla.DataBind();
+           // NumeroR.Text = model.Count.ToString();
         }
         protected void Cargar_cobertura()
         {
             List<Cobertura> model = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
-            Estado.DataSource = model;
+        /*    Estado.DataSource = model;
             Estado.DataTextField = "nombrecobertura";
             Estado.DataValueField = "idCobertura";
             Estado.DataBind();
-            Estado.Items.Insert(0, new ListItem("Seleccione", ""));
+            Estado.Items.Insert(0, new ListItem("Seleccione", ""));*/
         }
         protected void Agregar()
         {
-            try
+           /* try
             {
                 Instancia Inst = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia = Ins.Value };
                 var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
@@ -61,19 +58,29 @@ namespace Prueba.views
                 Estado.SelectedIndex = 0;
                 Ins.Value = "";
             }
+            */
 
     }
 
     protected void Button1_Click(object sender, EventArgs e)
         {
             Agregar();
-            Estado.SelectedIndex = 0;
+            // Estado.SelectedIndex = 0;
             Ins.Value = "";
         }
 
         protected void LinkButton1_Command(object sender, CommandEventArgs e)
         {
-
+            foreach (RepeaterItem item in Instanciaslista.Items)
+            {
+                LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
+                if (link.CommandArgument == e.CommandArgument.ToString())
+                {
+                    Button1.CommandArgument = e.CommandArgument.ToString();
+                    break;
+                }
+            }
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
         }
 
         protected void Instanciaslista_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -84,6 +91,18 @@ namespace Prueba.views
             List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
             Repeate.DataSource = detall;
             Repeate.DataBind();
+        }
+
+        protected void Button1_Command(object sender, CommandEventArgs e)
+        {
+            var insd = new InstanciaDetalle() {NombreInstanciadetalle=Ins.Value,
+                TipoDeElector=TipoE.SelectedValue,
+                VotacionInstanciadetalle= TipoV.SelectedValue,
+                CupoInstanciadetalle=Cupos.SelectedValue,
+                PeriodoInstranciadetalle=Perido.SelectedValue,
+                IdInstancia=e.CommandArgument.ToString()
+            };
+            var response = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle,new RestRequest("",Method.POST),insd);
         }
     }
 }
