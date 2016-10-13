@@ -22,9 +22,18 @@ namespace Prueba.views
         {
             if (!IsPostBack)
             {
-                if (Session["token"] != null) Response.Redirect("https://simuladortokenlogin.herokuapp.com/users/open?id=232&redirect=localhost:25597/Views/pruebajulian.aspx");
-                Cargar_instancias();
-              //  Cargar_cobertura();
+                try
+                {
+                    if (Session["token"] != null) Response.Redirect("https://simuladortokenlogin.herokuapp.com/users/open?id=232&redirect=localhost:25597/Views/pruebajulian.aspx");
+                    Cargar_instancias();
+                    Cargar_cobertura();
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Datos no cargados',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+
+                }
+
             }
         }
 
@@ -33,42 +42,31 @@ namespace Prueba.views
             List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
             Instanciaslista.DataSource = model;
             Instanciaslista.DataBind();
-           // NumeroR.Text = model.Count.ToString();
         }
         protected void Cargar_cobertura()
         {
             List<Cobertura> model = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
-        /*    Estado.DataSource = model;
-            Estado.DataTextField = "nombrecobertura";
-            Estado.DataValueField = "idCobertura";
-            Estado.DataBind();
-            Estado.Items.Insert(0, new ListItem("Seleccione", ""));*/
+            CoberturaIns.DataSource = model;
+            CoberturaIns.DataTextField = "nombrecobertura";
+            CoberturaIns.DataValueField = "idCobertura";
+            CoberturaIns.DataBind();
+            CoberturaIns.Items.Insert(0, new ListItem("Seleccione", ""));
         }
         protected void Agregar()
         {
-           /* try
+            try
             {
-                Instancia Inst = new Instancia() { IdCobertura = Estado.SelectedIndex.ToString(), NombreInstancia = Ins.Value };
+                Instancia Inst = new Instancia() { IdCobertura = CoberturaIns.SelectedIndex.ToString(), NombreInstancia = NombreIns.Value };
                 var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
             }
             catch (Exception e)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
-                Estado.SelectedIndex = 0;
+                CoberturaIns.SelectedIndex = 0;
                 Ins.Value = "";
             }
-            */
-
     }
-
-    protected void Button1_Click(object sender, EventArgs e)
-        {
-            Agregar();
-            // Estado.SelectedIndex = 0;
-            Ins.Value = "";
-        }
-
         protected void LinkButton1_Command(object sender, CommandEventArgs e)
         {
             foreach (RepeaterItem item in Instanciaslista.Items)
@@ -76,7 +74,7 @@ namespace Prueba.views
                 LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
                 if (link.CommandArgument == e.CommandArgument.ToString())
                 {
-                    Button1.CommandArgument = e.CommandArgument.ToString();
+                    Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
                     break;
                 }
             }
@@ -93,16 +91,54 @@ namespace Prueba.views
             Repeate.DataBind();
         }
 
-        protected void Button1_Command(object sender, CommandEventArgs e)
+        protected void Agregar_Inst_Click(object sender, EventArgs e)
         {
-            var insd = new InstanciaDetalle() {NombreInstanciadetalle=Ins.Value,
-                TipoDeElector=TipoE.SelectedValue,
-                VotacionInstanciadetalle= TipoV.SelectedValue,
-                CupoInstanciadetalle=Cupos.SelectedValue,
-                PeriodoInstranciadetalle=Perido.SelectedValue,
-                IdInstancia=e.CommandArgument.ToString()
+            Agregar();
+            CoberturaIns.SelectedIndex = 0;
+            Ins.Value = "";
+        }
+
+        protected void EditarInstancia_Command(object sender, CommandEventArgs e)
+        {
+            foreach (RepeaterItem item in Instanciaslista.Items)
+            {
+                LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
+                if (link.CommandArgument == e.CommandArgument.ToString())
+                {
+                    Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
+                    break;
+                }
+            }
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
+        }
+
+
+       
+
+        protected void Agregar_Modif_Command(object sender, CommandEventArgs e)
+        {
+            var insd = new InstanciaDetalle()
+            {
+                NombreInstanciadetalle = Ins.Value,
+                TipoDeElector = TipoE.SelectedValue,
+                VotacionInstanciadetalle = TipoV.SelectedValue,
+                CupoInstanciadetalle = Cupos.SelectedValue,
+                PeriodoInstranciadetalle = Perido.SelectedValue,
+                IdInstancia = e.CommandArgument.ToString()
             };
-            var response = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle,new RestRequest("",Method.POST),insd);
+            switch (e.CommandName)
+            {
+                case "Insertar":
+                   var response = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("insertarInstanciaDetalle", Method.POST), insd);
+                break;
+                case "Modificar":
+                    var respose = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("", Method.POST), insd);
+                break;
+            }
+                
+
+
+          
         }
     }
 }
