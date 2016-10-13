@@ -26,33 +26,61 @@ namespace Prueba.Controllers
         }
 
 
-        //[HttpPost]
-        //public IHttpActionResult InstanciaDetalle(InstanciaDetalle obj)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    else
-        //    {
-        //        if (insd.ConsultarCargosInstancia(obj))
-        //        {
-        //            return Json(new
-        //            {
-        //                data = obj,
-        //                result = true
-        //            });
-        //        }
-        //        else
-        //        {
-        //            return Json(new
-        //            {
-        //                result = false
-        //            });
-        //        }
-        //    }
+        [HttpPost]
+        public IHttpActionResult InsertarInstanciaDetalle(InstanciaDetalle obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (insd.InsertarInstanciaDetalle(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
 
-        //}
+        }
+
+        [HttpPut]
+        public IHttpActionResult ModificarInstanciaDetalle(InstanciaDetalle obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (insd.ModificarInstanciaDetalle(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+
+        }
 
     }
 }
