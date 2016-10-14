@@ -102,18 +102,19 @@ namespace Prueba.views
         {
             foreach (RepeaterItem item in Instanciaslista.Items)
             {
-                LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
+                LinkButton link = (LinkButton)item.FindControl("EditarInstancia");
                 if (link.CommandArgument == e.CommandArgument.ToString())
                 {
-                    Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
+                    Agregar_Inst.CommandArgument = e.CommandArgument.ToString();
+                    var inst = (Instancia)item.DataItem;
+                    NombreIns.Value = inst.NombreInstancia;
+                    EstadoIns.SelectedValue = inst.EstadoInstancia;
+                    CoberturaIns.SelectedValue = inst.IdCobertura;
                     break;
                 }
             }
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('Agregar_instanci');", true);
         }
-
-
-       
 
         protected void Agregar_Modif_Command(object sender, CommandEventArgs e)
         {

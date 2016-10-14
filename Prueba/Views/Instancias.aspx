@@ -31,6 +31,15 @@
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
     <!-- /theme JS files -->
+
+    <script type="text/javascript">
+function reply_click(clicked_id)
+{
+    alert(clicked_id);
+}
+</script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -160,11 +169,8 @@
                                 <li><a href="Index.aspx"><i class="icon-home2 position-left"></i>Index/Instancia</a></li>
                             </ul>
                             <ul class="breadcrumb-elements">
-							<li><a data-toggle="modal" href="#Agregar_instancia"  ><i class="icon-add-to-list position-left"></i> Agregar Instancia</a></li>
+							<li><a data-toggle="modal" href="#Agregar_instancia"><i class="icon-add-to-list position-left"></i> Agregar Instancia</a></li>
 							</ul>
-
-
-
                         </div>
                     </div>
                     <!-- /page header -->
@@ -182,8 +188,8 @@
                                             <asp:AsyncPostBackTrigger ControlID="Agregarcargo" EventName="Command" />
                                         </Triggers>
                                         <ContentTemplate>
-                                            <div class="col-md-6 panel">
-                                                <div class="panel-heading">
+                                            <div class="col-md-6 panel panel-collapsed">
+                                                <div class="panel-heading ">
                                                     <h6 class="panel-title">
                                                         <small>
                                                             <asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label></small>
@@ -201,6 +207,7 @@
 
                                                             </li>
                                                             <li>
+                                                                <a data-action="collapse" ></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -328,6 +335,14 @@
                         <div class="form-group">
                             <label>Nombre instancia</label>
                             <input type="text" class="form-control" id="NombreIns" placeholder="Cargo instancia" runat="server" pattern="[a-z]" required="required">
+                        </div>
+                         <div class="form-group">
+                            <label>Estado</label>
+                            <asp:DropDownList ID="EstadoIns" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
+                               <asp:ListItem Value="" Selected="true">Seleccione opcion...</asp:ListItem>
+                               <asp:ListItem Value="ACTIVO" >ACTIVO</asp:ListItem>
+                               <asp:ListItem Value="INACTIVO">INACTIVO</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Cobertura</label>

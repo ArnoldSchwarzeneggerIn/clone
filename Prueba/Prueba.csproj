@@ -137,6 +137,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Conexions\Conexion.cs" />
     <Compile Include="Controllers\CandidatoController.cs" />
+    <Compile Include="Controllers\CandidaturaController.cs" />
     <Compile Include="Controllers\CausaRetiroController.cs" />
     <Compile Include="Controllers\CoberturaController.cs" />
     <Compile Include="Controllers\ConvocatoriaController.cs" />
@@ -147,10 +148,12 @@
     <Compile Include="Controllers\InstanciaDetalleController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
+    <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Candidato.cs" />
+    <Compile Include="Models\Candidatura.cs" />
     <Compile Include="Models\CausaRetiro.cs" />
     <Compile Include="Models\Cobertura.cs" />
     <Compile Include="Models\ConsumirAppi.cs" />

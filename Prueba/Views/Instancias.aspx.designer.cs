@@ -103,6 +103,15 @@ namespace Prueba.views {
         protected global::System.Web.UI.HtmlControls.HtmlInputText NombreIns;
         
         /// <summary>
+        /// Control EstadoIns.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EstadoIns;
+        
+        /// <summary>
         /// Control CoberturaIns.
         /// </summary>
         /// <remarks>
