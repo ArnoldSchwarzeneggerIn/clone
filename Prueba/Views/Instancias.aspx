@@ -31,18 +31,11 @@
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
     <!-- /theme JS files -->
-
-    <script type="text/javascript">
-function reply_click(clicked_id)
-{
-    alert(clicked_id);
-}
-</script>
-
-
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
         <!-- Main navbar -->
         <div class="navbar navbar-inverse">
             <div class="navbar-header">
@@ -169,8 +162,11 @@ function reply_click(clicked_id)
                                 <li><a href="Index.aspx"><i class="icon-home2 position-left"></i>Index/Instancia</a></li>
                             </ul>
                             <ul class="breadcrumb-elements">
-							<li><a data-toggle="modal" href="#Agregar_instancia"><i class="icon-add-to-list position-left"></i> Agregar Instancia</a></li>
-							</ul>
+                                <li><a data-toggle="modal" href="#Agregar_instancia"><i class="icon-add-to-list position-left"></i>Agregar Instancia</a></li>
+                            </ul>
+
+
+
                         </div>
                     </div>
                     <!-- /page header -->
@@ -178,85 +174,190 @@ function reply_click(clicked_id)
 
                     <!-- Content area -->
                     <div class="content">
-                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <div class="row">
+                                    <asp:Repeater ID="Instanciaslista" runat="server" OnItemDataBound="Instanciaslista_ItemDataBound">
+                                        <ItemTemplate>
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="Agregarcargo" EventName="Command" />
+                                                 <asp:AsyncPostBackTrigger ControlID="EditarInstancia" EventName="Command" />
+                                              </Triggers>
+                                                <ContentTemplate>
+                                                    <div class="col-md-12 panel panel-collapsed">
+                                                        <div class="panel-heading">
+                                                            <h6 class="panel-title">
+                                                                <small>
+                                                                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label>
 
-                        <div class="row">
-                            <asp:Repeater ID="Instanciaslista" runat="server" OnItemDataBound="Instanciaslista_ItemDataBound">
-                                <ItemTemplate>
-                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                        <Triggers>
-                                            <asp:AsyncPostBackTrigger ControlID="Agregarcargo" EventName="Command" />
-                                        </Triggers>
-                                        <ContentTemplate>
-                                            <div class="col-md-6 panel panel-collapsed">
-                                                <div class="panel-heading ">
-                                                    <h6 class="panel-title">
-                                                        <small>
-                                                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("NombreInstancia")%>'></asp:Label></small>
-                                                    </h6>
-                                                    <div class="heading-elements">
-                                                        <span class="label bg-success heading-text">
-                                                            <asp:Label ID="Cobertura" runat="server" Text='<% #Eval("IdCobertura") %>'></asp:Label>
-                                                        </span>
-                                                        <ul class="icons-list">
-                                                            <li>
-                                                                <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="LinkButton1_Command"> <i class="icon-add" title="Agregar cargo"></i></asp:LinkButton>
-                                                            </li>
-                                                            <li>
-                                                               <asp:LinkButton ID="EditarInstancia" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="EditarInstancia_Command"> <i class="icon-add" title="Editar Instancia"></i></asp:LinkButton>
+                                                                </small>
+                                                            </h6>
+                                                            <div class="heading-elements">
+                                                                <span class="label bg-success heading-text">
+                                                                    <asp:Label ID="Cobertura" runat="server" Text='<% #Eval("IdCobertura") %>' data-popup="tooltip" data-original-title="Cobertura"></asp:Label>
+                                                                </span>
+                                                                <span class="label bg-blue heading-text">
+                                                                    <asp:Label ID="Estado" runat="server" Text='<%#Eval("ESTADOINSTANCIA")%>' data-popup="tooltip" data-original-title="Estado"></asp:Label>
+                                                                </span>
 
-                                                            </li>
-                                                            <li>
-                                                                <a data-action="collapse" ></a>
-                                                            </li>
-                                                        </ul>
+
+                                                                <ul class="icons-list">
+                                                                    <li>
+                                                                        <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="LinkButton1_Command" data-popup="tooltip" title data-original-title="Agregar"> <i class="icon-add" title="Agregar cargo"></i></asp:LinkButton>
+                                                                    </li>
+                                                                    <li>
+                                                                        <asp:LinkButton ID="EditarInstancia" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' OnCommand="EditarInstancia_Command" data-popup="tooltip" data-original-title="Modificar"> <i class="icon-database-edit2" title="Editar Instancia"></i></asp:LinkButton>
+
+                                                                    </li>
+                                                                    <li>
+                                                                        <a data-action="collapse"></a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+                                                        </div>
+
+
+                                                        <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
+
+                                                            <asp:Repeater ID="InstanCargos" runat="server">
+                                                                <ItemTemplate>
+                                                                    <div class="panel panel-white">
+                                                                        <div class="panel-heading">
+                                                                            <h6 class="panel-title">
+                                                                                <a data-toggle="collapse" data-parent="#accordion-control" href="#accordion<%#Eval("IdInstanciadetalle") %>" aria-expanded="false" class="collapsed">
+                                                                                    <asp:Label ID="Label2" runat="server" Text='<%#Eval("NombreInstanciadetalle")%>'></asp:Label>
+                                                                                </a>
+                                                                            </h6>
+                                                                            <div class="heading-elements">
+                                                                                <ul class="icons-list">
+                                                                                    <li><a data-action="reload"></a></li>
+                                                                                    <li><a data-action=""></a></li>
+                                                                                    <li><a data-action=""></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="accordion<%#Eval("IdInstanciadetalle") %>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                                            <div class="panel-body">
+                                                                                cargar conformacion Instancia
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+
+
+                                                        </div>
                                                     </div>
-                                                    <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
+
+                                <!-- Footer -->
+                                <div class="footer text-muted">
+                                    &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+                                </div>
+                                <!-- /footer -->
+
+                                <div id="modal_form_vertical" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('Ins');">&times;</button>
+                                                <h5 class="modal-title">Agregar cargo instancia</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Nombre del cargo</label>
+                                                    <input type="text" class="form-control" id="Ins" placeholder="Cargo instancia" runat="server" pattern="[A-Za-z]{15}" required="required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Tipo elector</label>
+                                                    <asp:DropDownList ID="TipoE" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
+                                                        <asp:ListItem Value="" Selected="true">Seleccione opcion...</asp:ListItem>
+                                                        <asp:ListItem Value="1">1</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Cupos</label>
+                                                    <asp:DropDownList ID="Cupos" runat="server" AppendDataBoundItems="True" CssClass="form-control" required>
+                                                        <asp:ListItem Value="">Seleccione opción...</asp:ListItem>
+                                                        <asp:ListItem Value="1">1</asp:ListItem>
+                                                        <asp:ListItem Value="2">2</asp:ListItem>
+                                                        <asp:ListItem Value="3">3</asp:ListItem>
+                                                        <asp:ListItem Value="4">4</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Votacion</label>
+                                                    <asp:DropDownList ID="TipoV" runat="server" class="form-control">
+                                                        <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
+                                                        <asp:ListItem Value="Elegible">Elegible</asp:ListItem>
+                                                        <asp:ListItem Value="Designado">Designado  </asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Perido</label>
+                                                    <asp:DropDownList ID="Perido" runat="server" class="form-control">
+                                                        <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
+                                                        <asp:ListItem Value="12">12</asp:ListItem>
+                                                        <asp:ListItem Value="24">24 </asp:ListItem>
+                                                        <asp:ListItem Value="36">36 </asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');">Cerrar</button>
+                                                <asp:Button ID="Agregar_Modif" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnCommand="Agregar_Modif_Command" CommandName="Insertar" UseSubmitBehavior="false" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="Agregar_instancia" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('cober');">&times;</button>
+                                                <h5 class="modal-title">Agregar cargo instancia</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>Nombre instancia</label>
+                                                    <input type="text" class="form-control" id="NombreIns" placeholder="Cargo instancia" runat="server" required="required" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Estado</label>
+                                                    <asp:DropDownList ID="InsEstadi" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
+                                                        <asp:ListItem Value=""> Seleccione</asp:ListItem>
+                                                        <asp:ListItem Value="ACTIVO">ACTIVO</asp:ListItem>
+                                                        <asp:ListItem Value="INACTIVO">INACTIVO</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
 
 
-                                                <div class="panel-group panel-group-control content-group-lg" id="accordion-control">
-
-                                                    <asp:Repeater ID="InstanCargos" runat="server">
-                                                        <ItemTemplate>
-                                                            <div class="panel panel-white">
-                                                                <div class="panel-heading">
-                                                                    <h6 class="panel-title">
-                                                                        <a data-toggle="collapse" data-parent="#accordion-control" href="#accordion<%#Eval("IdInstanciadetalle") %>" aria-expanded="false" class="collapsed"> <asp:Label ID="Label2" runat="server" Text='<%#Eval("NombreInstanciadetalle")%>'></asp:Label>   </a>
-                                                                    </h6>
-                                                                    <div class="heading-elements">
-                                                                        <ul class="icons-list">
-                                                                            <li><a data-action="reload"></a></li>
-                                                                            <li><a data-action=""></a></li>
-                                                                            <li><a data-action=""></a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="accordion<%#Eval("IdInstanciadetalle") %>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                                                    <div class="panel-body">
-                                                                        cargar conformacion Instancia
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-
-
+                                                <div class="form-group">
+                                                    <label>Cobertura</label>
+                                                    <asp:DropDownList ID="CoberturaIns" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');">Cerrar</button>
+                                                <asp:Button ID="Agregar_Inst" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Agregar_Inst_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </div>
+                                </div>
 
-                        <!-- Footer -->
-                        <div class="footer text-muted">
-                            &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-                        </div>
-                        <!-- /footer -->
-
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <!-- /content area -->
 
@@ -268,96 +369,7 @@ function reply_click(clicked_id)
 
         </div>
 
-        <div id="modal_form_vertical" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('Ins');">&times;</button>
-                        <h5 class="modal-title">Agregar cargo instancia</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Nombre del cargo</label>
-                            <input type="text" class="form-control" id="Ins" placeholder="Cargo instancia" runat="server" pattern="[A-Za-z]{15}" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Tipo elector</label>
-                            <asp:DropDownList ID="TipoE" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
-                                <asp:ListItem Value="" Selected="true">Seleccione opcion...</asp:ListItem>
-                                <asp:ListItem Value="1">1</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Cupos</label>
-                            <asp:DropDownList ID="Cupos" runat="server" AppendDataBoundItems="True" CssClass="form-control" required>
-                                <asp:ListItem Value="">Seleccione opción...</asp:ListItem>
-                                <asp:ListItem Value="1">1</asp:ListItem>
-                                <asp:ListItem Value="2">2</asp:ListItem>
-                                <asp:ListItem Value="3">3</asp:ListItem>
-                                <asp:ListItem Value="4">4</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Votacion</label>
-                            <asp:DropDownList ID="TipoV" runat="server" class="form-control">
-                                <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
-                                <asp:ListItem Value="Elegible">Elegible</asp:ListItem>
-                                <asp:ListItem Value="Designado">Designado  </asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                         <div class="form-group">
-                            <label>Perido</label>
-                             <asp:DropDownList ID="Perido" runat="server" class="form-control">
-                                <asp:ListItem Value="">Seleccione opcion...</asp:ListItem>
-                                <asp:ListItem Value="12">12</asp:ListItem>
-                                <asp:ListItem Value="24">24 </asp:ListItem>
-                                 <asp:ListItem Value="36">36 </asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');">Cerrar</button>
-                        <asp:Button ID="Agregar_Modif" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnCommand="Agregar_Modif_Command" CommandName="Insertar" UseSubmitBehavior="false" />
-                    </div>
-                </div>
-            </div>
-
-        </div>
-                <div id="Agregar_instancia" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('cober');">&times;</button>
-                        <h5 class="modal-title">Agregar cargo instancia</h5>
-                    </div>
-                     <div class="modal-body">
-                        <div class="form-group">
-                            <label>Nombre instancia</label>
-                            <input type="text" class="form-control" id="NombreIns" placeholder="Cargo instancia" runat="server" pattern="[a-z]" required="required">
-                        </div>
-                         <div class="form-group">
-                            <label>Estado</label>
-                            <asp:DropDownList ID="EstadoIns" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
-                               <asp:ListItem Value="" Selected="true">Seleccione opcion...</asp:ListItem>
-                               <asp:ListItem Value="ACTIVO" >ACTIVO</asp:ListItem>
-                               <asp:ListItem Value="INACTIVO">INACTIVO</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="form-group">
-                            <label>Cobertura</label>
-                            <asp:DropDownList ID="CoberturaIns" runat="server" CssClass="form-control" AppendDataBoundItems="True" required>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');">Cerrar</button>
-                        <asp:Button ID="Agregar_Inst" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="Agregar_Inst_Click" />
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
     </form>
 </body>

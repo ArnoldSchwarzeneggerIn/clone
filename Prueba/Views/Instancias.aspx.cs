@@ -52,21 +52,7 @@ namespace Prueba.views
             CoberturaIns.DataBind();
             CoberturaIns.Items.Insert(0, new ListItem("Seleccione", ""));
         }
-        protected void Agregar()
-        {
-            try
-            {
-                Instancia Inst = new Instancia() { IdCobertura = CoberturaIns.SelectedIndex.ToString(), NombreInstancia = NombreIns.Value };
-                var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-            }
-            catch (Exception e)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
-                CoberturaIns.SelectedIndex = 0;
-                Ins.Value = "";
-            }
-    }
+ 
         protected void LinkButton1_Command(object sender, CommandEventArgs e)
         {
             foreach (RepeaterItem item in Instanciaslista.Items)
@@ -93,7 +79,38 @@ namespace Prueba.views
 
         protected void Agregar_Inst_Click(object sender, EventArgs e)
         {
-            Agregar();
+            var name = ((Button)sender).CommandName;
+      
+            try
+            {
+                switch (name.ToString())
+                {
+                case "Insertar":
+                        var Inst = new Instancia() { IdCobertura = CoberturaIns.SelectedIndex.ToString(), NombreInstancia = NombreIns.Value };
+                        var REsponse = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.GET), Inst);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+                        break;
+                case "Modificar":
+                        var Ins = new Instancia() { IdInstancia = ((Button)sender).CommandArgument,
+                            IdCobertura=CoberturaIns.Text,
+                            NombreInstancia=NombreIns.Value,
+                            EstadoInstancia=InsEstadi.SelectedIndex.ToString()
+                        };
+                        var Response = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("ModificarInstancia", Method.POST), Ins);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Registro modificado',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+                        ((Button)sender).CommandName = "Insertar";
+                        break; 
+                 }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                CoberturaIns.SelectedIndex = 0;
+                Ins.Value = "";
+            }
+
+
+
             CoberturaIns.SelectedIndex = 0;
             Ins.Value = "";
         }
@@ -102,18 +119,25 @@ namespace Prueba.views
         {
             foreach (RepeaterItem item in Instanciaslista.Items)
             {
-                LinkButton link = (LinkButton)item.FindControl("EditarInstancia");
+                LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
                 if (link.CommandArgument == e.CommandArgument.ToString())
                 {
+
                     Agregar_Inst.CommandArgument = e.CommandArgument.ToString();
-                    var inst = (Instancia)item.DataItem;
-                    NombreIns.Value = inst.NombreInstancia;
-                    EstadoIns.SelectedValue = inst.EstadoInstancia;
-                    CoberturaIns.SelectedValue = inst.IdCobertura;
-                    break;
+                    Agregar_Inst.CommandName = "Modificar";
+                    Label labe =(Label) item.FindControl("Label1");
+                    NombreIns.Value = labe.Text;
+                    labe = (Label)item.FindControl("Cobertura");
+                    CoberturaIns.ClearSelection();
+                    CoberturaIns.Items.FindByText(labe.Text).Selected = true;
+                    labe = (Label)item.FindControl("Estado");
+                    InsEstadi.ClearSelection();
+                    InsEstadi.Items.FindByText(labe.Text).Selected = true;
+
+               
                 }
             }
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('Agregar_instanci');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('Agregar_instancia');", true);
         }
 
         protected void Agregar_Modif_Command(object sender, CommandEventArgs e)
@@ -136,10 +160,6 @@ namespace Prueba.views
                     var respose = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("", Method.POST), insd);
                 break;
             }
-                
-
-
-          
         }
     }
 }

@@ -170,7 +170,6 @@
 
 				<!-- Content area -->
 				<div class="content">
-
                        <div class="panel panel-white">
 						<div class="panel-heading">
 							<h6 class="panel-title">Tarjeton </h6>

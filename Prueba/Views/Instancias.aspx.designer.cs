@@ -31,6 +31,15 @@ namespace Prueba.views {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
         /// Control Instanciaslista.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace Prueba.views {
         protected global::System.Web.UI.HtmlControls.HtmlInputText NombreIns;
         
         /// <summary>
-        /// Control EstadoIns.
+        /// Control InsEstadi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EstadoIns;
+        protected global::System.Web.UI.WebControls.DropDownList InsEstadi;
         
         /// <summary>
         /// Control CoberturaIns.
