@@ -112,7 +112,7 @@
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-								<li class="active"><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
+								<li ><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
 								<li>
 									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
 									<ul>
@@ -127,10 +127,10 @@
                                         <li><a href="#">Mi candidatura</a></li>
 									</ul>
 								</li>
-                                <li>
+                                <li class="active">
 									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
 									<ul>
-										<li><a href="VCobertura.aspx">Cobertura</a></li>
+										<li class="active"><a href="VCobertura.aspx">Cobertura</a></li>
                                         <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
                                         <li><a href="Instancias.aspx">Instancias</a></li>
                                         <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
@@ -192,7 +192,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table table-hover table-striped" AutoGenerateColumns="false" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" >
+                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table text-nowrap" AutoGenerateColumns="false" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" >
                                        <Columns>
                                            <asp:TemplateField HeaderText="ID">
                                                 <EditItemTemplate>

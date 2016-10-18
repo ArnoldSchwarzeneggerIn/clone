@@ -44,16 +44,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>08/03/2014 20:33:56</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
-      <publishTime>08/27/2011 09:59:58</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Oracle.ManagedDataAccess.dll">
       <publishTime>09/26/2015 08:19:22</publishTime>
     </File>
     <File Include="bin/Oracle.ManagedDataAccessDTC.dll">
-      <publishTime>09/26/2015 08:20:16</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Prueba.dll">
-      <publishTime>10/11/2016 17:02:21</publishTime>
+      <publishTime>10/17/2016 17:59:22</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>08/26/2015 16:33:34</publishTime>
@@ -6116,37 +6116,40 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:14</publishTime>
     </File>
     <File Include="Views/Causaderetiro.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 15:00:35</publishTime>
     </File>
     <File Include="Views/Index.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 14:59:52</publishTime>
     </File>
     <File Include="Views/InstancConformacion.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 14:40:38</publishTime>
+    </File>
+    <File Include="Views/instanciaDetalle.aspx">
+      <publishTime>10/17/2016 17:32:03</publishTime>
     </File>
     <File Include="Views/Instancias.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/17/2016 16:18:53</publishTime>
     </File>
     <File Include="Views/LanzarConvocatoria.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 14:40:38</publishTime>
     </File>
     <File Include="Views/pruebajulian.aspx">
-      <publishTime>10/10/2016 23:35:14</publishTime>
+      <publishTime>10/10/2016 15:02:49</publishTime>
     </File>
     <File Include="Views/VCandidato.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 15:01:48</publishTime>
     </File>
     <File Include="Views/VCobertura.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 15:02:03</publishTime>
     </File>
     <File Include="Views/VConvocatoria.aspx">
-      <publishTime>10/10/2016 23:35:13</publishTime>
+      <publishTime>10/10/2016 17:11:39</publishTime>
     </File>
     <File Include="Views/Votar.aspx">
-      <publishTime>10/11/2016 00:00:12</publishTime>
+      <publishTime>10/14/2016 18:09:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/11/2016 17:03:03</publishTime>
+      <publishTime>10/17/2016 17:51:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

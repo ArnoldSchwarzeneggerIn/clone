@@ -26,56 +26,54 @@ namespace Prueba.views
                 {
                     if (Session["token"] != null) Response.Redirect("https://simuladortokenlogin.herokuapp.com/users/open?id=232&redirect=localhost:25597/Views/pruebajulian.aspx");
                     Cargar_instancias();
-                    Cargar_cobertura();
+                    Cargar_cobertura(CoberturaIns);
                 }
                 catch (Exception ex)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Datos no cargados',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
-
                 }
-
             }
         }
 
         protected void Cargar_instancias()
         {
             List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
-            Instanciaslista.DataSource = model;
-            Instanciaslista.DataBind();
+            Instancialista.DataSource = model;
+            Instancialista.DataBind();
         }
-        protected void Cargar_cobertura()
+        protected void Cargar_cobertura(DropDownList Listacober)
         {
             List<Cobertura> model = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
-            CoberturaIns.DataSource = model;
-            CoberturaIns.DataTextField = "nombrecobertura";
-            CoberturaIns.DataValueField = "idCobertura";
-            CoberturaIns.DataBind();
-            CoberturaIns.Items.Insert(0, new ListItem("Seleccione", ""));
-        }
- 
-        protected void LinkButton1_Command(object sender, CommandEventArgs e)
-        {
-            foreach (RepeaterItem item in Instanciaslista.Items)
-            {
-                LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
-                if (link.CommandArgument == e.CommandArgument.ToString())
-                {
-                    Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
-                    break;
-                }
-            }
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
+            Listacober.DataSource = model;
+            Listacober.DataTextField = "nombrecobertura";
+            Listacober.DataValueField = "idCobertura";
+            Listacober.DataBind();
+            Listacober.Items.Insert(0, new ListItem("Seleccione", ""));
         }
 
-        protected void Instanciaslista_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            var inst =(Instancia)e.Item.DataItem ;
-            var instDetall = new InstanciaDetalle() { IdInstancia = inst.IdInstancia };
-            Repeater Repeate = (Repeater)e.Item.FindControl("InstanCargos");
-            List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
-            Repeate.DataSource = detall;
-            Repeate.DataBind();
-        }
+        /* protected void LinkButton1_Command(object sender, CommandEventArgs e)
+         {
+             foreach (RepeaterItem item in Instanciaslista.Items)
+             {
+                 LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
+                 if (link.CommandArgument == e.CommandArgument.ToString())
+                 {
+                     Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
+                     break;
+                 }
+             }*7
+           //  ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
+         }
+
+         protected void Instanciaslista_ItemDataBound(object sender, RepeaterItemEventArgs e)
+         {
+             var inst =(Instancia)e.Item.DataItem ;
+             var instDetall = new InstanciaDetalle() { IdInstancia = inst.IdInstancia };
+             Repeater Repeate = (Repeater)e.Item.FindControl("InstanCargos");
+             List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
+             Repeate.DataSource = detall;
+             Repeate.DataBind();
+         }*/
 
         protected void Agregar_Inst_Click(object sender, EventArgs e)
         {
@@ -91,14 +89,7 @@ namespace Prueba.views
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
                         break;
                 case "Modificar":
-                        var Ins = new Instancia() { IdInstancia = ((Button)sender).CommandArgument,
-                            IdCobertura=CoberturaIns.Text,
-                            NombreInstancia=NombreIns.Value,
-                            EstadoInstancia=InsEstadi.SelectedIndex.ToString()
-                        };
-                        var Response = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("ModificarInstancia", Method.POST), Ins);
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Registro modificado',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-                        ((Button)sender).CommandName = "Insertar";
+                       ((Button)sender).CommandName = "Insertar";
                         break; 
                  }
             }
@@ -117,7 +108,7 @@ namespace Prueba.views
 
         protected void EditarInstancia_Command(object sender, CommandEventArgs e)
         {
-            foreach (RepeaterItem item in Instanciaslista.Items)
+          /*  foreach (RepeaterItem item in Instanciaslista.Items)
             {
                 LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
                 if (link.CommandArgument == e.CommandArgument.ToString())
@@ -136,8 +127,8 @@ namespace Prueba.views
 
                
                 }
-            }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('Agregar_instancia');", true);
+            }*/
+         //   ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('Agregar_instancia');", true);
         }
 
         protected void Agregar_Modif_Command(object sender, CommandEventArgs e)
@@ -158,6 +149,72 @@ namespace Prueba.views
                 break;
                 case "Modificar":
                     var respose = ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("", Method.POST), insd);
+                break;
+            }
+        }
+
+        protected void Instancialista_ItemEditing(object sender, ListViewEditEventArgs e)
+        {
+            Instancialista.EditIndex = e.NewEditIndex;
+            //Encontrando los elementos
+            Label Estado = (Label) Instancialista.Items[e.NewEditIndex].FindControl("Estadolabel");
+            Label cobertura = (Label)Instancialista.Items[e.NewEditIndex].FindControl("coberturaid");
+            LinkButton Nombre = (LinkButton)Instancialista.Items[e.NewEditIndex].FindControl("LinkButton1");
+            //Recargando elemento list
+            Cargar_instancias();
+            //Cargando valores y asignarlos en editables
+            DropDownList drop = (DropDownList)Instancialista.Items[e.NewEditIndex].FindControl("EstadoInst");
+            drop.SelectedValue = Estado.Text;
+            drop = (DropDownList)Instancialista.Items[e.NewEditIndex].FindControl("COberItem");
+            Cargar_cobertura(drop);
+            drop.ClearSelection();
+            drop.SelectedValue = drop.Items.FindByText(cobertura.Text).Value;
+            TextBox Nombreeditable = (TextBox) Instancialista.Items[e.NewEditIndex].FindControl("nombre");
+            Nombreeditable.Text = Nombre.Text;
+        }
+
+        protected void Instancialista_ItemCanceling(object sender, ListViewCancelEventArgs e)
+        {
+            Instancialista.EditIndex = -1;
+            Cargar_instancias();
+        }
+
+        protected void Instancialista_ItemUpdating(object sender, ListViewUpdateEventArgs e)
+        {
+
+            TextBox nombreInstancia = (TextBox) Instancialista.Items[e.ItemIndex].FindControl("nombre");
+            DropDownList estadoInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("EstadoInst");
+            DropDownList coberturaInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("COberItem");
+            var Ins = new Instancia()
+            {
+                IdInstancia = Instancialista.DataKeys[e.ItemIndex].Values[0].ToString(),
+                IdCobertura =coberturaInstancia.SelectedValue ,
+                NombreInstancia = nombreInstancia.Text,
+                EstadoInstancia = estadoInstancia.SelectedValue
+            };
+            var Response = ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("ModificarInstancia", Method.POST), Ins);
+            Instancialista.EditIndex = -1;
+            Cargar_instancias();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Registro modificado',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+        }
+
+        protected void Instancialista_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "ver":
+                    Label Estado = (Label)e.Item.FindControl("Estadolabel");
+                    Label cobertura = (Label)e.Item.FindControl("coberturaid");
+                    LinkButton Nombre = (LinkButton)e.Item.FindControl("LinkButton1");
+                    var Ins = new Instancia()
+                    {
+                        IdInstancia = e.CommandArgument.ToString(),
+                        IdCobertura = cobertura.Text,
+                        NombreInstancia = Nombre.Text,
+                        EstadoInstancia = Estado.Text
+                    };
+                    Session["InstanciaDetalle"] = Ins;
+                    Response.Redirect("instanciaDetalle.aspx");
                 break;
             }
         }

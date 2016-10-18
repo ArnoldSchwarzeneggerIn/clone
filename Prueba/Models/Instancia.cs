@@ -32,7 +32,7 @@ namespace Prueba.Models
         public Parametro[] InstanciaModificar(Instancia obj)
         {
             para = new Parametro[4];
-            para[0] = new Parametro("PINST_ID", obj.IdCobertura);
+            para[0] = new Parametro("PINST_ID", obj.IdInstancia);
             para[1] = new Parametro("PINST_NOMBRE", obj.NombreInstancia);
             para[2] = new Parametro("PINST_COBERTURA", obj.IdCobertura);
             para[3] = new Parametro("PINST_ESTADO", obj.EstadoInstancia);
@@ -62,7 +62,7 @@ namespace Prueba.Models
         public bool ModificarInstancia(Instancia obj)
         {
             Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_INST", InstanciaModificar(obj));
+            trans[0] = new Transacion("PR_UPDT_INST", InstanciaModificar(obj));
 
             return conx.realizarTransaccion(trans);
         }

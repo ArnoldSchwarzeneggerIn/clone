@@ -58,6 +58,15 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.GridView Convocatoria_tabla;
         
         /// <summary>
+        /// Control convocatorialista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater convocatorialista;
+        
+        /// <summary>
         /// Control Numero.
         /// </summary>
         /// <remarks>

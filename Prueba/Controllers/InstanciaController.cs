@@ -39,9 +39,34 @@ namespace Prueba.Controllers
         [HttpPost]
         public IHttpActionResult ModificarInstancia(Instancia obj)
         {
-            return Json(inst.ModificarInstancia(obj));
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (inst.ModificarInstancia(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+
+           
         }
 
+
+        
 
         //[HttpGet]
         //public IHttpActionResult ConsultarInstanciaConvocatoria(Convocatoria obj)

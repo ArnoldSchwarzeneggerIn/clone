@@ -9,9 +9,11 @@ namespace Prueba.Models
 {
     public class Login
     {
-        
+        private string hola = string.Empty;
+
         public string UsuarioLogin { get; set; }
         public string ContraceniaLogin { get; set; }
+
         private Parametro[] para;
         Conexion conx = new Conexion();
         public Login(string loggin)
