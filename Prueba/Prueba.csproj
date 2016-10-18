@@ -121,6 +121,7 @@
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Views\Causaderetiro.aspx" />
+    <Content Include="Views\ConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\InstancConformacion.aspx" />
     <Content Include="Views\instanciaDetalle.aspx" />
@@ -180,6 +181,13 @@
     </Compile>
     <Compile Include="Views\Causaderetiro.aspx.designer.cs">
       <DependentUpon>Causaderetiro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConvocatoriaDetalle.aspx.cs">
+      <DependentUpon>ConvocatoriaDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ConvocatoriaDetalle.aspx.designer.cs">
+      <DependentUpon>ConvocatoriaDetalle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

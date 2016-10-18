@@ -23,6 +23,7 @@ namespace Prueba.Models
         public string Fechaeleccionespresenciales{ get; set; }
         public string Fechaeleccionesdistancia{ get; set; }
         public string Fechapublicacionresultados{ get; set; }
+        public string Estado { get; set; }
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {

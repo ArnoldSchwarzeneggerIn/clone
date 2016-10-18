@@ -25,11 +25,9 @@ namespace Prueba.Views
         {
             try
             {
-
                 List<Convocatoria> Convocatoria = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirGet(Rutas.Convocatoria, new RestRequest("ConsultarConvocatoria", Method.GET)).Content);
-                Convocatoria_tabla.DataSource =Convocatoria;
-                NumeroR.Text = Convocatoria.Count.ToString();
-                Convocatoria_tabla.DataBind();
+                 ListaConvocatoria.DataSource =Convocatoria;
+                ListaConvocatoria.DataBind();
             }
             catch (Exception Ex)
             {
@@ -44,15 +42,15 @@ namespace Prueba.Views
             {
                var Conv = new Convocatoria() {TituloCovocatoria= Numero.Value,
                    DescripcionConvocatoria =Observacion.Value,
-                 Fechainicioinscripcion =  Convert.ToDateTime(Fechai.Value).ToString("dd/MM/yyy"),
-                 Fechafininscripcion =Convert.ToDateTime(FechaFin.Value).ToString("dd/MM/yyy"),
-                  Fechapublicacionhabilitado =Convert.ToDateTime(fechaCandidatos.Value).ToString("dd/MM/yyy"),
-                  Fechapublicacionjurados=  Convert.ToDateTime(Fechajuradoa.Value).ToString("dd/MM/yyy"),
-                    Fechaeleccionesdistancia = Convert.ToDateTime(FechaEdis.Value).ToString("dd/MM/yyy"),
-                    Fechaeleccionespresenciales = Convert.ToDateTime(FechaE.Value).ToString("dd/MM/yyy"),
+                   Fechainicioinscripcion =  Convert.ToDateTime(Fechai.Value).ToString("dd/MM/yyy"),
+                   Fechafininscripcion =Convert.ToDateTime(FechaFin.Value).ToString("dd/MM/yyy"),
+                   Fechapublicacionhabilitado =Convert.ToDateTime(fechaCandidatos.Value).ToString("dd/MM/yyy"),
+                   Fechapublicacionjurados=  Convert.ToDateTime(Fechajuradoa.Value).ToString("dd/MM/yyy"),
+                   Fechaeleccionesdistancia = Convert.ToDateTime(FechaEdis.Value).ToString("dd/MM/yyy"),
+                   Fechaeleccionespresenciales = Convert.ToDateTime(FechaE.Value).ToString("dd/MM/yyy"),
                    Fechapublicacionresultados= Convert.ToDateTime(Fecharesulta.Value).ToString("dd/MM/yyy")
                };
-                
+
                 Numero.Value = "";
                 Observacion.Value = "";
                 FechaEdis.Value = "";
@@ -62,10 +60,8 @@ namespace Prueba.Views
                 FechaE.Value = "";
                 FechaEdis.Value = "";
                 Fecharesulta.Value = "";
-
                 var Response = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("InsertarConvocatoria", Method.POST), Conv);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-
             }
             catch (Exception Ex)
             {
@@ -75,8 +71,7 @@ namespace Prueba.Views
 
         protected void Convocatoria_tabla_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            Convocatoria_tabla.PageIndex = e.NewPageIndex;
-            ConsultarConvocatoria();
+          
         }
     }
 }

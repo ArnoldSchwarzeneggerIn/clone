@@ -28,7 +28,6 @@
 	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
 	<script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/extensions/cookie.js"></script>
 
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
@@ -184,7 +183,7 @@
 	                	<form class="steps-basic" action="#">
 							<h6>Instancia uno</h6>
 							<fieldset>
-	                  <div class="row">
+	                    <div class="row">
 						<div class="col-lg-3 col-md-6">
 							<div class="thumbnail no-padding">
 								<div class="thumb">
