@@ -22,10 +22,10 @@ $(function() {
         transitionEffect: "fade",
         titleTemplate: '<span class="number">#index#</span> #title#',
         labels: {
-            finish: 'Submit'
+            finish: 'Registrar'
         },
         onFinished: function (event, currentIndex) {
-            alert("Form submitted.");
+            document.getElementById('<%=Button1.ClientID%>').click();
         }
     });
 

@@ -27,9 +27,7 @@ namespace Prueba.Views
         {
             try
             {
-                List<Cobertura> cober = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
-                Instancia_tabla.DataSource = cober;
-                Instancia_tabla.DataBind();
+                
             }
             catch (Exception ex)
             {

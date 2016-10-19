@@ -154,8 +154,8 @@
 
                 <!-- Main content -->
                 <div class="content-wrapper">
-                    	<div class="page-header no-margin">
-					<div class="page-header-content">
+                  <div class="page-header no-margin">
+				 	<div class="page-header-content">
 						<div class="page-title">
 							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">User Pages</span> - Profile Cover</h4>
 						</div>

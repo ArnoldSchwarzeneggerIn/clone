@@ -7,18 +7,27 @@ using System.Web.UI.WebControls;
 using RestSharp;
 using Prueba.Models;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Prueba.Views
 {
     public partial class VConvocatoria : System.Web.UI.Page
     {
-        
 
-        protected void Page_Load(object sender, EventArgs e)
+         string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+        DateTime fe = DateTime.Now;
+         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ConsultarConvocatoria();
+                finscripcionconvo.Attributes.Add("min", fe.AddDays(2).ToString("yyyy-MM-dd"));
+                ffindeinscripcion.Attributes.Add("min", fe.AddDays(10).ToString("yyyy-MM-dd"));
+                candidatoshconvo.Attributes.Add("min", fe.AddDays(17).ToString("yyyy-MM-dd"));
+                juradosconvoca.Attributes.Add("min", fe.AddDays(17).ToString("yyyy-MM-dd"));
+                resultadosconvo.Attributes.Add("min", fe.AddDays(30).ToString("yyyy-MM-dd"));
+                epresenciaconvo.Attributes.Add("min", fe.AddDays(17).ToString("yyyy-MM-dd"));
+                edistanciaconvo.Attributes.Add("min", fe.AddDays(17).ToString("yyyy-MM-dd"));
             }
         }
         protected void ConsultarConvocatoria()
@@ -67,6 +76,16 @@ namespace Prueba.Views
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
             }
+        }
+
+
+
+
+        [System.Web.Services.WebMethod]
+        public static string GetCurrentTime(string name)
+        {
+            return "Hello " + name + Environment.NewLine + "The Current Time is: "
+                + DateTime.Now.ToString();
         }
 
         protected void Convocatoria_tabla_PageIndexChanging(object sender, GridViewPageEventArgs e)
