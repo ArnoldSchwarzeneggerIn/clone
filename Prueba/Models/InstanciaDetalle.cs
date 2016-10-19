@@ -75,5 +75,13 @@ namespace Prueba.Models
             return conx.realizarTransaccion(trans);
         }
 
+        public bool InstanciaDetalleConformacion(InstanciaDetalle obj)
+        {
+            Transacion[] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_NSRT_INTD", AgregarInstanciaDetalle(obj));
+
+            return conx.realizarTransaccion(trans);
+        }
+
     }
 }

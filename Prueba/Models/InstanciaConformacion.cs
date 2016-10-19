@@ -199,9 +199,12 @@ namespace Prueba.Models
         private string facultad = string.Empty;
 
 
-        public DataTable Consultar()
+        public DataTable ConsultarConformacion(string id)
         {
-            return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", null);
+            Parametro[] para = new Parametro[1];
+            para[0] = new Parametro(id,id);
+
+            return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", para);
         }
         public Parametro[] Insertar()
         {

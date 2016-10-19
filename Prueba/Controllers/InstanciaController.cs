@@ -11,6 +11,8 @@ namespace Prueba.Controllers
     public class InstanciaController : ApiController
     {
         Instancia inst = new Instancia();
+   
+
 
         [HttpGet]
         public IHttpActionResult ConsultarInstancia()

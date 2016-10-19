@@ -130,9 +130,11 @@
     <Compile Include="Controllers\ConvocatoriaController.cs" />
     <Compile Include="Controllers\ConvocatoriaDetalleController.cs" />
     <Compile Include="Controllers\DocumentosController.cs" />
+    <Compile Include="Controllers\FechaController.cs" />
     <Compile Include="Controllers\InstanciaConformacionController.cs" />
     <Compile Include="Controllers\InstanciaController.cs" />
     <Compile Include="Controllers\InstanciaDetalleController.cs" />
+    <Compile Include="Controllers\JuradosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
     <Compile Include="Controllers\TipoElectorController.cs" />
@@ -145,9 +147,11 @@
     <Compile Include="Models\Convocatoria.cs" />
     <Compile Include="Models\ConvocatoriaDetalle.cs" />
     <Compile Include="Models\Documentos.cs" />
+    <Compile Include="Models\Fecha.cs" />
     <Compile Include="Models\Instancia.cs" />
     <Compile Include="Models\InstanciaConformacion.cs" />
     <Compile Include="Models\InstanciaDetalle.cs" />
+    <Compile Include="Models\Jurado.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Parametro.cs" />
     <Compile Include="Models\Propuesta.cs" />

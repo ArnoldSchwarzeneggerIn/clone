@@ -1,4 +1,5 @@
-﻿using Prueba.Models;
+﻿using Prueba.Conexions;
+using Prueba.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,19 @@ namespace Prueba.Controllers
 {
     public class InstanciaConformacionController : ApiController
     {
+
+        
         InstanciaConformacion insc = new InstanciaConformacion();
-        public IHttpActionResult getInstanciaConformacion()
+
+
+        [HttpGet]
+        public IHttpActionResult ConsultarInstanciaConformacion(string id)
         {
-            //return Json();
-            return null;
+           
+            return Json(insc.ConsultarConformacion(id));
         }
+
+
+     
     }
 }
