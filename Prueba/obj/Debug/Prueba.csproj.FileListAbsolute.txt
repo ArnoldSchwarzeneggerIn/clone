@@ -85,3 +85,4 @@ C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Web
 C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.dll
 C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.pdb
 C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\obj\Debug\Prueba.csprojResolveAssemblyReference.cache
