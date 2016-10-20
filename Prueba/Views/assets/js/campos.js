@@ -8,7 +8,6 @@ function openModal(id) {
     $('#'+id).modal('show');
 }
 
-
 function limpiar_form(id_e) {
     var elemento=document.getElementById(id_e);
     var arreglo = elemento.getElementsByTagName("input");

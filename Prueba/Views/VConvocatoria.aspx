@@ -29,16 +29,38 @@
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
+    <script>
+        function guardar() {
+            var form = documnet.getElementById("Formulario");
+            document.getElementById('<%=Agregar.ClientID%>').click();
+        }
+    </script>
 
+
+    <script>
+        $(function () {
+
+            $("#Formulario").validate({
+
+                onfocusout: function (finscripcionconvo) {
+                    $(finscripcionconvo).valid();
+                },
+
+            });
+        });
+    </script>
 
 
     <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
-    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
     <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
+
     <!-- /theme JS files -->
-     
+
 
 
 </head>
@@ -203,178 +225,175 @@
                                 <div class="tabbable">
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="convocatorias">
-                                           <div class="panel ">
-                                            <div class="panel-heading">
-                                                <h6 class="panel-title">Convocatoria</h6>
-                                                <div class="heading-elements">
-                                                    <span class="label bg-success heading-text">
-                                                        <asp:Label ID="NumeroR" runat="server" Text="Label"></asp:Label>
-                                                        Registros</span>
-                                                    <ul class="icons-list">
-                                                        <li><a data-toggle="modal" href="#Modal2" title="Agregar"><i class="icon-add"></i></a></li>
-                                                    </ul>
+                                            <div class="panel ">
+                                                <div class="panel-heading">
+                                                    <h6 class="panel-title">Convocatoria</h6>
+                                                    <div class="heading-elements">
+                                                        <span class="label bg-success heading-text">
+                                                            <asp:Label ID="NumeroR" runat="server" Text="Label"></asp:Label>
+                                                            Registros</span>
+                                                        <ul class="icons-list">
+                                                            <li><a data-toggle="modal" href="#Modal2" title="Agregar"><i class="icon-add"></i></a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="panel-body">
-                                                Lista de convocatoria en la Uniamazonia
+                                                <div class="panel-body">
+                                                    Lista de convocatoria en la Uniamazonia
                                             <br />
 
 
-                                                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-                                                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                                                    <Triggers>
-                                                        <asp:AsyncPostBackTrigger ControlID="Agregar" EventName="click" />
-                                                    </Triggers>
-                                                    <ContentTemplate>
-                                                        <asp:ListView ID="ListaConvocatoria" runat="server">
-                                                            <ItemTemplate>
-                                                                <div class="col-md-6">
-                                                                    <div class="thumbnail">
-                                                                        <div class="thumb">
-                                                                            <img src="assets/images/r.jpg" alt="">
-                                                                        </div>
-
-                                                                        <div class="caption">
-                                                                            <h6 class="text-semibold no-margin-top text-uppercase">
-                                                                                <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloCovocatoria")%>'> </asp:Label>
-                                                                            </h6>
-                                                                            <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
-
-                                                                            <div class="row">
-                                                                                <div class="col-sm-6">
-                                                                                    <h6 class="text-semibold no-margin-top"></h6>
-                                                                                    <ul class="list list-unstyled">
-                                                                                        <li>Fecha inicio de inscripcion:</li>
-                                                                                        <li>
-                                                                                            <%#Eval("Fechainicioinscripcion")%>
-                                                                                        </li>
-                                                                                        <li>Fecha limite de inscripcion:
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <%#Eval("Fechafininscripcion")%>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-
-                                                                                <div class="col-sm-6">
-                                                                                    <h6 class="text-semibold text-right no-margin-top"></h6>
-                                                                                    <ul class="list list-unstyled text-right">
-                                                                                        <li>Estado: <span class="text-semibold"><%#Eval("estado") %></span></li>
-                                                                                    </ul>
-                                                                                </div>
+                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                                        <Triggers>
+                                                            <asp:AsyncPostBackTrigger ControlID="Agregar" EventName="click" />
+                                                        </Triggers>
+                                                        <ContentTemplate>
+                                                            <asp:ListView ID="ListaConvocatoria" runat="server">
+                                                                <ItemTemplate>
+                                                                    <div class="col-md-6">
+                                                                        <div class="thumbnail">
+                                                                            <div class="thumb">
+                                                                                <img src="assets/images/r.jpg" alt="">
                                                                             </div>
 
+                                                                            <div class="caption">
+                                                                                <h6 class="text-semibold no-margin-top text-uppercase">
+                                                                                    <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloCovocatoria")%>'> </asp:Label>
+                                                                                </h6>
+                                                                                <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
 
-                                                                        </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-6">
+                                                                                        <h6 class="text-semibold no-margin-top"></h6>
+                                                                                        <ul class="list list-unstyled">
+                                                                                            <li>Fecha inicio de inscripcion:</li>
+                                                                                            <li>
+                                                                                                <%#Eval("Fechainicioinscripcion")%>
+                                                                                            </li>
+                                                                                            <li>Fecha limite de inscripcion:
+                                                                                            </li>
+                                                                                            <li>
+                                                                                                <%#Eval("Fechafininscripcion")%>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
 
-                                                                        <div class="panel-footer">
-                                                                            <ul>
-                                                                                <li><a href="#"><i class="icon-thumbs-up3 position-left"></i></a></li>
-                                                                                <li><a href="#"><i class="icon-eye8 position-left"></i></a></li>
-                                                                            </ul>
+                                                                                    <div class="col-sm-6">
+                                                                                        <h6 class="text-semibold text-right no-margin-top"></h6>
+                                                                                        <ul class="list list-unstyled text-right">
+                                                                                            <li>Estado: <span class="text-semibold"><%#Eval("estado") %></span></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                            </div>
+
+                                                                            <div class="panel-footer">
+                                                                                <ul>
+                                                                                    <li><a href="#"><i class="icon-thumbs-up3 position-left"></i></a></li>
+                                                                                    <li><a href="#"><i class="icon-eye8 position-left"></i></a></li>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
+                                                                </ItemTemplate>
+                                                            </asp:ListView>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
 
                                         <div class="tab-pane fade" id="registro">
                                             <div class="panel">
-                                            <div class="steps-basic">
-                                                <h6>Registro convocatoria</h6>
-                                                <fieldset>
-                                                    <div class="row">
+                                                <div class="steps-basic">
+                                                    <h6>Registro convocatoria</h6>
+                                                    <fieldset>
                                                         <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>Titulo Convocatoria</label>
-                                                                    <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Titulo Convocatoria <span class="text-danger">*</span>  </label>
+                                                                        <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo" onblur="validar(this.id);" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Inicio de inscripciones</label>
+                                                                        <input type="date" class="form-control" runat="server" id="finscripcionconvo" required="required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">fin de inscripciones</label>
+                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>Inicio de inscripciones</label>
-                                                                    <input type="date" class="form-control" runat="server" id="finscripcionconvo">
+
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion candidatos habilitados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="candidatoshconvo">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion de jurados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="juradosconvoca">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion de resultados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo">
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha elecciones presenciales</label>
+                                                                        <input type="date" class="form-control" runat="server" id="epresenciaconvo" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha elecciones distancia </label>
+                                                                        <input type="date" class="form-control" runat="server" id="edistanciaconvo">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">fin de inscripciones</label>
-                                                                    <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion">
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Observacion</label>
+                                                                        <textarea rows="5" class="form-control" placeholder="Detalles" id="observacionconvo" runat="server"></textarea>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+
                                                         </div>
+                                                    </fieldset>
 
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>Publicacion candidatos habilitados</label>
-                                                                    <input type="date" class="form-control" runat="server" id="candidatoshconvo">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>Publicacion de jurados</label>
-                                                                    <input type="date" class="form-control" runat="server" id="juradosconvoca">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>Publicacion de resultados</label>
-                                                                    <input type="date" class="form-control" runat="server" id="resultadosconvo">
-                                                                </div>
-                                                            </div>
+                                                    <h6>Instnacias</h6>
+                                                    <fieldset>
+                                                    </fieldset>
 
-
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Fecha elecciones presenciales</label>
-                                                                    <input type="date" class="form-control" runat="server" id="epresenciaconvo">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Fecha elecciones distancia </label>
-                                                                    <input type="date" class="form-control" runat="server" id="edistanciaconvo">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label>Observacion</label>
-                                                                    <textarea rows="5" class="form-control" placeholder="Detalles" id="observacionconvo" runat="server"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </fieldset>
-
-                                                <h6>Instnacias</h6>
-                                                <fieldset>
-
-
-
-                                                </fieldset>
-                                                <asp:Button ID="Button1" runat="server" Text="Button" Visible="false" OnClick="Page_Load" />
-
+                                                </div>
                                             </div>
-                                         </div>
-                                       </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" />
                         </div>
                         <!-- Footer -->
                         <div class="footer text-muted">
@@ -392,92 +411,6 @@
             <!-- /page content -->
 
         </div>
-        <div id="modal_form_vertical" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_form('IdConvocatoria');">&times;</button>
-                        <h5 class="modal-title">Agregar Convocatoria</h5>
-                    </div>
-                    <div class="modal-body" id="IdConvocatoria">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Titulo Convocatoria</label>
-                                    <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="Numero">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Inicio de inscripciones</label>
-                                    <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="Fechai">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">fin de inscripciones</label>
-                                    <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="FechaFin">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Publicacion candidatos habilitados</label>
-                                    <input type="date" class="form-control" runat="server" id="fechaCandidatos">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Publicacion de jurados</label>
-                                    <input type="date" class="form-control" runat="server" id="Fechajuradoa">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Publicacion de resultados</label>
-                                    <input type="date" class="form-control" runat="server" id="Fecharesulta">
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Fecha elecciones presenciales</label>
-                                    <input type="date" class="form-control" runat="server" id="FechaE">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Fecha elecciones distancia </label>
-                                    <input type="date" class="form-control" runat="server" id="FechaEdis">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Observacion</label>
-                                    <textarea rows="5" class="form-control" placeholder="Detalles" id="Observacion" runat="server"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_form('IdConvocatoria');">Cerrar</button>
-                        <asp:Button ID="Agregar" runat="server" Text="Agregar" CssClass="btn btn-info btn-fill pull-right" OnClick="Agregar_Click" data-dismiss="modal" UseSubmitBehavior="false" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
     </form>
 </body>
 </html>

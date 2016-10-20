@@ -47,9 +47,9 @@ namespace Prueba.Views
 
         protected void Agregar_Click(object sender, EventArgs e)
         {
-            try
-            {
-               var Conv = new Convocatoria() {TituloCovocatoria= Numero.Value,
+           // try
+         //   {
+              /* var Conv = new Convocatoria() {TituloCovocatoria= Numero.Value,
                    DescripcionConvocatoria =Observacion.Value,
                    Fechainicioinscripcion =  Convert.ToDateTime(Fechai.Value).ToString("dd/MM/yyy"),
                    Fechafininscripcion =Convert.ToDateTime(FechaFin.Value).ToString("dd/MM/yyy"),
@@ -58,9 +58,9 @@ namespace Prueba.Views
                    Fechaeleccionesdistancia = Convert.ToDateTime(FechaEdis.Value).ToString("dd/MM/yyy"),
                    Fechaeleccionespresenciales = Convert.ToDateTime(FechaE.Value).ToString("dd/MM/yyy"),
                    Fechapublicacionresultados= Convert.ToDateTime(Fecharesulta.Value).ToString("dd/MM/yyy")
-               };
+               };*/
 
-                Numero.Value = "";
+                /*Numero.Value = "";
                 Observacion.Value = "";
                 FechaEdis.Value = "";
                 FechaFin.Value = "";
@@ -75,17 +75,7 @@ namespace Prueba.Views
             catch (Exception Ex)
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
-            }
-        }
-
-
-
-
-        [System.Web.Services.WebMethod]
-        public static string GetCurrentTime(string name)
-        {
-            return "Hello " + name + Environment.NewLine + "The Current Time is: "
-                + DateTime.Now.ToString();
+            }*/
         }
 
         protected void Convocatoria_tabla_PageIndexChanging(object sender, GridViewPageEventArgs e)

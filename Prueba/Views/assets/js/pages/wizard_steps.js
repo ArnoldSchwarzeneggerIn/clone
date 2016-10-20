@@ -25,7 +25,7 @@ $(function() {
             finish: 'Registrar'
         },
         onFinished: function (event, currentIndex) {
-            document.getElementById('<%=Button1.ClientID%>').click();
+            guardar();
         }
     });
 

@@ -36,7 +36,7 @@
 	<!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="">
         <!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
