@@ -39,13 +39,95 @@
 
     <script>
         $(function () {
-
             $("#Formulario").validate({
-
+                onfocusout: function (tituloconvo) {
+                    $(tituloconvo).valid();
+                },
                 onfocusout: function (finscripcionconvo) {
                     $(finscripcionconvo).valid();
                 },
-
+                onkeyup: false,
+                onfocusout: function (ffindeinscripcion) {
+                    $(ffindeinscripcion).valid();
+                },
+                onfocusout: function (candidatoshconvo) {
+                    $(candidatoshconvo).valid();
+                },
+                onfocusout: function (juradosconvoca) {
+                    $(juradosconvoca).valid();
+                },
+                onfocusout: function (resultadosconvo) {
+                    $(resultadosconvo).valid();
+                },
+                onfocusout: function (epresenciaconvo) {
+                    $(epresenciaconvo).valid();
+                },
+                onfocusout: function (edistanciaconvo) {
+                    $(epresenciaconvo).valid();
+                },
+                onfocusout: function (observacionconvo) {
+                    $(observacionconvo).valid();
+                },
+                rules: {
+                    "tituloconvo": {
+                        required: true,
+                        minlength: 5
+                    },
+                    "finscripcionconvo": {
+                        required: true,
+                    },
+                    "ffindeinscripcion": {
+                        required: true,
+                    },
+                    "candidatoshconvo": {
+                        required: true,
+                    },
+                    "juradosconvoca": {
+                        required: true,
+                    },
+                    "resultadosconvo": {
+                        required: true,
+                    },
+                    "epresenciaconvo": {
+                        required: true,
+                    },
+                    "edistanciaconvo": {
+                        required: true,
+                    },
+                    "observacionconvo": {
+                        required: true,
+                    }
+                },
+                messages: {
+                    "tituloconvo": {
+                        required: "Datos no validos",
+                        minlength: "Ingrese un nombre mas largo"
+                    },
+                    "finscripcionconvo": {
+                        required: "Datos no validos",
+                    },
+                    "ffindeinscripcion": {
+                        required: "Datos no validos",
+                    },
+                    "candidatoshconvo": {
+                        required: "Datos no validos",
+                    },
+                    "juradosconvoca": {
+                        required: "Datos no validos",
+                    },
+                    "resultadosconvo": {
+                        required: "Datos no validos",
+                    },
+                    "epresenciaconvo": {
+                        required: "Datos no validos",
+                    },
+                    "edistanciaconvo": {
+                        required: "Datos no validos",
+                    },
+                    "observacionconvo": {
+                        required: "Datos no validos",
+                    }
+                }
             });
         });
     </script>
@@ -316,7 +398,7 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>Titulo Convocatoria <span class="text-danger">*</span>  </label>
-                                                                        <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo" onblur="validar(this.id);" />
+                                                                        <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo" required="required" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
