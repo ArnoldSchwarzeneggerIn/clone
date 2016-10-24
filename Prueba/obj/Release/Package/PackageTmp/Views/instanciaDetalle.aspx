@@ -218,7 +218,7 @@
                                                 <asp:ListView ID="cargosInsta" runat="server">
                                                     <ItemTemplate>
                                                         <tr class="active border-double">
-                                                            <td colspan="4">Today</td>
+                                                            <td colspan="4"> <%#Eval("NOMBREINSTANCIADETALLE") %> </td>
                                                             <td class="text-right">
                                                                 <span class="progress-meter" id="today-progress" data-progress="30">
                                                                     <svg width="20" height="20">
@@ -264,6 +264,34 @@
 
                                                               </ItemTemplate>
                                                           </asp:ListView>
+
+                                                                <td>
+                                                                <div class="media-left media-middle">
+                                                                    <a href="#">
+                                                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs" alt=""></a>
+                                                                </div>
+                                                                <div class="media-left">
+                                                                    <div class=""><a href="#" class="text-default text-semibold">Pepe</a></div>
+                                                                    <div class="text-muted text-size-small">
+                                                                        <span class="status-mark border-blue position-left"></span>
+                                                                        02:00 - 03:00
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><span class="text-muted"> Activo</span></td>
+                                                            <td><span class="text-success-600"> </span></td>
+                                                            <td><span class="label bg-blue">Elegible</span></td>
+                                                             <td class="text-center">
+                                                                        <ul class="icons-list">
+                                                                            <li class="dropdown">
+                                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+                                                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                                                    <li><a href="#"><i class="icon-file-stats"></i>Editar</a></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+
                                                         </tr>
                                                     </ItemTemplate>
                                                 </asp:ListView>

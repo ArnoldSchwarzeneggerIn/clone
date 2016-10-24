@@ -24,19 +24,22 @@
 	<!-- /core JS files -->
 
 	<!-- Theme JS files -->
+    <script>
+        function cerrarModal() {
+            $('#modal_form_vertical').modal('hide');
+        }
 
+    </script>
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
 	<!-- /theme JS files -->
-
-    
-
+    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
 
 	<!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="">
         <!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
@@ -112,7 +115,7 @@
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-								<li class="active"><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
+								<li ><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
 								<li>
 									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
 									<ul>
@@ -127,10 +130,10 @@
                                         <li><a href="#">Mi candidatura</a></li>
 									</ul>
 								</li>
-                                <li>
+                                <li class="active">
 									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
 									<ul>
-										<li><a href="VCobertura.aspx">Cobertura</a></li>
+										<li class="active"><a href="VCobertura.aspx">Cobertura</a></li>
                                         <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
                                         <li><a href="Instancias.aspx">Instancias</a></li>
                                         <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
@@ -192,7 +195,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table table-hover table-striped" AutoGenerateColumns="false" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" >
+                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table text-nowrap" AutoGenerateColumns="false" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" >
                                        <Columns>
                                            <asp:TemplateField HeaderText="ID">
                                                 <EditItemTemplate>
@@ -264,12 +267,12 @@
 									<div class="modal-body">
                                             <div class="form-group">
                                                 <label>cobertura</label>
-                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[a-z]"  title="Ingrese solo letras" >
+                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[A-Za-z]+"  title="Ingrese solo letras" />
                                             </div>
                                     </div>
 									<div class="modal-footer">
 									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
-                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarCober_Click"  data-dismiss="modal" UseSubmitBehavior="false" />
+                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarCober_Click"   />
                                     </div>
 							</div>
 						</div>

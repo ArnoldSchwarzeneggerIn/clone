@@ -46,8 +46,6 @@ namespace Prueba.Controllers
             return Json(cobe.ConsultarCobertura());
         }
 
-       
-
         [HttpPost]
         public IHttpActionResult ModificarCobertura(Cobertura obj)
         {

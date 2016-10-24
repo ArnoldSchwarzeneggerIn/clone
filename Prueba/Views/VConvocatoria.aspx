@@ -36,15 +36,13 @@
         }
     </script>
 
-
     <script>
         $(function () {
             $("#Formulario").validate({
-                onfocusout: function (tituloconvo) {
-                    if ($(tituloconvo).valid()) {
-                        $()
 
-                    };
+                onfocusout: function (tituloconvo) {
+                    $(tituloconvo).valid()
+
                 },
                 onfocusout: function (finscripcionconvo) {
                     $(finscripcionconvo).valid();
@@ -71,6 +69,13 @@
                 onfocusout: function (observacionconvo) {
                     $(observacionconvo).valid();
                 },
+
+
+
+
+
+
+
                 errorClass: 'validation-error-label',
                 successClass: 'validation-valid-label',
                 highlight: function (element, errorClass) {
@@ -161,11 +166,11 @@
                         required: "Datos no validos",
                     }
                 }
+
+
             });
         });
     </script>
-
-
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
@@ -175,7 +180,6 @@
     <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
 
     <!-- /theme JS files -->
-
 
 
 </head>
@@ -407,8 +411,12 @@
 
                                                                             <div class="panel-footer">
                                                                                 <ul>
-                                                                                    <li><a href="#"><i class="icon-thumbs-up3 position-left"></i></a></li>
-                                                                                    <li><a href="#"><i class="icon-eye8 position-left"></i></a></li>
+                                                                                    <li>
+                                                                                        <a href="#"><i class="icon-thumbs-up3 position-left"></i></a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <asp:LinkButton ID="Verconvocatoria" runat="server" CssClass="icon-eye8" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="Verconvocatoria_Command"> </asp:LinkButton>
+                                                                                    </li>
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
@@ -503,12 +511,14 @@
                                                     </fieldset>
 
                                                 </div>
+
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" />
+                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
                         </div>
                         <!-- Footer -->
                         <div class="footer text-muted">

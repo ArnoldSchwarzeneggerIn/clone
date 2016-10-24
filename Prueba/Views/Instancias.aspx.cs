@@ -50,31 +50,6 @@ namespace Prueba.views
             Listacober.DataBind();
             Listacober.Items.Insert(0, new ListItem("Seleccione", ""));
         }
-
-        /* protected void LinkButton1_Command(object sender, CommandEventArgs e)
-         {
-             foreach (RepeaterItem item in Instanciaslista.Items)
-             {
-                 LinkButton link = (LinkButton)item.FindControl("Agregarcargo");
-                 if (link.CommandArgument == e.CommandArgument.ToString())
-                 {
-                     Agregar_Modif.CommandArgument = e.CommandArgument.ToString();
-                     break;
-                 }
-             }*7
-           //  ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "openModal('modal_form_vertical');", true);
-         }
-
-         protected void Instanciaslista_ItemDataBound(object sender, RepeaterItemEventArgs e)
-         {
-             var inst =(Instancia)e.Item.DataItem ;
-             var instDetall = new InstanciaDetalle() { IdInstancia = inst.IdInstancia };
-             Repeater Repeate = (Repeater)e.Item.FindControl("InstanCargos");
-             List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
-             Repeate.DataSource = detall;
-             Repeate.DataBind();
-         }*/
-
         protected void Agregar_Inst_Click(object sender, EventArgs e)
         {
             var name = ((Button)sender).CommandName;
@@ -105,7 +80,6 @@ namespace Prueba.views
             CoberturaIns.SelectedIndex = 0;
             Ins.Value = "";
         }
-
         protected void EditarInstancia_Command(object sender, CommandEventArgs e)
         {
           /*  foreach (RepeaterItem item in Instanciaslista.Items)
@@ -130,7 +104,6 @@ namespace Prueba.views
             }*/
          //   ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal('Agregar_instancia');", true);
         }
-
         protected void Agregar_Modif_Command(object sender, CommandEventArgs e)
         {
             var insd = new InstanciaDetalle()
@@ -152,7 +125,6 @@ namespace Prueba.views
                 break;
             }
         }
-
         protected void Instancialista_ItemEditing(object sender, ListViewEditEventArgs e)
         {
             Instancialista.EditIndex = e.NewEditIndex;
@@ -172,13 +144,11 @@ namespace Prueba.views
             TextBox Nombreeditable = (TextBox) Instancialista.Items[e.NewEditIndex].FindControl("nombre");
             Nombreeditable.Text = Nombre.Text;
         }
-
         protected void Instancialista_ItemCanceling(object sender, ListViewCancelEventArgs e)
         {
             Instancialista.EditIndex = -1;
             Cargar_instancias();
         }
-
         protected void Instancialista_ItemUpdating(object sender, ListViewUpdateEventArgs e)
         {
 
@@ -197,7 +167,6 @@ namespace Prueba.views
             Cargar_instancias();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Registro modificado',icon: 'icon-checkmark3', type: 'success'});}); ", true);
         }
-
         protected void Instancialista_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             switch (e.CommandName)

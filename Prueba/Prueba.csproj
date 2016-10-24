@@ -120,6 +120,8 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Views\assets\js\campos.js" />
+    <Content Include="Views\assets\js\pages\wizard_steps.js" />
     <Content Include="Views\Causaderetiro.aspx" />
     <Content Include="Views\ConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />

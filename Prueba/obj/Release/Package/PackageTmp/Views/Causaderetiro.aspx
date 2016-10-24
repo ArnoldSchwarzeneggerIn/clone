@@ -118,7 +118,7 @@
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-								<li class="active"><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
+								<li ><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
 								<li>
 									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
 									<ul>
@@ -133,11 +133,11 @@
                                         <li><a href="#">Mi candidatura</a></li>
 									</ul>
 								</li>
-                                <li>
+                                <li  class="active">
 									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
 									<ul>
 										<li><a href="VCobertura.aspx">Cobertura</a></li>
-                                        <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
+                                        <li class="active"><a href="Causaderetiro.aspx">Causa de retiro</a></li>
                                         <li><a href="Instancias.aspx">Instancias</a></li>
                                         <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
 									</ul>
@@ -191,8 +191,15 @@
                                    <asp:AsyncPostBackTrigger  ControlID="AgregarCausa" EventName="click"/>
                                </Triggers>
                                  <ContentTemplate>
-                                   <asp:GridView ID="Causaretiro" runat="server" EmptyDataText="No se encontraron registros" CssClass="table datatable-basic" GridLines="None">
-                              </asp:GridView>
+                                   <asp:GridView ID="Causaretiro" runat="server" EmptyDataText="No se encontraron registros"  CssClass="table datatable-basic" GridLines="None">
+                             
+                                       <Columns>
+
+
+                                       </Columns>
+                                       
+                                       
+                                   </asp:GridView>
                               </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>

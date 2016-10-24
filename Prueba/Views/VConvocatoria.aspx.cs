@@ -6,8 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RestSharp;
 using Prueba.Models;
-using Newtonsoft.Json;
 using System.Globalization;
+using Newtonsoft.Json;
 
 namespace Prueba.Views
 {
@@ -47,9 +47,9 @@ namespace Prueba.Views
 
         protected void Agregar_Click(object sender, EventArgs e)
         {
-           // try
-         //   {
-              /* var Conv = new Convocatoria() {TituloCovocatoria= Numero.Value,
+      /*   try
+            {
+               var Conv = new Convocatoria() {TituloCovocatoria= Numero.Value,
                    DescripcionConvocatoria =Observacion.Value,
                    Fechainicioinscripcion =  Convert.ToDateTime(Fechai.Value).ToString("dd/MM/yyy"),
                    Fechafininscripcion =Convert.ToDateTime(FechaFin.Value).ToString("dd/MM/yyy"),
@@ -58,9 +58,9 @@ namespace Prueba.Views
                    Fechaeleccionesdistancia = Convert.ToDateTime(FechaEdis.Value).ToString("dd/MM/yyy"),
                    Fechaeleccionespresenciales = Convert.ToDateTime(FechaE.Value).ToString("dd/MM/yyy"),
                    Fechapublicacionresultados= Convert.ToDateTime(Fecharesulta.Value).ToString("dd/MM/yyy")
-               };*/
+               };
 
-                /*Numero.Value = "";
+                Numero.Value = "";
                 Observacion.Value = "";
                 FechaEdis.Value = "";
                 FechaFin.Value = "";
@@ -81,6 +81,12 @@ namespace Prueba.Views
         protected void Convocatoria_tabla_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
           
+        }
+
+        protected void Verconvocatoria_Command(object sender, CommandEventArgs e)
+        {
+            Session["Convocatoria"] = e.CommandArgument.ToString();
+            Response.Redirect("ConvocatoriaDetalle.aspx");
         }
     }
 }

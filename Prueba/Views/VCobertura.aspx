@@ -24,14 +24,17 @@
 	<!-- /core JS files -->
 
 	<!-- Theme JS files -->
+    <script>
+        function cerrarModal() {
+            $('#modal_form_vertical').modal('hide');
+        }
 
+    </script>
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
 	<!-- /theme JS files -->
-
-    
-
+    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
 
 	<!-- /theme JS files -->
 </head>
@@ -264,12 +267,12 @@
 									<div class="modal-body">
                                             <div class="form-group">
                                                 <label>cobertura</label>
-                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[a-z]"  title="Ingrese solo letras" >
+                                                <input type="text" class="form-control" id="cober" placeholder="Cobertura"  runat="server" required="required" pattern="[A-Za-z]+"  title="Ingrese solo letras" />
                                             </div>
                                     </div>
 									<div class="modal-footer">
 									   <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('cober');" >Cerrar</button>
-                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarCober_Click"  data-dismiss="modal" UseSubmitBehavior="false" />
+                                       <asp:Button ID="AgregarCober" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarCober_Click"   />
                                     </div>
 							</div>
 						</div>
