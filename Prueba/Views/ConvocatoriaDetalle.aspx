@@ -25,12 +25,11 @@
     <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/ui/fullcalendar/fullcalendar.min.js"></script>
-        <script type="text/javascript" src="assets/js/plugins/ui/fullcalendar/lang/es.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/ui/fullcalendar/lang/es.js"></script>
 
-    <script type="text/javascript" src="assets/js/plugins/visualization/echarts/echarts.js"></script>
 
     <script type="text/javascript" src="assets/js/core/app.js"></script>
-    <script type="text/javascript" src="assets/js/pages/user_pages_profile.js"></script>
+    <script type="text/javascript" src="assets/js/pages/Calendario.js"></script>
 
 </head>
 <body>
@@ -201,17 +200,8 @@
                                         <div class="tab-pane fade in active" id="activity">
 
                                             <!-- Timeline -->
-                                            <div class="timeline timeline-left content-group">
-                                                <div class="timeline-container">
-
-                                                    <!-- Sales stats -->
-                                                    <div class="timeline-row">
-                                                        <div class="timeline-icon">
-                                                            <a href="#">
-                                                                <img src="assets/images/placeholder.jpg" alt=""></a>
-                                                        </div>
-
-                                                        <div class="panel panel-flat timeline-content">
+                                            <div class=" content-group">
+                                                        <div class="panel panel-flat">
                                                             <div class="panel-heading">
                                                                 <h6 class="panel-title">Candidatos inscritos</h6>
                                                                 <div class="heading-elements">
@@ -237,14 +227,13 @@
                                                                     </div>
 
                                                                     <div class="panel-body">
-                                                                        <div class="schedule"></div>
+                                                                        <div class="schedule">
+
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /sales stats -->
-                                                </div>
+                                                        </div>                                               
                                             </div>
                                             <!-- /timeline -->
 
@@ -270,10 +259,6 @@
                                             </div>
                                             <!-- /available hours -->
 
-
-                                            <!-- Calendar -->
-
-                                            <!-- /calendar -->
 
                                         </div>
 

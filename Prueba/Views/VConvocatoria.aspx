@@ -518,7 +518,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display:none;" />
                         </div>
                         <!-- Footer -->
                         <div class="footer text-muted">

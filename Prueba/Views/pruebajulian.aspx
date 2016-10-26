@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pruebajulian.aspx.cs" Inherits="Prueba.Views.pruebajulian" %>
 
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
@@ -39,35 +38,37 @@
    
 </head>
 <body>
-    <form id="form1" runat="server">
-        
+ 
+    
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
 
-			<ul class="nav navbar-nav visible-xs-block">
+			<ul class="nav navbar-nav pull-right visible-xs-block">
 				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
 			</ul>
 		</div>
 
 		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav">
-				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
-
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown dropdown-user">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="assets/images/placeholder.jpg" alt="">
-						<span>Usuario</span>
-						<i class="caret"></i>
+				<li>
+					<a href="#">
+						<i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Go to website</span>
 					</a>
+				</li>
 
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
-					</ul>
+				<li>
+					<a href="#">
+						<i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Contact admin</span>
+					</a>
+				</li>
+
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-cog3"></i>
+						<span class="visible-xs-inline-block position-right"> Options</span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -76,115 +77,37 @@
 
 
 	<!-- Page container -->
-	<div class="page-container">
+	<div class="page-container login-container">
 
 		<!-- Page content -->
 		<div class="page-content">
 
-			<!-- Main sidebar -->
-			<div class="sidebar sidebar-main">
-				<div class="sidebar-content">
-
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="category-content">
-							<div class="media">
-								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-								<div class="media-body">
-									<span class="media-heading text-semibold">Electoral</span>
-									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small" > Prueba Token</i> 
-									</div>
-								</div>
-
-								<div class="media-right media-middle">
-									<ul class="icons-list">
-										<li>
-											<a href="#"><i class="icon-cog3"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-
-					<!-- Main navigation -->
-	            <div class="sidebar-category sidebar-category-visible">
-						<div class="category-content no-padding">
-							<ul class="navigation navigation-main navigation-accordion">
-
-								<!-- Main -->
-								<li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-								<li class="active"><a href="Index.aspx"><i class="icon-home4"></i> <span>Principal</span></a></li>
-								<li>
-									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
-									<ul>
-										<li><a href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
-                                        <li><a href="#">Lanzar convocatoria</a></li>
-									</ul>
-								</li>
-                                <li>
-									<a href="#"><i class="icon-vcard"></i> <span>Candidatos</span></a>
-									<ul>
-										<li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
-                                        <li><a href="#">Mi candidatura</a></li>
-									</ul>
-								</li>
-                                <li>
-									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
-									<ul>
-										<li><a href="VCobertura.aspx">Cobertura</a></li>
-                                        <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
-                                        <li><a href="Instancias.aspx">Instancias</a></li>
-                                        <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
-									</ul>
-								</li>
-                                 <li>
-									<a href="#"><i class="icon-stack-text"></i> <span>Votaciones</span></a>
-									<ul>
-										<li><a href="Votar.aspx">Votar</a></li>
-                                        <li><a href="#">Resultados</a></li>
-									</ul>
-								</li>
-                                
-							</ul>
-						</div>
-					</div>					<!-- /main navigation -->
-
-				</div>
-			</div>
-			<!-- /main sidebar -->
-
-
 			<!-- Main content -->
 			<div class="content-wrapper">
-				<div class="page-header">
-					<div class="breadcrumb-line">
-						<ul class="breadcrumb">
-							<li><a href="Index.aspx"><i class="icon-home2 position-left"></i> Index</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /page header -->
-
 
 				<!-- Content area -->
 				<div class="content">
-				<div class="page-header page-header-lg panel border-top-primary" style="background-color: #fff;">
-							<div class="page-header-content">
-								<div class="page-title">
-									<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> <asp:Label ID="Token" runat="server" Text=""></asp:Label>  </span> - Large</h4>
-								</div>
 
+					<!-- Unlock user -->
+					<form action="index.html">
+						<div class="panel login-form">
+							<div class="thumb">
+								<img src="assets/images/LogoGIECOM.png" alt="">
 								
 							</div>
+
+							<div class="panel-body">
+							<h6 class="content-group text-center text-semibold no-margin-top">Sistema Electoral </h6>
+							<a class="btn btn-primary btn-block" href="http://chaira.udla.edu.co/api/oauth2/authorize.asmx/auth?response_type=code&client_id=503998150027&redirect_uri=http://191.102.85.226/electoral/views/index.aspx&state=x">Ingresar <i class="icon-arrow-right14 position-right"></i></a>
+							</div>
+						</div>
+					</form>
+					<!-- /unlock user -->
 
 
 					<!-- Footer -->
 					<div class="footer text-muted">
-						&copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+						&copy; 2016. <a href="#">Sistema electoral</a> by <a href="200.21.7.94" target="_blank">Giecom</a>
 					</div>
 					<!-- /footer -->
 
@@ -195,11 +118,8 @@
 			<!-- /main content -->
 
 		</div>
-		<!-- /page content -->
-
 	</div>
- 
-    </form>
+	<!-- /page container -->
 </body>
 </html>
 

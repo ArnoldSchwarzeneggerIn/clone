@@ -19,11 +19,22 @@ namespace Prueba.Models
         }
         public static dynamic ConsumirPost(RestClient Rest,RestRequest Peticion,dynamic objeto)
         {
-            Peticion.AddJsonBody(objeto);
-            var Response = Rest.Execute(Peticion);
-            return Response;
-            
+             Peticion.AddJsonBody(objeto);
+             var Response = Rest.Execute(Peticion);
+             return Response;
         }
+
+
+        public static dynamic Autenticacion(RestClient Rest, RestRequest Peticion, dynamic objeto)
+        {
+            // Peticion.AddJsonBody(objeto);
+            Peticion.RequestFormat = DataFormat.Json;
+            Peticion.AddBody(objeto);
+            var Response = Rest.Execute(Peticion);
+            //  return Response; 
+            return Response;
+        }
+
 
     }
 }

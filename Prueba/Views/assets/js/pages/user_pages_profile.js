@@ -373,22 +373,11 @@ $(function() {
     ];
 
 
-    // Initialize calendar with options
-    $('.schedule').fullCalendar({
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-        },
-        defaultDate: '2016-10-12',
-        editable: false,
-        events: eventsColors
-    });
 
 
-    // Render in hidden elements
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        $('.schedule').fullCalendar('render');
-    });
-    
+
+
+
+
+
 });
