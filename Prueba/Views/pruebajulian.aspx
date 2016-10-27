@@ -98,7 +98,7 @@
 
 							<div class="panel-body">
 							<h6 class="content-group text-center text-semibold no-margin-top">Sistema Electoral </h6>
-							<a class="btn btn-primary btn-block" href="http://chaira.udla.edu.co/api/oauth2/authorize.asmx/auth?response_type=code&client_id=503998150027&redirect_uri=http://191.102.85.226/electoral/views/index.aspx&state=x">Ingresar <i class="icon-arrow-right14 position-right"></i></a>
+							<a class="btn btn-primary btn-block" href="http://chaira.udla.edu.co/api/v0.1/oauth2/authorize.asmx/auth?response_type=code&client_id=503998150027&redirect_uri=http://191.102.85.226/electoral/views/index.aspx&state=x">Ingresar <i class="icon-arrow-right14 position-right"></i></a>
 							</div>
 						</div>
 					</form>

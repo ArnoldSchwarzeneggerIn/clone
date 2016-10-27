@@ -14,7 +14,7 @@ namespace Prueba.Models
         private static RestClient instanciaConformacion = new RestClient("http://191.102.85.226/Electoral/api/instanciaconformacion/");
         private static RestClient causaRetiro = new RestClient("http://191.102.85.226/Electoral/api/causaretiro/");
         private static RestClient instaciaDetalle = new RestClient("http://191.102.85.226/Electoral/api/InstanciaDetalle/");
-        private static RestClient autenticacion = new RestClient("http://chaira.udla.edu.co/api/");
+        private static RestClient autenticacion = new RestClient("http://chaira.udla.edu.co/api/v0.1/");
 
         public static RestClient Convocatoria
         {
