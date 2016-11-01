@@ -22,10 +22,21 @@ namespace Prueba.Views
         }
         protected void consultarConvocatoria()
         {
-           // Session["Convocatoria"].ToString();
-            var Convo = new Convocatoria() { IdConvocatoria = 1.ToString()};
-            List<Convocatoria> Convocatoria = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria,new RestRequest("ConsultarConvocatoriaPorNumero",Method.POST),Convo).Content);
+            // Session["Convocatoria"].ToString();
+            var Convo = new Convocatoria() { IdConvocatoria = 1.ToString() };
+            List<Convocatoria> Convocatoria = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("ConsultarConvocatoriaPorNumero", Method.POST), Convo).Content);
             // organizar calendario
+            tituloconvo.Value = Convocatoria[0].TituloCovocatoria;
+            finscripcionconvo.Value = Convocatoria[0].Fechainicioinscripcion;
+            ffindeinscripcion.Value =Convocatoria[0].Fechafininscripcion;
+            candidatoshconvo.Value = Convocatoria[0].Fechapublicacionhabilitado;
+            juradosconvoca.Value = Convocatoria[0].Fechapublicacionjurados;
+            resultadosconvo.Value = Convocatoria[0].Fechapublicacionresultados;
+            epresenciaconvo.Value = Convocatoria[0].Fechaeleccionespresenciales;
+            edistanciaconvo.Value = Convocatoria[0].Fechaeleccionesdistancia;
+            observacionconvo.Value = Convocatoria[0].DescripcionConvocatoria;
+
+
             string Eventos = "[{ title:'Inicio de inscripciones', start: '"+  Convert.ToDateTime(Convocatoria[0].Fechainicioinscripcion) +"', color: '#EF5350' }," +
                 "{title:'Fin de inscripciones', start: '" + Convocatoria[0].Fechafininscripcion+ "', color: '#EF5350'},"+
                 "{title:'Publicacion de candidatos habilitados', start: '" + Convocatoria[0].Fechapublicacionhabilitado+ "', color: '#EF5350'},"+
@@ -34,7 +45,37 @@ namespace Prueba.Views
                 +"{title:'Elecciones distancia', start: '" + Convocatoria[0].Fechaeleccionesdistancia + "', color: '#EF5350'},"+
                 "{title:'Publicacion resultados', start: '" + Convocatoria[0].Fechapublicacionresultados+ "', color: '#EF5350'}]";
 
-            ScriptManager.RegisterStartupScript(this,this.GetType(),"Calenda", "Calendario('Clase'," + Eventos+",'"+String.Format("{0:yyyy-MM-dd}",DateTime.Now)+"');", true);
+            //Cargar fechas en Calendario
+
+           
+
+            
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Calenda", "Calendario('Clase'," + Eventos + ",'" + String.Format("{0:yyyy-MM-dd}", DateTime.Now) + "');", true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+        protected void guardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

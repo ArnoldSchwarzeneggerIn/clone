@@ -41,7 +41,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/18/2016 22:20:39</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/18/2016 22:20:40</publishTime>
+      <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -53,7 +53,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Prueba.dll">
-      <publishTime>10/24/2016 14:22:40</publishTime>
+      <publishTime>10/28/2016 12:03:20</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>10/18/2016 22:20:40</publishTime>
@@ -107,7 +107,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/18/2016 22:20:37</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/18/2016 22:20:38</publishTime>
+      <publishTime>10/27/2016 11:59:45</publishTime>
     </File>
     <File Include="scripts/ai.0.22.19-build00125.js">
       <publishTime>10/18/2016 22:20:38</publishTime>
@@ -1162,6 +1162,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/assets/images/flags/zw.png">
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
+    <File Include="Views/assets/images/LogoGIECOM.png">
+      <publishTime>10/26/2016 13:26:36</publishTime>
+    </File>
     <File Include="Views/assets/images/logo_dark.png">
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
@@ -1194,6 +1197,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Views/assets/images/signature.png">
       <publishTime>10/10/2016 23:35:13</publishTime>
+    </File>
+    <File Include="Views/assets/images/sistema-electoral3.png">
+      <publishTime>10/26/2016 23:32:57</publishTime>
     </File>
     <File Include="Views/assets/images/ui/.DS_Store">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -1887,6 +1893,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Views/assets/js/pages/appearance_panel_heading.js">
       <publishTime>10/10/2016 23:35:13</publishTime>
+    </File>
+    <File Include="Views/assets/js/pages/Calendario.js">
+      <publishTime>10/26/2016 00:53:37</publishTime>
     </File>
     <File Include="Views/assets/js/pages/colors_blue.js">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -6122,10 +6131,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/18/2016 22:20:31</publishTime>
     </File>
     <File Include="Views/ConvocatoriaDetalle.aspx">
-      <publishTime>10/18/2016 22:20:31</publishTime>
+      <publishTime>10/26/2016 00:39:58</publishTime>
     </File>
     <File Include="Views/Index.aspx">
-      <publishTime>10/18/2016 22:20:37</publishTime>
+      <publishTime>10/27/2016 15:28:51</publishTime>
     </File>
     <File Include="Views/InstancConformacion.aspx">
       <publishTime>10/18/2016 22:20:31</publishTime>
@@ -6139,6 +6148,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/LanzarConvocatoria.aspx">
       <publishTime>10/18/2016 22:20:37</publishTime>
     </File>
+    <File Include="Views/Loggin.aspx">
+      <publishTime>10/26/2016 22:45:49</publishTime>
+    </File>
     <File Include="Views/pruebajulian.aspx">
       <publishTime>10/18/2016 22:20:37</publishTime>
     </File>
@@ -6146,16 +6158,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/18/2016 22:20:37</publishTime>
     </File>
     <File Include="Views/VCobertura.aspx">
-      <publishTime>10/24/2016 13:44:44</publishTime>
+      <publishTime>10/24/2016 15:32:42</publishTime>
     </File>
     <File Include="Views/VConvocatoria.aspx">
-      <publishTime>10/10/2016 17:11:39</publishTime>
+      <publishTime>10/25/2016 13:19:28</publishTime>
     </File>
     <File Include="Views/Votar.aspx">
       <publishTime>10/19/2016 18:25:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/18/2016 22:20:38</publishTime>
+      <publishTime>10/27/2016 15:32:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

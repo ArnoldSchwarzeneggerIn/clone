@@ -35,15 +35,33 @@
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
 	<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
 	<!-- /theme JS files -->
+    <script type="text/javascript">
+        function EnviarCode(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    window.location = "http://localhost:25597/Views/Index.aspx?"+vars[i];
+                    return pair[1];
+                }
+            }
+        }
+
+    </script>
+
+
 
 </head>
 
 <body>
+    <form runat="server" id="Formulario">
 
+   
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+			<a class="navbar-brand" href="index.aspx"><img src="assets/images/sistema-electoral3.png" alt=""> </a>
 
 			<ul class="nav navbar-nav visible-xs-block">
 				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
@@ -59,8 +77,10 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="assets/images/placeholder.jpg" alt="">
-						<span>Usuario</span>
+						<img src="assets/images/placeholder.jpg" alt="" runat="server" id="imagen_Perfil">
+						<span>
+                            <asp:Label ID="Nombre1" runat="server" Text="Label"></asp:Label> 
+						</span>
 						<i class="caret"></i>
 					</a>
 
@@ -88,11 +108,15 @@
 					<div class="sidebar-user">
 						<div class="category-content">
 							<div class="media">
-								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
 								<div class="media-body">
-									<span class="media-heading text-semibold">Electoral</span>
+									<span class="media-heading text-semibold">
+                                        <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
+									</span>
 									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small" > Prueba Token</i> 
+										<i class="icon-pin text-size-small" >
+                                            <asp:Label ID="Ubicacion" runat="server" Text="Label"></asp:Label>
+										</i> 
 									</div>
 								</div>
 
@@ -165,6 +189,21 @@
 						<ul class="breadcrumb">
 							<li><a href="Index.aspx"><i class="icon-home2 position-left"></i> Index</a></li>
 						</ul>
+
+                        <ul class="breadcrumb-elements">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									<i class="icon-gear position-left"></i>
+									Desarrolladores
+									<span class="caret"></span>
+								</a>
+
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a onclick="EnviarCode('code');"><i class="icon-user-lock"></i> Code</a></li>
+									
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<!-- /page header -->
@@ -192,6 +231,6 @@
 
 	</div>
 	<!-- /page container -->
-
+     </form>
 </body>
 </html>

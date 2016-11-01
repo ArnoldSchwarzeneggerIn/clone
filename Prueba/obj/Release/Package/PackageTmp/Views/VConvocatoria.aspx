@@ -171,11 +171,6 @@
             });
         });
     </script>
-  
-    
-
-
-
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
@@ -416,8 +411,12 @@
 
                                                                             <div class="panel-footer">
                                                                                 <ul>
-                                                                                    <li><a href="#"><i class="icon-thumbs-up3 position-left"></i></a></li>
-                                                                                    <li><a href="#"><i class="icon-eye8 position-left"></i></a></li>
+                                                                                    <li>
+                                                                                        <a href="#"><i class="icon-thumbs-up3 position-left"></i></a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <asp:LinkButton ID="Verconvocatoria" runat="server" CssClass="icon-eye8" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="Verconvocatoria_Command"> </asp:LinkButton>
+                                                                                    </li>
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
@@ -519,7 +518,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display:none;" />
                         </div>
                         <!-- Footer -->
                         <div class="footer text-muted">
