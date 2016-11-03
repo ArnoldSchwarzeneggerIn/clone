@@ -40,7 +40,9 @@
 </head>
 
 <body>
+    <form runat="server" id="Formulario">
 
+    
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
@@ -243,6 +245,6 @@
 
 	</div>
 	<!-- /page container -->
-
+        </form>
 </body>
 </html>

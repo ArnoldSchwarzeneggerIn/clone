@@ -18,12 +18,13 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
-                if (Session["Token"]==null)
-                {
-                    Response.Redirect("Loggin.aspx");
-                }
-                getInstancia();
-                scope("public_profile");
+                // if (Session["Token"]==null)
+                // {
+                //   Response.Redirect("Loggin.aspx");
+                // }
+                //  getInstancia();
+                cargosInstancia();
+               // scope("public_profile");
             }
         }
 
@@ -59,7 +60,7 @@ namespace Prueba.Views
         {
             try
             {
-                var instDetall = new InstanciaDetalle() { IdInstancia = Inst.IdInstancia };
+                var instDetall = new InstanciaDetalle() { IdInstancia = 1.ToString() };
                 List<InstanciaDetalle> detall = JsonConvert.DeserializeObject<List<InstanciaDetalle>>(ConsumirAppi.ConsumirPost(Rutas.InstaciaDetalle, new RestRequest("ConsultarCargosInstancia", Method.POST), instDetall).Content);
                 cargosInsta.DataSource = detall;
                 cargosInsta.DataBind();
