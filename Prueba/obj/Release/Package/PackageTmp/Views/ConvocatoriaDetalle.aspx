@@ -46,24 +46,28 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav">
-                    <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-                </ul>
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown dropdown-user">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/images/placeholder.jpg" alt="">
-                            <span>Usuario</span>
-                            <i class="caret"></i>
-                        </a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/placeholder.jpg" alt="" runat="server" id="imagen_Perfil">
+						<span>
+                            <asp:Label ID="Nombre1" runat="server" Text="Label"></asp:Label> 
+						</span>
+						<i class="caret"></i>
+					</a>
 
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#"><i class="icon-switch2"></i>Salir</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
         </div>
         <!-- /main navbar -->
 
@@ -80,27 +84,31 @@
 
                         <!-- User menu -->
                         <div class="sidebar-user">
-                            <div class="category-content">
-                                <div class="media">
-                                    <a href="#" class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="media-heading text-semibold">Electoral</span>
-                                        <div class="text-size-mini text-muted">
-                                            <i class="icon-pin text-size-small">Prueba Token</i>
-                                        </div>
-                                    </div>
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">
+                                        <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
+									</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small" >
+                                            <asp:Label ID="Ubicacion" runat="server" Text="Label"></asp:Label>
+										</i> 
+									</div>
+								</div>
 
-                                    <div class="media-right media-middle">
-                                        <ul class="icons-list">
-                                            <li>
-                                                <a href="#"><i class="icon-cog3"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>			
+
                         <!-- /user menu -->
 
 
@@ -181,8 +189,8 @@
 
                         <div class="navbar-collapse collapse" id="navbar-filter">
                             <ul class="nav navbar-nav element-active-slate-400">
-                                <li class="active"><a href="#activity" data-toggle="tab"><i class="icon-menu7 position-left"></i>Candidatos </a></li>
-                                <li><a href="#schedule" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Información  </a></li>
+                                <li class="active"><a href="#activity" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Candidatos </a></li>
+                                <li><a href="#schedule" data-toggle="tab"><i class="icon-menu position-left"></i>Información  </a></li>
                                 <li><a href="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i>Configuración </a></li>
                             </ul>
                         </div>
@@ -221,7 +229,6 @@
                                                                             <ul class="icons-list">
                                                                                 <li><a data-action="collapse"></a></li>
                                                                                 <li><a data-action="reload"></a></li>
-                                                                                <li><a data-action="close"></a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -267,7 +274,7 @@
                                             <!-- Profile info -->
                                             <div class="panel panel-flat">
                                                 <div class="panel-heading">
-                                                    <h6 class="panel-title">Profile information</h6>
+                                                    <h6 class="panel-title">Configuración de convocatoria</h6>
                                                     <div class="heading-elements">
                                                         <ul class="icons-list">
                                                             <li><a data-action="collapse"></a></li>
@@ -277,213 +284,84 @@
                                                 </div>
 
                                                 <div class="panel-body">
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Username</label>
-                                                                    <input type="text" value="Eugene" class="form-control">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label>Full name</label>
-                                                                    <input type="text" value="Kopyov" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Address line 1</label>
-                                                                    <input type="text" value="Ring street 12" class="form-control">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label>Address line 2</label>
-                                                                    <input type="text" value="building D, flat #67" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
+                                                        <div class="row">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <label>City</label>
-                                                                    <input type="text" value="Munich" class="form-control">
+                                                                    <div class="form-group">
+                                                                        <label>Titulo Convocatoria <span class="text-danger">*</span>  </label>
+                                                                        <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo" required="required" />
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-md-4">
-                                                                    <label>State/Province</label>
-                                                                    <input type="text" value="Bayern" class="form-control">
+                                                                    <div class="form-group">
+                                                                        <label>Inicio de inscripciones</label>
+                                                                        <input type="date" class="form-control" runat="server" id="finscripcionconvo" required="required">
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-md-4">
-                                                                    <label>ZIP code</label>
-                                                                    <input type="text" value="1031" class="form-control">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">fin de inscripciones</label>
+                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion candidatos habilitados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="candidatoshconvo" />
+                                                                          </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion de jurados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="juradosconvoca">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicacion de resultados</label>
+                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo">
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <label>Email</label>
-                                                                    <input type="text" readonly="readonly" value="eugene@kopyov.com" class="form-control">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha elecciones presenciales</label>
+                                                                        <input type="date" class="form-control" runat="server" id="epresenciaconvo" required>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label>Your country</label>
-                                                                    <select class="select">
-                                                                        <option value="germany" selected="selected">Germany</option>
-                                                                        <option value="france">France</option>
-                                                                        <option value="spain">Spain</option>
-                                                                        <option value="netherlands">Netherlands</option>
-                                                                        <option value="other">...</option>
-                                                                        <option value="uk">United Kingdom</option>
-                                                                    </select>
+                                                                    <div class="form-group">
+                                                                        <label>Fecha elecciones distancia </label>
+                                                                        <input type="date" class="form-control" runat="server" id="edistanciaconvo">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div class="form-group">
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Phone #</label>
-                                                                    <input type="text" value="+99-99-9999-9999" class="form-control">
-                                                                    <span class="help-block">+99-99-9999-9999</span>
-                                                                </div>
-
-                                                                <div class="col-md-6">
-                                                                    <label>Upload profile image</label>
-                                                                    <input type="file" class="file-styled">
-                                                                    <span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Observacion</label>
+                                                                        <textarea rows="5" class="form-control" placeholder="Detalles" id="observacionconvo" runat="server"></textarea>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+
                                                         </div>
 
                                                         <div class="text-right">
-                                                            <button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
+                                                            <asp:Button ID="guardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="guardar_Click" />
                                                         </div>
                                                    
                                                 </div>
                                             </div>
                                             <!-- /profile info -->
-
-
-                                            <!-- Account settings -->
-                                            <div class="panel panel-flat">
-                                                <div class="panel-heading">
-                                                    <h6 class="panel-title">Account settings</h6>
-                                                    <div class="heading-elements">
-                                                        <ul class="icons-list">
-                                                            <li><a data-action="collapse"></a></li>
-                                                            <li><a data-action="reload"></a></li>
-                                                            <li><a data-action="close"></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="panel-body">
-                                                    <form action="#">
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Username</label>
-                                                                    <input type="text" value="Kopyov" readonly="readonly" class="form-control">
-                                                                </div>
-
-                                                                <div class="col-md-6">
-                                                                    <label>Current password</label>
-                                                                    <input type="password" value="password" readonly="readonly" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>New password</label>
-                                                                    <input type="password" placeholder="Enter new password" class="form-control">
-                                                                </div>
-
-                                                                <div class="col-md-6">
-                                                                    <label>Repeat password</label>
-                                                                    <input type="password" placeholder="Repeat new password" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Profile visibility</label>
-
-                                                                    <div class="radio">
-                                                                        <label>
-                                                                            <input type="radio" name="visibility" class="styled" checked="checked">
-                                                                            Visible to everyone
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="radio">
-                                                                        <label>
-                                                                            <input type="radio" name="visibility" class="styled">
-                                                                            Visible to friends only
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="radio">
-                                                                        <label>
-                                                                            <input type="radio" name="visibility" class="styled">
-                                                                            Visible to my connections only
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="radio">
-                                                                        <label>
-                                                                            <input type="radio" name="visibility" class="styled">
-                                                                            Visible to my colleagues only
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-6">
-                                                                    <label>Notifications</label>
-
-                                                                    <div class="checkbox">
-                                                                        <label>
-                                                                            <input type="checkbox" class="styled" checked="checked">
-                                                                            Password expiration notification
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="checkbox">
-                                                                        <label>
-                                                                            <input type="checkbox" class="styled" checked="checked">
-                                                                            New message notification
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="checkbox">
-                                                                        <label>
-                                                                            <input type="checkbox" class="styled" checked="checked">
-                                                                            New task notification
-                                                                        </label>
-                                                                    </div>
-
-                                                                    <div class="checkbox">
-                                                                        <label>
-                                                                            <input type="checkbox" class="styled">
-                                                                            New contact request notification
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="text-right">
-                                                            <button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <!-- /account settings -->
-
                                         </div>
                                     </div>
                                 </div>

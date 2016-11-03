@@ -13,7 +13,8 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
-                
+                Session["Token"] = null;
+                Session["Code"] = null;
             }
         }
     }

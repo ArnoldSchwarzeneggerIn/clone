@@ -46,24 +46,28 @@
             </div>
 
             <div class="navbar-collapse collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav">
-                    <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-                </ul>
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown dropdown-user">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/images/placeholder.jpg" alt="">
-                            <span>Usuario</span>
-                            <i class="caret"></i>
-                        </a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/placeholder.jpg" alt="" runat="server" id="imagen_Perfil">
+						<span>
+                            <asp:Label ID="Nombre1" runat="server" Text="Label"></asp:Label> 
+						</span>
+						<i class="caret"></i>
+					</a>
 
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#"><i class="icon-switch2"></i>Salir</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
         </div>
         <!-- /main navbar -->
 
@@ -80,27 +84,31 @@
 
                         <!-- User menu -->
                         <div class="sidebar-user">
-                            <div class="category-content">
-                                <div class="media">
-                                    <a href="#" class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="media-heading text-semibold">Electoral</span>
-                                        <div class="text-size-mini text-muted">
-                                            <i class="icon-pin text-size-small">Prueba Token</i>
-                                        </div>
-                                    </div>
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">
+                                        <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
+									</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small" >
+                                            <asp:Label ID="Ubicacion" runat="server" Text="Label"></asp:Label>
+										</i> 
+									</div>
+								</div>
 
-                                    <div class="media-right media-middle">
-                                        <ul class="icons-list">
-                                            <li>
-                                                <a href="#"><i class="icon-cog3"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>			
+
                         <!-- /user menu -->
 
 

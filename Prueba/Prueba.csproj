@@ -117,15 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\assets\images\LogoGIECOM.png" />
-    <Content Include="Views\assets\images\r.JPG" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Views\assets\images\sistema-electoral3.png" />
-    <Content Include="Views\assets\js\campos.js" />
-    <Content Include="Views\assets\js\pages\Calendario.js" />
-    <Content Include="Views\assets\js\pages\wizard_steps.js" />
     <Content Include="Views\Causaderetiro.aspx" />
     <Content Include="Views\ConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />

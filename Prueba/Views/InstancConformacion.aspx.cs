@@ -12,22 +12,18 @@ namespace Prueba.Views
 {
     public partial class InstancConformacion : System.Web.UI.Page
     {
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CargarConform();
             }
-
        }
 
         protected void CargarConform()
         {
             try
             {
-                
             }
             catch (Exception ex)
             {

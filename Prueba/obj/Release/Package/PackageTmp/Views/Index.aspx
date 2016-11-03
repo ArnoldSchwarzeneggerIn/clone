@@ -78,12 +78,17 @@
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
 						<img src="assets/images/placeholder.jpg" alt="" runat="server" id="imagen_Perfil">
-						<span>Usuario</span>
+						<span>
+                            <asp:Label ID="Nombre1" runat="server" Text="Label"></asp:Label> 
+						</span>
 						<i class="caret"></i>
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
+						
+                        <li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+                        </li>
 					</ul>
 				</li>
 			</ul>
@@ -108,12 +113,15 @@
 							<div class="media">
 								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
 								<div class="media-body">
-									<span class="media-heading text-semibold">Electoral</span>
+									<span class="media-heading text-semibold">
+                                        <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
+									</span>
 									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small" > Prueba Token</i> 
+										<i class="icon-pin text-size-small" >
+                                            <asp:Label ID="Ubicacion" runat="server" Text="Label"></asp:Label>
+										</i> 
 									</div>
 								</div>
-
 								<div class="media-right media-middle">
 									<ul class="icons-list">
 										<li>
@@ -125,7 +133,6 @@
 						</div>
 					</div>
 					<!-- /user menu -->
-
 
 					<!-- Main navigation -->
 					<div class="sidebar-category sidebar-category-visible">
@@ -170,11 +177,9 @@
 						</div>
 					</div>
 					<!-- /main navigation -->
-
 				</div>
 			</div>
 			<!-- /main sidebar -->
-
 
 			<!-- Main content -->
 			<div class="content-wrapper">
@@ -183,7 +188,6 @@
 						<ul class="breadcrumb">
 							<li><a href="Index.aspx"><i class="icon-home2 position-left"></i> Index</a></li>
 						</ul>
-
                         <ul class="breadcrumb-elements">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -191,32 +195,24 @@
 									Desarrolladores
 									<span class="caret"></span>
 								</a>
-
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li><a onclick="EnviarCode('code');"><i class="icon-user-lock"></i> Code</a></li>
-									
 								</ul>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<!-- /page header -->
-
-
 				<!-- Content area -->
 				<div class="content">
-				
-
-
 					<!-- Footer -->
+
 					<div class="footer text-muted">
 						&copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
 					</div>
 					<!-- /footer -->
-
 				</div>
 				<!-- /content area -->
-
 			</div>
 			<!-- /main content -->
 

@@ -53,7 +53,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Prueba.dll">
-      <publishTime>10/28/2016 12:03:20</publishTime>
+      <publishTime>11/03/2016 15:45:04</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>10/18/2016 22:20:40</publishTime>
@@ -1163,7 +1163,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/images/LogoGIECOM.png">
-      <publishTime>10/26/2016 13:26:36</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/images/logo_dark.png">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -1193,13 +1193,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/images/r.JPG">
-      <publishTime>10/18/2016 22:20:32</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/images/signature.png">
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/images/sistema-electoral3.png">
-      <publishTime>10/26/2016 23:32:57</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/images/ui/.DS_Store">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -1214,7 +1214,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/js/campos.js">
-      <publishTime>10/24/2016 14:11:44</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/js/charts/.DS_Store">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -1895,7 +1895,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/js/pages/Calendario.js">
-      <publishTime>10/26/2016 00:53:37</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/js/pages/colors_blue.js">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -2246,7 +2246,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:13</publishTime>
     </File>
     <File Include="Views/assets/js/pages/wizard_steps.js">
-      <publishTime>10/21/2016 18:26:53</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/assets/js/pages/wizard_stepy.js">
       <publishTime>10/10/2016 23:35:13</publishTime>
@@ -6128,22 +6128,22 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/10/2016 23:35:14</publishTime>
     </File>
     <File Include="Views/Causaderetiro.aspx">
-      <publishTime>10/18/2016 22:20:31</publishTime>
+      <publishTime>11/03/2016 15:33:46</publishTime>
     </File>
     <File Include="Views/ConvocatoriaDetalle.aspx">
-      <publishTime>10/26/2016 00:39:58</publishTime>
+      <publishTime>11/03/2016 15:34:05</publishTime>
     </File>
     <File Include="Views/Index.aspx">
-      <publishTime>10/27/2016 15:28:51</publishTime>
+      <publishTime>11/03/2016 15:41:17</publishTime>
     </File>
     <File Include="Views/InstancConformacion.aspx">
       <publishTime>10/18/2016 22:20:31</publishTime>
     </File>
     <File Include="Views/instanciaDetalle.aspx">
-      <publishTime>10/18/2016 22:20:36</publishTime>
+      <publishTime>11/03/2016 15:34:27</publishTime>
     </File>
     <File Include="Views/Instancias.aspx">
-      <publishTime>10/18/2016 22:20:37</publishTime>
+      <publishTime>11/03/2016 15:34:43</publishTime>
     </File>
     <File Include="Views/LanzarConvocatoria.aspx">
       <publishTime>10/18/2016 22:20:37</publishTime>
@@ -6152,16 +6152,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/26/2016 22:45:49</publishTime>
     </File>
     <File Include="Views/pruebajulian.aspx">
-      <publishTime>10/18/2016 22:20:37</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/VCandidato.aspx">
-      <publishTime>10/18/2016 22:20:37</publishTime>
+      <publishTime>11/03/2016 15:35:03</publishTime>
     </File>
     <File Include="Views/VCobertura.aspx">
-      <publishTime>10/24/2016 15:32:42</publishTime>
+      <publishTime>11/03/2016 15:35:18</publishTime>
     </File>
     <File Include="Views/VConvocatoria.aspx">
-      <publishTime>10/25/2016 13:19:28</publishTime>
+      <publishTime>11/03/2016 15:35:40</publishTime>
     </File>
     <File Include="Views/Votar.aspx">
       <publishTime>10/19/2016 18:25:47</publishTime>

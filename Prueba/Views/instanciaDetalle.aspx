@@ -51,25 +51,30 @@
                 </ul>
             </div>
 
-            <div class="navbar-collapse collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav">
-                    <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-                </ul>
+          		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown dropdown-user">
-                        <a class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/images/placeholder.jpg" alt="">
-                            <span>Usuario</span>
-                            <i class="caret"></i>
-                        </a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/images/placeholder.jpg" alt="" runat="server" id="imagen_Perfil">
+						<span>
+                            <asp:Label ID="Nombre1" runat="server" Text="Label"></asp:Label> 
+						</span>
+						<i class="caret"></i>
+					</a>
 
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#"><i class="icon-switch2"></i>Salir</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
         </div>
         <!-- /main navbar -->
 
@@ -79,81 +84,32 @@
             <div class="page-content">
 
                 <!-- Main sidebar -->
-                <div class="sidebar sidebar-main">
-                    <div class="sidebar-content">
+                					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">
+                                        <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
+									</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small" >
+                                            <asp:Label ID="Ubicacion" runat="server" Text="Label"></asp:Label>
+										</i> 
+									</div>
+								</div>
 
-                        <!-- User menu -->
-                        <div class="sidebar-user">
-                            <div class="category-content">
-                                <div class="media">
-                                    <a href="#" class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="media-heading text-semibold">Electoral</span>
-                                        <div class="text-size-mini text-muted">
-                                            <i class="icon-pin text-size-small">Prueba Token</i>
-                                        </div>
-                                    </div>
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                                    <div class="media-right media-middle">
-                                        <ul class="icons-list">
-                                            <li>
-                                                <a href="#"><i class="icon-cog3"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /user menu -->
-
-
-                        <!-- Main navigation -->
-                        <div class="sidebar-category sidebar-category-visible">
-                            <div class="category-content no-padding">
-                                <ul class="navigation navigation-main navigation-accordion">
-
-                                    <!-- Main -->
-                                    <li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-                                    <li><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
-                                    <li>
-                                        <a href="#"><i class="icon-stack2"></i><span>Convocatorias</span></a>
-                                        <ul>
-                                            <li><a href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
-                                            <li><a href="#">Lanzar convocatoria</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="icon-vcard"></i><span>Candidatos</span></a>
-                                        <ul>
-                                            <li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
-                                            <li><a href="#">Mi candidatura</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#"><i class="icon-puzzle"></i><span>Parametricas</span></a>
-                                        <ul>
-                                            <li><a href="VCobertura.aspx">Cobertura</a></li>
-                                            <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
-                                            <li class="active"><a href="Instancias.aspx">Instancias</a></li>
-                                            <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="icon-stack-text"></i><span>Votaciones</span></a>
-                                        <ul>
-                                            <li><a href="Votar.aspx">Votar</a></li>
-                                            <li><a href="#">Resultados</a></li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /main navigation -->
-
-                    </div>
-                </div>
                 <!-- /main sidebar -->
 
 

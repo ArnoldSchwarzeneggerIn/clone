@@ -66,7 +66,9 @@
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
+						<li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+						</li>
 					</ul>
 				</li>
 			</ul>
