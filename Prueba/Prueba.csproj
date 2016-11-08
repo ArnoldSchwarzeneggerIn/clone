@@ -131,7 +131,6 @@
     <Content Include="Views\VCandidato.aspx" />
     <Content Include="Views\VCobertura.aspx" />
     <Content Include="Views\VConvocatoria.aspx" />
-    <Content Include="Views\VJurados.aspx" />
     <Content Include="Views\Votar.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -152,7 +151,6 @@
     <Compile Include="Controllers\InstanciaDetalleController.cs" />
     <Compile Include="Controllers\JuradosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
     <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
@@ -256,13 +254,6 @@
     </Compile>
     <Compile Include="Views\VConvocatoria.aspx.designer.cs">
       <DependentUpon>VConvocatoria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\VJurados.aspx.cs">
-      <DependentUpon>VJurados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\VJurados.aspx.designer.cs">
-      <DependentUpon>VJurados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Votar.aspx.cs">
       <DependentUpon>Votar.aspx</DependentUpon>

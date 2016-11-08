@@ -35,7 +35,5 @@ namespace Prueba.Models
             tran[0] = new Transacion("PR_NSRT_JURA", para);
             return conx.realizarTransaccion(tran);
         }
-
-       
     }
 }

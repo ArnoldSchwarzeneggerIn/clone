@@ -25,11 +25,11 @@ namespace Prueba.views
             {
                 try
                 {
-                    //if (Session["token"] == null)
-                    //{
-                    //    Response.Redirect("Loggin.aspx");
-                    //}
-                    //scope("public_profile");
+                    ////if (Session["token"] == null)
+                    ////{
+                    ////    Response.Redirect("Loggin.aspx");
+                    ////}
+                    ////scope("public_profile");
                     Cargar_instancias();
                     Cargar_cobertura(CoberturaIns);
 
@@ -58,6 +58,7 @@ namespace Prueba.views
             Session.Abandon();
             Response.Redirect("Loggin.aspx");
         }
+
 
         protected void Cargar_instancias()
         {
