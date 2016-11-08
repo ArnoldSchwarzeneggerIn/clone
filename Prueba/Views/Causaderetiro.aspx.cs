@@ -17,12 +17,12 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
-                if (Session["Token"]==null)
-                {
-                    Response.Redirect("Loggin.aspx");
-                }
+                //if (Session["Token"]==null)
+                //{
+                //    Response.Redirect("Loggin.aspx");
+                //}
                 CargarCausa();
-                scope("public_profile");
+                //scope("public_profile");
             }
         }
 
