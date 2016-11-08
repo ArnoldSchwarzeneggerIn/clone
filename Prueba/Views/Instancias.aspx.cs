@@ -59,6 +59,7 @@ namespace Prueba.views
             Response.Redirect("Loggin.aspx");
         }
 
+
         protected void Cargar_instancias()
         {
             List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
