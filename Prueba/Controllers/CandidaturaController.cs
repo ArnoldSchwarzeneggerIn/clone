@@ -47,6 +47,40 @@ namespace Prueba.Controllers
                 }
             }
         }
+
+        [HttpPost]
+        public IHttpActionResult ModificarCandidatura(Candidatura obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cand.ModificarCandidadatura(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult ConsultarCandidatos(Candidatura obj)
+        {
+            return Json(cand.ConsultarCandidatos(obj));
+        }
+
         //public DataTable ConsultarPrograma(Loggin log)
         //{
         //    return Conexion.ConsultarConParametros("PR_CONSULTARPROGRAMA", "CR_CONSP", log.ConsultarInstancia());
@@ -70,10 +104,7 @@ namespace Prueba.Controllers
         //    return Conexion.ConsultarConParametros("PR_CONSULTARCANDIDATOS", "p_recordset", conv.ConsultaPorId());
         //}
 
-        //public static DataTable ConsultarRol(Loggin log)
-        //{
-        //    return Conexion.ConsultarConParametros("PR_PERSONAROL", "CR_ROL", log.ConsultarInstancia());
-        //}
+
 
 
     }

@@ -46,11 +46,14 @@ namespace Prueba.Models
             return conx.realizarConsulta("PR_CNST_DTOS", "CR_CNST_DTOS", para);
         }
 
+        public DataTable ConsultarRol(Login obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+            return conx.realizarConsulta("PR_CNSTPERSONAROL", "CR_CNSTPERSONAROL", para);
+        }
 
-        //public DataTable ConsultarCedulaCandidato(Loggin obj)
-        //{
-        //    //return cond.realizarConsulta();
-        //}
+      
 
     }
 }
