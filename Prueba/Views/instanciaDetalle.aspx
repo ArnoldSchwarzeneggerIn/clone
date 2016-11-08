@@ -51,7 +51,7 @@
                 </ul>
             </div>
 
-          		<div class="navbar-collapse collapse" id="navbar-mobile">
+         <div class="navbar-collapse collapse" id="navbar-mobile">
 			<ul class="nav navbar-nav">
 				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
 			</ul>
@@ -65,7 +65,6 @@
 						</span>
 						<i class="caret"></i>
 					</a>
-
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li>
                            <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>

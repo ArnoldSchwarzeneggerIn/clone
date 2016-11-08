@@ -21,7 +21,7 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
-                if (Session["Token"]==null)
+                if (Session["Token"] == null)
                 {
                     Response.Redirect("Loggin.aspx");
                 }
