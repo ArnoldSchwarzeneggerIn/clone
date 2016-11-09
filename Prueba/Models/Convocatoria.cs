@@ -11,20 +11,22 @@ namespace Prueba.Models
     {
 
         Conexion conx = new Conexion();
-        private Parametro[] para;
-        private string IdConvocatoria { get; set; }
-        private string NumeroConvocatoria { get; set; }
-        private string TituloCovocatoria { get; set; }
-        private string DescripcionConvocatoria { get; set; }
-        private string Fechainicioinscripcion{ get; set; }
-        private string Fechafininscripcion{ get; set; }
-        private string Fechapublicacionhabilitado{ get; set; }
-        private string Fechapublicacionjurados{ get; set; }
-        private string Fechaeleccionespresenciales{ get; set; }
-        private string Fechaeleccionesdistancia{ get; set; }
-        private string Fechapublicacionresultados{ get; set; }
+        public Parametro[] para;
+        public string IdConvocatoria { get; set; }
+        public string NumeroConvocatoria { get; set; }
+        public string TituloCovocatoria { get; set; }
+        public string DescripcionConvocatoria { get; set; }
+        public string Fechainicioinscripcion{ get; set; }
+        public string Fechafininscripcion{ get; set; }
+        public string Fechapublicacionhabilitado{ get; set; }
+        public string Fechapublicacionjurados{ get; set; }
+        public string Fechaeleccionespresenciales{ get; set; }
+        public string Fechaeleccionesdistancia{ get; set; }
+        public string Fechapublicacionresultados{ get; set; }
+        public string Estado { get; set; }
+       
 
-        public Parametro[] AgregarParametroInsertar(Convocatoria obj)
+        public Parametro[] ParametroInsertar(Convocatoria obj)
         {
             para = new Parametro[9];
             para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
@@ -40,7 +42,7 @@ namespace Prueba.Models
             return para;
         }
 
-        public Parametro[] AgregarParametroModificar(Convocatoria obj)
+        public Parametro[] ParametroModificar(Convocatoria obj)
         {
             para = new Parametro[9];
             para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
@@ -90,7 +92,7 @@ namespace Prueba.Models
         public bool InsertarConvocatoria(Convocatoria obj)
         {
             Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_CNVT", AgregarParametroInsertar(obj));
+            trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
             return conx.realizarTransaccion(trans);
         }
 
@@ -98,7 +100,7 @@ namespace Prueba.Models
         {
 
             Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_CNVT", AgregarParametroModificar(obj));
+            trans[0] = new Transacion("PR_UPDT_CNVT", ParametroModificar(obj));
             return conx.realizarTransaccion(trans);
 
         }

@@ -20,5 +20,10 @@ namespace Prueba.Views
         {
 
         }
+
+        protected void Salir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

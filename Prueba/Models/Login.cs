@@ -9,43 +9,18 @@ namespace Prueba.Models
 {
     public class Login
     {
-        
-        private string usuarioLogin = string.Empty;
-        private string contraceniaLogin = string.Empty;
+        private string hola = string.Empty;
+
+        public string UsuarioLogin { get; set; }
+        public string ContraceniaLogin { get; set; }
+
         private Parametro[] para;
         Conexion conx = new Conexion();
-
-        public string UsuarioLogin
-        {
-            get
-            {
-                return usuarioLogin;
-            }
-
-            set
-            {
-                usuarioLogin = value;
-            }
-        }
-
-        public string ContraceniaLogin
-        {
-            get
-            {
-                return contraceniaLogin;
-            }
-
-            set
-            {
-                contraceniaLogin = value;
-            }
-        }
-
         public Login(string loggin)
         {
             this.UsuarioLogin = loggin;
         }
-
+    
         public Login()
         {
         }

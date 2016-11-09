@@ -11,80 +11,16 @@ namespace Prueba.Models
     {
 
         Conexion conx = new Conexion();
-        private Parametro[] para;
-        private Transacion[] tran;
-        private string idConvocatoriaDetalle = string.Empty;
-        private string convocatoriaConvocatoriaDetalle = string.Empty;
-        private string instanciadetalleConvocatoriaDetalle = string.Empty;
-        private string cuposConvocatoriaDetalle = string.Empty;
-        private string estadoConvocatoriaDetalle = string.Empty;
+        public Parametro[] para;
+        public Transacion[] tran;
+        public string IdConvocatoriaDetalle { set; get; }
+        public string ConvocatoriaConvocatoriaDetalle { set; get; }
+        public string InstanciadetalleConvocatoriaDetalle { set; get; }
+        public string CuposConvocatoriaDetalle { set; get; }
+        public string EstadoConvocatoriaDetalle { set; get; }
 
-        public string IdConvocatoriaDetalle
-        {
-            get
-            {
-                return idConvocatoriaDetalle;
-            }
 
-            set
-            {
-                idConvocatoriaDetalle = value;
-            }
-        }
-
-        public string ConvocatoriaConvocatoriaDetalle
-        {
-            get
-            {
-                return convocatoriaConvocatoriaDetalle;
-            }
-
-            set
-            {
-                convocatoriaConvocatoriaDetalle = value;
-            }
-        }
-
-        public string InstanciadetalleConvocatoriaDetalle
-        {
-            get
-            {
-                return instanciadetalleConvocatoriaDetalle;
-            }
-
-            set
-            {
-                instanciadetalleConvocatoriaDetalle = value;
-            }
-        }
-
-        public string CuposConvocatoriaDetalle
-        {
-            get
-            {
-                return cuposConvocatoriaDetalle;
-            }
-
-            set
-            {
-                cuposConvocatoriaDetalle = value;
-            }
-        }
-
-        public string EstadoConvocatoriaDetalle
-        {
-            get
-            {
-                return estadoConvocatoriaDetalle;
-            }
-
-            set
-            {
-                estadoConvocatoriaDetalle = value;
-            }
-        }
-
-        public Parametro[] AgregarParametros()
+        public Parametro[] ParametrosInsertar()
         {
             para = new Parametro[2];
             para[0] = new Parametro("PCOND_INSTANCIADETALLE", InstanciadetalleConvocatoriaDetalle);

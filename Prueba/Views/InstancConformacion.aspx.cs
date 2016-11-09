@@ -12,24 +12,18 @@ namespace Prueba.Views
 {
     public partial class InstancConformacion : System.Web.UI.Page
     {
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CargarConform();
             }
-
        }
 
         protected void CargarConform()
         {
             try
             {
-                List<Cobertura> cober = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
-                Instancia_tabla.DataSource = cober;
-                Instancia_tabla.DataBind();
             }
             catch (Exception ex)
             {

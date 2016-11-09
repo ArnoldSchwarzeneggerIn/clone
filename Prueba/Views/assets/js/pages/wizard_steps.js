@@ -16,16 +16,30 @@ $(function() {
     // ------------------------------
 
     // Basic wizard setup
+    var form2 = $('#Formulario');
+
     $(".steps-basic").steps({
         headerTag: "h6",
         bodyTag: "fieldset",
         transitionEffect: "fade",
         titleTemplate: '<span class="number">#index#</span> #title#',
         labels: {
-            finish: 'Submit'
+            finish: 'Registrar'
+        },
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex) {
+
+                // To remove error styles
+                form2.find(".body:eq(" + newIndex + ") label.error").remove();
+                form2.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+            }
+
+            form2.validate().settings.ignore = ":disabled,:hidden";
+            return form2.valid();
         },
         onFinished: function (event, currentIndex) {
-            alert("Form submitted.");
+            guardar();
         }
     });
 
@@ -72,8 +86,6 @@ $(function() {
             alert("Form submitted.");
         }
     });
-
-
     // Specify custom starting step
     $(".steps-starting-step").steps({
         headerTag: "h6",
@@ -85,13 +97,6 @@ $(function() {
             alert("Form submitted.");
         }
     });
-
-
-    //
-    // Wizard with validation
-    //
-
-    // Show form
     var form = $(".steps-validation").show();
 
 

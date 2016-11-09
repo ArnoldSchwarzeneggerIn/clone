@@ -10,50 +10,10 @@ namespace Prueba.Models
     public class CausaRetiro
     {
         Conexion conx = new Conexion();
-        private string idCausaretiro = string.Empty;
-        private string nombreCausaretiro = string.Empty;
-        private string estadoCausaretiro = string.Empty;
         Parametro[] para;
-
-        public string IdCausaretiro
-        {
-            get
-            {
-                return idCausaretiro;
-            }
-
-            set
-            {
-                idCausaretiro = value;
-            }
-        }
-
-        public string NombreCausaretiro
-        {
-            get
-            {
-                return nombreCausaretiro;
-            }
-
-            set
-            {
-                nombreCausaretiro = value;
-            }
-        }
-
-        public string EstadoCausaretiro
-        {
-            get
-            {
-                return estadoCausaretiro;
-            }
-
-            set
-            {
-                estadoCausaretiro = value;
-            }
-        }
-
+        public string IdCausaretiro { get; set; }
+        public string NombreCausaretiro { get; set; }
+        public string EstadoCausaretiro { get; set; }
 
         public Parametro[] AgregarParametros(CausaRetiro obj)
         {

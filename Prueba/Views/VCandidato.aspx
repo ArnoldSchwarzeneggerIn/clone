@@ -40,7 +40,9 @@
 </head>
 
 <body>
+    <form runat="server" id="Formulario">
 
+    
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-header">
@@ -66,7 +68,9 @@
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-switch2"></i> Salir</a></li>
+						<li>
+                           <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click" > <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -111,7 +115,7 @@
 
 
 					<!-- Main navigation -->
-					<div class="sidebar-category sidebar-category-visible">
+						<div class="sidebar-category sidebar-category-visible">
 						<div class="category-content no-padding">
 							<ul class="navigation navigation-main navigation-accordion">
 
@@ -121,31 +125,31 @@
 								<li>
 									<a href="#"><i class="icon-stack2"></i> <span>Convocatorias</span></a>
 									<ul>
-										<li><a href="layout_navbar_fixed.html">Gestionar convocatoria</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Lanzar convocatoria</a></li>
+										<li><a href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
+                                        <li><a href="#">Lanzar convocatoria</a></li>
 									</ul>
 								</li>
                                 <li>
 									<a href="#"><i class="icon-vcard"></i> <span>Candidatos</span></a>
 									<ul>
-										<li><a href="layout_navbar_fixed.html">Gestionar candidatos</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Mi candidatura</a></li>
+										<li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
+                                        <li><a href="#">Mi candidatura</a></li>
 									</ul>
 								</li>
                                 <li>
 									<a href="#"><i class="icon-puzzle"></i> <span>Parametricas</span></a>
 									<ul>
-										<li><a href="layout_navbar_fixed.html">Cobertura</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Causa de retiro</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Instancias</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Instancia conformacion</a></li>
+										<li><a href="VCobertura.aspx">Cobertura</a></li>
+                                        <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
+                                        <li><a href="Instancias.aspx">Instancias</a></li>
+                                        <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
 									</ul>
 								</li>
                                  <li>
 									<a href="#"><i class="icon-stack-text"></i> <span>Votaciones</span></a>
 									<ul>
-										<li><a href="layout_navbar_fixed.html">Votar</a></li>
-                                        <li><a href="layout_navbar_fixed.html">Resultados</a></li>
+										<li><a href="Votar.aspx">Votar</a></li>
+                                        <li><a href="#">Resultados</a></li>
 									</ul>
 								</li>
                                 
@@ -176,6 +180,52 @@
 				<!-- Content area -->
 				<div class="content">
 				
+                    <div class="row">
+						<div class="col-md-6">
+
+							<!-- Simple list -->
+							<div class="panel panel-flat">
+								<div class="panel-heading">
+									<h5 class="panel-title">Comite curriculo</h5>
+									<div class="heading-elements">
+										<ul class="icons-list">
+					                		<li><a data-action=""></a></li>
+					                	</ul>
+				                	</div>
+								<a class="heading-elements-toggle"><i class="icon-menu"></i></a></div>
+
+								<div class="panel-body">
+									<ul class="media-list">
+										<li class="media-header">Profesores</li>
+										<li class="media">
+											<div class="media-left media-middle">
+												<a href="#">
+													<img src="assets/images/placeholder.jpg" class="img-circle" alt="">
+												</a>
+											</div>
+
+											<div class="media-body">
+												<div class="media-heading text-semibold">Candidato 1</div>
+												<span class="text-muted">Algo</span>
+											</div>
+
+											<div class="media-right media-middle">
+												<ul class="icons-list icons-list-extended text-nowrap">
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#call" data-original-title="Call"><i class="icon-phone2"></i></a></li>
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#chat" data-original-title="Chat"><i class="icon-comment"></i></a></li>
+							                    	<li><a href="#" data-popup="tooltip" title="" data-toggle="modal" data-target="#video" data-original-title="Video"><i class="icon-video-camera"></i></a></li>
+						                    	</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /simple list -->
+
+						</div>
+
+						
+					</div>
 
 
 					<!-- Footer -->
@@ -195,6 +245,6 @@
 
 	</div>
 	<!-- /page container -->
-
+        </form>
 </body>
 </html>

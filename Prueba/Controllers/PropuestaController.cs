@@ -11,7 +11,7 @@ namespace Prueba.Controllers
     public class PropuestaController : ApiController
     {
         Propuesta prop = new Propuesta();
-        public IHttpActionResult getPropuesta()
+        public IHttpActionResult InsertarPropuesta()
         {
             return null;
         }

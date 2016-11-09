@@ -9,120 +9,16 @@ namespace Prueba.Models
 {
     public class InstanciaDetalle
     {
-        Conexion conx = new Conexion();
-        private Parametro[] para;
-        private string idInstanciadetalle = string.Empty;
-        private string idInstancia = string.Empty;
-        private string nombreInstanciadetalle = string.Empty;
-        private string tipoDeElector = string.Empty;
-        private string cupoInstanciadetalle = string.Empty;
-        private string votacionInstanciadetalle = string.Empty;
-        private string estadoInstanciadetalle = string.Empty;
-        private string periodoInstranciadetalle = string.Empty;
-
-        public string IdInstanciadetalle
-        {
-            get
-            {
-                return idInstanciadetalle;
-            }
-
-            set
-            {
-                idInstanciadetalle = value;
-            }
-        }
-
-        public string IdInstancia
-        {
-            get
-            {
-                return idInstancia;
-            }
-
-            set
-            {
-                idInstancia = value;
-            }
-        }
-
-        public string NombreInstanciadetalle
-        {
-            get
-            {
-                return nombreInstanciadetalle;
-            }
-
-            set
-            {
-                nombreInstanciadetalle = value;
-            }
-        }
-
-        public string TipoDeElector
-        {
-            get
-            {
-                return tipoDeElector;
-            }
-
-            set
-            {
-                tipoDeElector = value;
-            }
-        }
-
-        public string CupoInstanciadetalle
-        {
-            get
-            {
-                return cupoInstanciadetalle;
-            }
-
-            set
-            {
-                cupoInstanciadetalle = value;
-            }
-        }
-
-        public string VotacionInstanciadetalle
-        {
-            get
-            {
-                return votacionInstanciadetalle;
-            }
-
-            set
-            {
-                votacionInstanciadetalle = value;
-            }
-        }
-
-        public string EstadoInstanciadetalle
-        {
-            get
-            {
-                return estadoInstanciadetalle;
-            }
-
-            set
-            {
-                estadoInstanciadetalle = value;
-            }
-        }
-
-        public string PeriodoInstranciadetalle
-        {
-            get
-            {
-                return periodoInstranciadetalle;
-            }
-
-            set
-            {
-                periodoInstranciadetalle = value;
-            }
-        }
+        private Conexion conx = new Conexion();
+        public Parametro[] para;
+        public string IdInstanciadetalle {get;set;}
+        public string IdInstancia {get;set;}
+        public string NombreInstanciadetalle {get;set;}
+        public string TipoDeElector {get;set;}
+        public string CupoInstanciadetalle {get;set;}
+        public string VotacionInstanciadetalle {get;set;}
+        public string EstadoInstanciadetalle {get;set;}
+        public string PeriodoInstranciadetalle {get;set;}
 
         public DataTable Consultar()
         {
@@ -136,14 +32,14 @@ namespace Prueba.Models
             para[1] = new Parametro("PINSD_TIPO_ELECTOR", obj.TipoDeElector);
             para[2] = new Parametro("PINSD_VOTACION", obj.VotacionInstanciadetalle);
             para[3] = new Parametro("PINSD_CUPOS", obj.CupoInstanciadetalle);
-            para[4] = new Parametro("PINSD_INSTANCIA", obj.CupoInstanciadetalle);
+            para[4] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
             para[5] = new Parametro("PINSD_PERIODO", obj.PeriodoInstranciadetalle);
 
 
             return para;
         }
 
-        public Parametro[] ModificarInstanciaDetalle(InstanciaDetalle obj)
+        public bool ModificarInstanciaDetalle(InstanciaDetalle obj)
         {
             para = new Parametro[8];
 
@@ -156,7 +52,10 @@ namespace Prueba.Models
             para[6] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
             para[7] = new Parametro("PINSD_PERIODO", obj.PeriodoInstranciadetalle);
 
-            return para;
+            Transacion[] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_UPDT_INSD", para);
+
+            return conx.realizarTransaccion(trans);
         }
 
 
@@ -166,6 +65,14 @@ namespace Prueba.Models
             para[0] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
 
             return conx.realizarConsulta("PR_CNST_INSD_POR_INST", "CR_CNST_INSD_POR_INST", para);
+        }
+
+        public bool InsertarInstanciaDetalle(InstanciaDetalle obj)
+        {
+            Transacion [] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_NSRT_INTD",AgregarInstanciaDetalle(obj));
+
+            return conx.realizarTransaccion(trans);
         }
 
     }

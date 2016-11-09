@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Prueba.Models;
 using RestSharp;
 using System;
@@ -16,8 +17,30 @@ namespace Prueba.Views
         {
             if (!IsPostBack)
             {
+                if (Session["Token"]==null)
+                {
+                    Response.Redirect("Loggin.aspx");
+                }
                 Cargarcobertura();
+                scope("public_profile");
             }
+        }
+        protected void scope(string Scope)
+        {
+            var respose = ConsumirAppi.Scope(Rutas.Autenticacion, new RestRequest("oauth2/resource.asmx/scope", Method.POST), Scope);
+            JToken Tokens = JsonConvert.DeserializeObject(respose);
+            JArray scope = JArray.Parse(Tokens.SelectToken("description").ToString());
+            imagen_Perfil.Attributes.Add("src", scope[0]["FOTO"].ToString());
+            Imagen_perfil2.Attributes.Add("src", scope[0]["FOTO"].ToString());
+            Nombre2.Text = scope[0]["NOMBRES"].ToString();
+            Nombre1.Text = scope[0]["NOMBRES"].ToString() + " " + scope[0]["APELLIDOS"].ToString();
+            Ubicacion.Text = scope[0]["MUNICIPIO"].ToString() + "-" + scope[0]["DEPARTAMENTO"].ToString();
+        }
+        protected void Salir_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Loggin.aspx");
         }
         protected void Cargarcobertura()
         {
@@ -25,28 +48,32 @@ namespace Prueba.Views
             {
             List<Cobertura> cober = JsonConvert.DeserializeObject<List<Cobertura>>(ConsumirAppi.ConsumirGet(Rutas.Cobertura, new RestRequest("ConsultarCobertura", Method.GET)).Content);
             Cobertura_t.DataSource = cober;
-                NumeroR.Text = cober.Count.ToString();
+            NumeroR.Text = cober.Count.ToString();
             Cobertura_t.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Alerta", "Alerta();", true);
+
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No se cargaron datos" + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
             }
 
         }
 
         protected void AgregarCober_Click(object sender, EventArgs e)
         {
+           
             try
             {
-                var Cober = new Cobertura() { NombreCobertura = cober.Value};
-                var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura,new RestRequest("InsertarCobertura", Method.POST),Cober);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "Registro Exitoso" + "');", true);
+               var Cober = new Cobertura() { NombreCobertura = cober.Value};
+               var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura,new RestRequest("InsertarCobertura", Method.POST),Cober);
+               ScriptManager.RegisterStartupScript(this, this.GetType(), "Alerta", "Alerta('Registro','El registro se ha guardado satisfactoriamente','icon-check2','success','true');", true);
+
+                //Cargarcobertura();
             }
             catch (Exception Ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "demo.showNotification('top','right','" + "No ha sido registrado" + "');", true);
-               
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Alerta", "Alerta('Algo va mal','Su registro no se ha almacenado','icon-cross3',warning','true');", true);
             }
         }
 
@@ -55,7 +82,6 @@ namespace Prueba.Views
            Cobertura_t.EditIndex = -1;
             Cargarcobertura();
         }
-
         protected void Cobertura_t_RowEditing(object sender, GridViewEditEventArgs e)
         {
             Cobertura_t.EditIndex = e.NewEditIndex;
@@ -74,7 +100,7 @@ namespace Prueba.Views
             cobe.NombreCobertura = t.Text;
             DropDownList estado = (DropDownList)Cobertura_t.Rows[e.RowIndex].FindControl("estado");
             cobe.EstadoCobertura = estado.Text;
-            var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura, new RestRequest("InsertarCobertura", Method.POST), cobe);
+            var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura, new RestRequest("ModificarCobertura", Method.POST), cobe);
             Cobertura_t.EditIndex = -1;
             Cargarcobertura();
         }

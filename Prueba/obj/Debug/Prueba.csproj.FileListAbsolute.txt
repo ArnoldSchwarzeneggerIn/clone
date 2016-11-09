@@ -1,0 +1,131 @@
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\ApplicationInsights.config
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\csc.exe
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\vbc.exe
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Prueba.dll.config
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Prueba.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Prueba.pdb
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.Web.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Newtonsoft.Json.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Oracle.ManagedDataAccess.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\RestSharp.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Net.Http.Formatting.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Web.Http.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Web.Http.WebHost.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.Web.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\RestSharp.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\Newtonsoft.Json.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Net.Http.Formatting.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Web.Http.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\bin\System.Web.Http.WebHost.xml
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\obj\Debug\Prueba.dll
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\obj\Debug\Prueba.pdb
+C:\Users\Usuario\Desktop\Nueva carpeta (4)\Electoral\Prueba\obj\Debug\Prueba.csprojResolveAssemblyReference.cache
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\ApplicationInsights.config
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\csc.exe
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\vbc.exe
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Prueba.dll.config
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Prueba.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Prueba.pdb
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.Web.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Newtonsoft.Json.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Oracle.ManagedDataAccess.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\RestSharp.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Net.Http.Formatting.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Web.Http.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Web.Http.WebHost.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.Web.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\Newtonsoft.Json.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\RestSharp.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Net.Http.Formatting.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Web.Http.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\bin\System.Web.Http.WebHost.xml
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.csprojResolveAssemblyReference.cache
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.dll
+C:\Users\Gcma\Desktop\Proyecto Sistema Electoral\Electoral\Prueba\obj\Debug\Prueba.pdb
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\ApplicationInsights.config
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\csc.exe
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\vbc.exe
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Prueba.dll.config
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Prueba.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Prueba.pdb
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.Web.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Newtonsoft.Json.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\RestSharp.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Net.Http.Formatting.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Web.Http.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Web.Http.WebHost.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.Web.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\Newtonsoft.Json.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\RestSharp.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Net.Http.Formatting.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Web.Http.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\bin\System.Web.Http.WebHost.xml
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\obj\Debug\Prueba.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\obj\Debug\Prueba.dll
+C:\Users\Usuario\Documents\Version\Front\Electoral\Prueba\obj\Debug\Prueba.pdb
