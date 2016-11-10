@@ -12,6 +12,12 @@ namespace Prueba.Controllers
     {
         Login logi = new Login();
         [HttpPost]
+        public IHttpActionResult ConsultarPermisos(Login obj)
+        {
+            return Json(logi.ConsultarPermisos(obj));
+        }
+        
+        [HttpPost]
         public IHttpActionResult ConsultarPrograma(Login obj)
         {
             return Json(logi.ConsultarPrograma(obj));

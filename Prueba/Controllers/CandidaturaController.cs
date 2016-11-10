@@ -48,6 +48,10 @@ namespace Prueba.Controllers
             }
         }
 
+      
+
+
+
         [HttpPost]
         public IHttpActionResult ModificarCandidatura(Candidatura obj)
         {

@@ -53,6 +53,14 @@ namespace Prueba.Models
             return conx.realizarConsulta("PR_CNSTPERSONAROL", "CR_CNSTPERSONAROL", para);
         }
 
+        public DataTable ConsultarPermisos(Login obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+
+            return conx.realizarConsulta("PR_CNSTPERMISOS", "CR_CNSTPERMISOS", para);
+        }
+
       
 
     }

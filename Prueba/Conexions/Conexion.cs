@@ -11,7 +11,7 @@ namespace Prueba.Conexions
 {
     public class Conexion
     {
-        
+
         public string stringConnection = ConfigurationManager.ConnectionStrings["oracleConexion"].ConnectionString;
 
         public OracleConnection ConexionOracle()
@@ -78,8 +78,19 @@ namespace Prueba.Conexions
                         cmd.CommandType = CommandType.StoredProcedure;
                         foreach (Parametro obj in list[i].Parameters)
                         {
-                            cmd.Parameters.Add(obj.Nombre, obj.Value);
+                            if (obj.Value.Equals("null"))
+                            {
+
+                                cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
+
+                            }
+                            else
+                            {
+                                cmd.Parameters.Add(obj.Nombre, obj.Value);
+                            }
+                            
                         }
+
                         cmd.Transaction = Transa;
                         cmd.ExecuteNonQuery();
                     }
