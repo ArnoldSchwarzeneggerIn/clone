@@ -83,8 +83,24 @@ namespace Prueba.Models
         {
             return conx.realizarConsulta("PR_CNST_INST_NMBR", "CR_CNST_INST_NMBR", null);
         }
-    
-}
+
+        public DataTable ConsultarConformacionInstancia(Instancia obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PINST_ID", obj.IdInstancia);
+
+            return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", para);
+
+
+        }
+
+        public DataTable ConsultarConformacionInstancia()
+        {
+            return conx.realizarConsulta("PR_CNST_INSCS", "CR_CNST_INSC", null);
+        }
+
+
+    }
 }
 //public Parametro[] Consultar_instancia()
 //{

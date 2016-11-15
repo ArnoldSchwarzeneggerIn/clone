@@ -111,6 +111,15 @@ namespace Prueba.Models
         }
 
 
+        public DataTable ConsultarCargosPorConvocatoria(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCOND_CONVOCATORIA", obj.IdConvocatoria);
+
+            return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
+
+        }
+
 
 
 

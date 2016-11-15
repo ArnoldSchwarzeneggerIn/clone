@@ -35,7 +35,7 @@ namespace Prueba.Models
             para[0] = new Parametro("PDOCU_CANDIDATURA", obj.Candidato);
             para[1] = new Parametro("PDOCU_RUTA", obj.Ruta);
             para[2] = new Parametro("PDOCU_OBSERVACION", obj.Observacion);
-            para[3] = new Parametro("PDOCU", obj.Document);
+            //para[3] = new Parametro("PDOCU", obj.Document);
             para[4] = new Parametro("PDOCU_NOMBRE", obj.Nombre);
             trans = new Transacion[1];
             trans[0] = new Transacion("PR_NSRT_DOCU", para);

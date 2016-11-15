@@ -1,4 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using Prueba.Models;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,39 @@ namespace Prueba.Conexions
             }
         }
 
+        //public DataSet realizarConsultaAnidada(string Procedure, string Cursor, Parametro[] Parameters)
+        //{
+        //    var data = new DataSet();
+        //    OracleConnection conn = new OracleConnection();
+        //    conn = ConexionOracle();
+        //    OracleCommand cmd = new OracleCommand();
+        //    cmd.Connection = conn;
+        //    cmd.CommandText = Procedure;
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    if (Parameters != null)
+        //    {
+        //        for (int i = 0; i < Parameters.Length; i++)
+        //        {
+        //            cmd.Parameters.Add(Parameters[i].Nombre, Parameters[i].Value).Direction = ParameterDirection.Input;
+        //        }
+        //    }
+
+        //    cmd.Parameters.Add(Cursor, OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+        //    try
+        //    {
+        //        OracleDataAdapter da = new OracleDataAdapter(cmd);
+        //        da.Fill(data); 
+        //        return data;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new Exception("Sentencia de consulta invalida " + e.Message);
+        //    }
+        //}
+
+
         public bool realizarTransaccion(Transacion[] list)
         {
             bool state = false;
@@ -81,7 +115,7 @@ namespace Prueba.Conexions
                             if (obj.Value.Equals("null"))
                             {
 
-                                cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
+                                //cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
 
                             }
                             else

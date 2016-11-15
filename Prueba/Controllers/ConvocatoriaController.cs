@@ -12,6 +12,11 @@ namespace Prueba.Controllers
     {
 
         Convocatoria conv = new Convocatoria();
+        [HttpPost]
+        public IHttpActionResult ConsultarCargosPorConvocatoria(Convocatoria obj)
+        {
+            return Json(conv.ConsultarCargosPorConvocatoria(obj));
+        }
 
         [HttpGet]
         public IHttpActionResult ConsultarConvocatoria()
