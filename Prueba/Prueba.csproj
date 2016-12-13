@@ -136,6 +136,7 @@
     <Compile Include="Controllers\InstanciaDetalleController.cs" />
     <Compile Include="Controllers\JuradosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NuevoController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
     <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,7 +193,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>25597</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:25597/</IISUrl>
+          <IISUrl>http://localhost:25598/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

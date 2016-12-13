@@ -11,10 +11,12 @@ namespace Prueba.Controllers
     public class InstanciaDetalleController : ApiController
     {
         InstanciaDetalle insd = new InstanciaDetalle();
-        public IHttpActionResult getInstanciaDetalle()
+
+        [HttpGet]
+        public IHttpActionResult ConsultarInstanciaDetalle()
         {
-            //return Json(insd.);
-            return null;
+            
+            return Json(insd.ConsultarInstanciaDetalle());
         }
 
         [HttpPost]

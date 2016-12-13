@@ -18,6 +18,12 @@ namespace Prueba.Controllers
         {
             return Json(conv.ConsultarConvocatoria());
         }
+
+        [HttpPost]
+        public IHttpActionResult ConsultarConvocatoria(Convocatoria obj)
+        {
+            return Json(conv.ConsultarConvocatoria());
+        }
         public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
         {
             return Json(conv.ConsultaConvocaotoriaPorFecha());
@@ -36,7 +42,7 @@ namespace Prueba.Controllers
             }
             else
             {
-                if (conv.ModificarConvocatoria(obj))
+                if (conv.InsertarConvocatoria(obj))
                 {
                     return Json(new
                     {

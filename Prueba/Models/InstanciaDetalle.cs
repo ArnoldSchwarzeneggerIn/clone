@@ -20,9 +20,9 @@ namespace Prueba.Models
         public string EstadoInstanciadetalle {get;set;}
         public string PeriodoInstranciadetalle {get;set;}
 
-        public DataTable Consultar()
+        public DataTable ConsultarInstanciaDetalle()
         {
-            return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", null);
+            return conx.realizarConsulta("PR_CNST_INSD", "CR_CNST_INSD", null);
         }
         public Parametro[] AgregarInstanciaDetalle(InstanciaDetalle obj)
         {

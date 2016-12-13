@@ -11,16 +11,39 @@ namespace Prueba.Controllers
     public class ConvocatoriaDetalleController : ApiController
     {
         ConvocatoriaDetalle cond = new ConvocatoriaDetalle();
-        [HttpGet]
-        //public IHttpActionResult ConsultarDetalleConvocatoria()
-        //{
-        //    return cond.ConsultarConvocatoriaDetalle();
-        //}
+        ////[HttpGet]
+        //////public IHttpActionResult ConsultarDetalleConvocatoria()
+        //////{
+        //////    return cond.ConsultarConvocatoriaDetalle();
+        //////}
 
         [HttpPost]
-        public IHttpActionResult InsertarDetalleConvocatoria()
+        public IHttpActionResult InsertarConvocatoriaDetalle(ConvocatoriaDetalle []obj)
         {
-            return null;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cond.InsertarConvocatoriaDetalle(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+
+
         }
     }
 }

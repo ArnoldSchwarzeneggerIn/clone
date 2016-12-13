@@ -22,13 +22,25 @@ namespace Prueba.Models
 
         public Parametro[] ParametrosInsertar()
         {
-            para = new Parametro[2];
+            para = new Parametro[3];
             para[0] = new Parametro("PCOND_INSTANCIADETALLE", InstanciadetalleConvocatoriaDetalle);
-            para[1] = new Parametro("PCOND_CUPOS", CuposConvocatoriaDetalle);
+            para[1] = new Parametro("PCONVOCATORIA", ConvocatoriaConvocatoriaDetalle);
+            para[2] = new Parametro("PCOND_CUPOS", CuposConvocatoriaDetalle);
 
             return para;
 
         }
+
+        public Parametro[] ParametrosInsertar(ConvocatoriaDetalle obj)
+        {
+            para = new Parametro[2];
+            para[0] = new Parametro("PCOND_INSTANCIADETALLE", obj.InstanciadetalleConvocatoriaDetalle);
+            para[1] = new Parametro("PCOND_CUPOS", obj.CuposConvocatoriaDetalle);
+
+            return para;
+
+        }
+
 
 
         public Parametro[] Eliminar()
@@ -62,14 +74,21 @@ namespace Prueba.Models
             para[1] = new Parametro("INSTA", IdConvocatoriaDetalle);
             return para;
         }
-        
-        //public bool InsertarConvocatoriaDetalle(ConvocatoriaDetalle cond)
-        ////{
-        ////    tran = new Transacion[1];
-        ////    tran[0] = new Transacion("PR_NSTR_COND", cond.Agregar());
 
-        ////    return tran;
-        //}
+        public bool InsertarConvocatoriaDetalle(ConvocatoriaDetalle []obj)
+        {
+            tran = new Transacion[obj.Length];
+            
+            for (int i=0;i<obj.Length;i++)
+            {
+                if (obj[i] != null)
+                {
+                    tran[i] = new Transacion("PR_NSRT_CNVD", ParametrosInsertar(obj[i]));
+                }
+                
+            }
+            return conx.realizarTransaccion(tran);
+        }
 
         public DataTable ConsultarConvocatoria()
         {

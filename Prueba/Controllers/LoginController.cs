@@ -11,7 +11,14 @@ namespace Prueba.Controllers
     public class LoginController : ApiController
     {
         Login logi = new Login();
-       public IHttpActionResult ConsultarPrograma(Login obj)
+
+        [HttpPost]
+        public IHttpActionResult ConsultarPermisos(Login obj)
+        {
+            return Json(logi.ConsultarPermisos(obj));
+        }
+
+        public IHttpActionResult ConsultarPrograma(Login obj)
         {
             return Json(logi.ConsultarPrograma(obj));
         }
