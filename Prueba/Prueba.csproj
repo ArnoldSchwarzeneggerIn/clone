@@ -77,7 +77,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>..\..\..\..\..\..\Downloads\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
@@ -152,6 +152,7 @@
     <Compile Include="Controllers\JuradosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
+    <Compile Include="Controllers\RequisitoController.cs" />
     <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

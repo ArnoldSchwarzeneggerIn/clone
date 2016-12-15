@@ -255,21 +255,21 @@
                                             </thead>
                                             <tbody>
 
-                                                <asp:ListView ID="Instancialista" runat="server" OnItemEditing="Instancialista_ItemEditing" DataKeyNames="IdInstancia" OnItemCanceling="Instancialista_ItemCanceling" OnItemUpdating="Instancialista_ItemUpdating" OnItemCommand="Instancialista_ItemCommand">
+                                                <asp:ListView ID="requisitos" runat="server" >
                                                     <ItemTemplate>
                                                         <tr role="row" class="">
                                                             <td class="sorting_1">
-                                                                <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("IdInstancia") %>' Text='<%#Eval("NombreInstancia")%>' CommandName="ver"></asp:LinkButton>
+                                                                <asp:LinkButton ID="LinkButton1" runat="server"  Text='<%#Eval("IdRequisito")%>' CommandName="ver"></asp:LinkButton>
                                                             </td>
                                                             <td>
                                                                 Instancia creada 2016 De la univerdiad de la amazonia
                                                             </td>
                                                             <td>
-                                                             <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("IdCobertura")%>'> </asp:Label>
+                                                             <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("NombreRequisito")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <span class='label label-success'>
-                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("ESTADOINSTANCIA")%>'></asp:Label>
+                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("EstadoRequisito")%>'></asp:Label>
                                                                 </span>
 
                                                             </td>

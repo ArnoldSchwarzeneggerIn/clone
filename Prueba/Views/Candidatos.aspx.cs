@@ -24,7 +24,7 @@ namespace Prueba.Views
                 //    Response.Redirect("Loggin.aspx");
                 //}
                 //scope("private_profile");
-               
+                ConsultarRequisitos();
             }
         }
 
@@ -38,11 +38,28 @@ namespace Prueba.Views
             Nombre2.Text = scope[0]["NOMBRES"].ToString();
             Nombre1.Text = scope[0]["NOMBRES"].ToString() + " " + scope[0]["APELLIDOS"].ToString();
             Ubicacion.Text = scope[0]["MUNICIPIO"].ToString() + "-" + scope[0]["DEPARTAMENTO"].ToString();
+
             Nombre.Text = scope[0]["NOMBRES"].ToString();
             Apellido.Text = scope[0]["APELLIDOS"].ToString();
             Identificacion.Text = scope[0]["IDENTIFICACION"].ToString();
 
         }
+
+        protected void ConsultarRequisitos()
+        {
+            var req = new Requisito()
+            {
+                DetalleinstanciaRequisito = "6"
+            };
+            
+            
+          List<Requisito> model = ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST),req);
+            
+            requisitos.DataSource = model;
+            requisitos.DataBind();
+        }
+
+
        
 
 

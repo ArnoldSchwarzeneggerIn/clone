@@ -47,6 +47,7 @@ namespace Prueba.Views
             Nombre2.Text = scope[0]["NOMBRES"].ToString();
             Nombre1.Text = scope[0]["NOMBRES"].ToString()+ " "+ scope[0]["APELLIDOS"].ToString();
             Ubicacion.Text = scope[0]["MUNICIPIO"].ToString() + "-" + scope[0]["DEPARTAMENTO"].ToString();
+
         }
 
         protected void scope(string Scope)
