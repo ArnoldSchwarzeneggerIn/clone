@@ -515,7 +515,7 @@
                                                         </div>
                                                     </fieldset>
 
-                                                    <h6>Instnacias</h6>
+                                                    <h6>Instancias</h6>
                                                     <fieldset>
                                                     </fieldset>
 
