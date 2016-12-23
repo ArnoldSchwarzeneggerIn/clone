@@ -12,12 +12,18 @@ namespace Prueba.Models
 
         Conexion conx = new Conexion();
         public Parametro[] para;
-        public Transacion[] tran;
+        public Transaction[] tran;
         public string IdConvocatoriaDetalle { set; get; }
         public string ConvocatoriaConvocatoriaDetalle { set; get; }
         public string InstanciadetalleConvocatoriaDetalle { set; get; }
         public string CuposConvocatoriaDetalle { set; get; }
         public string EstadoConvocatoriaDetalle { set; get; }
+
+
+        public ConvocatoriaDetalle()
+        {
+           
+        }
 
 
         public Parametro[] ParametrosInsertar()

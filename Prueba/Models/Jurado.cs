@@ -11,7 +11,7 @@ namespace Prueba.Models
     {
         Conexion conx = new Conexion();
         Parametro []para;
-        Transacion[] tran;
+        Transaction[] tran;
         public string jura_persona {get; set;}
         public string jura_id { get; set; }
         public string jura_fecha { get; set; }
@@ -31,8 +31,8 @@ namespace Prueba.Models
             para[1] = new Parametro("PJURA_FECHA", obj.jura_fecha);
             para[2] = new Parametro("PJURA_COVOCATORIA", obj.jura_convocatoria);
 
-            tran = new Transacion[1];
-            tran[0] = new Transacion("PR_NSRT_JURA", para);
+            tran = new Transaction[1];
+            tran[0] = new Transaction("PR_NSRT_JURA", para);
             return conx.realizarTransaccion(tran);
         }
     }

@@ -14,6 +14,7 @@ namespace Prueba.Views
 {
     public partial class VCobertura : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -104,6 +105,11 @@ namespace Prueba.Views
             var Response = ConsumirAppi.ConsumirPost(Rutas.Cobertura, new RestRequest("ModificarCobertura", Method.POST), cobe);
             Cobertura_t.EditIndex = -1;
             Cargarcobertura();
+        }
+
+        protected void Cobertura_t_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

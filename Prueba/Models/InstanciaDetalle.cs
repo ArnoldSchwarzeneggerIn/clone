@@ -9,7 +9,7 @@ namespace Prueba.Models
 {
     public class InstanciaDetalle
     {
-        private Conexion conx = new Conexion();
+        public Conexion conx = new Conexion();
         public Parametro[] para;
         public string IdInstanciadetalle {get;set;}
         public string IdInstancia {get;set;}
@@ -20,9 +20,14 @@ namespace Prueba.Models
         public string EstadoInstanciadetalle {get;set;}
         public string PeriodoInstranciadetalle {get;set;}
 
-        public DataTable Consultar()
+        public InstanciaDetalle()
         {
-            return conx.realizarConsulta("PR_CNST_INSC", "CR_CNST_INSC", null);
+
+        }
+
+        public DataTable ConsultarInstanciaDetalle()
+        {
+            return conx.realizarConsulta("PR_CNST_INSD", "CR_CNST_INSD", null);
         }
         public Parametro[] AgregarInstanciaDetalle(InstanciaDetalle obj)
         {
@@ -52,8 +57,8 @@ namespace Prueba.Models
             para[6] = new Parametro("PINSD_INSTANCIA", obj.IdInstancia);
             para[7] = new Parametro("PINSD_PERIODO", obj.PeriodoInstranciadetalle);
 
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_INSD", para);
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_UPDT_INSD", para);
 
             return conx.realizarTransaccion(trans);
         }
@@ -69,16 +74,16 @@ namespace Prueba.Models
 
         public bool InsertarInstanciaDetalle(InstanciaDetalle obj)
         {
-            Transacion [] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_INTD",AgregarInstanciaDetalle(obj));
+            Transaction [] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_INTD",AgregarInstanciaDetalle(obj));
 
             return conx.realizarTransaccion(trans);
         }
 
         public bool InstanciaDetalleConformacion(InstanciaDetalle obj)
         {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_INTD", AgregarInstanciaDetalle(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_INTD", AgregarInstanciaDetalle(obj));
 
             return conx.realizarTransaccion(trans);
         }

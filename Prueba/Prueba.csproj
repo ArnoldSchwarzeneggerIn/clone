@@ -77,7 +77,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>..\..\..\..\..\Desktop\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\..\..\Electoral\Prueba\bin\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
@@ -122,6 +122,7 @@
     <Content Include="Views\assets\css\components.css" />
     <Content Include="Views\assets\css\core.css" />
     <Content Include="Views\assets\css\extras\animate.min.css" />
+    <Content Include="Views\assets\css\fileinput\fileinput.css" />
     <Content Include="Views\assets\css\icons\fontawesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Views\assets\css\icons\fontawesome\styles.min.css" />
     <Content Include="Views\assets\css\icons\glyphicons\glyphicons-halflings-regular.svg" />
@@ -406,6 +407,8 @@
     <Content Include="Views\assets\images\sistema-electoral322.png" />
     <Content Include="Views\assets\images\ui\datepicker_trigger.png" />
     <Content Include="Views\assets\images\ui\map_marker.png" />
+    <Content Include="Views\assets\img\loading-sm.gif" />
+    <Content Include="Views\assets\img\loading.gif" />
     <Content Include="Views\assets\js\campos.js" />
     <Content Include="Views\assets\js\charts\c3\c3_advanced.js" />
     <Content Include="Views\assets\js\charts\c3\c3_axis.js" />
@@ -576,6 +579,7 @@
     <Content Include="Views\assets\js\core\app.js" />
     <Content Include="Views\assets\js\core\libraries\bootstrap.min.js" />
     <Content Include="Views\assets\js\core\libraries\jasny_bootstrap.min.js" />
+    <Content Include="Views\assets\js\core\libraries\jquery-3.0.0.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\autocomplete.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\button.min.js" />
@@ -584,9 +588,14 @@
     <Content Include="Views\assets\js\core\libraries\jquery_ui\effects.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\full.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\interactions.min.js" />
+    <Content Include="Views\assets\js\core\libraries\jquery_ui\jquery-3.0.0.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\position.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\sliders.min.js" />
     <Content Include="Views\assets\js\core\libraries\jquery_ui\touch.min.js" />
+    <Content Include="Views\assets\js\fileinput\es.js" />
+    <Content Include="Views\assets\js\fileinput\fileinput.js" />
+    <Content Include="Views\assets\js\fileinput\fileinput.min.js" />
+    <Content Include="Views\assets\js\fileinput\fr.js" />
     <Content Include="Views\assets\js\maps\google\basic\basic.js" />
     <Content Include="Views\assets\js\maps\google\basic\click_event.js" />
     <Content Include="Views\assets\js\maps\google\basic\coordinates.js" />
@@ -1749,7 +1758,8 @@
     <Content Include="Views\assets\swf\datatables\copy_csv_xls.swf" />
     <Content Include="Views\assets\swf\datatables\copy_csv_xls_pdf.swf" />
     <Content Include="Views\Causaderetiro.aspx" />
-    <Content Include="Views\ConvocatoriaDetalle.aspx" />
+    <Content Include="Views\donald.jpg" />
+    <Content Include="Views\VConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\InstancConformacion.aspx" />
     <Content Include="Views\instanciaDetalle.aspx" />
@@ -1761,6 +1771,9 @@
     <Content Include="Views\VConvocatoria.aspx" />
     <Content Include="Views\VJurados.aspx" />
     <Content Include="Views\Votar.aspx" />
+    <Content Include="Views\WebForm1.aspx" />
+    <Content Include="Views\WebForm2.aspx" />
+    <Content Include="Views\WebForm3.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1769,25 +1782,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Conexions\Conexion.cs" />
-    <Compile Include="Controllers\CandidaturaController.cs" />
-    <Compile Include="Controllers\CausaRetiroController.cs" />
-    <Compile Include="Controllers\CoberturaController.cs" />
-    <Compile Include="Controllers\ConvocatoriaController.cs" />
-    <Compile Include="Controllers\ConvocatoriaDetalleController.cs" />
-    <Compile Include="Controllers\DocumentosController.cs" />
-    <Compile Include="Controllers\FechaController.cs" />
-    <Compile Include="Controllers\InstanciaConformacionController.cs" />
-    <Compile Include="Controllers\InstanciaController.cs" />
-    <Compile Include="Controllers\InstanciaDetalleController.cs" />
-    <Compile Include="Controllers\JuradosController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PropuestaController.cs" />
-    <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Candidatura.cs" />
     <Compile Include="Models\CausaRetiro.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Cobertura.cs" />
     <Compile Include="Models\Convocatoria.cs" />
     <Compile Include="Models\ConvocatoriaDetalle.cs" />
@@ -1805,7 +1805,8 @@
     <Compile Include="Models\Rutas.cs" />
     <Compile Include="Models\Testigos.cs" />
     <Compile Include="Models\TipoElector.cs" />
-    <Compile Include="Models\Transacion.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\Votacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utileria\ConsumirAppi.cs" />
     <Compile Include="Views\Causaderetiro.aspx.cs">
@@ -1815,12 +1816,12 @@
     <Compile Include="Views\Causaderetiro.aspx.designer.cs">
       <DependentUpon>Causaderetiro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ConvocatoriaDetalle.aspx.cs">
-      <DependentUpon>ConvocatoriaDetalle.aspx</DependentUpon>
+    <Compile Include="Views\VConvocatoriaDetalle.aspx.cs">
+      <DependentUpon>VConvocatoriaDetalle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ConvocatoriaDetalle.aspx.designer.cs">
-      <DependentUpon>ConvocatoriaDetalle.aspx</DependentUpon>
+    <Compile Include="Views\VConvocatoriaDetalle.aspx.designer.cs">
+      <DependentUpon>VConvocatoriaDetalle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -1898,6 +1899,27 @@
     </Compile>
     <Compile Include="Views\Votar.aspx.designer.cs">
       <DependentUpon>Votar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -2290,6 +2312,7 @@
     <Content Include="Views\assets\locales\ru.json" />
     <Content Include="Views\assets\locales\ua.json" />
     <Content Include="Views\assets\swf\.DS_Store" />
+    <None Include="Properties\PublishProfiles\profile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2299,6 +2322,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="css\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

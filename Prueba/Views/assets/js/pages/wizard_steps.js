@@ -38,13 +38,28 @@ $(function() {
             form2.validate().settings.ignore = ":disabled,:hidden";
             return form2.valid();
         },
+
+        onFinishing: function (event, currentIndex) {
+            if (guardar1()) {
+
+                return true;
+
+            } else {
+                modalE();
+                return false;
+
+
+            }
+        },
+
         onFinished: function (event, currentIndex) {
-            guardar();
+            modalR();
+            
         }
     });
 
 
-    // Async content loading
+     //Async content loading
     $(".steps-async").steps({
         headerTag: "h6",
         bodyTag: "fieldset",
@@ -200,7 +215,7 @@ $(function() {
     // Initialize plugins
     // ------------------------------
 
-    // Select2 selects
+     //Select2 selects
     $('.select').select2();
 
 

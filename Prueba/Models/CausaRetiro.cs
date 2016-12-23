@@ -42,15 +42,15 @@ namespace Prueba.Models
         public bool InsertarCausaRetiro(CausaRetiro obj)
         {
 
-            Transacion[] tran = new Transacion[1];
-            tran[0] = new Transacion("PR_NSTR_CAUR", AgregarParametros(obj));
+            Transaction[] tran = new Transaction[1];
+            tran[0] = new Transaction("PR_NSTR_CAUR", AgregarParametros(obj));
             return conx.realizarTransaccion(tran);
         }
 
         public bool ModificarCausaRetiro(CausaRetiro obj)
         {
-            Transacion[] tran = new Transacion[1];
-            tran[0] = new Transacion("PR_UPDT_CAUR", ModificarParametros(obj));
+            Transaction[] tran = new Transaction[1];
+            tran[0] = new Transaction("PR_UPDT_CAUR", ModificarParametros(obj));
             return conx.realizarTransaccion(tran);
         }
 

@@ -7,12 +7,18 @@ using System.Web;
 
 namespace Prueba.Models
 {
-    public class Fecha
+    public class  Fecha
     {
         Conexion conx = new Conexion();
-        public DataTable ConsultarFecha()
+        public  DataTable ConsultarFecha()
         {
             return conx.realizarConsulta("PR_FECHAACTUAL", "CR_FECHAACTUAL", null);
         }
+        
+        public DateTime fecha()
+        {
+          return Convert.ToDateTime ( Convert.ToString((conx.realizarConsulta("PR_FECHAACTUAL", "CR_FECHAACTUAL", null).Rows[0]["SYSDATE"])));
+        }
+
     }
 }

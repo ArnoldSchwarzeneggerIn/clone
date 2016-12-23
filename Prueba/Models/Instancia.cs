@@ -10,6 +10,7 @@ namespace Prueba.Models
     public class Instancia
     {
         public Conexion conx = new Conexion();
+
         public Parametro[] para;
         public string IdInstancia { get; set; }
         public string IdCobertura { get; set; }
@@ -54,15 +55,15 @@ namespace Prueba.Models
             para[0] = new Parametro("PINST_NOMBRE", obj.NombreInstancia);
             para[1] = new Parametro("PINST_COBERTURA", obj.IdCobertura);
 
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_INST",para);
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_INST",para);
             return conx.realizarTransaccion(trans);
         }
 
         public bool ModificarInstancia(Instancia obj)
         {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_INST", InstanciaModificar(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_UPDT_INST", InstanciaModificar(obj));
 
             return conx.realizarTransaccion(trans);
         }

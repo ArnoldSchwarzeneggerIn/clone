@@ -15,7 +15,7 @@ namespace Prueba.Models
         public string Nombre { get; set; }
 
         Parametro[] para;
-        Transacion[] trans;
+        Transaction[] trans;
         Conexion conx = new Conexion();
         
         public Documento(int id, string value, string nombre)
@@ -37,8 +37,8 @@ namespace Prueba.Models
             para[2] = new Parametro("PDOCU_OBSERVACION", obj.Observacion);
             //para[3] = new Parametro("PDOCU", obj.Document);
             para[4] = new Parametro("PDOCU_NOMBRE", obj.Nombre);
-            trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_DOCU", para);
+            trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_DOCU", para);
 
             return conx.realizarTransaccion(trans);
         }

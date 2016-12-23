@@ -25,7 +25,7 @@ namespace Prueba.Views
                 //else
                 //{
                 // Session["Code"] = Request.QueryString["code"].ToString();
-                 Autenticacion();
+                 //Autenticacion();
                 //}
             }
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace Prueba.Views
         }
         protected void Autenticacion()
         {
-            var respose = ConsumirAppi.Autenticacion(Rutas.Autenticacion, new RestRequest("oauth2/authorize.asmx/token", Method.POST), Session["Code"].ToString()) ;
+            var respose = ConsumirAppi.Autenticacion(Rutas.Autenticacion, new RestRequest("oauth2/authorize.asmx/token", Method.POST), Session["Code"].ToString());
             Session.Remove("Code");
             JToken Tokens = JsonConvert.DeserializeObject(respose);
             Session["Token"] = (string)Tokens.SelectToken("access_token");

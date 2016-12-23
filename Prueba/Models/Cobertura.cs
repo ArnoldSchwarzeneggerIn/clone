@@ -40,14 +40,14 @@ namespace Prueba.Models
 
         public bool InsertarCobertura(Cobertura obj)
         {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_COBE", ParametrosInsertar(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_COBE", ParametrosInsertar(obj));
             return conx.realizarTransaccion(trans);
         }
         public bool ModificarCobertura(Cobertura obj)
         {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_COBE", ParametrosModificar(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_UPDT_COBE", ParametrosModificar(obj));
             return conx.realizarTransaccion(trans);
         }
 

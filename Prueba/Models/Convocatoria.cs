@@ -14,7 +14,7 @@ namespace Prueba.Models
         public Parametro[] para;
         public string IdConvocatoria { get; set; }
         public string NumeroConvocatoria { get; set; }
-        public string TituloCovocatoria { get; set; }
+        public string TituloConvocatoria { get; set; }
         public string DescripcionConvocatoria { get; set; }
         public string Fechainicioinscripcion{ get; set; }
         public string Fechafininscripcion{ get; set; }
@@ -23,11 +23,12 @@ namespace Prueba.Models
         public string Fechaeleccionespresenciales{ get; set; }
         public string Fechaeleccionesdistancia{ get; set; }
         public string Fechapublicacionresultados{ get; set; }
+        public string Estado { get; set; }
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {
             para = new Parametro[9];
-            para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
+            para[0] = new Parametro("PCONV_TITULO", obj.TituloConvocatoria);
             para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
             para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
             para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
@@ -89,16 +90,16 @@ namespace Prueba.Models
 
         public bool InsertarConvocatoria(Convocatoria obj)
         {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_NSRT_CNVT", ParametroInsertar(obj));
             return conx.realizarTransaccion(trans);
         }
 
         public bool ModificarConvocatoria(Convocatoria obj)
         {
 
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_CNVT", ParametroModificar(obj));
+            Transaction[] trans = new Transaction[1];
+            trans[0] = new Transaction("PR_UPDT_CNVT", ParametroModificar(obj));
             return conx.realizarTransaccion(trans);
 
         }
@@ -114,11 +115,22 @@ namespace Prueba.Models
         public DataTable ConsultarCargosPorConvocatoria(Convocatoria obj)
         {
             para = new Parametro[1];
+            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+
+            return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
+
+        }
+
+
+        public DataTable ConsultarConvocatoriaS(Convocatoria obj)
+        {
+            para = new Parametro[1];
             para[0] = new Parametro("PCOND_CONVOCATORIA", obj.IdConvocatoria);
 
             return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
 
         }
+
 
 
 

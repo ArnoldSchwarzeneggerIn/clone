@@ -85,7 +85,7 @@
 
 		<!-- Page content -->
 		<div class="page-content">
-
+            
 			<!-- Main sidebar -->
 			<div class="sidebar sidebar-main">
 				<div class="sidebar-content">
@@ -97,6 +97,7 @@
 								<a href="#" class="media-left"><img src="" class="img-circle img-sm" alt="" runat="server" id="Imagen_perfil2"></a>
 								<div class="media-body">
 									<span class="media-heading text-semibold">
+                                         <asp:Label ID="Label1" runat="server" Text="Labelasdfasdfasdf"></asp:Label>
                                         <asp:Label ID="Nombre2" runat="server" Text="Label"></asp:Label>
 									</span>
 									<div class="text-size-mini text-muted">
@@ -206,7 +207,7 @@
                                    <ContentTemplate>
 
                                    
-                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table text-nowrap" AutoGenerateColumns="false" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" >
+                                     <asp:GridView runat="server" ID="Cobertura_t" cssclass="table text-nowrap" AutoGenerateColumns="False" DataKeyNames="IDCOBERTURA" OnRowCancelingEdit="Cobertura_t_RowCancelingEdit" OnRowEditing="Cobertura_t_RowEditing" OnRowUpdating="Cobertura_t_RowUpdating" EmptyDataText="No se han registrado datos" GridLines="None" OnSelectedIndexChanged="Cobertura_t_SelectedIndexChanged" >
                                        <Columns>
                                            <asp:TemplateField HeaderText="ID">
                                                 <EditItemTemplate>

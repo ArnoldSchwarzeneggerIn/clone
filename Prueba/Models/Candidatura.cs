@@ -65,15 +65,15 @@ namespace Prueba.Models
 
         public bool InsertarCandidadatura(Candidatura obj)
         {
-            Transacion[] list = new Transacion[1];
-            list[0] = new Transacion("PR_NSRT_CAND", AgregarCandidatura(obj));
+            Transaction[] list = new Transaction[1];
+            list[0] = new Transaction("PR_NSRT_CAND", AgregarCandidatura(obj));
             return conx.realizarTransaccion(list);
         }
 
         public bool ModificarCandidadatura(Candidatura obj)
         {
-            Transacion[] list = new Transacion[1];
-            list[0] = new Transacion("PR_UPDATE_CAND", AgregarCandidatura(obj));
+            Transaction[] list = new Transaction[1];
+            list[0] = new Transaction("PR_UPDATE_CAND", AgregarCandidatura(obj));
             return conx.realizarTransaccion(list);
         }
 

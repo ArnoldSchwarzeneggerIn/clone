@@ -93,7 +93,7 @@ namespace Prueba.Conexions
         //}
 
 
-        public bool realizarTransaccion(Transacion[] list)
+        public bool realizarTransaccion(Transaction[] list)
         {
             bool state = false;
             OracleConnection conn = new OracleConnection();

@@ -11,7 +11,7 @@ namespace Prueba.Models
     {
         Conexion conx = new Conexion();
         Parametro[] para;
-        Transacion[] tran;
+        Transaction[] tran;
 
         public string nombres { get; set; }
         public string apellidos { get; set; }
