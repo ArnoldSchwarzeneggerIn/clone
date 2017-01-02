@@ -162,6 +162,11 @@
             float: right;
             margin-right: 100px;
         }
+
+        
+.ui-datepicker-calendar {
+   display: none;
+}
     </style>
 
 
@@ -176,12 +181,12 @@
     <%--/Fileinput--%>
 
     <!-- Global stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css"/>
 
 
     <!-- /global stylesheets -->
@@ -191,7 +196,7 @@
     <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <!-- /core JS files -->
 
 
@@ -213,8 +218,7 @@
 
     <%--end avoid resubmit of data from form--%>
 
-
-
+  
 
 
 
@@ -316,13 +320,13 @@
                 }
                 if (z != 0) {
                     obj2.innerHTML = s2;
-                    obj5.innerHTML = "OLVIDASTE ALGO..."
+                    obj5.innerHTML = "OLVIDO ALGO..."
                     return false;
                 } else {
                     return true;
                 }
             } else {
-                obj2.innerText = "Por favor selecciona almenos un cargo"
+                obj2.innerText = "Por favor selecciona al menos un cargo"
                 return false;
             }
         }
@@ -552,6 +556,16 @@
 
     <!-- /Theme JS files -->
 
+    <script>
+       <%-- Datapiker only years --%>
+    
+        $(function() {
+            $( "#Datepicker1" ).datepicker({dateFormat: 'yy'});
+        });
+    
+    <%--End Datapiker only years --%>
+  </script>
+
 
 
 
@@ -576,7 +590,7 @@
         <div class="navbar navbar-inverse">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.aspx">
-                    <img src="assets/images/si.png" style="width: 11em; height: 1.5em;">
+                    <img src="assets/images/si.png" style="width: 11em; height: 1.5em;"/>
                 </a>
 
                 <ul class="nav navbar-nav visible-xs-block">
@@ -751,22 +765,29 @@
                                                     <fieldset>
                                                         <div class="row col-md-10 col-md-offset-1 ">
                                                             <div class="row">
-                                                                <div class="col-md-12">
+                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-
-                                                                        <label>Titulo de la convocatoria <span class="text-danger">*</span>  </label>
-                                                                        <input type="text" class="form-control" placeholder="Titulo Convocatoria" runat="server" id="tituloconvo" required="required" />
+                                                                        <label>Año convocatoria <span class="text-danger">*</span>  </label>
+                                                                        <input type="text" runat="server" id="Datepicker1"  required="required" />
                                                                     </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Numero Convocatoria<span class="text-danger">*</span>  </label>
+                                                                        <select id="numeroC" runat="server">
+                                                                        </select>
+                                                                    </div>
+                                                                     
+                                                               
                                                                 </div>
                                                                 
                                                             </div>
-
                                                             <div class="row">
 
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" runat="server" id="finscripcionconvo" required="required" />
+                                                                        <input type="date" class="form-control" runat="server" id="finscripcionconvo"  required="required" />
                                                                     </div>
                                                                 </div>
 
@@ -1132,7 +1153,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <asp:Label ID="erros" Style="color: white; font-size: 1em" runat="server" Text="Porfavor selecciona almenos un cargo"></asp:Label>
+                            <asp:Label ID="erros" Style="color: white; font-size: 1em" runat="server" Text="Porfavor selecciona al menos un cargo"></asp:Label>
                             <%-- <ol id="errors">
 
 
@@ -1172,6 +1193,7 @@
 
 
     </form>
+      
 
 </body>
 
@@ -1248,6 +1270,11 @@
         });
         */
     });
+
+   
+
 </script>
 <%--end functions fileinputs--%>
+
+
 </html>

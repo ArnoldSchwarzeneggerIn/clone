@@ -510,7 +510,7 @@ namespace Prueba.Views
 
             if (obj != 0)
             {
-                cnvt.TituloConvocatoria = tituloconvo.Value;
+                //cnvt.TituloConvocatoria = tituloconvo.Value;
                 cnvt.DescripcionConvocatoria = descripcion.Value;
                 cnvt.Fechainicioinscripcion = Convert.ToDateTime(finscripcionconvo.Value).ToString("dd/MM/yyy");
                 cnvt.Fechafininscripcion = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
@@ -534,7 +534,7 @@ namespace Prueba.Views
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            cnvt.TituloConvocatoria = tituloconvo.Value;
+            //cnvt.TituloConvocatoria = tituloconvo.Value;
             cnvt.DescripcionConvocatoria = descripcion.Value;
             cnvt.Fechainicioinscripcion = Convert.ToDateTime(finscripcionconvo.Value).ToString("dd/MM/yyy");
             cnvt.Fechafininscripcion = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
