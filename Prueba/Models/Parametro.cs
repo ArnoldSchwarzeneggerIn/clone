@@ -7,42 +7,23 @@ namespace Prueba.Models
 {
     public class Parametro
     {
-        private string nombre = string.Empty;
+        public string Nombre { get; set; }
+        public string Value { get; set; }
 
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-
-            set
-            {
-                nombre = value;
-            }
-        }
-
-
-        private string value = string.Empty;
-
-        public string Value
-        {
-            get
-            {
-                return value;
-            }
-
-            set
-            {
-                this.value = value;
-            }
-        }
-
+        //public byte[] ValueBit { get; set; }
+        
         public Parametro(string n, string v)
         {
             Nombre = n;
             Value = v;
         }
+
+
+        //public Parametro(string n, byte[] v)
+        //{
+        //    Nombre = n;
+        //    ValueBit = v;
+        //}
 
     }
 }

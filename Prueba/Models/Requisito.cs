@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Prueba.Conexions;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +10,7 @@ namespace Prueba.Models
     public class Requisito
     {
         public Parametro[] Para;
+        public Conexion conx = new Conexion();
         public string IdRequisito {get;set;}
 
         public string NombreRequisito {get;set;}
@@ -42,8 +45,7 @@ namespace Prueba.Models
 
         public Parametro[] ConsultarPorInstanciaDetalle()
         {
-            Para = new Parametro[1];
-            Para[0] = new Parametro("PREQU_INSTANCIADETALLE", DetalleinstanciaRequisito);
+           
             return Para;
         }
 
@@ -53,5 +55,14 @@ namespace Prueba.Models
             Para[0] = new Parametro("PCOND_ID", DetalleinstanciaRequisito);
             return Para;
         }
+
+        public DataTable ConsultarPorInstanciaDetalle(Requisito requ)
+        {
+            Para = new Parametro[1];
+            Para[0] = new Parametro("PREQU_INSTANCIADETALLE", requ.DetalleinstanciaRequisito);
+
+            return conx.realizarConsulta("PR_CNST_RQST_POR_INSD", "PR_CNST_RQST_POR_INSD", Para);
+        }
+
     }
 }

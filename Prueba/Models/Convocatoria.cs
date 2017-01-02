@@ -14,7 +14,7 @@ namespace Prueba.Models
         public Parametro[] para;
         public string IdConvocatoria { get; set; }
         public string NumeroConvocatoria { get; set; }
-        public string TituloCovocatoria { get; set; }
+        public string TITULOCONVOCATORIA { get; set; }
         public string DescripcionConvocatoria { get; set; }
         public string Fechainicioinscripcion{ get; set; }
         public string Fechafininscripcion{ get; set; }
@@ -23,11 +23,12 @@ namespace Prueba.Models
         public string Fechaeleccionespresenciales{ get; set; }
         public string Fechaeleccionesdistancia{ get; set; }
         public string Fechapublicacionresultados{ get; set; }
+        public string Estado { get; set; }
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {
-            para = new Parametro[9];
-            para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
+            para = new Parametro[10];
+            para[0] = new Parametro("PCONV_TITULO", obj.TITULOCONVOCATORIA);
             para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
             para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
             para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
@@ -36,6 +37,7 @@ namespace Prueba.Models
             para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
             para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
             para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
+            para[9] = new Parametro("PCONV_ESTADO", obj.Estado);
 
             return para;
         }
@@ -57,10 +59,45 @@ namespace Prueba.Models
 
 
         }
-
-        public DataTable ConsultarConvocatoria()
+        
+        public Parametro[] Votacion(Convocatoria obj)
         {
-            return conx.realizarConsulta("PR_CNST_CNVT", "CR_CNST_CNVT", null);
+            para = new Parametro[2];
+            para[0] = new Parametro("PPROGRAMA", obj.IdConvocatoria);
+            para[1] = new Parametro("PTIPOUSUARIO", obj.NumeroConvocatoria);
+            return para;
+        }
+
+        public DataTable VotacionConvocatoria(Convocatoria obj)
+
+        {
+            return conx.realizarConsulta("PR_CNST_VOTACION", "CR_CNST_VOTACION", Votacion(obj));
+        }
+
+
+        public DataTable CInstCnvt(Convocatoria obj)
+
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+
+            return conx.realizarConsulta("PR_CNST_COND_INST", "CR_CNST_COND_INST", para);
+        }
+
+        public DataTable CInsdCnvt(Convocatoria obj)
+
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+
+            return conx.realizarConsulta("PR_CNST_COND_INSD", "CR_CNST_COND_INSD", para);
+        }
+
+        public DataTable CCnvtE(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PESTADO" , obj.Estado);
+            return conx.realizarConsulta("PR_CNST_CNVTESTADO", "CR_CNST_CNVTESTADO", para);
         }
 
 
@@ -86,8 +123,8 @@ namespace Prueba.Models
             return conx.realizarConsulta("PR_CNST_CNVT_BRTS", "CR_CNST_CNVT_BRTS", null);
         }
 
-
-        public bool InsertarConvocatoria(Convocatoria obj)
+        //insertar convocatoria
+        public bool ICnvt(Convocatoria obj)
         {
             Transacion[] trans = new Transacion[1];
             trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
@@ -102,6 +139,48 @@ namespace Prueba.Models
             return conx.realizarTransaccion(trans);
 
         }
+
+        public DataTable ConsultarCargosPorConvocatoriasActvias(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[1] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+            return conx.realizarConsulta("PR_CNST_INSD_POR_CONV", "CR_CNST_INSD_POR_CONV", para);
+        }
+
+
+        public DataTable ConsultarCargosPorConvocatoria(Convocatoria obj)
+        {
+            para = new Parametro[2];
+            para[0] = new Parametro("PPROGRAMA", obj.IdConvocatoria);
+            para[1] = new Parametro("PTIPOUSUARIO", obj.TITULOCONVOCATORIA);
+
+            return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
+
+        }
+
+
+        public bool MECnvt(Convocatoria obj)
+        {
+
+            para = new Parametro[2];
+            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+            para[1] = new Parametro("PCONV_ESTADO", obj.Estado);
+
+            Transacion[] trans = new Transacion[1];
+            trans[0] = new Transacion("PR_UPDT_CNVTSTDO", para);
+
+            return conx.realizarTransaccion(trans);
+
+        }
+
+        // Consultar cargos por instancia 
+        public DataTable CCrgsInst()
+        {
+        
+            return conx.realizarConsulta("PR_CNST_INSD_POR_INST", "CR_CNST_INSD_POR_INST", null);
+
+        }
+
 
 
 

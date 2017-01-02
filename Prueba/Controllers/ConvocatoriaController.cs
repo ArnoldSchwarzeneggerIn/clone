@@ -13,16 +13,46 @@ namespace Prueba.Controllers
 
         Convocatoria conv = new Convocatoria();
 
-        [HttpGet]
-        public IHttpActionResult ConsultarConvocatoria()
+
+        [HttpPost]
+        public IHttpActionResult CInstCnvt(Convocatoria obj)
         {
-            return Json(conv.ConsultarConvocatoria());
+            return Json(conv.CInstCnvt(obj));
+        }
+
+
+        [HttpPost]
+        public IHttpActionResult CInsdCnvt(Convocatoria obj)
+        {
+            return Json(conv.CInsdCnvt(obj));
+        }
+
+
+        [HttpPost]
+        public IHttpActionResult VotacionConvocatoria(Convocatoria obj)
+        {
+            return Json(conv.VotacionConvocatoria(obj));
+        }
+
+
+        [HttpPost]
+        public IHttpActionResult ConsultarCargosPorConvocatoria(Convocatoria obj)
+        {
+            return Json(conv.ConsultarCargosPorConvocatoria(obj));
+        }
+
+
+        // Consultar tods los cargos de todas instancia que se pueden elejir
+        [HttpGet]
+        public IHttpActionResult CCrgsInst()
+        {
+            return Json(conv.CCrgsInst());
         }
 
         [HttpPost]
-        public IHttpActionResult ConsultarConvocatoria(Convocatoria obj)
+        public IHttpActionResult CCnvtE(Convocatoria obj)
         {
-            return Json(conv.ConsultarConvocatoria());
+            return Json(conv.CCnvtE(obj));
         }
         public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
         {
@@ -33,7 +63,8 @@ namespace Prueba.Controllers
             return Json(conv.ConsultarConvocatoriaPorNumero(obj));
         }
 
-        public IHttpActionResult InsertarConvocatoria(Convocatoria obj)
+        //insertar convocatoria
+        public IHttpActionResult ICnvt(Convocatoria obj)
         {
 
             if (!ModelState.IsValid)
@@ -42,7 +73,7 @@ namespace Prueba.Controllers
             }
             else
             {
-                if (conv.InsertarConvocatoria(obj))
+                if (conv.ICnvt(obj))
                 {
                     return Json(new
                     {
@@ -70,6 +101,34 @@ namespace Prueba.Controllers
             else
             {
                 if (conv.ModificarConvocatoria(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+
+            }
+        }
+
+
+        public IHttpActionResult MECnvt(Convocatoria obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (conv.MECnvt(obj))
                 {
                     return Json(new
                     {

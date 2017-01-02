@@ -18,19 +18,29 @@ namespace Prueba.Controllers
             return Json(logi.ConsultarPermisos(obj));
         }
 
+        [HttpPost]
+
         public IHttpActionResult ConsultarPrograma(Login obj)
         {
             return Json(logi.ConsultarPrograma(obj));
         }
-
+        [HttpPost]
         public IHttpActionResult ConsultarInstancia(Login obj)
         {
             return Json(logi.ConsultarInstancia(obj));
         }
 
+        [HttpPost]
         public IHttpActionResult ConsultarDatos(Login obj)
         {
             return Json(logi.ConsultarDatos(obj));
         }
+
+        [HttpPost]
+        public IHttpActionResult ConsultarRol(Login obj)
+        {
+            return Json(logi.ConsultarRol(obj));
+        }
     }
+
 }

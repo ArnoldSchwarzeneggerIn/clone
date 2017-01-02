@@ -11,7 +11,7 @@ namespace Prueba.Controllers
     public class InstanciaController : ApiController
     {
         Instancia inst = new Instancia();
-   
+
 
 
         [HttpGet]
@@ -35,46 +35,65 @@ namespace Prueba.Controllers
         [HttpPost]
         public IHttpActionResult InsertarInstancia(Instancia obj)
         {
-            return Json(inst.InsertarInstancia(obj));
-        }
-
-        [HttpPost]
-        public IHttpActionResult ModificarInstancia(Instancia obj)
-        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             else
+               if (inst.InsertarInstancia(obj))
             {
-                if (inst.ModificarInstancia(obj))
+                return Json(new
                 {
-                    return Json(new
-                    {
-                        data = obj,
-                        result = true
-                    });
-                }
-                else
-                {
-                    return Json(new
-                    {
-                        result = false
-                    });
-                }
+                    data = obj,
+                    result = true
+                });
             }
+            else
+            {
+                return Json(new
+                {
+                    result = false
+                });
+            }
+        }
 
-           
+    
+
+    [HttpPost]
+    public IHttpActionResult ModificarInstancia(Instancia obj)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            if (inst.ModificarInstancia(obj))
+            {
+                return Json(new
+                {
+                    data = obj,
+                    result = true
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    result = false
+                });
+            }
         }
 
 
-        
+    }
 
-        //[HttpGet]
-        //public IHttpActionResult ConsultarInstanciaConvocatoria(Convocatoria obj)
-        //{
-        //    return Json(inst.Consultar(obj));
-        //}
+
+        [HttpPost]
+        public IHttpActionResult ConsultarConformacionInstancia(Instancia obj)
+        {
+            return Json(inst.ConsultarConformacionInstancia(obj));
+        }
 
 
 

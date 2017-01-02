@@ -120,6 +120,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -138,7 +139,9 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NuevoController.cs" />
     <Compile Include="Controllers\PropuestaController.cs" />
+    <Compile Include="Controllers\RequisitoController.cs" />
     <Compile Include="Controllers\TipoElectorController.cs" />
+    <Compile Include="Controllers\VotacionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,7 +150,7 @@
     <Compile Include="Models\Cobertura.cs" />
     <Compile Include="Models\Convocatoria.cs" />
     <Compile Include="Models\ConvocatoriaDetalle.cs" />
-    <Compile Include="Models\Documentos.cs" />
+    <Compile Include="Models\Documento.cs" />
     <Compile Include="Models\Fecha.cs" />
     <Compile Include="Models\Instancia.cs" />
     <Compile Include="Models\InstanciaConformacion.cs" />
@@ -155,12 +158,22 @@
     <Compile Include="Models\Jurado.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Parametro.cs" />
+    <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Propuesta.cs" />
     <Compile Include="Models\Requisito.cs" />
+    <Compile Include="Models\Rutas.cs" />
     <Compile Include="Models\Testigos.cs" />
     <Compile Include="Models\TipoElector.cs" />
     <Compile Include="Models\Transacion.cs" />
+    <Compile Include="Models\Votacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

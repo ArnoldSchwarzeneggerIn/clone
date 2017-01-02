@@ -35,6 +35,21 @@ namespace Prueba.Models
             return para;
         }
 
+        public Parametro[] ModificarCandidatura(Candidatura obj)
+        {
+            para = new Parametro[7];
+
+            para[0] = new Parametro("PCAND_ID", obj.cand_id);
+            para[1] = new Parametro("PCAND_CONVOCATORIADETALLE", obj.cand_convocatoriadetalle);
+            para[2] = new Parametro("PCAND_CEDULA", obj.cand_cedula);
+            para[3] = new Parametro("PCAND_PLANCHA", obj.cand_plancha);
+            para[4] = new Parametro("PCAND_OBSERVACION", obj.cand_observacion);
+            para[5] = new Parametro("PCAND_FECHAINSCRIPCION", obj.cand_fechainscripcion);
+            para[6] = new Parametro("PCAND_ESTADO", obj.cand_estado);
+
+            return para;
+        }
+
         //public DataTable ConsultarCandidato()
         //{
         //    return conx.realizarConsulta("","")
@@ -53,6 +68,22 @@ namespace Prueba.Models
             Transacion[] list = new Transacion[1];
             list[0] = new Transacion("PR_NSRT_CAND", AgregarCandidatura(obj));
             return conx.realizarTransaccion(list);
+        }
+
+        public bool ModificarCandidadatura(Candidatura obj)
+        {
+            Transacion[] list = new Transacion[1];
+            list[0] = new Transacion("PR_UPDATE_CAND", AgregarCandidatura(obj));
+            return conx.realizarTransaccion(list);
+        }
+
+        public  DataTable ConsultarCandidatos(Candidatura Cand)
+        {
+            para = new Parametro[2];
+            para[0] = new Parametro("PINST_ID", Cand.cand_id);
+            para[1] = new Parametro("PCONV_ID", Cand.cand_convocatoriadetalle );
+
+            return conx.realizarConsulta("PR_CNSTCNDD", "CR_CNSTCNDD", para);
         }
 
     }
