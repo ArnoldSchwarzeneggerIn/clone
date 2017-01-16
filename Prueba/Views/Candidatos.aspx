@@ -239,44 +239,32 @@
                                 </div>
                                
                             </div>
-                                <div class="text-right">
-                                    <asp:Button  runat="server" ID="Button" Class="btn btn-primary"  Text="Guardar"/>
-                                </div>
+                               
                                   <div class="datatable-scroll">
                                         <table class="table datatable-basic dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">Nombre instancia</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Descripcion</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Cobertura</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Estado</th>
-                                                    <th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 200px;">Acciones</th>
-                                                </tr>
-                                            </thead>
+                                         
                                             <tbody>
 
                                                 <asp:ListView ID="requisitos" runat="server" >
                                                     <ItemTemplate>
                                                         <tr role="row" class="">
-                                                            <td class="sorting_1">
-                                                                <asp:LinkButton ID="LinkButton1" runat="server"  Text='<%#Eval("IdRequisito")%>' CommandName="ver"></asp:LinkButton>
-                                                            </td>
-                                                            <td>
-                                                                Instancia creada 2016 De la univerdiad de la amazonia
-                                                            </td>
+                                                         <%--   <td class="sorting_1">
+                                                                <asp:LinkButton ID="LinkButton1" runat="server"  Text='<%#Eval("REQU_ID")%>' ></asp:LinkButton>
+                                                            </td>--%>
+                                                          
                                                             <td>
                                                              <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("NombreRequisito")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <span class='label label-success'>
-                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("EstadoRequisito")%>'></asp:Label>
+                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("SoporteRequisito")%>'></asp:Label>
                                                                 </span>
 
                                                             </td>
                                                             <td class="text-center">
                                                                 <ul class="icons-list">
                                                                     <li>     
-                                                                      <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' data-popup="tooltip" title data-original-title="Editar" CommandName="Edit"> <i class="icon-pencil7" title="Agregar cargo"></i></asp:LinkButton>
+                                                                     <%-- <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' data-popup="tooltip" title data-original-title="Editar" CommandName="Edit"> <i class="icon-pencil7" title="Agregar cargo"></i></asp:LinkButton>--%>
                                                                     </li>
                                                                     <li><a href="#"><i class="icon-trash"></i></a></li>
                                                                     <li><a href="#"><i class="icon-cog7"></i></a></li>
@@ -326,7 +314,9 @@
                                             </tbody>
                                         </table>
                                     </div>
-
+                                 <div class="text-right">
+                                    <asp:Button  runat="server" ID="Button" Class="btn btn-primary"  Text="Guardar"/>
+                                </div>
                             <div class="row">
                             </div>
                             <!-- Footer -->

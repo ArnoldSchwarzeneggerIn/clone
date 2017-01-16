@@ -139,21 +139,6 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Conexions\Conexion.cs" />
-    <Compile Include="Controllers\CandidaturaController.cs" />
-    <Compile Include="Controllers\CausaRetiroController.cs" />
-    <Compile Include="Controllers\CoberturaController.cs" />
-    <Compile Include="Controllers\ConvocatoriaController.cs" />
-    <Compile Include="Controllers\ConvocatoriaDetalleController.cs" />
-    <Compile Include="Controllers\DocumentosController.cs" />
-    <Compile Include="Controllers\FechaController.cs" />
-    <Compile Include="Controllers\InstanciaConformacionController.cs" />
-    <Compile Include="Controllers\InstanciaController.cs" />
-    <Compile Include="Controllers\InstanciaDetalleController.cs" />
-    <Compile Include="Controllers\JuradosController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PropuestaController.cs" />
-    <Compile Include="Controllers\RequisitoController.cs" />
-    <Compile Include="Controllers\TipoElectorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
