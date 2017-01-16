@@ -215,26 +215,27 @@ $(function() {
     // Initialize plugins
     // ------------------------------
 
-     //Select2 selects
-    $('.select').select2();
+    //Select2 selects
+    //$('.select').select2();
+    
 
 
-    // Simple select without search
-    $('.select-simple').select2({
-        minimumResultsForSearch: '-1'
-    });
+    //// Simple select without search
+    //$('.select-simple').select2({
+    //    minimumResultsForSearch: '-1'
+    //});
 
 
-    // Styled checkboxes and radios
-    $('.styled').uniform({
-        radioClass: 'choice'
-    });
+    //// Styled checkboxes and radios
+    //$('.styled').uniform({
+    //    radioClass: 'choice'
+    //});
 
 
-    // Styled file input
-    $('.file-styled').uniform({
-        wrapperClass: 'bg-warning',
-        fileButtonHtml: '<i class="icon-googleplus5"></i>'
-    });
+    //// Styled file input
+    //$('.file-styled').uniform({
+    //    wrapperClass: 'bg-warning',
+    //    fileButtonHtml: '<i class="icon-googleplus5"></i>'
+    //});
     
 });

@@ -23,13 +23,13 @@ namespace Prueba.Utileria
              return Response;
         }
 
-        public static dynamic ConsumirPost(RestClient Rest, RestRequest Peticion, dynamic objeto, dynamic objeto2)
-        {
-            Peticion.AddJsonBody(objeto);
-            Peticion.AddJsonBody(objeto2);
-            var Response = Rest.Execute(Peticion);
-            return Response;
-        }
+        //public static dynamic ConsumirPost(RestClient Rest, RestRequest Peticion, dynamic objeto, dynamic objeto2)
+        //{
+        //    Peticion.AddJsonBody(objeto);
+        //    Peticion.AddJsonBody(objeto2);
+        //    var Response = Rest.Execute(Peticion);
+        //    return Response;
+        //}
         public static dynamic Autenticacion(RestClient Rest, RestRequest Peticion, string code)
         {
 

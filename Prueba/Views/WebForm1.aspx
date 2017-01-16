@@ -20,23 +20,23 @@
 
 
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css" />
-    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css" />
+<%--    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css" />--%>
     <%--<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css" />--%>
-    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css" />
+  <%--  <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css" />--%>
 
 
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
-    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+    <%--<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
        
-     <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+     <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>--%>
     <%--<script type="text/javascript" src="assets/js/core/libraries/jquery-3.0.0.min.js"></script>--%>
     <%--<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>--%>
-    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+<%--    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>--%>
 
     <!-- /core JS files -->
 
@@ -46,12 +46,12 @@
 
 
     <!--???-->
-    <script type="text/javascript" src="assets/js/core/app.js"></script>
+   <%-- <script type="text/javascript" src="assets/js/core/app.js"></script>--%>
     <%--<script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>--%> <%--no deja mostrar el fileuploap dentro de un tab con steps.js en otro lugar si funciona--%>
-    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
+<%--    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
-    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
+    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>--%>
     <%--No deja lanzar la alerta--%>
     </head>
     <body>

@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess">
       <HintPath>..\..\..\Electoral\Prueba\bin\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
@@ -102,9 +106,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -117,7 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\assets\css\bootstrap-theme.css" />
+    <Content Include="Views\assets\css\bootstrap-theme.min.css" />
     <Content Include="Views\assets\css\bootstrap.css" />
+    <Content Include="Views\assets\css\bootstrap.min.css" />
     <Content Include="Views\assets\css\colors.css" />
     <Content Include="Views\assets\css\components.css" />
     <Content Include="Views\assets\css\core.css" />
@@ -139,6 +143,7 @@
     <Content Include="Views\assets\demo_data\wizard\json.html" />
     <Content Include="Views\assets\demo_data\wizard\personal_data.html" />
     <Content Include="Views\assets\demo_data\wizard\store_in_database.html" />
+    <Content Include="Views\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Views\assets\images\backgrounds\boxed_bg.png" />
     <Content Include="Views\assets\images\backgrounds\boxed_bg_retina.png" />
     <Content Include="Views\assets\images\cover.jpg" />
@@ -409,6 +414,8 @@
     <Content Include="Views\assets\images\ui\map_marker.png" />
     <Content Include="Views\assets\img\loading-sm.gif" />
     <Content Include="Views\assets\img\loading.gif" />
+    <Content Include="Views\assets\js\bootstrap.js" />
+    <Content Include="Views\assets\js\bootstrap.min.js" />
     <Content Include="Views\assets\js\campos.js" />
     <Content Include="Views\assets\js\charts\c3\c3_advanced.js" />
     <Content Include="Views\assets\js\charts\c3\c3_axis.js" />
@@ -617,6 +624,7 @@
     <Content Include="Views\assets\js\maps\google\markers\symbols_custom.js" />
     <Content Include="Views\assets\js\maps\google\markers\symbols_predefined.js" />
     <Content Include="Views\assets\js\maps\vector\vector_maps_demo.js" />
+    <Content Include="Views\assets\js\npm.js" />
     <Content Include="Views\assets\js\pages\appearance_draggable_panels.js" />
     <Content Include="Views\assets\js\pages\appearance_panel_heading.js" />
     <Content Include="Views\assets\js\pages\Calendario.js" />
@@ -1774,6 +1782,7 @@
     <Content Include="Views\WebForm1.aspx" />
     <Content Include="Views\WebForm2.aspx" />
     <Content Include="Views\WebForm3.aspx" />
+    <Content Include="Views\WebForm4.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1920,6 +1929,13 @@
     </Compile>
     <Compile Include="Views\WebForm3.aspx.designer.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -2313,6 +2329,14 @@
     <Content Include="Views\assets\locales\ua.json" />
     <Content Include="Views\assets\swf\.DS_Store" />
     <None Include="Properties\PublishProfiles\profile1.pubxml" />
+    <Content Include="Views\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Views\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\assets\css\bootstrap-theme.css.map" />
+    <Content Include="Views\assets\css\bootstrap-theme.min.css.map" />
+    <Content Include="Views\assets\css\bootstrap.css.map" />
+    <Content Include="Views\assets\css\bootstrap.min.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

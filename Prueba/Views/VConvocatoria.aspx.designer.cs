@@ -31,13 +31,22 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.Button Buttonttt;
         
         /// <summary>
-        /// Control Button1.
+        /// Control Button5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button5;
+        
+        /// <summary>
+        /// Control ICnvt.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ICnvt;
         
         /// <summary>
         /// Control Button2.
@@ -121,31 +130,31 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.Label Ubicacion;
         
         /// <summary>
-        /// Control Datepicker1.
+        /// Control FRegistro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Datepicker1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl FRegistro;
         
         /// <summary>
-        /// Control numeroC.
+        /// Control NConv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect numeroC;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NConv;
         
         /// <summary>
-        /// Control finscripcionconvo.
+        /// Control InicioInscripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl finscripcionconvo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl InicioInscripcion;
         
         /// <summary>
         /// Control ffindeinscripcion.
@@ -256,13 +265,13 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.ListView ListaConvocatoria;
         
         /// <summary>
-        /// Control panel4.
+        /// Control Panel4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl panel4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Panel4;
         
         /// <summary>
         /// Control Button4.
@@ -326,5 +335,23 @@ namespace Prueba.Views {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Control Button6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button6;
     }
 }

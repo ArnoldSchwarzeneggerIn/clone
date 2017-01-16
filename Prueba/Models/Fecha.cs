@@ -1,23 +1,26 @@
-﻿using Prueba.Conexions;
+﻿using Newtonsoft.Json;
+using Prueba.Conexions;
+using Prueba.Utileria;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.Script.Serialization;
+using System.Web.Services.Description;
 
 namespace Prueba.Models
 {
     public class  Fecha
     {
-        Conexion conx = new Conexion();
-        public  DataTable ConsultarFecha()
-        {
-            return conx.realizarConsulta("PR_FECHAACTUAL", "CR_FECHAACTUAL", null);
-        }
         
-        public DateTime fecha()
+        public string FECHA { get; set; }
+        public Fecha()
         {
-          return Convert.ToDateTime ( Convert.ToString((conx.realizarConsulta("PR_FECHAACTUAL", "CR_FECHAACTUAL", null).Rows[0]["SYSDATE"])));
+        
+
         }
 
     }

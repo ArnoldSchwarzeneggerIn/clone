@@ -163,63 +163,92 @@
             margin-right: 100px;
         }
 
-        
-.ui-datepicker-calendar {
-   display: none;
-}
+
+        .ui-datepicker-calendar {
+            display: none;
+        }
     </style>
 
 
 
 
 
-    <!-- Fileinput-->
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+     <!-- Fileinput-->
     <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-
     <%--/Fileinput--%>
 
-    <!-- Global stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
 
-
-    <!-- /global stylesheets -->
-
-    <!-- Core JS files -->
-    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- Core JS files -->
+	<%--<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>--%>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    <!-- /core JS files -->
-
-
 
     <!-- Fileinput-->
-    <%--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--%>
     <script src="../js/fileinput.js" type="text/javascript"></script>
-    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>--%>
     <!--/Fileinput-->
+	
+    
+    <!-- /core JS files -->
 
+     <!-- Theme JS files -->
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <%-- <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>--%>
+    <%--no deja mostrar el fileuploap dentro de un tab con steps.js en otro lugar si funciona---%>
+    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
+    <script type="text/javascript" src="assets/js/campos.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+    <%--No deja lanzar la alerta--%>
+
+    <!-- /Theme JS files -->
+
+
+
+
+    
+    <%--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--%>
+    
+    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>--%>
+    
+
+
+ 
 
 
     <%--avoid resubmit of data from form--%>
-    <script type="text/javascript">
+  <%--  <script type="text/javascript">
         if (history.forward(1)) {
             location.replace(history.forward(1));
         }
-    </script>
+    </script>--%>
 
     <%--end avoid resubmit of data from form--%>
 
-  
 
+    <%-- Script to called server from aspx --%>
+   <%-- <script runat="server">
+        protected void CNmroCnvt()
+        {
+            string s = FRegistro.Value;
+            NConv.Value = Numero(s);
+        }
+    </script>--%>
+    <%-- End Script to called server from aspx --%>
 
 
 
@@ -304,8 +333,6 @@
                     s6 = s4+s5;
                     obj4 = document.getElementById(s6);
 
-                    
-
 
                     if(obj != null && obj1 != null){
 
@@ -378,11 +405,10 @@
             obj.click();
         }
 
-        function guardar() {
-            var obj = document.getElementById('Button1');
+        function Guardar() {
+            var obj = document.getElementById('Button5');
             obj.click();
-            //var a = document.getElementById('recargar');
-            //obj.click();
+          
 
         }
 
@@ -397,13 +423,47 @@
         }
 
         
-        function Pblcds(){
-            var x = document.getElementById('ad');
-            x.click();
+        function IrAPanel(e){
+            var x; 
+            switch (e){
+                case "PPblc":
+                    x = document.getElementById('ad');
+                    x.click();
+                    break;
+                case "TBrrd":
+                    //FRegistro.value = "";
+                    //NConv.value = "";
+                    //InicioInscripcion.value= null;
+                    //ffindeinscripcion.value= null;
+                    //resultadosconvo.value = null;
+                    //juradosconvoca.value= null;
+                    //candidatoshconvo.value= null;
+                    //epresenciaconvo.value= null;
+                    //edistanciaconvo.value= null;
+                    //descripcion.value="";
+
+                    //window.location.href="http://localhost:25597/Views/VConvocatoria.aspx
+                    //window.location.assign("http://localhost:25597/Views/VConvocatoria.aspx");
+                        
+                    //$("#liTRBrrd").attr("class", "");
+                    //$("#liTBrrd").attr("class", "active");
+
+                    CallServer('asdf')
+
+                    x = document.getElementById('LTBrrd');
+                    x.click();
+                    break;
+            }
         }
+
+        function Refresh_page(){
+            window.location.assign('http://localhost:25597/Views/VConvocatoria.aspx')        
+        };
 
 
     </script>
+
+
 
 
 
@@ -539,49 +599,89 @@
             });
         });
 
+        // Call server from aspx with javascript
+        function CallServer(id) {
+            //the attribute that recive the method _doPostBack is identifier, this is listening in the method page_load with a parameter 
+            __doPostBack(id);
+        }
+
+
+        function EstablecerFechaMin(){
+            
+            $("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            $("#resultadosconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            $("#juradosconvoca").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            $("#candidatoshconvo").attr("min",($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) :  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            $("#epresenciaconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            $("#edistanciaconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            
+
+
+            //$("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#resultadosconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#juradosconvoca").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#candidatoshconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#epresenciaconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#edistanciaconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            //$("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+      
+        }
+
+
+    
+
+     
 
     </script>
 
 
-    <!-- Theme JS files -->
-    <script type="text/javascript" src="assets/js/core/app.js"></script>
-    <%-- <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>--%>
-    <%--no deja mostrar el fileuploap dentro de un tab con steps.js en otro lugar si funciona---%>
-    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
-    <script type="text/javascript" src="assets/js/campos.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
-    <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
-    <%--No deja lanzar la alerta--%>
-
-    <!-- /Theme JS files -->
+   
 
     <script>
        <%-- Datapiker only years --%>
     
-        $(function() {
-            $( "#Datepicker1" ).datepicker({dateFormat: 'yy'});
-        });
+        //$(function() {
+        //    $( "#Datepicker1" ).datepicker({dateFormat: 'yy'});
+        //});
     
-    <%--End Datapiker only years --%>
-  </script>
+        <%--End Datapiker only years --%>
+    </script>
 
 
+    <script type="text/javascript">
+   window.onerror = function(msg, url, line, col, error) {
+   // Note that col & error are new to the HTML 5 spec and may not be 
+   // supported in every browser.  It worked for me in Chrome.
+   var extra = !col ? '' : '\ncolumn: ' + col;
+   extra += !error ? '' : '\nerror: ' + error;
 
+   // You can view the information in an alert to see things working like this:
+   alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+
+   // TODO: Report this error via ajax so you can keep track
+   //       of what pages have JS issues
+
+   var suppressErrorAlert = true;
+   // If you return true, then error alerts (like in older versions of 
+   // Internet Explorer) will be suppressed.
+   return suppressErrorAlert;
+};
+</script>
 
 </head>
 <body>
 
 
     <form id="Formulario" runat="server">
-        <asp:Button ID="Buttonttt" runat="server" Text="Button" OnClick="NuevoClick12" Style="display: none" />
 
+        <asp:Button ID="Buttonttt" runat="server" Text="Button" OnClick="NuevoClick12" Style="display: none" />
+        <asp:Button ID="Button5" runat="server" Text="Button" OnClick="ICnvtC" Style="display: none"/>
 
 
         <a id="aa" data-toggle="modal" href="#modal_form_vertical" title="Agregar" style="display: none"><i class="icon-add"></i></a>
         <a id="ab" data-toggle="modal" href="#modal_registro" title="Agregar" style="display: none"><i class="icon-add"></i></a>
 
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" Style="display: none" />
+        <asp:Button ID="ICnvt" runat="server" Text="Button" OnClick="ICnvtC" Style="display: none" />
         <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button4_Click" Style="display: none" />
         <asp:Label ID="Label1" runat="server" Text="1" Style="display: none"></asp:Label>
         <asp:Label ID="Label2" runat="server" Text="Label" Style="display: none"></asp:Label>
@@ -590,7 +690,7 @@
         <div class="navbar navbar-inverse">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.aspx">
-                    <img src="assets/images/si.png" style="width: 11em; height: 1.5em;"/>
+                    <img src="assets/images/si.png" style="width: 11em; height: 1.5em;" />
                 </a>
 
                 <ul class="nav navbar-nav visible-xs-block">
@@ -737,8 +837,8 @@
 
                         <div class="navbar-collapse collapse" id="navbar-filter">
                             <ul class="nav navbar-nav element-active-slate-400">
-                                <li class="active"><a href="#TRBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Registrar borrador  </a></li>
-                                <li><a href="#TBrrd" data-toggle="tab"><i class="icon-menu7 position-left"></i>Revisar Borrador</a></li>
+                                <li id="liTRBrrd"class="active"><a href="#TRBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Registrar borrador  </a></li>
+                                <li id="liTBrrd"><a id="LTBrrd" href="#TBrrd" data-toggle="tab"><i class="icon-menu7 position-left"></i>Revisar Borrador</a></li>
                                 <li><a href="#TPblc" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
                                 <li style="display: none"><a id="ac" href="#PBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
                                 <li style="display: none"><a id="ad" href="#PPblc" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
@@ -765,78 +865,94 @@
                                                     <fieldset>
                                                         <div class="row col-md-10 col-md-offset-1 ">
                                                             <div class="row">
-                                                                 <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>Año convocatoria <span class="text-danger">*</span>  </label>
-                                                                        <input type="text" runat="server" id="Datepicker1"  required="required" />
-                                                                    </div>
-                                                                </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Numero Convocatoria<span class="text-danger">*</span>  </label>
-                                                                        <select id="numeroC" runat="server">
-                                                                        </select>
-                                                                    </div>
-                                                                     
-                                                               
+                                                                        <label>Fecha de creación <span class="text-danger">*</span>  </label>
+                                                                        <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
+                                                                        <input id="FRegistro" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
+                                                                        </div>
                                                                 </div>
-                                                                
-                                                            </div>
-                                                            <div class="row">
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Numero <span class="text-danger">*</span>  </label>
+                                                                        <input type="text" class="form-control" runat="server" id="NConv" required="required" readonly="true" />
+
+                                                                    </div>
+                                                                </div>
 
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" runat="server" id="finscripcionconvo"  required="required" />
+                                                                        <input type="date" class="form-control" runat="server" id="InicioInscripcion" required="required" onchange="EstablecerFechaMin()"/>
                                                                     </div>
                                                                 </div>
-
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputEmail1">Fin de inscripciones  <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion" required="required" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>Publicación de resultados <span class="text-danger">*</span> </label>
-                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo" required="required" />
-                                                                    </div>
-                                                                </div>
-
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Publicación de jurados <br /> habilitados <span class="text-danger">*</span>  </label>
+                                                                        <label for="exampleInputEmail1">Fin de
+                                                                            <br />
+                                                                            inscripciones  <span class="text-danger">*</span>  </label>
+                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion" required="required" onchange="EstablecerFechaMin()" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Publicación de
+                                                                            <br />
+                                                                            resultados <span class="text-danger">*</span> </label>
+                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo" required="required" />
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Publicación de jurados
+                                                                            <br />
+                                                                            habilitados <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" runat="server" id="juradosconvoca" required="required" />
                                                                     </div>
                                                                 </div>
+
+                                                            </div>
+                                                            <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Publicación de candidatos  y <br />testigos habilitados  <span class="text-danger">*</span>  </label>
+                                                                        <label>
+                                                                            Publicación de candidatos  y
+                                                                            <br />
+                                                                            testigos habilitados  <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" runat="server" id="candidatoshconvo" required="required" />
                                                                     </div>
                                                                 </div>
-                                                                 <div class="col-md-4">
+                                                                <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Elecciones modalidad <br /> presencial  <span class="text-danger">*</span>  </label>
+                                                                        <label>
+                                                                            Elecciones modalidad
+                                                                            <br />
+                                                                            presencial  <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" runat="server" id="epresenciaconvo" required="required" />
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                               
-                                                                <div class="col-md-4">
+                                                               <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Elecciones modalidad  a <br />distancia <span class="text-danger">*</span>  </label>
+                                                                        <label>
+                                                                            Elecciones modalidad  a
+                                                                            <br />
+                                                                            distancia <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" runat="server" id="edistanciaconvo" required="required" />
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            
 
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -880,19 +996,19 @@
                                         <div class="tab-pane fade" id="TBrrd">
                                             <div class="panel ">
                                                 <div class="panel-heading">
-                                                    <h6 class="panel-title" style="font-size:1em">Borradores</h6>
-                                                    <div class="heading-elements">
-                                                        <span class="label bg-success heading-text">
-                                                            <asp:Label ID="NumeroR" runat="server" Text="Label"></asp:Label>
-                                                            Borradores</span>
+                                                    <h6 class="panel-title" style="font-size: 1em"> </h6>
+                                                    <div class="heading-elements" style="margin-top:0.5%">
+                                                        <span class="label bg-success heading-text" >
+                                                            <asp:Label ID="NumeroR" runat="server" Text="Label" CssClass=""></asp:Label>
+                                                           Borradores </span>
                                                         <ul class="icons-list">
                                                             <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="panel-body" >
-                                                   <p style="font-size:2em;width:100%;text-align:center"> Lista de borradores </p>
-                                                        <br />
+                                                <div class="panel-body">
+                                                    <p style="font-size: 2em; width: 100%; text-align: center">Lista de borradores </p>
+                                                    <br />
 
 
                                                     <%--        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -907,23 +1023,28 @@
 
                                                     <asp:ListView ID="LVBrrd" runat="server">
                                                         <ItemTemplate>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-10 col-md-offset-1">
                                                                 <div class="thumbnail">
-                                                                    <div class="thumb text-center"> 
-                                                                       <label style="font-size:2em;margin-top:2em"> CONVOCATORIA ELECTORAL <br /> N#
-                                                                        <asp:label ID="titu"  runat="server" Text='<%#Eval("TituloConvocatoria") %>'>  </asp:label>
+                                                                    <div class="thumb text-center">
+                                                                        <label style="font-size: 2em; margin-top: 2em">
+                                                                            CONVOCATORIA ELECTORAL
+                                                                            <br />
+                                                                            N#
+                                                                        <asp:Label ID="titu" runat="server" Text='<%#Eval("NUMEROCONVOCATORIA") %>'>  </asp:Label>
+                                                                            de 
+                                                                            <asp:Label ID="Label5" runat="server" Text='<%#Eval("fecharegistro") %>'>  </asp:Label>
                                                                         </label>
-                                                                       
+
                                                                     </div>
 
                                                                     <div class="caption">
                                                                         <h6 class="text-semibold no-margin-top text-uppercase">
-                                                                             
-                                                                          <%--  <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>--%>
+
+                                                                            <%--  <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>--%>
                                                                         </h6>
-
+                                                                        
                                                                         <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
-
+                                                                            
                                                                         <div class="row">
 
                                                                             <div class="col-sm-6">
@@ -1071,14 +1192,20 @@
                                                             </div>
 
                                                             <div class="widget-content">
-                                                                <div id="panel4" runat="server" style="margin-bottom: 1.5em">
+                                                                <div id="Panel4" runat="server" style="margin-bottom: 1.5em">
                                                                 </div>
 
 
 
                                                                 <%--<label  style="background-color:rgb(33, 150, 243);padding:0.5em;color:white;"><strong>Adjuntar soporte</strong></label>--%>
-                                                                <label><strong>Adjuntar soporte</strong></label>
-                                                                <input id="file-es" name="file-es[]" type="file" multiple />
+                                                               <%-- <label><strong>Adjuntar soporte</strong></label>
+                                                                <input id="file-es" name="file-es[]" type="file" multiple />--%>
+
+
+                                                                <label class="control-label">Select File</label>
+<input id="input-44" name="input44[]" type="file" multiple class="file-loading">
+<div id="errorBlock" class="help-block"></div>
+
 
                                                                 <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
                                                                 <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
@@ -1173,7 +1300,7 @@
                 <div class="modal-content" style="background-color: rgba(63, 193, 165, 0.8); border-color: white; border: outset; border-width: 0.3em">
                     <div class="modal-header">
                         <%--<button type="button" class="close" data-dismiss="modal" ">&times;</button>--%>
-                        <label style="color: white; font-size: 1.5em" class="modal-title"><strong>Registro éxitoso</strong></label>
+                        <label style="color: white; font-size: 1.5em" class="modal-title"><strong>¿Desea guardar?</strong></label>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -1183,8 +1310,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" onclick="guardar();">Ok</button>
-                        <%--onclick="limpiar_textbox('erros');"--%>
+                         <%--<asp:Button ID="Button5" runat="server" Text="blblablablalb" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="CallServer('Guardar')"/>--%>
+                         <asp:Button ID="Button1" runat="server" Text="Ok" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="Guardar()"/>
+                         <asp:Button ID="Button6" runat="server" Text="Cancel" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" />
                     </div>
                 </div>
             </div>
@@ -1193,88 +1321,91 @@
 
 
     </form>
-      
-
 </body>
 
-<script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
+
 
 <%--functions fileinputs--%>
 <script>
-    $('#file-fr').fileinput({
-        language: 'fr',
-        uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-    });
-    $('#file-es').fileinput({
-        language: 'es',
-        uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif', 'pdf'],
-    });
-    $("#file-0").fileinput({
-        'allowedFileExtensions': ['jpg', 'png', 'gif'],
-    });
-    $("#file-1").fileinput({
-        uploadUrl: '#', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-        overwriteInitial: false,
-        maxFileSize: 1000,
-        maxFilesNum: 10,
-        //allowedFileTypes: ['image', 'video', 'flash'],
-        slugCallback: function (filename) {
-            return filename.replace('(', '_').replace(']', '_');
-        }
-    });
-    /*
-    $(".file").on('fileselect', function(event, n, l) {
-        alert('File Selected. Name: ' + l + ', Num: ' + n);
-    });
-    */
-    $("#file-3").fileinput({
-        showUpload: false,
-        showCaption: false,
-        browseClass: "btn btn-primary btn-lg",
-        fileType: "any",
-        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-    });
-    $("#file-4").fileinput({
-        uploadExtraData: { kvId: '10' }
-    });
-    $(".btn-warning").on('click', function () {
-        if ($('#file-4').attr('disabled')) {
-            $('#file-4').fileinput('enable');
-        } else {
-            $('#file-4').fileinput('disable');
-        }
-    });
-    $(".btn-info").on('click', function () {
-        $('#file-4').fileinput('refresh', { previewClass: 'bg-info' });
-    });
-    /*
-    $('#file-4').on('fileselectnone', function() {
-        alert('Huh! You selected no files.');
-    });
-    $('#file-4').on('filebrowse', function() {
-        alert('File browse clicked for #file-4');
-    });
-    */
-    $(document).ready(function () {
-        $("#test-upload").fileinput({
-            'showPreview': false,
-            'allowedFileExtensions': ['jpg', 'png', 'gif'],
-            'elErrorContainer': '#errorBlock'
+    $(document).on('ready', function() {
+        $("#input-44").fileinput({
+            uploadUrl: '/file-upload-batch/2',
+            maxFilePreviewSize: 10240
         });
-        /*
-        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-        });
-        */
     });
+
+    //$('#file-fr').fileinput({
+    //    language: 'fr',
+    //    uploadUrl: '#',
+    //    allowedFileExtensions: ['jpg', 'png', 'gif'],
+    //});
+    //$('#file-es').fileinput({
+    //    language: 'es',
+    //    uploadUrl: '#',
+    //    allowedFileExtensions: ['jpg', 'png', 'gif', 'pdf'],
+    //});
+    //$("#file-0").fileinput({
+    //    'allowedFileExtensions': ['jpg', 'png', 'gif'],
+    //});
+    //$("#file-1").fileinput({
+    //    uploadUrl: '#', // you must set a valid URL here else you will get an error
+    //    allowedFileExtensions: ['jpg', 'png', 'gif'],
+    //    overwriteInitial: false,
+    //    maxFileSize: 1000,
+    //    maxFilesNum: 10,
+    //    //allowedFileTypes: ['image', 'video', 'flash'],
+    //    slugCallback: function (filename) {
+    //        return filename.replace('(', '_').replace(']', '_');
+    //    }
+    //});
+    ///*
+    //$(".file").on('fileselect', function(event, n, l) {
+    //    alert('File Selected. Name: ' + l + ', Num: ' + n);
+    //});
+    //*/
+    //$("#file-3").fileinput({
+    //    showUpload: false,
+    //    showCaption: false,
+    //    browseClass: "btn btn-primary btn-lg",
+    //    fileType: "any",
+    //    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+    //});
+    //$("#file-4").fileinput({
+    //    uploadExtraData: { kvId: '10' }
+    //});
+    //$(".btn-warning").on('click', function () {
+    //    if ($('#file-4').attr('disabled')) {
+    //        $('#file-4').fileinput('enable');
+    //    } else {
+    //        $('#file-4').fileinput('disable');
+    //    }
+    //});
+    //$(".btn-info").on('click', function () {
+    //    $('#file-4').fileinput('refresh', { previewClass: 'bg-info' });
+    //});
+    ///*
+    //$('#file-4').on('fileselectnone', function() {
+    //    alert('Huh! You selected no files.');
+    //});
+    //$('#file-4').on('filebrowse', function() {
+    //    alert('File browse clicked for #file-4');
+    //});
+    //*/
+    //$(document).ready(function () {
+    //    $("#test-upload").fileinput({
+    //        'showPreview': false,
+    //        'allowedFileExtensions': ['jpg', 'png', 'gif'],
+    //        'elErrorContainer': '#errorBlock'
+    //    });
+    //    /*
+    //    $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+    //        alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+    //    });
+    //    */
+    //});
 
    
 
 </script>
 <%--end functions fileinputs--%>
-
-
 </html>
