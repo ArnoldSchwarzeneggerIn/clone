@@ -24,10 +24,22 @@ namespace Prueba.Models
         public string Fechaeleccionesdistancia{ get; set; }
         public string Fechapublicacionresultados{ get; set; }
         public string Estado { get; set; }
+        public string fecharegistro { get; set; }
+
+        public DataTable CNmroCnvt(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
+
+
+            return conx.realizarConsulta("PR_CNST_CNVT_NMRO", "CR_CNST_CNVT_NMRO", para);
+        }
+
+
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {
-            para = new Parametro[10];
+            para = new Parametro[11];
             para[0] = new Parametro("PCONV_TITULO", obj.TITULOCONVOCATORIA);
             para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
             para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
@@ -38,6 +50,7 @@ namespace Prueba.Models
             para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
             para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
             para[9] = new Parametro("PCONV_ESTADO", obj.Estado);
+            para[10] = new Parametro("PCONV_FECH_REGISTRO", obj.fecharegistro);
 
             return para;
         }

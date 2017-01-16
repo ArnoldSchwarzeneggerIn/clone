@@ -13,6 +13,14 @@ namespace Prueba.Controllers
 
         Convocatoria conv = new Convocatoria();
 
+        [HttpPost]
+        public IHttpActionResult CNmroCnvt(Convocatoria obj)
+        {
+            return Json(conv.CNmroCnvt(obj));
+        }
+
+
+
 
         [HttpPost]
         public IHttpActionResult CInstCnvt(Convocatoria obj)

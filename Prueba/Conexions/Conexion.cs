@@ -112,18 +112,18 @@ namespace Prueba.Conexions
                         cmd.CommandType = CommandType.StoredProcedure;
                         foreach (Parametro obj in list[i].Parameters)
                         {
-                            if (obj.Value.Equals("null"))
+                            /* if (obj.Value.Equals("null")) genera error de referencia no establecida ?
                             {
 
                                 //cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
 
                             }
                             else
-                            {
+                            {*/
                                 cmd.Parameters.Add(obj.Nombre, obj.Value);
-                            }
-                            
-                        }
+                        //}
+
+                      }
 
                         cmd.Transaction = Transa;
                         cmd.ExecuteNonQuery();
@@ -135,12 +135,13 @@ namespace Prueba.Conexions
                 Transa.Dispose();
                 state = true;
             }
-            catch
+            catch(Exception e)
             {
                 Transa.Rollback();
                 conn.Close();
                 conn.Dispose();
                 state = false;
+                throw new Exception("asdf" + e.Message);
             }
             finally
             {
