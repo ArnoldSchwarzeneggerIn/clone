@@ -9,8 +9,7 @@ namespace Prueba.Models
     {
         public string Nombre { get; set; }
         public string Value { get; set; }
-
-        //public byte[] ValueBit { get; set; }
+        public byte[] ValueBit { get; set; }
         
         public Parametro(string n, string v)
         {
@@ -19,11 +18,11 @@ namespace Prueba.Models
         }
 
 
-        //public Parametro(string n, byte[] v)
-        //{
-        //    Nombre = n;
-        //    ValueBit = v;
-        //}
+        public Parametro(string n, byte[] v)
+        {
+            Nombre = n;
+           ValueBit = v;
+        }
 
     }
 }

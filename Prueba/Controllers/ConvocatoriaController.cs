@@ -19,6 +19,12 @@ namespace Prueba.Controllers
             return Json(conv.CNmroCnvt(obj));
         }
 
+        [HttpPost]
+        public IHttpActionResult CCnvt(Convocatoria obj)
+        {
+            return Json(conv.CCnvt(obj));
+        }
+
 
 
 

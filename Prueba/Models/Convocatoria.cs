@@ -25,21 +25,14 @@ namespace Prueba.Models
         public string Fechapublicacionresultados{ get; set; }
         public string Estado { get; set; }
         public string fecharegistro { get; set; }
+        public byte[] Documento { get; set; }
 
-        public DataTable CNmroCnvt(Convocatoria obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
-
-
-            return conx.realizarConsulta("PR_CNST_CNVT_NMRO", "CR_CNST_CNVT_NMRO", para);
-        }
-
+     
 
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {
-            para = new Parametro[11];
+            para = new Parametro[12];
             para[0] = new Parametro("PCONV_TITULO", obj.TITULOCONVOCATORIA);
             para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
             para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
@@ -51,6 +44,7 @@ namespace Prueba.Models
             para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
             para[9] = new Parametro("PCONV_ESTADO", obj.Estado);
             para[10] = new Parametro("PCONV_FECH_REGISTRO", obj.fecharegistro);
+            para[11] = new Parametro("PCONV_DOCUMENTO", obj.Documento);
 
             return para;
         }
@@ -80,6 +74,23 @@ namespace Prueba.Models
             para[1] = new Parametro("PTIPOUSUARIO", obj.NumeroConvocatoria);
             return para;
         }
+
+        public DataTable CNmroCnvt(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
+
+
+            return conx.realizarConsulta("PR_CNST_CNVT_NMRO", "CR_CNST_CNVT_NMRO", para);
+        }
+
+        public DataTable CCnvt(Convocatoria obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+            return conx.realizarConsulta("PR_CNST_CNVT", "CR_CNST_CNVT", para);
+        }
+
 
         public DataTable VotacionConvocatoria(Convocatoria obj)
 
@@ -139,6 +150,7 @@ namespace Prueba.Models
         //insertar convocatoria
         public bool ICnvt(Convocatoria obj)
         {
+           
             Transacion[] trans = new Transacion[1];
             trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
             return conx.realizarTransaccion(trans);

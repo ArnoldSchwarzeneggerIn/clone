@@ -112,16 +112,17 @@ namespace Prueba.Conexions
                         cmd.CommandType = CommandType.StoredProcedure;
                         foreach (Parametro obj in list[i].Parameters)
                         {
-                            /* if (obj.Value.Equals("null")) genera error de referencia no establecida ?
+                            
+                             if (obj.Value == null) 
                             {
 
-                                //cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
+                                cmd.Parameters.Add(obj.Nombre, OracleDbType.Blob, obj.ValueBit, ParameterDirection.Input);
 
                             }
                             else
-                            {*/
-                                cmd.Parameters.Add(obj.Nombre, obj.Value);
-                        //}
+                            {
+                                cmd.Parameters.Add(obj.Nombre,  obj.Value);
+                            }
 
                       }
 
