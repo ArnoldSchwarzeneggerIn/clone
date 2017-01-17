@@ -80,8 +80,9 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>..\..\..\Electoral\Prueba\bin\Oracle.ManagedDataAccess.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Desktop\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Oracle.ManagedDataAccess.dll" />
     <Content Include="Views\assets\css\bootstrap-theme.css" />
     <Content Include="Views\assets\css\bootstrap-theme.min.css" />
     <Content Include="Views\assets\css\bootstrap.css" />
@@ -603,6 +605,7 @@
     <Content Include="Views\assets\js\fileinput\fileinput.js" />
     <Content Include="Views\assets\js\fileinput\fileinput.min.js" />
     <Content Include="Views\assets\js\fileinput\fr.js" />
+    <Content Include="Views\assets\js\fileinput\prueba.js" />
     <Content Include="Views\assets\js\maps\google\basic\basic.js" />
     <Content Include="Views\assets\js\maps\google\basic\click_event.js" />
     <Content Include="Views\assets\js\maps\google\basic\coordinates.js" />
@@ -1790,7 +1793,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Conexions\Conexion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

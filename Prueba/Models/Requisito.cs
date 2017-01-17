@@ -7,7 +7,7 @@ namespace Prueba.Models
 {
     public class Requisito
     {
-        public Parametro[] Para;
+        
         public string IdRequisito {get;set;}
 
         public string NombreRequisito {get;set;}
@@ -18,40 +18,5 @@ namespace Prueba.Models
 
         public string DetalleinstanciaRequisito {get;set;}
 
-        public Parametro[] ParametrosInsertar()
-        {
-            Para = new Parametro[3];
-            Para[0] = new Parametro("PREQU_NOMBRE", NombreRequisito);
-            Para[1] = new Parametro("PREQU_SOPORTE", SoporteRequisito);
-            Para[2] = new Parametro("PREQU_INSTANCIADETALLE", DetalleinstanciaRequisito);
-
-            return Para;
-        }
-
-        public Parametro[] ParametrosModificar()
-        {
-            Para = new Parametro[3];
-            Para[0] = new Parametro("PREQU_NOMBRE", NombreRequisito);
-            Para[1] = new Parametro("PREQU_ESTADO", EstadoRequisito);
-            Para[2] = new Parametro("PREQU_SOPORTE", SoporteRequisito);
-            Para[3] = new Parametro("PREQU_INSTANCIADETALLE", DetalleinstanciaRequisito);
-
-            return Para;
-        }
-
-
-        public Parametro[] ConsultarPorInstanciaDetalle()
-        {
-            Para = new Parametro[1];
-            Para[0] = new Parametro("PREQU_INSTANCIADETALLE", DetalleinstanciaRequisito);
-            return Para;
-        }
-
-        public Parametro[] consultarrequisitos()
-        {
-            Para = new Parametro[1];
-            Para[0] = new Parametro("PCOND_ID", DetalleinstanciaRequisito);
-            return Para;
-        }
-    }
+       }
 }

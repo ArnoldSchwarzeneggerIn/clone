@@ -174,36 +174,36 @@
 
 
 
-    
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-     <!-- Fileinput-->
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fileinput-->
     <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <%--/Fileinput--%>
 
-	<link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+    <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-	<!-- Core JS files -->
-	<%--<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>--%>
-	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- Core JS files -->
+    <%--<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>--%>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
     <!-- Fileinput-->
     <script src="../js/fileinput.js" type="text/javascript"></script>
     <!--/Fileinput-->
-	
-    
+
+
     <!-- /core JS files -->
 
-     <!-- Theme JS files -->
+    <!-- Theme JS files -->
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <%-- <script type="text/javascript" src="assets/js/core/libraries/jasny_bootstrap.min.js"></script>--%>
     <%--no deja mostrar el fileuploap dentro de un tab con steps.js en otro lugar si funciona---%>
@@ -220,18 +220,18 @@
 
 
 
-    
+
     <%--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--%>
-    
+
     <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>--%>
-    
 
 
- 
+
+
 
 
     <%--avoid resubmit of data from form--%>
-  <%--  <script type="text/javascript">
+    <%--  <script type="text/javascript">
         if (history.forward(1)) {
             location.replace(history.forward(1));
         }
@@ -241,7 +241,7 @@
 
 
     <%-- Script to called server from aspx --%>
-   <%-- <script runat="server">
+    <%-- <script runat="server">
         protected void CNmroCnvt()
         {
             string s = FRegistro.Value;
@@ -253,6 +253,12 @@
 
 
     <script>
+
+        function MBrrd(){
+            var obj = document.getElementById('ae');
+            obj.click();
+        }
+
         function prueba() {
 
 
@@ -461,6 +467,10 @@
         };
 
 
+        function hola(){
+            alert('wtf');
+        }
+
     </script>
 
 
@@ -635,10 +645,10 @@
     </script>
 
 
-   
+
 
     <script>
-       <%-- Datapiker only years --%>
+        <%-- Datapiker only years --%>
     
         //$(function() {
         //    $( "#Datepicker1" ).datepicker({dateFormat: 'yy'});
@@ -649,24 +659,24 @@
 
 
     <script type="text/javascript">
-   window.onerror = function(msg, url, line, col, error) {
-   // Note that col & error are new to the HTML 5 spec and may not be 
-   // supported in every browser.  It worked for me in Chrome.
-   var extra = !col ? '' : '\ncolumn: ' + col;
-   extra += !error ? '' : '\nerror: ' + error;
+        window.onerror = function(msg, url, line, col, error) {
+            // Note that col & error are new to the HTML 5 spec and may not be 
+            // supported in every browser.  It worked for me in Chrome.
+            var extra = !col ? '' : '\ncolumn: ' + col;
+            extra += !error ? '' : '\nerror: ' + error;
 
-   // You can view the information in an alert to see things working like this:
-   alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+            // You can view the information in an alert to see things working like this:
+            alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
 
-   // TODO: Report this error via ajax so you can keep track
-   //       of what pages have JS issues
+            // TODO: Report this error via ajax so you can keep track
+            //       of what pages have JS issues
 
-   var suppressErrorAlert = true;
-   // If you return true, then error alerts (like in older versions of 
-   // Internet Explorer) will be suppressed.
-   return suppressErrorAlert;
-};
-</script>
+            var suppressErrorAlert = true;
+            // If you return true, then error alerts (like in older versions of 
+            // Internet Explorer) will be suppressed.
+            return suppressErrorAlert;
+        };
+    </script>
 
 </head>
 <body>
@@ -675,7 +685,9 @@
     <form id="Formulario" runat="server">
 
         <asp:Button ID="Buttonttt" runat="server" Text="Button" OnClick="NuevoClick12" Style="display: none" />
-        <asp:Button ID="Button5" runat="server" Text="Button" OnClick="ICnvtC" Style="display: none"/>
+        <asp:Button ID="Button5" runat="server" Text="Button" OnClick="ICnvtC" Style="display: none" />
+
+
 
 
         <a id="aa" data-toggle="modal" href="#modal_form_vertical" title="Agregar" style="display: none"><i class="icon-add"></i></a>
@@ -837,11 +849,12 @@
 
                         <div class="navbar-collapse collapse" id="navbar-filter">
                             <ul class="nav navbar-nav element-active-slate-400">
-                                <li id="liTRBrrd"class="active"><a href="#TRBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Registrar borrador  </a></li>
+                                <li id="liTRBrrd" class="active"><a href="#TRBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Registrar borrador  </a></li>
                                 <li id="liTBrrd"><a id="LTBrrd" href="#TBrrd" data-toggle="tab"><i class="icon-menu7 position-left"></i>Revisar Borrador</a></li>
                                 <li><a href="#TPblc" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
                                 <li style="display: none"><a id="ac" href="#PBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
                                 <li style="display: none"><a id="ad" href="#PPblc" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
+                                <li style="display: none"><a id="ae" href="#RBrrd" data-toggle="tab"><i class="icon-calendar3 position-left"></i>Consultar Publicada  </a></li>
                             </ul>
                         </div>
                     </div>
@@ -870,7 +883,7 @@
                                                                         <label>Fecha de creación <span class="text-danger">*</span>  </label>
                                                                         <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
                                                                         <input id="FRegistro" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
-                                                                        </div>
+                                                                    </div>
                                                                 </div>
 
                                                                 <div class="col-md-4">
@@ -884,25 +897,29 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" runat="server" id="InicioInscripcion" required="required" onchange="EstablecerFechaMin()"/>
+                                                                        <input type="date" class="form-control" runat="server" id="InicioInscripcion" required="required" onchange="EstablecerFechaMin()" />
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label for="exampleInputEmail1">Fin de
+                                                                        <label for="exampleInputEmail1">
+                                                                            Fin de
                                                                             <br />
-                                                                            inscripciones  <span class="text-danger">*</span>  </label>
+                                                                            inscripciones  <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion" required="required" onchange="EstablecerFechaMin()" />
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
-                                                                        <label>Publicación de
+                                                                        <label>
+                                                                            Publicación de
                                                                             <br />
-                                                                            resultados <span class="text-danger">*</span> </label>
+                                                                            resultados <span class="text-danger">*</span>
+                                                                        </label>
                                                                         <input type="date" class="form-control" runat="server" id="resultadosconvo" required="required" />
                                                                     </div>
 
@@ -940,7 +957,7 @@
                                                                         <input type="date" class="form-control" runat="server" id="epresenciaconvo" required="required" />
                                                                     </div>
                                                                 </div>
-                                                               <div class="col-md-4">
+                                                                <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>
                                                                             Elecciones modalidad  a
@@ -952,7 +969,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            
+
 
                                                             <div class="row">
                                                                 <div class="col-md-12">
@@ -964,11 +981,14 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <%--      <div class="col-md-10">--%>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                                    </div>
+                                                                </div>
                                                             </div>
-
-
                                                         </div>
+                                                        <%-- <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
                                                     </fieldset>
 
                                                     <h6>Cargos a convocar</h6>
@@ -996,11 +1016,11 @@
                                         <div class="tab-pane fade" id="TBrrd">
                                             <div class="panel ">
                                                 <div class="panel-heading">
-                                                    <h6 class="panel-title" style="font-size: 1em"> </h6>
-                                                    <div class="heading-elements" style="margin-top:0.5%">
-                                                        <span class="label bg-success heading-text" >
+                                                    <h6 class="panel-title" style="font-size: 1em"></h6>
+                                                    <div class="heading-elements" style="margin-top: 0.5%">
+                                                        <span class="label bg-success heading-text">
                                                             <asp:Label ID="NumeroR" runat="server" Text="Label" CssClass=""></asp:Label>
-                                                           Borradores </span>
+                                                            Borradores </span>
                                                         <ul class="icons-list">
                                                             <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
                                                         </ul>
@@ -1042,9 +1062,9 @@
 
                                                                             <%--  <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>--%>
                                                                         </h6>
-                                                                        
+
                                                                         <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
-                                                                            
+
                                                                         <div class="row">
 
                                                                             <div class="col-sm-6">
@@ -1179,95 +1199,220 @@
 
 
                                         <%-- panel borradores --%>
-
-                                        <div class="tab-pane fade" id="PBrrd">
-                                            <div class="panel col-md-12">
-
-                                                <div class="row col-md-10 col-md-offset-1 ">
-                                                    <div class="panel-body">
-                                                        <div class="widget">
-                                                            <div class="widget-header text-center">
-                                                                <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CARGOS CONVOCADOS</label>
-                                                                <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
-                                                            </div>
-
-                                                            <div class="widget-content">
-                                                                <div id="Panel4" runat="server" style="margin-bottom: 1.5em">
+                                        <div class="tab-pane fade" id="RBrrd">
+                                            <div class="panel col-md-10 col-md-offset-1 ">                                             
+                                                    <h6 style="margin-bottom:1em;margin-top:1em">Datos convocatoria</h6>
+                                                    <fieldset>
+                                                        <div class="row col-md-10 col-md-offset-1 ">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Fecha de creación <span class="text-danger">*</span>  </label>
+                                                                        <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
+                                                                        <input id="Date1" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
+                                                                    </div>
                                                                 </div>
 
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Numero <span class="text-danger">*</span>  </label>
+                                                                        <input type="text" class="form-control" runat="server" id="Text1" required="required" readonly="true" />
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date2" required="required" onchange="EstablecerFechaMin()" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">
+                                                                            Fin de
+                                                                            <br />
+                                                                            inscripciones  <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="Date3" required="required" onchange="EstablecerFechaMin()" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Publicación de
+                                                                            <br />
+                                                                            resultados <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date4" required="required" />
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Publicación de jurados
+                                                                            <br />
+                                                                            habilitados <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date5" required="required" />
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Publicación de candidatos  y
+                                                                            <br />
+                                                                            testigos habilitados  <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date6" required="required" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Elecciones modalidad
+                                                                            <br />
+                                                                            presencial  <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date7" required="required" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Elecciones modalidad  a
+                                                                            <br />
+                                                                            distancia <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="Date8" required="required" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
 
-                                                                <%--<label  style="background-color:rgb(33, 150, 243);padding:0.5em;color:white;"><strong>Adjuntar soporte</strong></label>--%>
-                                                               <%-- <label><strong>Adjuntar soporte</strong></label>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Descripción <span class="text-danger">*</span>  </label>
+                                                                        <textarea rows="5" class="form-control" placeholder="Detalles" id="Textarea1" runat="server" required="required"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <asp:FileUpload ID="FileUpload2" runat="server" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <%-- <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
+
+                                                        <a href="#PBrrd">wtfff</a>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                          <div class="tab-pane fade" id="PBrrd">
+                                            <div class="panel col-md-10 col-md-offset-1 ">   
+
+                                                    <h6 style="margin-bottom:1em;margin-top:1em">Cargos a convocar</h6>
+                                                    <fieldset>
+
+
+                                                                    <div class="widget">
+                                                                        <div class="widget-header text-center">
+                                                                            <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CARGOS CONVOCADOS</label>
+                                                                            <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
+                                                                        </div>
+
+                                                                        <div class="widget-content">
+                                                                            <div id="Panel4" runat="server" style="margin-bottom: 1.5em">
+                                                                            </div>
+
+
+
+                                                                            <%--<label  style="background-color:rgb(33, 150, 243);padding:0.5em;color:white;"><strong>Adjuntar soporte</strong></label>--%>
+                                                                            <%-- <label><strong>Adjuntar soporte</strong></label>
                                                                 <input id="file-es" name="file-es[]" type="file" multiple />--%>
 
 
-                                                                <label class="control-label">Select File</label>
-<input id="input-44" name="input44[]" type="file" multiple class="file-loading">
-<div id="errorBlock" class="help-block"></div>
+                                                                            <%--<label class="control-label">Select File</label>--%>
+                                                                            <%--<input id="input-44" name="input44[]" type="file" multiple class="file-loading">
+                                                                <div id="errorBlock" class="help-block"></div>--%>
 
 
-                                                                <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
-                                                                <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+
+                                                                            <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
+                                                                            <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
+
+                                                                        </div>
+                                                                    </div>
+                                                       
+                                                    </fieldset>
                                                 </div>
-
-                                            </div>
-                                        </div>
+                                              </div>
 
 
-                                        <%-- panel publicados --%>
+                                                <%-- panel publicados --%>
 
-                                        <div class="tab-pane fade" id="PPblc">
-                                            <div class="panel col-md-12">
+                                                <div class="tab-pane fade" id="PPblc">
+                                                    <div class="panel col-md-12">
 
-                                                <div class="row col-md-10 col-md-offset-1 ">
-                                                    <div class="panel-body">
-                                                        <div class="widget">
-                                                            <div class="widget-header text-center">
-                                                                <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CONVOCATORIA N 004...</label>
-                                                                <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
-                                                            </div>
+                                                        <div class="row col-md-10 col-md-offset-1 ">
+                                                            <div class="panel-body">
+                                                                <div class="widget">
+                                                                    <div class="widget-header text-center">
+                                                                        <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CONVOCATORIA N 004...</label>
+                                                                        <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
+                                                                    </div>
 
-                                                            <div class="widget-content">
-                                                                <div id="panel3" runat="server">
+                                                                    <div class="widget-content">
+                                                                        <div id="panel3" runat="server">
+                                                                        </div>
+
+                                                                    </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
-
                                         </div>
+
+
+
                                     </div>
                                 </div>
-
-
-
                             </div>
+                            <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
                         </div>
+                        <!-- Footer -->
+                        <div class="footer text-muted">
+                            &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+                        </div>
+                        <!-- /footer -->
+
                     </div>
-                    <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
-                    <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                    <!-- /content area -->
+
                 </div>
-                <!-- Footer -->
-                <div class="footer text-muted">
-                    &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-                </div>
-                <!-- /footer -->
+                <!-- /main content -->
 
             </div>
-            <!-- /content area -->
-
-        </div>
-        <!-- /main content -->
-
-        </div>
-        <!-- /page content -->
+            <!-- /page content -->
 
         </div>
 
@@ -1310,9 +1455,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                         <%--<asp:Button ID="Button5" runat="server" Text="blblablablalb" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="CallServer('Guardar')"/>--%>
-                         <asp:Button ID="Button1" runat="server" Text="Ok" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="Guardar()"/>
-                         <asp:Button ID="Button6" runat="server" Text="Cancel" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" />
+                        <%--<asp:Button ID="Button5" runat="server" Text="blblablablalb" class="btn btn-link" data-dismiss="modal" style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="CallServer('Guardar')"/>--%>
+                        <asp:Button ID="Button1" runat="server" Text="Ok" class="btn btn-link" data-dismiss="modal" Style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" OnClientClick="Guardar()" />
+                        <asp:Button ID="Button6" runat="server" Text="Cancel" class="btn btn-link" data-dismiss="modal" Style="color: white; font-size: 1em; border-color: white; border: outset; border-radius: 10%; border-width: 0.3em; width: 20%" />
                     </div>
                 </div>
             </div>
@@ -1329,8 +1474,13 @@
 <script>
     $(document).on('ready', function() {
         $("#input-44").fileinput({
-            uploadUrl: '/file-upload-batch/2',
-            maxFilePreviewSize: 10240
+            uploadUrl: 'assets/Js/fileinput/prueba.js',
+            uploadAsync: false,
+            maxFilePreviewSize: 10240,
+            minFileCount: 1,
+            maxFileCount: 5,
+            showUpload: true,
+            showRemove: false
         });
     });
 

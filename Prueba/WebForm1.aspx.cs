@@ -20,25 +20,25 @@ namespace Prueba
         protected void boton_Click(object sender, EventArgs e)
         {
 
-            Documento docum = new Documento();
+            //Documento docum = new Documento();
 
-            docum.Candidato = cand.Text;
-            docum.Ruta = ruta.Text;
-            docum.Observacion = obser.Text;
+            //docum.Candidato = cand.Text;
+            //docum.Ruta = ruta.Text;
+            //docum.Observacion = obser.Text;
 
-            HttpPostedFile archivo = docu.PostedFile;
-            string ext = Path.GetExtension(archivo.FileName).ToLower();
-            if ((ext == ".pdf") && archivo.ContentLength <= 5242880)
-            {
-                byte[] theimage = new byte[archivo.ContentLength];
-                archivo.InputStream.Read(theimage, 0, archivo.ContentLength);//carga la data del archivo en el arreglo theimage
-                //this.GuardarArchivo(archivo.FileName, theimage);
-                docum.Document = theimage;
-                docum.Nombre = archivo.FileName;
+            //HttpPostedFile archivo = docu.PostedFile;
+            //string ext = Path.GetExtension(archivo.FileName).ToLower();
+            //if ((ext == ".pdf") && archivo.ContentLength <= 5242880)
+            //{
+            //    byte[] theimage = new byte[archivo.ContentLength];
+            //    archivo.InputStream.Read(theimage, 0, archivo.ContentLength);//carga la data del archivo en el arreglo theimage
+            //    //this.GuardarArchivo(archivo.FileName, theimage);
+            //    docum.Document = theimage;
+            //    docum.Nombre = archivo.FileName;
 
-            }
+            //}
 
-            docum.Insertar(docum);
+            //docum.Insertar(docum);
 
         }
     }

@@ -1,5 +1,4 @@
-﻿using Prueba.Conexions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,10 +8,7 @@ namespace Prueba.Models
 {
     public class Votacion
     {
-        Parametro[] para;
-        Conexion conx = new Conexion();
-
-
+        
         public string CONV_ID { get; set; }
         public string CONV_TITULO { get; set; }
         public string CONV_DESCRIPCION { get; set; }
@@ -35,25 +31,6 @@ namespace Prueba.Models
         public string TIPE_NOMBRE { get; set; }
         public string NOMBRE { get; set; }
         public string PROP_DETALL { get; set; }
-
-        
-        public Votacion()
-        {
-
-        }
-
-        public DataTable Cvotacion(Votacion obj)
-        {
-            para = new Parametro[2];
-            para[0] = new Parametro("PPROGRAMA", obj.CONV_ID);
-            para[1] = new Parametro("PTIPOUSUARIO", obj.CONV_TITULO);
-
-            return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
-
-        }
-
-
-        int z = 0;
 
     }
 }

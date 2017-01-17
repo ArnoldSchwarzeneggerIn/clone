@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prueba.Utileria;
 using System.Data;
-
+using System.IO;
 
 namespace Prueba.Views
 {
@@ -220,7 +220,7 @@ namespace Prueba.Views
             }
 
 
-        
+
 
 
 
@@ -514,6 +514,28 @@ namespace Prueba.Views
 
             //}
 
+            //Modify Encabezado Header Convocatoria 
+
+
+            z = e.CommandArgument.ToString();
+
+            List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
+
+            Date1.Value = Convert.ToDateTime(ConvocatoriaData[0].fecharegistro).ToString("yyyy-MM-dd");
+            Text1.Value = ConvocatoriaData[0].NUMEROCONVOCATORIA;
+            Date2.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechainicioinscripcion).ToString("yyyy-MM-dd");
+            Date3.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechafininscripcion).ToString("yyyy-MM-dd");
+            Date4.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechapublicacionresultados).ToString("yyyy-MM-dd");
+            Date5.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechapublicacionjurados).ToString("yyyy-MM-dd");
+            Date6.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechapublicacionhabilitado).ToString("yyyy-MM-dd");
+            Date7.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionespresenciales).ToString("yyyy-MM-dd");
+            Date8.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionesdistancia).ToString("yyyy-MM-dd");
+            Textarea1.Value = ConvocatoriaData[0].DescripcionConvocatoria;
+            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "MBrrd()", true);
+                 
+
+
+
 
             //seleccionar cargos
 
@@ -548,12 +570,12 @@ namespace Prueba.Views
             cnvt2 = new Convocatoria();
 
 
-            z = e.CommandArgument.ToString();
+            
             TablaCargos3 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
             DataView view4 = new DataView(TablaCargos3);
             DataTable TablaCargos4 = new DataTable();
             TablaCargos4 = view4.ToTable(true, "INST_ID");
-            
+
 
 
 
@@ -583,18 +605,18 @@ namespace Prueba.Views
                     }
                     else
                     {
-                        
+
                     }
                 }
 
 
                 ArregloPanelBody2[i] = new Panel();
                 ArregloPanelBody2[i].ID = "collapse2" + i;
-                ArregloPanelBody2[i].CssClass =  (x==0)? "accordion-body collapse" : "accordion-body collapse in";
+                ArregloPanelBody2[i].CssClass = (x == 0) ? "accordion-body collapse" : "accordion-body collapse in";
 
                 ArregloPanelInstancias2[i].Controls.Add(link2[i]);
                 ArregloPanelGroup2[i].Controls.Add(ArregloPanelInstancias2[i]);
-                
+
 
             }
 
@@ -626,7 +648,7 @@ namespace Prueba.Views
                 for (int k = 0; k < Convert.ToInt32(TablaCargos2.Rows[j]["CupoInstanciadetalle"].ToString()); k++)
                 {
                     ArregloDropDownListCargos2[j].Items.Add("" + (k + 1));
-                    
+
 
                 }
 
@@ -640,7 +662,7 @@ namespace Prueba.Views
                         ArregloDropDownListCargos2[j].SelectedValue = TablaCargos3.Rows[i]["COND_CUPOS"].ToString();
                     }
                 }
-               
+
 
                 ArregloPanelCargos2[j] = new Panel();
                 ArregloPanelCargos2[j].CssClass = "accordion-inner";
@@ -669,23 +691,23 @@ namespace Prueba.Views
             }
 
 
-        
 
 
-        //z = e.CommandArgument.ToString();           
-        //    TablaCargos1 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
 
-        //    for (int i=0; i<TablaCargos.Rows.Count;i++) {
+            //z = e.CommandArgument.ToString();           
+            //    TablaCargos1 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
 
-        //        for (int j = 0; j < TablaCargos1.Rows.Count; j++)
-        //        {
-        //            if (TablaCargos.Rows[i]["IDINSTANCIADETALLE"].ToString() == TablaCargos1.Rows[j]["INSD_ID"].ToString())
-        //            {
-        //                ArregloCheckCargos[i].Checked = true;
-        //            }
-        //        }
+            //    for (int i=0; i<TablaCargos.Rows.Count;i++) {
 
-        //    }
+            //        for (int j = 0; j < TablaCargos1.Rows.Count; j++)
+            //        {
+            //            if (TablaCargos.Rows[i]["IDINSTANCIADETALLE"].ToString() == TablaCargos1.Rows[j]["INSD_ID"].ToString())
+            //            {
+            //                ArregloCheckCargos[i].Checked = true;
+            //            }
+            //        }
+
+            //    }
 
 
             ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "nueva();", true);
@@ -734,7 +756,7 @@ namespace Prueba.Views
                         cond[i] = objeto;
                         obj = obj + 1;
 
-                      
+
 
                         ArregloCheckCargos[i].Checked = false;
                         ArregloDropDownListCargos[i].SelectedValue = " ";
@@ -752,7 +774,7 @@ namespace Prueba.Views
 
             if (obj != 0)
             {
-                //cnvt.TituloConvocatoria = tituloconvo.Value;
+                cnvt.TituloConvocatoria = "wtf";
                 cnvt.DescripcionConvocatoria = descripcion.Value;
                 cnvt.Fechainicioinscripcion = Convert.ToDateTime(InicioInscripcion.Value).ToString("dd/MM/yyy");
                 cnvt.Fechafininscripcion = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
@@ -764,25 +786,63 @@ namespace Prueba.Views
                 cnvt.fecharegistro = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
                 cnvt.Estado = "BORRADOR";
 
-                var Response1 = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("ICnvt", Method.POST), cnvt);
-                var Response2 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
+                // add pdf content data of the convocatoria
+
+                Stream fs = null;
+                string postedfile = "";
+                postedfile = FileUpload1.PostedFile.FileName;
+                if (FileUpload1.HasFile)
+                {
+                    fs = FileUpload1.PostedFile.InputStream;
+                }
+
+                string filename = Path.GetFileName(postedfile);
+                string ext = Path.GetExtension(filename);
+
+                BinaryReader br = new BinaryReader(fs);
+                Byte[] bytes = br.ReadBytes((Int32)fs.Length);
+
+                cnvt.Documento = bytes;
+
+
 
                 //Response.Redirect(Request.RawUrl);
 
-                FRegistro.Value = "";
-                NConv.Value = "";
-                InicioInscripcion.Value = null;
-                ffindeinscripcion.Value = null;
-                resultadosconvo.Value = null;
-                juradosconvoca.Value = null;
-                candidatoshconvo.Value = null;
-                epresenciaconvo.Value = null;
-                edistanciaconvo.Value = null;
-                descripcion.Value = "";
+                //FRegistro.Value = "";
+                //NConv.Value = "";
+                //InicioInscripcion.Value = null;
+                //ffindeinscripcion.Value = null;
+                //resultadosconvo.Value = null;
+                //juradosconvoca.Value = null;
+                //candidatoshconvo.Value = null;
+                //epresenciaconvo.Value = null;
+                //edistanciaconvo.Value = null;
+                //descripcion.Value = "";
 
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-                ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page();", true);
+                var Response1 = ConsumirAppi.ConsumirPost( Rutas.Convocatoria, new RestRequest("ICnvt", Method.POST), cnvt);
+                if (Convert.ToString(Response1.StatusCode)=="OK")
+                {
+                    var Response2 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
+                    if (Convert.ToString(Response2.StatusCode)=="OK")
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+                        ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page();", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                }
+               
+                
+
+
+                
 
                 //Response.Redirect(Request.RawUrl);
 
@@ -972,127 +1032,139 @@ namespace Prueba.Views
         protected void CrearAcordionCargos(Panel p, string s)
         {
 
-        //    //seleccionar cargos
+            //    //seleccionar cargos
 
-        //    //GENERALES
-        //    //Fill DataTable with all position
-        //    TablaCargos = CInstancia();
+            //    //GENERALES
+            //    //Fill DataTable with all position
+            //    TablaCargos = CInstancia();
 
-        //    //Fill View with the datatable TablaCargos
-        //    DataView view = new DataView(TablaCargos);
+            //    //Fill View with the datatable TablaCargos
+            //    DataView view = new DataView(TablaCargos);
 
-        //    //Instancia TablaInstancias
-        //    TablaInstancias = new DataTable();
+            //    //Instancia TablaInstancias
+            //    TablaInstancias = new DataTable();
 
-        //    //Fill TablaInstancias with the data of the DataView view, filtering data for idInstancia and nombreInstnacia
-        //    TablaInstancias = view.ToTable(true, "idInstancia", "nombreInstancia");
-
-
-        //    ArregloPanelInstancias = new Panel[TablaInstancias.Rows.Count];
-        //    ArregloPanelCargos = new Panel[TablaCargos.Rows.Count];
-        //    ArregloLabelCargos = new Label[TablaCargos.Rows.Count];
-        //    ArregloDropDownListCargos = new DropDownList[TablaCargos.Rows.Count];
-        //    ArregloCheckCargos = new CheckBox[TablaCargos.Rows.Count];
-        //    IdCargos = new int[TablaCargos.Rows.Count];
-        //    ArregloPanelGroup = new Panel[TablaInstancias.Rows.Count];
-        //    ArregloPanelBody = new Panel[TablaInstancias.Rows.Count];
-        //    link = new HyperLink[TablaCargos.Rows.Count];
-        //    //Label[] ArregloError;
-        //    numerocheck = 0;
-        //    obj = 0;
-        //    cond = new ConvocatoriaDetalle[TablaCargos.Rows.Count];
-        //    cnvt = new Convocatoria();
+            //    //Fill TablaInstancias with the data of the DataView view, filtering data for idInstancia and nombreInstnacia
+            //    TablaInstancias = view.ToTable(true, "idInstancia", "nombreInstancia");
 
 
-
-        //    for (int i = 0; i < TablaInstancias.Rows.Count; i++)
-        //    {
-
-        //        ArregloPanelGroup[i] = new Panel();
-        //        ArregloPanelGroup[i].CssClass = "accordion-group";
-
-        //        ArregloPanelBody[i] = new Panel();
-        //        ArregloPanelBody[i].ID = "collapse" + i;
-        //        ArregloPanelBody[i].CssClass = "accordion-body collapse";
-
-        //        ArregloPanelInstancias[i] = new Panel();
-        //        ArregloPanelInstancias[i].CssClass = "accordion-heading";
-
-        //        link[i] = new HyperLink();
-        //        link[i].ID = "link" + i;
-        //        link[i].CssClass = "accordion-toggle";
-        //        link[i].Text = TablaInstancias.Rows[i]["nombreInstancia"].ToString();
-        //        link[i].Attributes.Add("data-toggle", "collapse");
-        //        link[i].Attributes.Add("data-parent", "#accordion2");
-        //        link[i].Attributes.Add("href", "#collapse" + i);
-
-
-        //        ArregloPanelGroup[i].Controls.Add(ArregloPanelInstancias[i]);
-        //        ArregloPanelInstancias[i].Controls.Add(link[i]);
-
-        //    }
-
-
-        //    for (int j = 0; j < TablaCargos.Rows.Count; j++)
-        //    {
-
-        //        ArregloCheckCargos[j] = new CheckBox();
-        //        ArregloCheckCargos[j].CssClass = "ArregloCheckCargos";
-        //        ArregloCheckCargos[j].ID = "ArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
-        //        ArregloCheckCargos[j].Attributes.Add("name", "NArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString());
-
-
-        //        ArregloLabelCargos[j] = new Label();
-        //        ArregloLabelCargos[j].ID = "ArregloLabelCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
-        //        ArregloLabelCargos[j].CssClass = "ArregloLabelCargos";
-        //        ArregloLabelCargos[j].Text = TablaCargos.Rows[j]["NombreInstanciadetalle"].ToString();
-
-        //        IdCargos[j] = Convert.ToInt32(TablaCargos.Rows[j]["idinstanciadetalle"].ToString());
+            //    ArregloPanelInstancias = new Panel[TablaInstancias.Rows.Count];
+            //    ArregloPanelCargos = new Panel[TablaCargos.Rows.Count];
+            //    ArregloLabelCargos = new Label[TablaCargos.Rows.Count];
+            //    ArregloDropDownListCargos = new DropDownList[TablaCargos.Rows.Count];
+            //    ArregloCheckCargos = new CheckBox[TablaCargos.Rows.Count];
+            //    IdCargos = new int[TablaCargos.Rows.Count];
+            //    ArregloPanelGroup = new Panel[TablaInstancias.Rows.Count];
+            //    ArregloPanelBody = new Panel[TablaInstancias.Rows.Count];
+            //    link = new HyperLink[TablaCargos.Rows.Count];
+            //    //Label[] ArregloError;
+            //    numerocheck = 0;
+            //    obj = 0;
+            //    cond = new ConvocatoriaDetalle[TablaCargos.Rows.Count];
+            //    cnvt = new Convocatoria();
 
 
 
-        //        ArregloDropDownListCargos[j] = new DropDownList();
-        //        ArregloDropDownListCargos[j].ID = "ArregloDropDownListCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
-        //        ArregloDropDownListCargos[j].CssClass = "ArregloDropDownListCargos";
-        //        ArregloDropDownListCargos[j].Items.Insert(0, new ListItem("Selccione Opcion...", " "));
-        //        ArregloDropDownListCargos[j].AppendDataBoundItems = true;
+            //    for (int i = 0; i < TablaInstancias.Rows.Count; i++)
+            //    {
+
+            //        ArregloPanelGroup[i] = new Panel();
+            //        ArregloPanelGroup[i].CssClass = "accordion-group";
+
+            //        ArregloPanelBody[i] = new Panel();
+            //        ArregloPanelBody[i].ID = "collapse" + i;
+            //        ArregloPanelBody[i].CssClass = "accordion-body collapse";
+
+            //        ArregloPanelInstancias[i] = new Panel();
+            //        ArregloPanelInstancias[i].CssClass = "accordion-heading";
+
+            //        link[i] = new HyperLink();
+            //        link[i].ID = "link" + i;
+            //        link[i].CssClass = "accordion-toggle";
+            //        link[i].Text = TablaInstancias.Rows[i]["nombreInstancia"].ToString();
+            //        link[i].Attributes.Add("data-toggle", "collapse");
+            //        link[i].Attributes.Add("data-parent", "#accordion2");
+            //        link[i].Attributes.Add("href", "#collapse" + i);
 
 
-        //        for (int k = 0; k < Convert.ToInt32(TablaCargos.Rows[j]["CupoInstanciadetalle"].ToString()); k++)
-        //        {
-        //            ArregloDropDownListCargos[j].Items.Add("" + (k + 1));
+            //        ArregloPanelGroup[i].Controls.Add(ArregloPanelInstancias[i]);
+            //        ArregloPanelInstancias[i].Controls.Add(link[i]);
 
-        //        }
-
-        //        ArregloPanelCargos[j] = new Panel();
-        //        ArregloPanelCargos[j].CssClass = "accordion-inner";
-
-        //        ArregloPanelCargos[j].Controls.Add(ArregloCheckCargos[j]);
-        //        ArregloPanelCargos[j].Controls.Add(ArregloLabelCargos[j]);
-        //        ArregloPanelCargos[j].Controls.Add(ArregloDropDownListCargos[j]);
-
-        //    }
+            //    }
 
 
-        //    for (int i = 0; i < TablaInstancias.Rows.Count; i++)
-        //    {
-        //        for (int j = 0; j < TablaCargos.Rows.Count; j++)
-        //        {
-        //            if (TablaInstancias.Rows[i]["idinstancia"].ToString() == TablaCargos.Rows[j]["instanciadetalleinstancia"].ToString())
-        //            {
+            //    for (int j = 0; j < TablaCargos.Rows.Count; j++)
+            //    {
 
-        //                ArregloPanelBody[i].Controls.Add(ArregloPanelCargos[j]);
-        //                ArregloPanelGroup[i].Controls.Add(ArregloPanelBody[i]);
-        //            }
-        //        }
+            //        ArregloCheckCargos[j] = new CheckBox();
+            //        ArregloCheckCargos[j].CssClass = "ArregloCheckCargos";
+            //        ArregloCheckCargos[j].ID = "ArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+            //        ArregloCheckCargos[j].Attributes.Add("name", "NArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString());
 
-        //        Panel1.Controls.Add(ArregloPanelGroup[i]);
 
-        //    }
+            //        ArregloLabelCargos[j] = new Label();
+            //        ArregloLabelCargos[j].ID = "ArregloLabelCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+            //        ArregloLabelCargos[j].CssClass = "ArregloLabelCargos";
+            //        ArregloLabelCargos[j].Text = TablaCargos.Rows[j]["NombreInstanciadetalle"].ToString();
+
+            //        IdCargos[j] = Convert.ToInt32(TablaCargos.Rows[j]["idinstanciadetalle"].ToString());
+
+
+
+            //        ArregloDropDownListCargos[j] = new DropDownList();
+            //        ArregloDropDownListCargos[j].ID = "ArregloDropDownListCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+            //        ArregloDropDownListCargos[j].CssClass = "ArregloDropDownListCargos";
+            //        ArregloDropDownListCargos[j].Items.Insert(0, new ListItem("Selccione Opcion...", " "));
+            //        ArregloDropDownListCargos[j].AppendDataBoundItems = true;
+
+
+            //        for (int k = 0; k < Convert.ToInt32(TablaCargos.Rows[j]["CupoInstanciadetalle"].ToString()); k++)
+            //        {
+            //            ArregloDropDownListCargos[j].Items.Add("" + (k + 1));
+
+            //        }
+
+            //        ArregloPanelCargos[j] = new Panel();
+            //        ArregloPanelCargos[j].CssClass = "accordion-inner";
+
+            //        ArregloPanelCargos[j].Controls.Add(ArregloCheckCargos[j]);
+            //        ArregloPanelCargos[j].Controls.Add(ArregloLabelCargos[j]);
+            //        ArregloPanelCargos[j].Controls.Add(ArregloDropDownListCargos[j]);
+
+            //    }
+
+
+            //    for (int i = 0; i < TablaInstancias.Rows.Count; i++)
+            //    {
+            //        for (int j = 0; j < TablaCargos.Rows.Count; j++)
+            //        {
+            //            if (TablaInstancias.Rows[i]["idinstancia"].ToString() == TablaCargos.Rows[j]["instanciadetalleinstancia"].ToString())
+            //            {
+
+            //                ArregloPanelBody[i].Controls.Add(ArregloPanelCargos[j]);
+            //                ArregloPanelGroup[i].Controls.Add(ArregloPanelBody[i]);
+            //            }
+            //        }
+
+            //        Panel1.Controls.Add(ArregloPanelGroup[i]);
+
+            //    }
+
+
+        }
+
+
+        protected void Registrar_Click(object sender, EventArgs e)
+        {
+
+       
+
+
 
 
         }
     }
+
 }
 
 
