@@ -1,4 +1,4 @@
-﻿using Prueba.Conexions;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,9 +9,7 @@ namespace Prueba.Models
 {
     public class Candidatura
     {
-        Conexion conx = new Conexion();
-        Login logi = new Login();
-        Parametro[] para;
+        
         public string cand_id { get; set; }
         public string cand_convocatoriadetalle { get; set; }
         public string cand_cedula { get; set; }
@@ -20,71 +18,71 @@ namespace Prueba.Models
         public string cand_fechainscripcion{ get; set; }
         public string cand_estado { get; set; }
 
-        public Parametro[] AgregarCandidatura(Candidatura obj)
-        {
-            para = new Parametro[7];
-
-            para[0] = new Parametro("PCAND_ID", obj.cand_id);
-            para[1] = new Parametro("PCAND_CONVOCATORIADETALLE", obj.cand_convocatoriadetalle);
-            para[2] = new Parametro("PCAND_CEDULA", obj.cand_cedula);
-            para[3] = new Parametro("PCAND_PLANCHA", obj.cand_plancha);
-            para[4] = new Parametro("PCAND_OBSERVACION", obj.cand_observacion);
-            para[5] = new Parametro("PCAND_FECHAINSCRIPCION", obj.cand_fechainscripcion);
-            para[6] = new Parametro("PCAND_ESTADO", obj.cand_estado);
-
-            return para;
-        }
-
-        public Parametro[] ModificarCandidatura(Candidatura obj)
-        {
-            para = new Parametro[7];
-
-            para[0] = new Parametro("PCAND_ID", obj.cand_id);
-            para[1] = new Parametro("PCAND_CONVOCATORIADETALLE", obj.cand_convocatoriadetalle);
-            para[2] = new Parametro("PCAND_CEDULA", obj.cand_cedula);
-            para[3] = new Parametro("PCAND_PLANCHA", obj.cand_plancha);
-            para[4] = new Parametro("PCAND_OBSERVACION", obj.cand_observacion);
-            para[5] = new Parametro("PCAND_FECHAINSCRIPCION", obj.cand_fechainscripcion);
-            para[6] = new Parametro("PCAND_ESTADO", obj.cand_estado);
-
-            return para;
-        }
-
-        //public DataTable ConsultarCandidato()
+        //public Parametro[] AgregarCandidatura(Candidatura obj)
         //{
-        //    return conx.realizarConsulta("","")
+        //    para = new Parametro[7];
+
+        //    para[0] = new Parametro("PCAND_ID", obj.cand_id);
+        //    para[1] = new Parametro("PCAND_CONVOCATORIADETALLE", obj.cand_convocatoriadetalle);
+        //    para[2] = new Parametro("PCAND_CEDULA", obj.cand_cedula);
+        //    para[3] = new Parametro("PCAND_PLANCHA", obj.cand_plancha);
+        //    para[4] = new Parametro("PCAND_OBSERVACION", obj.cand_observacion);
+        //    para[5] = new Parametro("PCAND_FECHAINSCRIPCION", obj.cand_fechainscripcion);
+        //    para[6] = new Parametro("PCAND_ESTADO", obj.cand_estado);
+
+        //    return para;
         //}
 
-        //public DataTable ConsultarPrograma()
+        //public Parametro[] ModificarCandidatura(Candidatura obj)
         //{
-        //    para = new Parametro[1];
-        //    para = new Parametro[1];
-        //    para[0] = new Parametro("USUARIO", usuario);
-        //    return conx.realizarConsulta("PR_CONSULTARPROGRAMA", "CR_CONSP",)
+        //    para = new Parametro[7];
+
+        //    para[0] = new Parametro("PCAND_ID", obj.cand_id);
+        //    para[1] = new Parametro("PCAND_CONVOCATORIADETALLE", obj.cand_convocatoriadetalle);
+        //    para[2] = new Parametro("PCAND_CEDULA", obj.cand_cedula);
+        //    para[3] = new Parametro("PCAND_PLANCHA", obj.cand_plancha);
+        //    para[4] = new Parametro("PCAND_OBSERVACION", obj.cand_observacion);
+        //    para[5] = new Parametro("PCAND_FECHAINSCRIPCION", obj.cand_fechainscripcion);
+        //    para[6] = new Parametro("PCAND_ESTADO", obj.cand_estado);
+
+        //    return para;
         //}
 
-        public bool InsertarCandidadatura(Candidatura obj)
-        {
-            Transacion[] list = new Transacion[1];
-            list[0] = new Transacion("PR_NSRT_CAND", AgregarCandidatura(obj));
-            return conx.realizarTransaccion(list);
-        }
+        ////public DataTable ConsultarCandidato()
+        ////{
+        ////    return conx.realizarConsulta("","")
+        ////}
 
-        public bool ModificarCandidadatura(Candidatura obj)
-        {
-            Transacion[] list = new Transacion[1];
-            list[0] = new Transacion("PR_UPDATE_CAND", AgregarCandidatura(obj));
-            return conx.realizarTransaccion(list);
-        }
+        ////public DataTable ConsultarPrograma()
+        ////{
+        ////    para = new Parametro[1];
+        ////    para = new Parametro[1];
+        ////    para[0] = new Parametro("USUARIO", usuario);
+        ////    return conx.realizarConsulta("PR_CONSULTARPROGRAMA", "CR_CONSP",)
+        ////}
 
-        public  DataTable ConsultarCandidatos(Candidatura Cand)
-        {
-            para = new Parametro[2];
-            para[0] = new Parametro("PINST_ID", Cand.cand_id);
-            para[1] = new Parametro("PCONV_ID", Cand.cand_convocatoriadetalle );
+        //public bool InsertarCandidadatura(Candidatura obj)
+        //{
+        //    Transacion[] list = new Transacion[1];
+        //    list[0] = new Transacion("PR_NSRT_CAND", AgregarCandidatura(obj));
+        //    return conx.realizarTransaccion(list);
+        //}
 
-            return conx.realizarConsulta("PR_CNSTCNDD", "CR_CNSTCNDD", para);
-        }
+        //public bool ModificarCandidadatura(Candidatura obj)
+        //{
+        //    Transacion[] list = new Transacion[1];
+        //    list[0] = new Transacion("PR_UPDATE_CAND", AgregarCandidatura(obj));
+        //    return conx.realizarTransaccion(list);
+        //}
+
+        //public  DataTable ConsultarCandidatos(Candidatura Cand)
+        //{
+        //    para = new Parametro[2];
+        //    para[0] = new Parametro("PINST_ID", Cand.cand_id);
+        //    para[1] = new Parametro("PCONV_ID", Cand.cand_convocatoriadetalle );
+
+        //    return conx.realizarConsulta("PR_CNSTCNDD", "CR_CNSTCNDD", para);
+        //}
 
     }
 }

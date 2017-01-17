@@ -38,7 +38,7 @@ namespace Prueba
 
             }
 
-            docum.Insertar(docum);
+            //docum.Insertar(docum);
 
         }
     }

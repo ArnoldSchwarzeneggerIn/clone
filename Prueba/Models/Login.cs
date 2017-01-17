@@ -1,4 +1,4 @@
-﻿using Prueba.Conexions;
+﻿//using Prueba.Conexions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,52 +14,52 @@ namespace Prueba.Models
         public string UsuarioLogin { get; set; }
         public string ContraceniaLogin { get; set; }
 
-        private Parametro[] para;
-        Conexion conx = new Conexion();
-        public Login(string loggin)
-        {
-            this.UsuarioLogin = loggin;
-        }
+        //private Parametro[] para;
+        //Conexion conx = new Conexion();
+        //public Login(string loggin)
+        //{
+        //    this.UsuarioLogin = loggin;
+        //}
     
-        public Login()
-        {
-        }
+        //public Login()
+        //{
+        //}
 
-        public DataTable ConsultarInstancia(Login obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
-            return conx.realizarConsulta("PR_CNST_RPSN", "CR_CNST_RPSN", para);
-        }
+        //public DataTable ConsultarInstancia(Login obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+        //    return conx.realizarConsulta("PR_CNST_RPSN", "CR_CNST_RPSN", para);
+        //}
 
-        public DataTable ConsultarPrograma(Login obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
-            return conx.realizarConsulta("PR_CNST_PRGM", "CR_CNST_PRGM",para);
-        }
+        //public DataTable ConsultarPrograma(Login obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+        //    return conx.realizarConsulta("PR_CNST_PRGM", "CR_CNST_PRGM",para);
+        //}
 
-        public DataTable ConsultarDatos(Login obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
-            return conx.realizarConsulta("PR_CNST_DTOS", "CR_CNST_DTOS", para);
-        }
+        //public DataTable ConsultarDatos(Login obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+        //    return conx.realizarConsulta("PR_CNST_DTOS", "CR_CNST_DTOS", para);
+        //}
 
-        public DataTable ConsultarRol(Login obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
-            return conx.realizarConsulta("PR_CNSTPERSONAROL", "CR_CNSTPERSONAROL", para);
-        }
+        //public DataTable ConsultarRol(Login obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+        //    return conx.realizarConsulta("PR_CNSTPERSONAROL", "CR_CNSTPERSONAROL", para);
+        //}
 
-        public DataTable ConsultarPermisos(Login obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
+        //public DataTable ConsultarPermisos(Login obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PLOGI_USUARIO", obj.UsuarioLogin);
 
-            return conx.realizarConsulta("PR_CNSTPERMISOS", "CR_CNSTPERMISOS", para);
-        }
+        //    return conx.realizarConsulta("PR_CNSTPERMISOS", "CR_CNSTPERMISOS", para);
+        //}
 
       
 

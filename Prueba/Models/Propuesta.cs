@@ -8,7 +8,7 @@ namespace Prueba.Models
     public class Propuesta
     {
        
-            Parametro[] para;
+            //Parametro[] para;
             public string prop_id{get; set;}
             public int prop_cand { get; set; }
             public string prop_detalle{get; set;}

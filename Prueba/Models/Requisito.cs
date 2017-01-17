@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Prueba.Conexions;
+
 using System.Data;
 
 namespace Prueba.Models

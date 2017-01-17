@@ -46,11 +46,11 @@ namespace Prueba.Views
 
         protected void ConsultarRequisitos()
         {
-            var req = new Requisito() { DetalleinstanciaRequisito = "6" };
+            //var req = new Requisito() { DetalleinstanciaRequisito = "6" };
 
 
-
-             List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), req).contend);
+            List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), new Requisito { DetalleinstanciaRequisito = "6" }).Content);
+            //List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), req));
 
 
 

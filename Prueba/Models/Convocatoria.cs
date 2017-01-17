@@ -1,5 +1,4 @@
-﻿using Prueba.Conexions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,8 +9,8 @@ namespace Prueba.Models
     public class Convocatoria
     {
 
-        Conexion conx = new Conexion();
-        public Parametro[] para;
+        //Conexion conx = new Conexion();
+        //public Parametro[] para;
         public string IdConvocatoria { get; set; }
         public string NumeroConvocatoria { get; set; }
         public string TituloCovocatoria { get; set; }
@@ -24,101 +23,101 @@ namespace Prueba.Models
         public string Fechaeleccionesdistancia{ get; set; }
         public string Fechapublicacionresultados{ get; set; }
 
-        public Parametro[] ParametroInsertar(Convocatoria obj)
-        {
-            para = new Parametro[9];
-            para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
-            para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
-            para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
-            para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
-            para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
-            para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
-            para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
-            para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
-            para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
+        //public Parametro[] ParametroInsertar(Convocatoria obj)
+        //{
+        //    para = new Parametro[9];
+        //    para[0] = new Parametro("PCONV_TITULO", obj.TituloCovocatoria);
+        //    para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
+        //    para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
+        //    para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
+        //    para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
+        //    para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
+        //    para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
+        //    para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
+        //    para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
 
-            return para;
-        }
+        //    return para;
+        //}
 
-        public Parametro[] ParametroModificar(Convocatoria obj)
-        {
-            para = new Parametro[9];
-            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
-            para[1] = new Parametro("PCONV_NUMERO", obj.NumeroConvocatoria);
-            para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
-            para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
-            para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
-            para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
-            para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
-            para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
-            para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
+        //public Parametro[] ParametroModificar(Convocatoria obj)
+        //{
+        //    para = new Parametro[9];
+        //    para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+        //    para[1] = new Parametro("PCONV_NUMERO", obj.NumeroConvocatoria);
+        //    para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
+        //    para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
+        //    para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
+        //    para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
+        //    para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
+        //    para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
+        //    para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
 
-            return para;
-
-
-        }
-
-        public DataTable ConsultarConvocatoria()
-        {
-            return conx.realizarConsulta("PR_CNST_CNVT", "CR_CNST_CNVT", null);
-        }
+        //    return para;
 
 
-        public DataTable ConsultaConvocaotoriaPorFecha()
-        {
-            para = new Parametro[2];
-            para[0] = new Parametro("PCONV_FECH_INIC_INSC", Fechainicioinscripcion);
-            para[1] = new Parametro("PCONV_FECH_FIN_INSC", Fechafininscripcion);
+        //}
 
-            return conx.realizarConsulta("PR_CNST_CNVT_POR_FECH", "CR_CNST_CNVT_POR_FECH", para);
-
-        }
-        public DataTable ConsultarConvocatoriaPorNumero(Convocatoria obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria );
-
-            return conx.realizarConsulta("PR_CNST_CNVT_POR_NUMERO", "CR_CNST_CNVT_POR_NUMERO", para);
-        }
-
-        public DataTable ConsultarConvocatoriaAbierta()
-        {
-            return conx.realizarConsulta("PR_CNST_CNVT_BRTS", "CR_CNST_CNVT_BRTS", null);
-        }
+        //public DataTable ConsultarConvocatoria()
+        //{
+        //    return conx.realizarConsulta("PR_CNST_CNVT", "CR_CNST_CNVT", null);
+        //}
 
 
-        public bool InsertarConvocatoria(Convocatoria obj)
-        {
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
-            return conx.realizarTransaccion(trans);
-        }
+        //public DataTable ConsultaConvocaotoriaPorFecha()
+        //{
+        //    para = new Parametro[2];
+        //    para[0] = new Parametro("PCONV_FECH_INIC_INSC", Fechainicioinscripcion);
+        //    para[1] = new Parametro("PCONV_FECH_FIN_INSC", Fechafininscripcion);
 
-        public bool ModificarConvocatoria(Convocatoria obj)
-        {
+        //    return conx.realizarConsulta("PR_CNST_CNVT_POR_FECH", "CR_CNST_CNVT_POR_FECH", para);
 
-            Transacion[] trans = new Transacion[1];
-            trans[0] = new Transacion("PR_UPDT_CNVT", ParametroModificar(obj));
-            return conx.realizarTransaccion(trans);
+        //}
+        //public DataTable ConsultarConvocatoriaPorNumero(Convocatoria obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria );
 
-        }
+        //    return conx.realizarConsulta("PR_CNST_CNVT_POR_NUMERO", "CR_CNST_CNVT_POR_NUMERO", para);
+        //}
 
-        public DataTable ConsultarCargosPorConvocatoriasActvias(Convocatoria obj)
-        {
-            para = new Parametro[1];
-            para[1] = new Parametro("PCONV_ID", obj.IdConvocatoria);
-            return conx.realizarConsulta("PR_CNST_INSD_POR_CONV", "CR_CNST_INSD_POR_CONV", para);
-        }
+        //public DataTable ConsultarConvocatoriaAbierta()
+        //{
+        //    return conx.realizarConsulta("PR_CNST_CNVT_BRTS", "CR_CNST_CNVT_BRTS", null);
+        //}
 
 
-        public DataTable ConsultarCargosPorConvocatoria(Convocatoria obj)
-        {
-            para = new Parametro[1];
-            para[0] = new Parametro("PCOND_CONVOCATORIA", obj.IdConvocatoria);
+        //public bool InsertarConvocatoria(Convocatoria obj)
+        //{
+        //    Transacion[] trans = new Transacion[1];
+        //    trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
+        //    return conx.realizarTransaccion(trans);
+        //}
 
-            return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
+        //public bool ModificarConvocatoria(Convocatoria obj)
+        //{
 
-        }
+        //    Transacion[] trans = new Transacion[1];
+        //    trans[0] = new Transacion("PR_UPDT_CNVT", ParametroModificar(obj));
+        //    return conx.realizarTransaccion(trans);
+
+        //}
+
+        //public DataTable ConsultarCargosPorConvocatoriasActvias(Convocatoria obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[1] = new Parametro("PCONV_ID", obj.IdConvocatoria);
+        //    return conx.realizarConsulta("PR_CNST_INSD_POR_CONV", "CR_CNST_INSD_POR_CONV", para);
+        //}
+
+
+        //public DataTable ConsultarCargosPorConvocatoria(Convocatoria obj)
+        //{
+        //    para = new Parametro[1];
+        //    para[0] = new Parametro("PCOND_CONVOCATORIA", obj.IdConvocatoria);
+
+        //    return conx.realizarConsulta("PR_CNST_COND_POR_CONV", "CR_CNST_COND_POR_CONV", para);
+
+        //}
 
 
 
