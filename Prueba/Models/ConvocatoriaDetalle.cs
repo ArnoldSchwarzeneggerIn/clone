@@ -42,6 +42,18 @@ namespace Prueba.Models
         }
 
 
+        public Parametro[] ParametrosInsertar2(ConvocatoriaDetalle obj)
+        {
+            para = new Parametro[3];
+            para[0] = new Parametro("PCOND_INSTANCIADETALLE", obj.InstanciadetalleConvocatoriaDetalle);
+            para[1] = new Parametro("PCONVOCATORIA", obj.ConvocatoriaConvocatoriaDetalle);
+            para[2] = new Parametro("PCOND_CUPOS", obj.CuposConvocatoriaDetalle);
+
+            return para;
+
+        }
+
+
 
         public Parametro[] Eliminar()
         {
@@ -54,12 +66,12 @@ namespace Prueba.Models
         }
 
 
-        public Parametro[] Modificar()
+        public Parametro[] Modificar(ConvocatoriaDetalle obj)
         {
-            para = new Parametro[4];
-            //para[0] = new Parametro("PCOND_ID", IdConvocatoriaDetalle);
-            //para[1] = new Parametro("PCOND_CONVOCATORIA", ConvocatoriaConvocatoriaDetalle);
-
+            para = new Parametro[2];
+            para[0] = new Parametro("PCOND_INSTANCIADETALLE", obj.InstanciadetalleConvocatoriaDetalle);
+            para[1] = new Parametro("PCOND_CUPOS", obj.CuposConvocatoriaDetalle);
+            para[2] = new Parametro("PCONVOCATORIA", obj.IdConvocatoriaDetalle);
 
             return para;
 
@@ -95,5 +107,38 @@ namespace Prueba.Models
             return conx.realizarConsulta("","", null);
         }
 
+
+        public bool DCnvd(ConvocatoriaDetalle obj)
+        {
+            para = new Parametro[1];
+            para[0] = new Parametro("PCOND_CONVOCATORIA", obj.ConvocatoriaConvocatoriaDetalle);
+
+            tran = new Transacion[1]; 
+            tran[0] = new Transacion("PR_DLTE_CNVD", para);
+
+            return conx.realizarTransaccion(tran);
+        }
+
+        public bool MCnvd(ConvocatoriaDetalle []obj)
+        {
+
+            //int N = obj.Length + 1; 
+            //tran = new Transacion[N]; 
+
+            ////tran[0] = new Transacion("PR_DLTE_CNVD", null);
+            //for (int i = 1; i <N; i++)
+
+            tran = new Transacion[obj.Length];
+
+            for (int i = 0; i < obj.Length; i++)
+            {
+                if (obj[i] != null)
+                {
+                    tran[i] = new Transacion("PR_UPDT_CNVD", ParametrosInsertar2(obj[i]));
+                }
+
+            }
+            return conx.realizarTransaccion(tran);
+        }
     }
 }

@@ -68,15 +68,20 @@ namespace Prueba.Controllers
         {
             return Json(conv.CCnvtE(obj));
         }
+
+        [HttpPost]
         public IHttpActionResult ConsultaConvocaotoriaPorFecha(Convocatoria obj)
         {
             return Json(conv.ConsultaConvocaotoriaPorFecha());
         }
+
+        [HttpPost]
         public IHttpActionResult ConsultarConvocatoriaPorNumero(Convocatoria obj)
         {
             return Json(conv.ConsultarConvocatoriaPorNumero(obj));
         }
 
+        [HttpPost]
         //insertar convocatoria
         public IHttpActionResult ICnvt(Convocatoria obj)
         {
@@ -106,7 +111,8 @@ namespace Prueba.Controllers
             }
         }
 
-        public IHttpActionResult ModificarConvocatoria(Convocatoria obj)
+        [HttpPost]
+        public IHttpActionResult MCnvt(Convocatoria obj)
         {
             if (!ModelState.IsValid)
             {
@@ -114,7 +120,7 @@ namespace Prueba.Controllers
             }
             else
             {
-                if (conv.ModificarConvocatoria(obj))
+                if (conv.MCvnt(obj))
                 {
                     return Json(new
                     {

@@ -26,13 +26,14 @@ namespace Prueba.Models
         public string Estado { get; set; }
         public string fecharegistro { get; set; }
         public byte[] Documento { get; set; }
+        public string DExtension { get; set;  }
+        public string DNombre { get; set; }
 
-     
 
 
         public Parametro[] ParametroInsertar(Convocatoria obj)
         {
-            para = new Parametro[12];
+            para = new Parametro[14];
             para[0] = new Parametro("PCONV_TITULO", obj.TITULOCONVOCATORIA);
             para[1] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
             para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
@@ -45,22 +46,32 @@ namespace Prueba.Models
             para[9] = new Parametro("PCONV_ESTADO", obj.Estado);
             para[10] = new Parametro("PCONV_FECH_REGISTRO", obj.fecharegistro);
             para[11] = new Parametro("PCONV_DOCUMENTO", obj.Documento);
+            para[12] = new Parametro("PCONV_DEXTENSION", obj.DExtension);
+            para[13] = new Parametro("PCONV_DNOMBRE", obj.DNombre);
+
 
             return para;
         }
 
         public Parametro[] ParametroModificar(Convocatoria obj)
         {
-            para = new Parametro[9];
+            para = new Parametro[15];
             para[0] = new Parametro("PCONV_ID", obj.IdConvocatoria);
             para[1] = new Parametro("PCONV_NUMERO", obj.NumeroConvocatoria);
-            para[2] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
-            para[3] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
-            para[4] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
-            para[5] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
-            para[6] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
-            para[7] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
-            para[8] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
+            para[2] = new Parametro("PCONV_DESCRIPCION", obj.DescripcionConvocatoria);
+            para[3] = new Parametro("PCONV_FECH_INIC_INSC", obj.Fechainicioinscripcion);
+            para[4] = new Parametro("PCONV_FECH_FIN_INSC", obj.Fechafininscripcion);
+            para[5] = new Parametro("PCONV_FECH_PUBL_HABI", obj.Fechapublicacionhabilitado);
+            para[6] = new Parametro("PCONV_FECH_PUBL_JURA", obj.Fechapublicacionjurados);
+            para[7] = new Parametro("PCONV_FECH_ELEC_PRES", obj.Fechaeleccionespresenciales);
+            para[8] = new Parametro("PCONV_FECH_ELEC_DIST", obj.Fechaeleccionesdistancia);
+            para[9] = new Parametro("PCONV_FECH_PUBL_RESU", obj.Fechapublicacionresultados);
+            para[10] = new Parametro("PCONV_ESTADO", obj.Estado);
+            para[11] = new Parametro("PCONV_FECH_REGISTRO", obj.fecharegistro);
+            para[12] = new Parametro("PCONV_DOCUMENTO", obj.Documento);
+            para[13] = new Parametro("PCONV_DEXTENSION", obj.DExtension);
+            para[14] = new Parametro("PCONV_DNOMBRE", obj.DNombre);
+
 
             return para;
 
@@ -150,19 +161,16 @@ namespace Prueba.Models
         //insertar convocatoria
         public bool ICnvt(Convocatoria obj)
         {
-           
             Transacion[] trans = new Transacion[1];
             trans[0] = new Transacion("PR_NSRT_CNVT", ParametroInsertar(obj));
             return conx.realizarTransaccion(trans);
         }
 
-        public bool ModificarConvocatoria(Convocatoria obj)
+        public bool MCvnt(Convocatoria obj)
         {
-
             Transacion[] trans = new Transacion[1];
             trans[0] = new Transacion("PR_UPDT_CNVT", ParametroModificar(obj));
             return conx.realizarTransaccion(trans);
-
         }
 
         public DataTable ConsultarCargosPorConvocatoriasActvias(Convocatoria obj)

@@ -45,5 +45,60 @@ namespace Prueba.Controllers
 
 
         }
+
+        public IHttpActionResult DCnvd(ConvocatoriaDetalle obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cond.DCnvd(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult MCnvd(ConvocatoriaDetalle[] obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                if (cond.MCnvd(obj))
+                {
+                    return Json(new
+                    {
+                        data = obj,
+                        result = true
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        result = false
+                    });
+                }
+            }
+
+
+        }
     }
 }
