@@ -248,16 +248,22 @@
                                                 <asp:ListView ID="requisitos" runat="server" >
                                                     <ItemTemplate>
                                                         <tr role="row" class="">
-                                                         <%--   <td class="sorting_1">
+                                                            <td class="sorting_1">
                                                                 <asp:LinkButton ID="LinkButton1" runat="server"  Text='<%#Eval("REQU_ID")%>' ></asp:LinkButton>
-                                                            </td>--%>
+                                                            </td>
                                                           
                                                             <td>
-                                                             <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("NombreRequisito")%>'> </asp:Label>
+                                                             <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("REQU_NOMBRE")%>'> </asp:Label>
                                                             </td>
                                                             <td>
                                                                 <span class='label label-success'>
-                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("SoporteRequisito")%>'></asp:Label>
+                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("REQU_ESTADO")%>'></asp:Label>
+                                                                </span>
+
+                                                            </td>
+                                                             <td>
+                                                                <span class='label label-success'>
+                                                                 <asp:Label class="" data-toggle="dropdown" ID="Label1" runat="server" Text='<%#Eval("REQU_SOPORTE")%>'></asp:Label>
                                                                 </span>
 
                                                             </td>

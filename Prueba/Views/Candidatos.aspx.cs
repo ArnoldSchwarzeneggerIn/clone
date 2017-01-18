@@ -8,6 +8,7 @@ using Prueba.Utileria;
 using Prueba.Models;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Data;
 
 namespace Prueba.Views
 {
@@ -49,7 +50,7 @@ namespace Prueba.Views
             //var req = new Requisito() { DetalleinstanciaRequisito = "6" };
 
 
-            List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), new Requisito { DetalleinstanciaRequisito = "6" }).Content);
+            DataTable model = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), new Requisito { DetalleinstanciaRequisito = "6" }).Content);
             //List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), req));
 
 
