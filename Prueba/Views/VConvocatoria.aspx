@@ -12,12 +12,39 @@
 
     <!--Organizando los datos de la seleccion de los cargo-->
     <style>
+        .invisible{
+            display:none;
+        }
+
+        .flotarIzquierda{
+            float:left;
+        }
+
         .camuflaje {
             color: rgba(252, 252, 252,0.0);
         }
 
+
+         .buttl2 {
+            /*margin-left:90%;*/
+            float: left;
+            padding-top: 0.7em;
+            padding-bottom: 0.6em;
+            padding-left: 1.8em;
+            padding-right: 1.8em;
+            background-color: #26A69A;
+            color: white;
+            border: none;
+            border-bottom-right-radius:20%;
+            border-top-right-radius:20%;
+            
+            /*clear: both;*/
+            font-weight: bold;
+        }
+
         .butt {
             margin-top: 5%;
+            margin-bottom: 5%;
             /*margin-left:90%;*/
             float: right;
             padding-top: 0.8em;
@@ -176,7 +203,7 @@
 
 
     <!-- Global stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+  <%--  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">--%>
     <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
     <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -253,6 +280,24 @@
 
 
     <script>
+        function CambiarDocumento(){
+            
+            x = document.getElementById('FileUpload2');
+            x.click();
+        }
+
+        function CambiarDocumento2(){
+            
+            var x = document.getElementById('FileUpload2');
+            var ar = x.value.substring(12,x.value.length);
+            document.getElementById("MDocumento2").innerHTML = ar;
+        }
+
+        function PBrrd(){
+            x = document.getElementById('ac');
+            x.click();
+        }
+      
 
         function MBrrd(){
             var obj = document.getElementById('ae');
@@ -459,6 +504,10 @@
                     x = document.getElementById('LTBrrd');
                     x.click();
                     break;
+                case "PBrrd":
+                    x = document.getElementById('ad');
+                    x.click();
+                    break;
             }
         }
 
@@ -616,24 +665,50 @@
         }
 
 
-        function EstablecerFechaMin(){
+        function EstablecerFechaMin(e){
             
-            $("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            $("#resultadosconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
-            $("#juradosconvoca").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
-            $("#candidatoshconvo").attr("min",($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) :  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
-            $("#epresenciaconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
-            $("#edistanciaconvo").attr("min", ($("#ffindeinscripcion").val() === null) ? new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) : new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+            switch (e){
+                case "InicioInscripcion":
+
+                    $("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+                    $("#resultadosconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+                    $("#juradosconvoca").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10) );
+                    $("#candidatoshconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+                    $("#epresenciaconvo").attr("min",  new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+                    $("#edistanciaconvo").attr("min",  new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
             
+                    break;
+
+                case "ffindeinscripcion":
+
+                    $("#resultadosconvo").attr("min",  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+                    $("#juradosconvoca").attr("min", new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+                    $("#candidatoshconvo").attr("min",  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+                    $("#epresenciaconvo").attr("min",new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+                    $("#edistanciaconvo").attr("min",  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
+                    break;
+
+                case "Date2":
+                    $("#Date3").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10));
+                    $("#Date4").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10));
+                    $("#Date5").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10) );
+                    $("#Date6").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10));
+                    $("#Date7").attr("min",  new Date($("#Date2").val()).toISOString().substring(0, 10));
+                    $("#Date8").attr("min",  new Date($("#Date2").val()).toISOString().substring(0, 10));
+            
+                    break;
+                case "Date3":
+                    
+                    $("#Date4").attr("min",  new Date($("#Date3").val()).toISOString().substring(0, 10));
+                    $("#Date5").attr("min", new Date($("#Date3").val()).toISOString().substring(0, 10));
+                    $("#Date6").attr("min",  new Date($("#Date3").val()).toISOString().substring(0, 10));
+                    $("#Date7").attr("min",new Date($("#Date3").val()).toISOString().substring(0, 10));
+                    $("#Date8").attr("min",  new Date($("#Date3").val()).toISOString().substring(0, 10));
+                    break;
 
 
-            //$("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#resultadosconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#juradosconvoca").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#candidatoshconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#epresenciaconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#edistanciaconvo").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
-            //$("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
+            }
+
       
         }
 
@@ -897,7 +972,7 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" runat="server" id="InicioInscripcion" required="required" onchange="EstablecerFechaMin()" />
+                                                                        <input type="date" class="form-control" runat="server" id="InicioInscripcion" required="required" onchange="EstablecerFechaMin('InicioInscripcion')" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -909,7 +984,7 @@
                                                                             <br />
                                                                             inscripciones  <span class="text-danger">*</span>
                                                                         </label>
-                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion" required="required" onchange="EstablecerFechaMin()" />
+                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="ffindeinscripcion" required="required" onchange="EstablecerFechaMin('ffindeinscripcion')" />
                                                                     </div>
                                                                 </div>
 
@@ -983,7 +1058,8 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                                        <asp:FileUpload ID="FileUpload1" CssClass="file-input" runat ="server" />
+                                                                       <%-- <input type="file" class="file-input" runat="server"/>--%>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1095,7 +1171,7 @@
                                                                     <div class="panel-footer">
                                                                         <ul>
                                                                             <li>
-                                                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="icon-thumbs-up3 position-left" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="LinkButton1_Command">  </asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="icon-thumbs-up3 position-left" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="LinkButton1_Command" >  </asp:LinkButton>
 
                                                                             </li>
                                                                             <li>
@@ -1200,218 +1276,233 @@
 
                                         <%-- panel borradores --%>
                                         <div class="tab-pane fade" id="RBrrd">
-                                            <div class="panel col-md-10 col-md-offset-1 ">                                             
-                                                    <h6 style="margin-bottom:1em;margin-top:1em">Datos convocatoria</h6>
-                                                    <fieldset>
-                                                        <div class="row col-md-10 col-md-offset-1 ">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>Fecha de creación <span class="text-danger">*</span>  </label>
-                                                                        <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
-                                                                        <input id="Date1" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>Numero <span class="text-danger">*</span>  </label>
-                                                                        <input type="text" class="form-control" runat="server" id="Text1" required="required" readonly="true" />
-
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date2" required="required" onchange="EstablecerFechaMin()" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputEmail1">
-                                                                            Fin de
-                                                                            <br />
-                                                                            inscripciones  <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="Date3" required="required" onchange="EstablecerFechaMin()" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Publicación de
-                                                                            <br />
-                                                                            resultados <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date4" required="required" />
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Publicación de jurados
-                                                                            <br />
-                                                                            habilitados <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date5" required="required" />
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Publicación de candidatos  y
-                                                                            <br />
-                                                                            testigos habilitados  <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date6" required="required" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Elecciones modalidad
-                                                                            <br />
-                                                                            presencial  <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date7" required="required" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Elecciones modalidad  a
-                                                                            <br />
-                                                                            distancia <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="Date8" required="required" />
-                                                                    </div>
+                                            <div class="panel col-md-10 col-md-offset-1 ">
+                                                <div style="width: 100%" class="text-center">
+                                                    <h6 style="margin-bottom: 1.5em; margin-top: 1.5em; font-size:1.5em">Datos del borrador seleccionado</h6>
+                                                </div>
+                                                <fieldset>
+                                                    <div class="row col-md-10 col-md-offset-1 ">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Fecha de creación <span class="text-danger">*</span>  </label>
+                                                                    <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
+                                                                    <input id="Date1" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
                                                                 </div>
                                                             </div>
 
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Numero <span class="text-danger">*</span>  </label>
+                                                                    <input type="text" class="form-control" runat="server" id="Text1" required="required" readonly="true" />
 
-
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label>Descripción <span class="text-danger">*</span>  </label>
-                                                                        <textarea rows="5" class="form-control" placeholder="Detalles" id="Textarea1" runat="server" required="required"></textarea>
-                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <asp:FileUpload ID="FileUpload2" runat="server" />
-                                                                    </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Inicio de inscripciones <span class="text-danger">*</span>  </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date2" required="required" onchange="EstablecerFechaMin('Date2')" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">
+                                                                        Fin de
+                                                                            <br />
+                                                                        inscripciones  <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="Date3" required="required" onchange="EstablecerFechaMin('Date3')" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Publicación de
+                                                                            <br />
+                                                                        resultados <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date4" required="required" />
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Publicación de jurados
+                                                                            <br />
+                                                                        habilitados <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date5" required="required" />
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Publicación de candidatos  y
+                                                                            <br />
+                                                                        testigos habilitados  <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date6" required="required" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Elecciones modalidad
+                                                                            <br />
+                                                                        presencial  <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date7" required="required" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Elecciones modalidad  a
+                                                                            <br />
+                                                                        distancia <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date8" required="required" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label>Descripción <span class="text-danger">*</span>  </label>
+                                                                    <textarea rows="5" class="form-control" placeholder="Detalles" id="Textarea1" runat="server" required="required"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label id="MDocumento2" runat="server" style="float:left;padding-right:20%" class="btn btn-default btn-file text-left">>                                                                        />
+                                                                    </label>
+                                                                    <input type="button" value="Editar" class="btn btn-success flotarIzquierda" onclick="CambiarDocumento()"  />
+                                                                    
+                                                                    <asp:Button ID="Button7" runat="server" Text="Ver" CssClass="buttl2" OnClick="Button7_Click" />
+
+                                                                    <asp:FileUpload ID="FileUpload2" onchange="CambiarDocumento2()" CssClass="invisible" runat="server" />
+                                                                   <%-- <input id="Documento" type="file" class="invisible" />   --%>                        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <input type="button" value="Siguiente" onclick="PBrrd()" class="butt"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <%-- <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
-
-                                                        <a href="#PBrrd">wtfff</a>
-                                                    </fieldset>
-                                                </div>
+                                                    </div>
+                                                   
+                                                </fieldset>
                                             </div>
-                                          <div class="tab-pane fade" id="PBrrd">
-                                            <div class="panel col-md-10 col-md-offset-1 ">   
+                                        </div>
+                                        <div class="tab-pane fade" id="PBrrd">
+                                            <div class="panel col-md-10 col-md-offset-1 ">
 
-                                                    <h6 style="margin-bottom:1em;margin-top:1em">Cargos a convocar</h6>
-                                                    <fieldset>
-
-
-                                                                    <div class="widget">
-                                                                        <div class="widget-header text-center">
-                                                                            <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CARGOS CONVOCADOS</label>
-                                                                            <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
-                                                                        </div>
-
-                                                                        <div class="widget-content">
-                                                                            <div id="Panel4" runat="server" style="margin-bottom: 1.5em">
-                                                                            </div>
+<%--                                                <h6 style="margin-bottom: 1em; margin-top: 1em">Cargos a convocar</h6>--%>
+                                                <fieldset>
 
 
+                                                    <div class="widget" style="margin-top: 2em">
+                                                        <div class="widget-header text-center">
+                                                            <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CARGOS CONVOCADOS</label>
+                                                            <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
+                                                        </div>
 
-                                                                            <%--<label  style="background-color:rgb(33, 150, 243);padding:0.5em;color:white;"><strong>Adjuntar soporte</strong></label>--%>
-                                                                            <%-- <label><strong>Adjuntar soporte</strong></label>
+                                                        <div class="widget-content">
+                                                            <div id="Panel4" runat="server" style="margin-bottom: 1.5em">
+                                                            </div>
+
+
+
+                                                            <%--<label  style="background-color:rgb(33, 150, 243);padding:0.5em;color:white;"><strong>Adjuntar soporte</strong></label>--%>
+                                                            <%-- <label><strong>Adjuntar soporte</strong></label>
                                                                 <input id="file-es" name="file-es[]" type="file" multiple />--%>
 
 
-                                                                            <%--<label class="control-label">Select File</label>--%>
-                                                                            <%--<input id="input-44" name="input44[]" type="file" multiple class="file-loading">
+                                                            <%--<label class="control-label">Select File</label>--%>
+                                                            <%--<input id="input-44" name="input44[]" type="file" multiple class="file-loading">
                                                                 <div id="errorBlock" class="help-block"></div>--%>
 
 
 
 
+                                                             <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
+                                                            <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
+                                                            
 
-                                                                            <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
-                                                                            <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
-
-                                                                        </div>
-                                                                    </div>
-                                                       
-                                                    </fieldset>
-                                                </div>
-                                              </div>
-
-
-                                                <%-- panel publicados --%>
-
-                                                <div class="tab-pane fade" id="PPblc">
-                                                    <div class="panel col-md-12">
-
-                                                        <div class="row col-md-10 col-md-offset-1 ">
-                                                            <div class="panel-body">
-                                                                <div class="widget">
-                                                                    <div class="widget-header text-center">
-                                                                        <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CONVOCATORIA N 004...</label>
-                                                                        <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
-                                                                    </div>
-
-                                                                    <div class="widget-content">
-                                                                        <div id="panel3" runat="server">
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
 
-                                                </div>
+                                                </fieldset>
                                             </div>
                                         </div>
 
 
+                                        <%-- panel publicados --%>
 
+                                        <div class="tab-pane fade" id="PPblc">
+                                            <div class="panel col-md-12">
+
+                                                <div class="row col-md-10 col-md-offset-1 ">
+                                                    <div class="panel-body">
+                                                        <div class="widget">
+                                                            <div class="widget-header text-center">
+                                                                <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CONVOCATORIA N 004...</label>
+                                                                <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
+                                                            </div>
+
+                                                            <div class="widget-content">
+                                                                <div id="panel3" runat="server">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
-                            <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
-                            <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
                         </div>
-                        <!-- Footer -->
-                        <div class="footer text-muted">
-                            &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-                        </div>
-                        <!-- /footer -->
-
                     </div>
-                    <!-- /content area -->
-
+                    <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                    <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
                 </div>
-                <!-- /main content -->
+                <!-- Footer -->
+                <div class="footer text-muted">
+                    &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+                </div>
+                <!-- /footer -->
 
             </div>
+            <!-- /content area -->
+
+        </div>
+        <!-- /main content -->
+
+        </div>
             <!-- /page content -->
 
         </div>

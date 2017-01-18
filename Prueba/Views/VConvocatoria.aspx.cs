@@ -36,24 +36,24 @@ namespace Prueba.Views
 
         //the objects for create the panel of convocados model 2
         static string z;
-        public Convocatoria cnvt2;
-        public DataTable TablaInstancias2;
-        public DataTable TablaCargos2;
-        public DataTable TablaCargos3;
-        public Panel[] ArregloPanelInstancias2;
-        public Panel[] ArregloPanelCargos2;
-        public Label[] ArregloLabelCargos2;
-        public DropDownList[] ArregloDropDownListCargos2;
-        public CheckBox[] ArregloCheckCargos2;
-        public int[] IdCargos2;
-        int NTablaCargos2;
-        public Panel[] ArregloPanelGroup2;
-        public Panel[] ArregloPanelBody2;
-        public HyperLink[] link2;
-        public int numerocheck2;
-        public int NumeroListasSinSeleccionar2;
-        public int obj2;
-        public ConvocatoriaDetalle[] cond2;
+        static public Convocatoria cnvt2;
+        static public DataTable TablaInstancias2;
+        static public DataTable TablaCargos2;
+        static public DataTable TablaCargos3;
+        static public Panel[] ArregloPanelInstancias2;
+        static public Panel[] ArregloPanelCargos2;
+        static public Label[] ArregloLabelCargos2;
+        static public DropDownList[] ArregloDropDownListCargos2;
+        static public CheckBox[] ArregloCheckCargos2;
+        static public int[] IdCargos2;
+        static int NTablaCargos2;
+        static public Panel[] ArregloPanelGroup2;
+        static public Panel[] ArregloPanelBody2;
+        static public HyperLink[] link2;
+        static public int numerocheck2;
+        static public int NumeroListasSinSeleccionar2;
+        static public int obj2;
+        static public ConvocatoriaDetalle[] cond2;
 
 
 
@@ -78,11 +78,6 @@ namespace Prueba.Views
 
 
 
-
-
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (Request.Params["__EVENTTARGET"])
@@ -95,8 +90,6 @@ namespace Prueba.Views
                     break;
 
             }
-
-
 
             DateTime fe = fecha();
 
@@ -516,8 +509,9 @@ namespace Prueba.Views
 
             //Modify Encabezado Header Convocatoria 
 
-
             z = e.CommandArgument.ToString();
+
+            //ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page()", true);
 
             List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
 
@@ -531,10 +525,8 @@ namespace Prueba.Views
             Date7.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionespresenciales).ToString("yyyy-MM-dd");
             Date8.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionesdistancia).ToString("yyyy-MM-dd");
             Textarea1.Value = ConvocatoriaData[0].DescripcionConvocatoria;
-            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "MBrrd()", true);
-                 
-
-
+            MDocumento2.InnerText = ConvocatoriaData[0].DNombre +"."+ConvocatoriaData[0].DExtension;
+            //FileUpload2.PostedFile.FileName 
 
 
             //seleccionar cargos
@@ -709,11 +701,32 @@ namespace Prueba.Views
 
             //    }
 
+            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "MBrrd()", true);
+            //ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "nueva();", true);
 
-            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "nueva();", true);
 
 
+        }
 
+        private void downloadse(string ids)
+        {
+
+            List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
+            //DataTable dt = lp.get_lista(ids);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    DataRow fila = dt.Rows[0];
+            //    Byte[] bytes = (Byte[])fila["Source"];
+            //    Response.Buffer = true;
+            //    Response.Charset = "";
+            //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            //    Response.ContentType = fila["Type"].ToString();
+            //    Response.AddHeader("content-disposition", "attachment;filename="
+            //    + fila["Name"].ToString() + fila["Type"].ToString());
+            //    Response.BinaryWrite(bytes);
+            //    Response.Flush();
+            //    Response.End();
+            //}
         }
 
 
@@ -783,7 +796,7 @@ namespace Prueba.Views
                 cnvt.Fechaeleccionespresenciales = Convert.ToDateTime(epresenciaconvo.Value).ToString("dd/MM/yyy");
                 cnvt.Fechaeleccionesdistancia = Convert.ToDateTime(edistanciaconvo.Value).ToString("dd/MM/yyy");
                 cnvt.Fechapublicacionresultados = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
-                cnvt.fecharegistro = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
+                cnvt.fecharegistro = Convert.ToDateTime(FRegistro.Value).ToString("dd/MM/yyy");
                 cnvt.Estado = "BORRADOR";
 
                 // add pdf content data of the convocatoria
@@ -803,27 +816,14 @@ namespace Prueba.Views
                 Byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                 cnvt.Documento = bytes;
-
-
-
-                //Response.Redirect(Request.RawUrl);
-
-                //FRegistro.Value = "";
-                //NConv.Value = "";
-                //InicioInscripcion.Value = null;
-                //ffindeinscripcion.Value = null;
-                //resultadosconvo.Value = null;
-                //juradosconvoca.Value = null;
-                //candidatoshconvo.Value = null;
-                //epresenciaconvo.Value = null;
-                //edistanciaconvo.Value = null;
-                //descripcion.Value = "";
+                cnvt.DExtension = ext;
+                cnvt.DNombre = filename;
 
 
                 var Response1 = ConsumirAppi.ConsumirPost( Rutas.Convocatoria, new RestRequest("ICnvt", Method.POST), cnvt);
                 if (Convert.ToString(Response1.StatusCode)=="OK")
                 {
-                    var Response2 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
+                    var Response2 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
                     if (Convert.ToString(Response2.StatusCode)=="OK")
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
@@ -833,6 +833,7 @@ namespace Prueba.Views
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                     }
+                    
                 }
                 else
                 {
@@ -882,7 +883,110 @@ namespace Prueba.Views
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("MECnvt", Method.POST), new Convocatoria { IdConvocatoria = z, Estado = "PUBLICADO" });
+
+            Transaction[] tran = new Transaction[TablaCargos2.Rows.Count];
+
+            for (int i = 0; i < TablaCargos2.Rows.Count; i++)
+            {
+                if (ArregloCheckCargos2[i].Checked && ArregloDropDownListCargos2[i].SelectedValue != " ")
+                {
+
+                    try
+                    {
+
+                        ConvocatoriaDetalle objeto = new ConvocatoriaDetalle();
+                        objeto.InstanciadetalleConvocatoriaDetalle = IdCargos2[i].ToString();
+                        objeto.CuposConvocatoriaDetalle = ArregloDropDownListCargos2[i].SelectedValue;
+                        objeto.ConvocatoriaConvocatoriaDetalle = z;
+
+
+                        cond2[i] = objeto;
+                        obj2 = obj + 1;
+
+
+
+                        ArregloCheckCargos2[i].Checked = false;
+                        ArregloDropDownListCargos2[i].SelectedValue = " ";
+                    }
+                    catch (Exception Ex)
+                    {
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                    }
+
+                }
+
+
+            }
+
+            if (obj2 != 0)
+            {
+                cnvt2.IdConvocatoria = z;
+                cnvt2.NUMEROCONVOCATORIA = "100";
+                cnvt2.DescripcionConvocatoria = Textarea1.Value;
+                cnvt2.Fechainicioinscripcion = Convert.ToDateTime(Date2.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechafininscripcion = Convert.ToDateTime(Date3.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechapublicacionhabilitado = Convert.ToDateTime(Date4.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechapublicacionjurados = Convert.ToDateTime(Date5.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechaeleccionespresenciales = Convert.ToDateTime(Date6.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechaeleccionesdistancia = Convert.ToDateTime(Date7.Value).ToString("dd/MM/yyy");
+                cnvt2.Fechapublicacionresultados = Convert.ToDateTime(Date8.Value).ToString("dd/MM/yyy");
+                cnvt2.fecharegistro = Convert.ToDateTime(Date1.Value).ToString("dd/MM/yyy");
+                cnvt2.Estado = "PUBLICADO";
+
+                // add pdf content data of the convocatoria
+
+                Stream fs = null;
+                string postedfile = "";
+                postedfile = FileUpload2.PostedFile.FileName;
+                if (FileUpload2.HasFile)
+                {
+                    fs = FileUpload2.PostedFile.InputStream;                 
+                }
+                if (fs!=null)
+                {
+                    string filename = Path.GetFileName(postedfile);
+                    string ext = Path.GetExtension(filename);
+
+                    BinaryReader br = new BinaryReader(fs);
+                    Byte[] bytes = br.ReadBytes((Int32)fs.Length);
+
+                    cnvt2.Documento = bytes;
+                    cnvt2.DExtension = ext;
+                    cnvt2.DNombre = filename;
+                }
+                else
+                {
+                    cnvt2.Documento = null;
+                    cnvt2.DExtension = "wtf";
+                    cnvt2.DNombre = "wtf";
+                }
+
+                ConvocatoriaDetalle cond5 = new ConvocatoriaDetalle();
+                cond5.ConvocatoriaConvocatoriaDetalle = z;
+
+
+                var Response1 = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("MCnvt", Method.POST), cnvt2);
+                if (Convert.ToString(Response1.StatusCode) == "OK")
+                {
+                    var response2 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("DCnvd", Method.POST), cond5);
+                    var Response3 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("MCnvd", Method.POST), cond2);
+                    if (Convert.ToString(Response3.StatusCode) == "OK")
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+                        ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page();", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                }
+                
+            }
         }
 
         protected void LinkButton1_Command(object sender, CommandEventArgs e)
@@ -1163,7 +1267,39 @@ namespace Prueba.Views
 
 
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
+           
+                Byte[] bytes = (Byte[])ConvocatoriaData[0].Documento;
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = ConvocatoriaData[0].DExtension;
+                Response.AddHeader("content-disposition", "attachment;filename="
+                + ConvocatoriaData[0].DNombre + "." +ConvocatoriaData[0].DExtension);
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
+            }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void FileUpload2_Disposed(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void FileUpload2_Unload(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 
 }
 

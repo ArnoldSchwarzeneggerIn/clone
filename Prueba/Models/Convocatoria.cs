@@ -24,6 +24,8 @@ namespace Prueba.Models
         public string Estado { get; set; }
         public string fecharegistro { get; set; }     
         public byte[] Documento { get; set; }
+        public string DExtension { get; set; }
+        public string DNombre { get; set; }
 
     }
 }
