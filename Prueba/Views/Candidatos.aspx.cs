@@ -14,7 +14,7 @@ namespace Prueba.Views
 {
     public partial class Candidatos : System.Web.UI.Page
     {
-        static List<Requisito> model;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,6 +26,10 @@ namespace Prueba.Views
                 //scope("private_profile");
                 ConsultarRequisitos();
             }
+            DataTable fechamodel = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirGet(Rutas.Fecha, new RestRequest("Consultarfecha", Method.GET)).Content);
+
+            fecha.Text = fechamodel.Rows[0]["FECHA"].ToString();
+
         }
 
         protected void scope(string Scope)
@@ -59,9 +63,20 @@ namespace Prueba.Views
             requisitos.DataBind();
         }
 
+        //protected void InsertarCandidatura()
+        //{
+        //    var Candida = new Candidatura() { cand_cedula = Identificacion.Text, cand_convocatoriadetalle = cargo.Text, cand_observacion = obser.InnerText, cand_fechainscripcion = fecha.Text};
 
-       
+        //    var response = ConsumirAppi.ConsumirPost(Rutas.Candidatura, new RestRequest("InsertarCandidatura", Method.POST),Candida);
 
+        //}
 
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            var Candida = new Candidatura() { cand_cedula = Identificacion.Text, cand_convocatoriadetalle = cargo.Text,  cand_fechainscripcion = fecha.Text };
+
+            var response = ConsumirAppi.ConsumirPost(Rutas.Candidatura, new RestRequest("InsertarCandidatura", Method.POST), Candida);
+
+         }
     }
 }
