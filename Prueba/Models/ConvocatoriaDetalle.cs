@@ -45,8 +45,8 @@ namespace Prueba.Models
         public Parametro[] ParametrosInsertar2(ConvocatoriaDetalle obj)
         {
             para = new Parametro[3];
-            para[0] = new Parametro("PCOND_INSTANCIADETALLE", obj.InstanciadetalleConvocatoriaDetalle);
-            para[1] = new Parametro("PCONVOCATORIA", obj.ConvocatoriaConvocatoriaDetalle);
+            para[0] = new Parametro("PCONVOCATORIA", obj.ConvocatoriaConvocatoriaDetalle);
+            para[1] = new Parametro("PCOND_INSTANCIADETALLE", obj.InstanciadetalleConvocatoriaDetalle);
             para[2] = new Parametro("PCOND_CUPOS", obj.CuposConvocatoriaDetalle);
 
             return para;
@@ -87,20 +87,7 @@ namespace Prueba.Models
             return para;
         }
 
-        public bool InsertarConvocatoriaDetalle(ConvocatoriaDetalle []obj)
-        {
-            tran = new Transacion[obj.Length];
-            
-            for (int i=0;i<obj.Length;i++)
-            {
-                if (obj[i] != null)
-                {
-                    tran[i] = new Transacion("PR_NSRT_CNVD", ParametrosInsertar(obj[i]));
-                }
-                
-            }
-            return conx.realizarTransaccion(tran);
-        }
+   
 
         public DataTable ConsultarConvocatoria()
         {
@@ -119,15 +106,24 @@ namespace Prueba.Models
             return conx.realizarTransaccion(tran);
         }
 
+
+        public bool InsertarConvocatoriaDetalle(ConvocatoriaDetalle[] obj)
+        {
+            tran = new Transacion[obj.Length];
+
+            for (int i = 0; i < obj.Length; i++)
+            {
+                if (obj[i] != null)
+                {
+                    tran[i] = new Transacion("PR_NSRT_CNVD", ParametrosInsertar(obj[i]));
+                }
+
+            }
+            return conx.realizarTransaccion(tran);
+        }
+
         public bool MCnvd(ConvocatoriaDetalle []obj)
         {
-
-            //int N = obj.Length + 1; 
-            //tran = new Transacion[N]; 
-
-            ////tran[0] = new Transacion("PR_DLTE_CNVD", null);
-            //for (int i = 1; i <N; i++)
-
             tran = new Transacion[obj.Length];
 
             for (int i = 0; i < obj.Length; i++)
