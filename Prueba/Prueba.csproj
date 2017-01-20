@@ -130,7 +130,6 @@
     <Content Include="Views\VCobertura.aspx" />
     <Content Include="Views\VConvocatoria.aspx" />
     <Content Include="Views\VJurados.aspx" />
-    <Content Include="Views\Votar.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -253,13 +252,6 @@
     </Compile>
     <Compile Include="Views\VJurados.aspx.designer.cs">
       <DependentUpon>VJurados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Votar.aspx.cs">
-      <DependentUpon>Votar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Votar.aspx.designer.cs">
-      <DependentUpon>Votar.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

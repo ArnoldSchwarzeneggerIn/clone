@@ -235,7 +235,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Fecha inscripción</label>
-                                                    <asp:TextBox runat="server" ID="fecha" Class="form-control" Enabled="false"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="fecha" Class="form-control"  ></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -283,17 +283,10 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-2 control-label text-semibold"></label>
                                                                     <div class="col-lg-10">
-                                                                        <input type="file" class="file-input" data-show-preview="false">
+                                                                        <input type="file" id="file1" class="file-input" data-show-preview="false">
                                                                         <span class="help-block"></span>
                                                                     </div>
                                                                 </div>
-
-
-
-
-
-
-
 
                                                                 <%--  <div class="btn btn-primary btn-xs btn-icon btn-file"> 
 

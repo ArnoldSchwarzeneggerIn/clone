@@ -9,22 +9,28 @@ using Prueba.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Data;
+using System.Web.UI.HtmlControls;
 
 namespace Prueba.Views
 {
     public partial class Candidatos : System.Web.UI.Page
     {
-
+        static string z="";
+        static string c="";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+              
+               z = Request.Params["id"];
+                c = Request.Params["C"];
                 //if (Session["Token"] == null)
                 //{
                 //    Response.Redirect("Loggin.aspx");
                 //}
                 //scope("private_profile");
                 ConsultarRequisitos();
+                NumeroConvo.Text = c;
             }
             DataTable fechamodel = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirGet(Rutas.Fecha, new RestRequest("Consultarfecha", Method.GET)).Content);
 
@@ -54,7 +60,7 @@ namespace Prueba.Views
             //var req = new Requisito() { DetalleinstanciaRequisito = "6" };
 
 
-            DataTable model = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), new Requisito { DetalleinstanciaRequisito = "6" }).Content);
+            DataTable model = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), new Requisito { DetalleinstanciaRequisito =  z}).Content);
             //List<Requisito> model = JsonConvert.DeserializeObject<List<Requisito>>(ConsumirAppi.ConsumirPost(Rutas.Requisito, new RestRequest("ConsultarPorInstanciaDetalle", Method.POST), req));
 
 
@@ -78,5 +84,10 @@ namespace Prueba.Views
             var response = ConsumirAppi.ConsumirPost(Rutas.Candidatura, new RestRequest("InsertarCandidatura", Method.POST), Candida);
 
          }
+
+        
+        
+
+        
     }
 }
