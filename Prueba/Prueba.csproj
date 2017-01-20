@@ -124,6 +124,7 @@
     <Content Include="Views\Causaderetiro.aspx" />
     <Content Include="Views\ConvocatoriaPublica.aspx" />
     <Content Include="Views\donald.jpg" />
+    <Content Include="Views\Loggin2.aspx" />
     <Content Include="Views\VConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\InstancConformacion.aspx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="Views\ConvocatoriaPublica.aspx.designer.cs">
       <DependentUpon>ConvocatoriaPublica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loggin2.aspx.cs">
+      <DependentUpon>Loggin2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Loggin2.aspx.designer.cs">
+      <DependentUpon>Loggin2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\VConvocatoriaDetalle.aspx.cs">
       <DependentUpon>VConvocatoriaDetalle.aspx</DependentUpon>

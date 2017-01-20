@@ -27,6 +27,7 @@ namespace Prueba.Views
         static Panel[] ArregloPanelGroupB;
         static Panel[] ArregloPanelBodyB;
         static LinkButton[] linkB;
+        static LinkButton[] linkBA;
         static Label[] ArregloLabelInstanciasB;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -103,6 +104,7 @@ namespace Prueba.Views
             ArregloPanelCargosB = new Panel[NTablaCargosB];
             ArregloLabelCargosB = new Label[NTablaCargosB];
             linkB = new LinkButton [TablaCargosB.Rows.Count];
+            linkBA = new LinkButton[TablaCargosB.Rows.Count];
             IdCargosB = new int[NTablaCargosB];
 
             for (int j = 0; j < NTablaCargosB; j++)
@@ -119,11 +121,18 @@ namespace Prueba.Views
                 //linkB[j].OnClientClick = "RedirectCandidato("+IdCargosB[j].ToString()+","+zB+")";
                 linkB[j].PostBackUrl = "http://localhost:25597/views/Candidatura.aspx?id=" + IdCargosB[j].ToString() + "&c=" + zB;
 
+                linkBA[j] = new LinkButton();
+                linkBA[j].Text = "ver candidatos";
+                linkBA[j].CssClass = "ArregloDropDownListCargos";
+                //linkB[j].OnClientClick = "RedirectCandidato("+IdCargosB[j].ToString()+","+zB+")";
+                linkBA[j].PostBackUrl = "http://localhost:25597/views/CandiatosInscritos.aspx?id=" + IdCargosB[j].ToString() + "&c=" + zB;
+
                 ArregloPanelCargosB[j] = new Panel();
                 ArregloPanelCargosB[j].CssClass = "accordion-inner";
 
                 ArregloPanelCargosB[j].Controls.Add(ArregloLabelCargosB[j]);
                 ArregloPanelCargosB[j].Controls.Add(linkB[j]);
+                ArregloPanelCargosB[j].Controls.Add(linkBA[j]);
 
 
             }

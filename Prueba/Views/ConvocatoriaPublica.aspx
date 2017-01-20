@@ -584,7 +584,7 @@
                                                 <div class="panel col-md-10 col-md-offset-1">
                                                     <div class="panel-heading">
                                                         <div class="panel-body">
-                                                            <div class="col-md-10 col-md-offset-1">
+                                                            <div class="col-md-12">
                                                                 <div class="widget">
                                                                     <div class="widget-header text-center">
                                                                         <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">
