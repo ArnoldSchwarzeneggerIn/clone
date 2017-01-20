@@ -25,7 +25,7 @@ namespace Prueba.Views
         //static int[] IdCargos1;
         //static int NTablaCargos1;
         //static Panel[] ArregloPanelInstancias1;
-        //static Panel[] ArregloPanelCargos1;
+        //static Panel[] ArregloPanelCargosB1;
         //static Label[] ArregloLabelCargos1;
         //static Panel[] ArregloPanelGroup1;
         //static Panel[] ArregloPanelBody1;
@@ -33,36 +33,12 @@ namespace Prueba.Views
         //static HyperLink[] linkc1;
         //static Label[] ArregloLabelInstancias1;
 
-
-        //the objects for create the panel of convocados model 2
-        static string z;
-        static public Convocatoria cnvt2;
-        static public DataTable TablaInstancias2;
-        static public DataTable TablaCargos2;
-        static public DataTable TablaCargos3;
-        static public Panel[] ArregloPanelInstancias2;
-        static public Panel[] ArregloPanelCargos2;
-        static public Label[] ArregloLabelCargos2;
-        static public DropDownList[] ArregloDropDownListCargos2;
-        static public CheckBox[] ArregloCheckCargos2;
-        static public int[] IdCargos2;
-        static int NTablaCargos2;
-        static public Panel[] ArregloPanelGroup2;
-        static public Panel[] ArregloPanelBody2;
-        static public HyperLink[] link2;
-        static public int numerocheck2;
-        static public int NumeroListasSinSeleccionar2;
-        static public int obj2;
-        static public ConvocatoriaDetalle[] cond2;
-
-
-
         //the object for create cargos a convocar
         public Convocatoria cnvt;
         public DataTable TablaInstancias;
         public DataTable TablaCargos;
         public Panel[] ArregloPanelInstancias;
-        public Panel[] ArregloPanelCargos;
+        public Panel[] ArregloPanelCargosB;
         public Label[] ArregloLabelCargos;
         public DropDownList[] ArregloDropDownListCargos;
         public CheckBox[] ArregloCheckCargos;
@@ -75,6 +51,49 @@ namespace Prueba.Views
         public int NumeroListasSinSeleccionar;
         public int obj;
         public ConvocatoriaDetalle[] cond;
+
+
+
+        //the objects for create the panel of convocados model 2
+        static string z;
+        static public Convocatoria cnvtA;
+        static public DataTable TablaInstanciasA;
+        static public DataTable TablaCargosA;
+        static public DataTable TablaCargosAA;
+        static public Panel[] ArregloPanelInstanciasA;
+        static public Panel[] ArregloPanelCargosBA;
+        static public Label[] ArregloLabelCargosA;
+        static public DropDownList[] ArregloDropDownListCargosA;
+        static public CheckBox[] ArregloCheckCargosA;
+        static public int[] IdCargosA;
+        static int NTablaCargosA;
+        static public Panel[] ArregloPanelGroupA;
+        static public Panel[] ArregloPanelBodyA;
+        static public HyperLink[] linkA;
+        static public int numerocheckA;
+        static public int NumeroListasSinSeleccionarA;
+        static public int objA;
+        static public ConvocatoriaDetalle[] condA;
+
+
+
+       
+
+
+        //the objects for create the panel of convocatorias published
+        static string zB;
+        static DataTable TablaInstanciasB = new DataTable();
+        static DataTable TablaCargosB = new DataTable();
+        static DataTable TablaCargosBA = new DataTable();
+        static int[] IdCargosB;
+        static int NTablaCargosB;
+        static Panel[] ArregloPanelInstanciasB;
+        static Panel[] ArregloPanelCargosBB;
+        static Label[] ArregloLabelCargosB;
+        static Panel[] ArregloPanelGroupB;
+        static Panel[] ArregloPanelBodyB;
+        static LinkButton[] linkB;
+        static Label[] ArregloLabelInstanciasB;
 
 
 
@@ -111,7 +130,7 @@ namespace Prueba.Views
 
 
             ArregloPanelInstancias = new Panel[TablaInstancias.Rows.Count];
-            ArregloPanelCargos = new Panel[TablaCargos.Rows.Count];
+            ArregloPanelCargosB = new Panel[TablaCargos.Rows.Count];
             ArregloLabelCargos = new Label[TablaCargos.Rows.Count];
             ArregloDropDownListCargos = new DropDownList[TablaCargos.Rows.Count];
             ArregloCheckCargos = new CheckBox[TablaCargos.Rows.Count];
@@ -186,12 +205,12 @@ namespace Prueba.Views
 
                 }
 
-                ArregloPanelCargos[j] = new Panel();
-                ArregloPanelCargos[j].CssClass = "accordion-inner";
+                ArregloPanelCargosB[j] = new Panel();
+                ArregloPanelCargosB[j].CssClass = "accordion-inner";
 
-                ArregloPanelCargos[j].Controls.Add(ArregloCheckCargos[j]);
-                ArregloPanelCargos[j].Controls.Add(ArregloLabelCargos[j]);
-                ArregloPanelCargos[j].Controls.Add(ArregloDropDownListCargos[j]);
+                ArregloPanelCargosB[j].Controls.Add(ArregloCheckCargos[j]);
+                ArregloPanelCargosB[j].Controls.Add(ArregloLabelCargos[j]);
+                ArregloPanelCargosB[j].Controls.Add(ArregloDropDownListCargos[j]);
 
             }
 
@@ -203,7 +222,7 @@ namespace Prueba.Views
                     if (TablaInstancias.Rows[i]["idinstancia"].ToString() == TablaCargos.Rows[j]["instanciadetalleinstancia"].ToString())
                     {
 
-                        ArregloPanelBody[i].Controls.Add(ArregloPanelCargos[j]);
+                        ArregloPanelBody[i].Controls.Add(ArregloPanelCargosB[j]);
                         ArregloPanelGroup[i].Controls.Add(ArregloPanelBody[i]);
                     }
                 }
@@ -218,9 +237,14 @@ namespace Prueba.Views
 
 
 
-            CCnvtE(new Convocatoria { Estado = "PUBLICADO" }, ListaConvocatoria);
+            CCnvtE(new Convocatoria { Estado = "PUBLICADO" }, LVPblc);
             CCnvtE(new Convocatoria { Estado = "BORRADOR" }, LVBrrd);
-            NumeroR.Text = LVBrrd.Items.Count.ToString();
+
+            NmroPblcs.Text = LVPblc.Items.Count.ToString();
+            NmroBrrds.Text = LVBrrd.Items.Count.ToString();
+            //validate that when get 1 set text whit borrador and get 2 or more set text with borradores
+            //TxtoBrrds.InnerText = (NmroBrrds.Text.Equals("1")) ? " BORRADOR" : " BORRADORES";
+
 
             if (!IsPostBack)
             {
@@ -247,9 +271,13 @@ namespace Prueba.Views
                 //NConv.Value = Numero(s);
                 //End Fill field number convocatoria
 
+
+
+
                 FRegistro.Value = fe.ToString("yyyy-MM-dd");
                 FRegistro.Attributes.Add("min", fe.ToString("yyyy-MM-dd"));
-                InicioInscripcion.Value = fe.ToString("yyyy-MM-dd");
+                NmroCnvt(sender, e);
+                //InicioInscripcion.Value = fe.ToString("yyyy-MM-dd");
                 InicioInscripcion.Attributes.Add("min", fe.ToString("yyyy-MM-dd"));
                 ffindeinscripcion.Attributes.Add("min", fe.ToString("yyyy-MM-dd"));
                 candidatoshconvo.Attributes.Add("min", fe.ToString("yyyy-MM-dd"));
@@ -463,7 +491,7 @@ namespace Prueba.Views
 
             //TablaCargos1 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
             //NTablaCargos1 = TablaCargos1.Rows.Count;
-            //ArregloPanelCargos1 = new Panel[NTablaCargos1];
+            //ArregloPanelCargosB1 = new Panel[NTablaCargos1];
             //ArregloLabelCargos1 = new Label[NTablaCargos1];
             //linkb1 = new HyperLink[NTablaCargos1];
             //IdCargos1 = new int[NTablaCargos1];
@@ -484,11 +512,11 @@ namespace Prueba.Views
 
             //    //link1[j].Text = "Inscribir";
 
-            //    ArregloPanelCargos1[j] = new Panel();
-            //    ArregloPanelCargos1[j].CssClass = "accordion-inner";
+            //    ArregloPanelCargosB1[j] = new Panel();
+            //    ArregloPanelCargosB1[j].CssClass = "accordion-inner";
 
-            //    ArregloPanelCargos1[j].Controls.Add(ArregloLabelCargos1[j]);
-            //    ArregloPanelCargos1[j].Controls.Add(linkb1[j]);
+            //    ArregloPanelCargosB1[j].Controls.Add(ArregloLabelCargos1[j]);
+            //    ArregloPanelCargosB1[j].Controls.Add(linkb1[j]);
 
 
             //}
@@ -499,7 +527,7 @@ namespace Prueba.Views
             //    {
             //        if (TablaInstancias1.Rows[i]["IdInstancia"].ToString() == TablaCargos1.Rows[j]["INST_ID"].ToString())
             //        {
-            //            ArregloPanelBody1[i].Controls.Add(ArregloPanelCargos1[j]);
+            //            ArregloPanelBody1[i].Controls.Add(ArregloPanelCargosB1[j]);
             //            ArregloPanelGroup1[i].Controls.Add(ArregloPanelBody1[i]);
             //        }
             //    }
@@ -511,7 +539,7 @@ namespace Prueba.Views
 
             z = e.CommandArgument.ToString();
 
-            //ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page()", true);
+            //ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page2()", true);
 
             List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
 
@@ -525,7 +553,7 @@ namespace Prueba.Views
             Date7.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionespresenciales).ToString("yyyy-MM-dd");
             Date8.Value = Convert.ToDateTime(ConvocatoriaData[0].Fechaeleccionesdistancia).ToString("yyyy-MM-dd");
             Textarea1.Value = ConvocatoriaData[0].DescripcionConvocatoria;
-            MDocumento2.InnerText = ConvocatoriaData[0].DNombre +"."+ConvocatoriaData[0].DExtension;
+            MDocumento2.InnerText = ConvocatoriaData[0].DNombre;
             //FileUpload2.PostedFile.FileName 
 
 
@@ -534,64 +562,63 @@ namespace Prueba.Views
             //GENERALES
             //Fill DataTable with all position
             //TablaCargos = CInstancia();
-            TablaCargos2 = TablaCargos;
+            TablaCargosA = TablaCargos;
 
             //Fill View with the datatable TablaCargos
-            DataView view2 = new DataView(TablaCargos2);
+            DataView view2 = new DataView(TablaCargosA);
 
             //Instancia TablaInstancias
-            TablaInstancias2 = new DataTable();
+            TablaInstanciasA = new DataTable();
 
             //Fill TablaInstancias with the data of the DataView view, filtering data for idInstancia and nombreInstnacia
-            TablaInstancias2 = view2.ToTable(true, "idInstancia", "nombreInstancia");
+            TablaInstanciasA = view2.ToTable(true, "idInstancia", "nombreInstancia");
 
 
-            ArregloPanelInstancias2 = new Panel[TablaInstancias2.Rows.Count];
-            ArregloPanelCargos2 = new Panel[TablaCargos2.Rows.Count];
-            ArregloLabelCargos2 = new Label[TablaCargos2.Rows.Count];
-            ArregloDropDownListCargos2 = new DropDownList[TablaCargos2.Rows.Count];
-            ArregloCheckCargos2 = new CheckBox[TablaCargos2.Rows.Count];
-            IdCargos2 = new int[TablaCargos2.Rows.Count];
-            ArregloPanelGroup2 = new Panel[TablaInstancias2.Rows.Count];
-            ArregloPanelBody2 = new Panel[TablaInstancias2.Rows.Count];
-            link2 = new HyperLink[TablaCargos2.Rows.Count];
+            ArregloPanelInstanciasA = new Panel[TablaInstanciasA.Rows.Count];
+            ArregloPanelCargosBA = new Panel[TablaCargosA.Rows.Count];
+            ArregloLabelCargosA = new Label[TablaCargosA.Rows.Count];
+            ArregloDropDownListCargosA = new DropDownList[TablaCargosA.Rows.Count];
+            ArregloCheckCargosA = new CheckBox[TablaCargosA.Rows.Count];
+            IdCargosA = new int[TablaCargosA.Rows.Count];
+            ArregloPanelGroupA = new Panel[TablaInstanciasA.Rows.Count];
+            ArregloPanelBodyA = new Panel[TablaInstanciasA.Rows.Count];
+            linkA = new HyperLink[TablaCargosA.Rows.Count];
             //Label[] ArregloError;
-            numerocheck2 = 0;
-            obj2 = 0;
-            cond2 = new ConvocatoriaDetalle[TablaCargos2.Rows.Count];
-            cnvt2 = new Convocatoria();
+            numerocheckA = 0;
+            objA = 0;
+            condA = new ConvocatoriaDetalle[TablaCargosA.Rows.Count];
+            cnvtA = new Convocatoria();
 
 
-            
-            TablaCargos3 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
-            DataView view4 = new DataView(TablaCargos3);
+            TablaCargosAA = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
+            DataView view4 = new DataView(TablaCargosAA);
             DataTable TablaCargos4 = new DataTable();
             TablaCargos4 = view4.ToTable(true, "INST_ID");
 
 
 
 
-            for (int i = 0; i < TablaInstancias2.Rows.Count; i++)
+            for (int i = 0; i < TablaInstanciasA.Rows.Count; i++)
             {
                 int x = 0;
-                ArregloPanelGroup2[i] = new Panel();
-                ArregloPanelGroup2[i].CssClass = "accordion-group";
+                ArregloPanelGroupA[i] = new Panel();
+                ArregloPanelGroupA[i].CssClass = "accordion-group";
 
-                ArregloPanelInstancias2[i] = new Panel();
-                ArregloPanelInstancias2[i].CssClass = "accordion-heading";
+                ArregloPanelInstanciasA[i] = new Panel();
+                ArregloPanelInstanciasA[i].CssClass = "accordion-heading";
 
-                link2[i] = new HyperLink();
-                link2[i].ID = "link2" + i;
-                link2[i].CssClass = "accordion-toggle";
-                link2[i].Text = TablaInstancias2.Rows[i]["nombreInstancia"].ToString();
-                link2[i].Attributes.Add("data-toggle", "collapse");
-                link2[i].Attributes.Add("data-parent", "#accordion2");
-                link2[i].Attributes.Add("href", "#collapse2" + i);
+                linkA[i] = new HyperLink();
+                linkA[i].ID = "link2" + i;
+                linkA[i].CssClass = "accordion-toggle";
+                linkA[i].Text = TablaInstanciasA.Rows[i]["nombreInstancia"].ToString();
+                linkA[i].Attributes.Add("data-toggle", "collapse");
+                linkA[i].Attributes.Add("data-parent", "#accordion2");
+                linkA[i].Attributes.Add("href", "#collapse2" + i);
 
 
                 for (int j = 0; j < TablaCargos4.Rows.Count; j++)
                 {
-                    if (TablaInstancias2.Rows[i]["idInstancia"].ToString() == TablaCargos4.Rows[j]["INST_ID"].ToString())
+                    if (TablaInstanciasA.Rows[i]["idInstancia"].ToString() == TablaCargos4.Rows[j]["INST_ID"].ToString())
                     {
                         x = x + 1;
                     }
@@ -602,83 +629,82 @@ namespace Prueba.Views
                 }
 
 
-                ArregloPanelBody2[i] = new Panel();
-                ArregloPanelBody2[i].ID = "collapse2" + i;
-                ArregloPanelBody2[i].CssClass = (x == 0) ? "accordion-body collapse" : "accordion-body collapse in";
+                ArregloPanelBodyA[i] = new Panel();
+                ArregloPanelBodyA[i].ID = "collapse2" + i;
+                ArregloPanelBodyA[i].CssClass = (x == 0) ? "accordion-body collapse" : "accordion-body collapse in";
 
-                ArregloPanelInstancias2[i].Controls.Add(link2[i]);
-                ArregloPanelGroup2[i].Controls.Add(ArregloPanelInstancias2[i]);
+                ArregloPanelInstanciasA[i].Controls.Add(linkA[i]);
+                ArregloPanelGroupA[i].Controls.Add(ArregloPanelInstanciasA[i]);
 
 
             }
 
 
-            for (int j = 0; j < TablaCargos2.Rows.Count; j++)
+            for (int j = 0; j < TablaCargosA.Rows.Count; j++)
             {
 
-                ArregloCheckCargos2[j] = new CheckBox();
-                ArregloCheckCargos2[j].CssClass = "ArregloCheckCargos";
-                ArregloCheckCargos2[j].ID = "ArregloCheckCargos2" + TablaCargos2.Rows[j]["idinstanciadetalle"].ToString();
-                ArregloCheckCargos2[j].Attributes.Add("name", "NArregloCheckCargos2" + TablaCargos2.Rows[j]["idinstanciadetalle"].ToString());
+                ArregloCheckCargosA[j] = new CheckBox();
+                ArregloCheckCargosA[j].CssClass = "ArregloCheckCargos";
+                ArregloCheckCargosA[j].ID = "ArregloCheckCargosA" + TablaCargosA.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloCheckCargosA[j].Attributes.Add("name", "NArregloCheckCargosA" + TablaCargosA.Rows[j]["idinstanciadetalle"].ToString());
+                //ArregloCheckCargosA[j].AutoPostBack = true;
+
+                ArregloLabelCargosA[j] = new Label();
+                ArregloLabelCargosA[j].ID = "ArregloLabelCargosA" + TablaCargosA.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloLabelCargosA[j].CssClass = "ArregloLabelCargos";
+                ArregloLabelCargosA[j].Text = TablaCargosA.Rows[j]["NombreInstanciadetalle"].ToString();
+
+                IdCargosA[j] = Convert.ToInt32(TablaCargosA.Rows[j]["idinstanciadetalle"].ToString());
 
 
-                ArregloLabelCargos2[j] = new Label();
-                ArregloLabelCargos2[j].ID = "ArregloLabelCargos2" + TablaCargos2.Rows[j]["idinstanciadetalle"].ToString();
-                ArregloLabelCargos2[j].CssClass = "ArregloLabelCargos";
-                ArregloLabelCargos2[j].Text = TablaCargos2.Rows[j]["NombreInstanciadetalle"].ToString();
-
-                IdCargos2[j] = Convert.ToInt32(TablaCargos2.Rows[j]["idinstanciadetalle"].ToString());
-
-
-                ArregloDropDownListCargos2[j] = new DropDownList();
-                ArregloDropDownListCargos2[j].ID = "ArregloDropDownListCargos2" + TablaCargos2.Rows[j]["idinstanciadetalle"].ToString();
-                ArregloDropDownListCargos2[j].CssClass = "ArregloDropDownListCargos";
-                ArregloDropDownListCargos2[j].Items.Insert(0, new ListItem("Selccione Opcion...", " "));
-                ArregloDropDownListCargos2[j].AppendDataBoundItems = true;
+                ArregloDropDownListCargosA[j] = new DropDownList();
+                ArregloDropDownListCargosA[j].ID = "ArregloDropDownListCargosA" + TablaCargosA.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloDropDownListCargosA[j].CssClass = "ArregloDropDownListCargos";
+                ArregloDropDownListCargosA[j].Items.Insert(0, new ListItem("Selccione Opcion...", " "));
+                ArregloDropDownListCargosA[j].AppendDataBoundItems = true;
 
 
-                for (int k = 0; k < Convert.ToInt32(TablaCargos2.Rows[j]["CupoInstanciadetalle"].ToString()); k++)
+                for (int k = 0; k < Convert.ToInt32(TablaCargosA.Rows[j]["CupoInstanciadetalle"].ToString()); k++)
                 {
-                    ArregloDropDownListCargos2[j].Items.Add("" + (k + 1));
+                    ArregloDropDownListCargosA[j].Items.Add("" + (k + 1));
 
 
                 }
 
 
-
-                for (int i = 0; i < TablaCargos3.Rows.Count; i++)
-                {
-                    if (TablaCargos2.Rows[j]["IDINSTANCIADETALLE"].ToString() == TablaCargos3.Rows[i]["INSD_ID"].ToString())
+                    for (int i = 0; i < TablaCargosAA.Rows.Count; i++)
                     {
-                        ArregloCheckCargos2[j].Checked = true;
-                        ArregloDropDownListCargos2[j].SelectedValue = TablaCargos3.Rows[i]["COND_CUPOS"].ToString();
+                        if (TablaCargosA.Rows[j]["IDINSTANCIADETALLE"].ToString() == TablaCargosAA.Rows[i]["INSD_ID"].ToString())
+                        {
+                            ArregloCheckCargosA[j].Checked = true;
+                            ArregloDropDownListCargosA[j].SelectedValue = TablaCargosAA.Rows[i]["COND_CUPOS"].ToString();
+                        }
                     }
-                }
+                
 
+                ArregloPanelCargosBA[j] = new Panel();
+                ArregloPanelCargosBA[j].CssClass = "accordion-inner";
 
-                ArregloPanelCargos2[j] = new Panel();
-                ArregloPanelCargos2[j].CssClass = "accordion-inner";
-
-                ArregloPanelCargos2[j].Controls.Add(ArregloCheckCargos2[j]);
-                ArregloPanelCargos2[j].Controls.Add(ArregloLabelCargos2[j]);
-                ArregloPanelCargos2[j].Controls.Add(ArregloDropDownListCargos2[j]);
+                ArregloPanelCargosBA[j].Controls.Add(ArregloCheckCargosA[j]);
+                ArregloPanelCargosBA[j].Controls.Add(ArregloLabelCargosA[j]);
+                ArregloPanelCargosBA[j].Controls.Add(ArregloDropDownListCargosA[j]);
 
             }
 
 
-            for (int i = 0; i < TablaInstancias2.Rows.Count; i++)
+            for (int i = 0; i < TablaInstanciasA.Rows.Count; i++)
             {
-                for (int j = 0; j < TablaCargos2.Rows.Count; j++)
+                for (int j = 0; j < TablaCargosA.Rows.Count; j++)
                 {
-                    if (TablaInstancias2.Rows[i]["idinstancia"].ToString() == TablaCargos2.Rows[j]["instanciadetalleinstancia"].ToString())
+                    if (TablaInstanciasA.Rows[i]["idinstancia"].ToString() == TablaCargosA.Rows[j]["instanciadetalleinstancia"].ToString())
                     {
 
-                        ArregloPanelBody2[i].Controls.Add(ArregloPanelCargos2[j]);
-                        ArregloPanelGroup2[i].Controls.Add(ArregloPanelBody2[i]);
+                        ArregloPanelBodyA[i].Controls.Add(ArregloPanelCargosBA[j]);
+                        ArregloPanelGroupA[i].Controls.Add(ArregloPanelBodyA[i]);
                     }
                 }
 
-                Panel4.Controls.Add(ArregloPanelGroup2[i]);
+                Panel4.Controls.Add(ArregloPanelGroupA[i]);
 
             }
 
@@ -795,7 +821,7 @@ namespace Prueba.Views
                 cnvt.Fechapublicacionjurados = Convert.ToDateTime(juradosconvoca.Value).ToString("dd/MM/yyy");
                 cnvt.Fechaeleccionespresenciales = Convert.ToDateTime(epresenciaconvo.Value).ToString("dd/MM/yyy");
                 cnvt.Fechaeleccionesdistancia = Convert.ToDateTime(edistanciaconvo.Value).ToString("dd/MM/yyy");
-                cnvt.Fechapublicacionresultados = Convert.ToDateTime(ffindeinscripcion.Value).ToString("dd/MM/yyy");
+                cnvt.Fechapublicacionresultados = Convert.ToDateTime(resultadosconvo.Value).ToString("dd/MM/yyy");
                 cnvt.fecharegistro = Convert.ToDateTime(FRegistro.Value).ToString("dd/MM/yyy");
                 cnvt.Estado = "BORRADOR";
 
@@ -820,30 +846,30 @@ namespace Prueba.Views
                 cnvt.DNombre = filename;
 
 
-                var Response1 = ConsumirAppi.ConsumirPost( Rutas.Convocatoria, new RestRequest("ICnvt", Method.POST), cnvt);
-                if (Convert.ToString(Response1.StatusCode)=="OK")
+                var Response1 = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("ICnvt", Method.POST), cnvt);
+                if (Convert.ToString(Response1.StatusCode) == "OK")
                 {
-                    var Response2 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
-                    if (Convert.ToString(Response2.StatusCode)=="OK")
+                    var Response2 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("InsertarConvocatoriaDetalle", Method.POST), cond);
+                    if (Convert.ToString(Response2.StatusCode) == "OK")
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-                        ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page();", true);
+                        ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page2();", true);
                     }
                     else
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                     }
-                    
+
                 }
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                 }
-               
-                
 
 
-                
+
+
+
 
                 //Response.Redirect(Request.RawUrl);
 
@@ -884,29 +910,29 @@ namespace Prueba.Views
         protected void Button3_Click(object sender, EventArgs e)
         {
 
-            Transaction[] tran = new Transaction[TablaCargos2.Rows.Count];
+            Transaction[] tran = new Transaction[TablaCargosA.Rows.Count];
 
-            for (int i = 0; i < TablaCargos2.Rows.Count; i++)
+            for (int i = 0; i < TablaCargosA.Rows.Count; i++)
             {
-                if (ArregloCheckCargos2[i].Checked && ArregloDropDownListCargos2[i].SelectedValue != " ")
+                if (ArregloCheckCargosA[i].Checked && ArregloDropDownListCargosA[i].SelectedValue != " ")
                 {
 
                     try
                     {
 
                         ConvocatoriaDetalle objeto = new ConvocatoriaDetalle();
-                        objeto.InstanciadetalleConvocatoriaDetalle = IdCargos2[i].ToString();
-                        objeto.CuposConvocatoriaDetalle = ArregloDropDownListCargos2[i].SelectedValue;
+                        objeto.InstanciadetalleConvocatoriaDetalle = IdCargosA[i].ToString();
+                        objeto.CuposConvocatoriaDetalle = ArregloDropDownListCargosA[i].SelectedValue;
                         objeto.ConvocatoriaConvocatoriaDetalle = z;
 
 
-                        cond2[i] = objeto;
-                        obj2 = obj + 1;
+                        condA[i] = objeto;
+                        objA = obj + 1;
 
 
 
-                        ArregloCheckCargos2[i].Checked = false;
-                        ArregloDropDownListCargos2[i].SelectedValue = " ";
+                        //ArregloCheckCargosA[i].Checked = false;
+                        //ArregloDropDownListCargosA[i].SelectedValue = " ";
                     }
                     catch (Exception Ex)
                     {
@@ -919,20 +945,20 @@ namespace Prueba.Views
 
             }
 
-            if (obj2 != 0)
+            if (objA != 0)
             {
-                cnvt2.IdConvocatoria = z;
-                cnvt2.NUMEROCONVOCATORIA = "100";
-                cnvt2.DescripcionConvocatoria = Textarea1.Value;
-                cnvt2.Fechainicioinscripcion = Convert.ToDateTime(Date2.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechafininscripcion = Convert.ToDateTime(Date3.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechapublicacionhabilitado = Convert.ToDateTime(Date4.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechapublicacionjurados = Convert.ToDateTime(Date5.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechaeleccionespresenciales = Convert.ToDateTime(Date6.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechaeleccionesdistancia = Convert.ToDateTime(Date7.Value).ToString("dd/MM/yyy");
-                cnvt2.Fechapublicacionresultados = Convert.ToDateTime(Date8.Value).ToString("dd/MM/yyy");
-                cnvt2.fecharegistro = Convert.ToDateTime(Date1.Value).ToString("dd/MM/yyy");
-                cnvt2.Estado = "PUBLICADO";
+                cnvtA.IdConvocatoria = z;
+                cnvtA.NUMEROCONVOCATORIA = Text1.Value;
+                cnvtA.DescripcionConvocatoria = Textarea1.Value;
+                cnvtA.Fechainicioinscripcion = Convert.ToDateTime(Date2.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechafininscripcion = Convert.ToDateTime(Date3.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechapublicacionhabilitado = Convert.ToDateTime(Date6.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechapublicacionjurados = Convert.ToDateTime(Date5.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechaeleccionespresenciales = Convert.ToDateTime(Date7.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechaeleccionesdistancia = Convert.ToDateTime(Date8.Value).ToString("dd/MM/yyy");
+                cnvtA.Fechapublicacionresultados = Convert.ToDateTime(Date4.Value).ToString("dd/MM/yyy");
+                cnvtA.fecharegistro = Convert.ToDateTime(Date1.Value).ToString("dd/MM/yyy");
+                cnvtA.Estado = "PUBLICADO";
 
                 // add pdf content data of the convocatoria
 
@@ -941,9 +967,9 @@ namespace Prueba.Views
                 postedfile = FileUpload2.PostedFile.FileName;
                 if (FileUpload2.HasFile)
                 {
-                    fs = FileUpload2.PostedFile.InputStream;                 
+                    fs = FileUpload2.PostedFile.InputStream;
                 }
-                if (fs!=null)
+                if (fs != null)
                 {
                     string filename = Path.GetFileName(postedfile);
                     string ext = Path.GetExtension(filename);
@@ -951,30 +977,37 @@ namespace Prueba.Views
                     BinaryReader br = new BinaryReader(fs);
                     Byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-                    cnvt2.Documento = bytes;
-                    cnvt2.DExtension = ext;
-                    cnvt2.DNombre = filename;
+                    cnvtA.Documento = bytes;
+                    cnvtA.DExtension = ext;
+                    cnvtA.DNombre = filename;
                 }
                 else
                 {
-                    cnvt2.Documento = null;
-                    cnvt2.DExtension = "wtf";
-                    cnvt2.DNombre = "wtf";
+                    cnvtA.Documento = null;
+                    cnvtA.DExtension = "NODATA";
+                    cnvtA.DNombre = "NODATA";
                 }
 
                 ConvocatoriaDetalle cond5 = new ConvocatoriaDetalle();
                 cond5.ConvocatoriaConvocatoriaDetalle = z;
 
 
-                var Response1 = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("MCnvt", Method.POST), cnvt2);
+                var Response1 = ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("MCnvt", Method.POST), cnvtA);
                 if (Convert.ToString(Response1.StatusCode) == "OK")
                 {
-                    var response2 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("DCnvd", Method.POST), cond5);
-                    var Response3 = ConsumirAppi.ConsumirPost(new RestClient("http://localhost:25598/api/convocatoriadetalle/"), new RestRequest("MCnvd", Method.POST), cond2);
-                    if (Convert.ToString(Response3.StatusCode) == "OK")
+                    var response2 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("DCnvd", Method.POST), cond5);
+                    if (Convert.ToString(response2.StatusCode) == "OK")
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
-                        ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page();", true);
+                        var Response3 = ConsumirAppi.ConsumirPost(Rutas.ConvocatoriaDetalle, new RestRequest("MCnvd", Method.POST), condA);
+                        if (Convert.ToString(Response3.StatusCode) == "OK")
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Registro Exitoso', text: 'Registro exitoso.',icon: 'icon-checkmark3', type: 'success'});}); ", true);
+                            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "Refresh_page2();", true);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
+                        }
                     }
                     else
                     {
@@ -985,7 +1018,7 @@ namespace Prueba.Views
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $(function Alet() {new PNotify({ title: 'Algo va mal', text: 'Su registro no se ha almacenado',icon: 'icon-checkmark3', type: 'warning'});}); ", true);
                 }
-                
+
             }
         }
 
@@ -995,99 +1028,106 @@ namespace Prueba.Views
             ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("MECnvt", Method.POST), new Convocatoria { IdConvocatoria = z, Estado = "PUBLICADO" });
         }
 
-        protected void LBPblc_Command(object sender, CommandEventArgs e)
+        protected void VerPblc(object sender, CommandEventArgs e)
         {
 
-            z = e.CommandArgument.ToString();
+            zB = e.CommandArgument.ToString();
+            CntvPblc.InnerText = zB;
 
-            //TablaInstancias1 = CInstancia(new Convocatoria() { IdConvocatoria = z }, true);
-            //int NTablaInstancias1 = TablaInstancias1.Rows.Count;
+            Convocatoria conv = new Convocatoria() { IdConvocatoria = zB};
 
-            //ArregloPanelGroup1 = new Panel[NTablaInstancias1];
-            //ArregloPanelInstancias1 = new Panel[NTablaInstancias1];
-            //ArregloPanelBody1 = new Panel[NTablaInstancias1];
-            //ArregloLabelInstancias1 = new Label[NTablaInstancias1];
-
-            ////LinkButton []Editar = new LinkButton[TablaInstancias1.Rows.Count];
-
-            //LinkButton[] Borrar;
-
-            //LinkButton Editar = new LinkButton();
+            List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), conv).Content);
+            Label3.InnerText = ConvocatoriaData[0].DNombre;
 
 
-            //for (int i = 0; i < NTablaInstancias1; i++)
-            //{
+            DataTable Data = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("CCnvt", Method.POST), conv).Content);
+            foreach (DataRow row in Data.Rows)
+            {
+                row["fecharegistro"] = Convert.ToDateTime(row["fecharegistro"]).Year.ToString();
+            }    
+
+            ListView1.DataSource = Data;
+            ListView1.DataBind();
 
 
-            //    ArregloPanelGroup1[i] = new Panel();
-            //    ArregloPanelGroup1[i].CssClass = "accordion-group";
+            //NmroPblcs.Text = LVPblc.Items.Count.ToString();
+            TablaCargosB = CInstancia(new Convocatoria() { IdConvocatoria = zB }, false);
+            DataView view10 = new DataView(TablaCargosB);
+            TablaInstanciasB = view10.ToTable(true, "INST_ID","INST_NOMBRE");
+            int NTablaInstanciasB = TablaInstanciasB.Rows.Count;
 
-            //    ArregloPanelInstancias1[i] = new Panel();
-            //    ArregloPanelInstancias1[i].CssClass = "accordion-heading";
+            ArregloPanelGroupB = new Panel[NTablaInstanciasB];
+            ArregloPanelInstanciasB = new Panel[NTablaInstanciasB];
+            ArregloPanelBodyB = new Panel[NTablaInstanciasB];
+            ArregloLabelInstanciasB = new Label[NTablaInstanciasB];
 
-            //    ArregloPanelBody1[i] = new Panel();
-            //    ArregloPanelBody1[i].ID = "collapseb" + i;
-            //    ArregloPanelBody1[i].CssClass = "accordion-body in";
-
-
-            //    //Borrar[i] = new LinkButton();
-            //    ////Borrar[i].ID = "link" + i;
-            //    //Borrar[i].CssClass = "icon-trash";
-            //    //Borrar[i].Text = TablaInstancias.Rows[i]["nombreInstancia"].ToString();
-            //    //Borrar[i].Attributes.Add("data-toggle", "collapse");
-            //    //Borrar[i].Attributes.Add("data-parent", "#accordion2");
-            //    //Borrar[i].Attributes.Add("href", "#collapse" + i);
-
-            //    ArregloLabelInstancias1[i] = new Label();
-            //    ArregloLabelInstancias1[i].Text = TablaInstancias1.Rows[i]["NOMBREINSTANCIA"].ToString();
-
-            //    ArregloPanelInstancias1[i].Controls.Add(ArregloLabelInstancias1[i]);
-            //    ArregloPanelGroup1[i].Controls.Add(ArregloPanelInstancias1[i]);
-
-            //}
-
-            //TablaCargos1 = CInstancia(new Convocatoria() { IdConvocatoria = z }, false);
-            //NTablaCargos1 = TablaCargos1.Rows.Count;
-            //ArregloPanelCargos1 = new Panel[NTablaCargos1];
-            //ArregloLabelCargos1 = new Label[NTablaCargos1];
-            //Borrar = new LinkButton[NTablaCargos1];
-            //IdCargos1 = new int[NTablaCargos1];
-
-            //for (int j = 0; j < NTablaCargos1; j++)
-            //{
-            //    ArregloLabelCargos1[j] = new Label();
-            //    ArregloLabelCargos1[j].ID = "ArregloLabelCargosb" + TablaCargos1.Rows[j]["INSD_ID"].ToString();
-            //    ArregloLabelCargos1[j].Text = TablaCargos1.Rows[j]["INSD_NOMBRE"].ToString();
-
-            //    IdCargos1[j] = Convert.ToInt32(TablaCargos1.Rows[j]["INSD_ID"].ToString());
-
-            //    //link1[j] = new HyperLink();
-
-            //    //link1[j].Text = "Inscribir";
-
-            //    ArregloPanelCargos1[j] = new Panel();
-            //    ArregloPanelCargos1[j].CssClass = "accordion-inner";
-
-            //    ArregloPanelCargos1[j].Controls.Add(ArregloLabelCargos1[j]);
-            //    ArregloPanelCargos1[j].Controls.Add(Borrar[j]);
+        
 
 
-            //}
+            for (int i = 0; i < NTablaInstanciasB; i++)
+            {
 
-            //for (int i = 0; i < NTablaInstancias1; i++)
-            //{
-            //    for (int j = 0; j < NTablaCargos1; j++)
-            //    {
-            //        if (TablaInstancias1.Rows[i]["IdInstancia"].ToString() == TablaCargos1.Rows[j]["INST_ID"].ToString())
-            //        {
-            //            ArregloPanelBody1[i].Controls.Add(ArregloPanelCargos1[j]);
 
-            //        }
-            //    }
-            //    ArregloPanelGroup1[i].Controls.Add(ArregloPanelBody1[i]);
-            //    panel3.Controls.Add(ArregloPanelGroup1[i]);
+                ArregloPanelGroupB[i] = new Panel();
+                ArregloPanelGroupB[i].CssClass = "accordion-group";
 
-            //}
+                ArregloPanelInstanciasB[i] = new Panel();
+                ArregloPanelInstanciasB[i].CssClass = "accordion-heading";
+
+                ArregloPanelBodyB[i] = new Panel();
+                ArregloPanelBodyB[i].ID = "collapseb" + i;
+                ArregloPanelBodyB[i].CssClass = "accordion-body in";
+
+                ArregloLabelInstanciasB[i] = new Label();
+                ArregloLabelInstanciasB[i].Text = TablaInstanciasB.Rows[i]["INST_NOMBRE"].ToString();
+
+                ArregloPanelInstanciasB[i].Controls.Add(ArregloLabelInstanciasB[i]);
+                ArregloPanelGroupB[i].Controls.Add(ArregloPanelInstanciasB[i]);
+
+            }
+
+            
+            NTablaCargosB = TablaCargosB.Rows.Count;
+            ArregloPanelCargosB = new Panel[NTablaCargosB];
+            ArregloLabelCargosB = new Label[NTablaCargosB];
+            //linkB = new LinkButton [TablaCargosB.Rows.Count];
+            IdCargosB = new int[NTablaCargosB];
+
+            for (int j = 0; j < NTablaCargosB; j++)
+            {
+                ArregloLabelCargosB[j] = new Label();
+                ArregloLabelCargosB[j].ID = "ArregloLabelCargosB" + TablaCargosB.Rows[j]["INSD_ID"].ToString();
+                ArregloLabelCargosB[j].Text = TablaCargosB.Rows[j]["INSD_NOMBRE"].ToString();
+
+                IdCargosB[j] = Convert.ToInt32(TablaCargosB.Rows[j]["INSD_ID"].ToString());
+
+                //linkB[j] = new LinkButton();
+                //linkB[j].Text = "Inscribir";
+                //linkB[j].CssClass = "ArregloDropDownListCargos";
+
+                ArregloPanelCargosB[j] = new Panel();
+                ArregloPanelCargosB[j].CssClass = "accordion-inner";
+
+                ArregloPanelCargosB[j].Controls.Add(ArregloLabelCargosB[j]);
+                //ArregloPanelCargosB[j].Controls.Add(linkB[j]);
+
+
+            }
+
+            for (int i = 0; i < NTablaInstanciasB; i++)
+            {
+                for (int j = 0; j < NTablaCargosB; j++)
+                {
+                    if (TablaInstanciasB.Rows[i]["INST_ID"].ToString() == TablaCargosB.Rows[j]["INSD_INSTANCIA"].ToString())
+                    {
+                        ArregloPanelBodyB[i].Controls.Add(ArregloPanelCargosB[j]);
+
+                    }
+                }
+                ArregloPanelGroupB[i].Controls.Add(ArregloPanelBodyB[i]);
+                Panel3.Controls.Add(ArregloPanelGroupB[i]);
+
+            }
 
 
             ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "IrAPanel('PPblc');", true);
@@ -1153,7 +1193,7 @@ namespace Prueba.Views
 
 
             //    ArregloPanelInstancias = new Panel[TablaInstancias.Rows.Count];
-            //    ArregloPanelCargos = new Panel[TablaCargos.Rows.Count];
+            //    ArregloPanelCargosB = new Panel[TablaCargos.Rows.Count];
             //    ArregloLabelCargos = new Label[TablaCargos.Rows.Count];
             //    ArregloDropDownListCargos = new DropDownList[TablaCargos.Rows.Count];
             //    ArregloCheckCargos = new CheckBox[TablaCargos.Rows.Count];
@@ -1228,12 +1268,12 @@ namespace Prueba.Views
 
             //        }
 
-            //        ArregloPanelCargos[j] = new Panel();
-            //        ArregloPanelCargos[j].CssClass = "accordion-inner";
+            //        ArregloPanelCargosB[j] = new Panel();
+            //        ArregloPanelCargosB[j].CssClass = "accordion-inner";
 
-            //        ArregloPanelCargos[j].Controls.Add(ArregloCheckCargos[j]);
-            //        ArregloPanelCargos[j].Controls.Add(ArregloLabelCargos[j]);
-            //        ArregloPanelCargos[j].Controls.Add(ArregloDropDownListCargos[j]);
+            //        ArregloPanelCargosB[j].Controls.Add(ArregloCheckCargos[j]);
+            //        ArregloPanelCargosB[j].Controls.Add(ArregloLabelCargos[j]);
+            //        ArregloPanelCargosB[j].Controls.Add(ArregloDropDownListCargos[j]);
 
             //    }
 
@@ -1245,7 +1285,7 @@ namespace Prueba.Views
             //            if (TablaInstancias.Rows[i]["idinstancia"].ToString() == TablaCargos.Rows[j]["instanciadetalleinstancia"].ToString())
             //            {
 
-            //                ArregloPanelBody[i].Controls.Add(ArregloPanelCargos[j]);
+            //                ArregloPanelBody[i].Controls.Add(ArregloPanelCargosB[j]);
             //                ArregloPanelGroup[i].Controls.Add(ArregloPanelBody[i]);
             //            }
             //        }
@@ -1261,7 +1301,7 @@ namespace Prueba.Views
         protected void Registrar_Click(object sender, EventArgs e)
         {
 
-       
+
 
 
 
@@ -1271,18 +1311,18 @@ namespace Prueba.Views
         protected void Button7_Click(object sender, EventArgs e)
         {
             List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = z.ToString() }).Content);
-           
-                Byte[] bytes = (Byte[])ConvocatoriaData[0].Documento;
-                Response.Buffer = true;
-                Response.Charset = "";
-                Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                Response.ContentType = ConvocatoriaData[0].DExtension;
-                Response.AddHeader("content-disposition", "attachment;filename="
-                + ConvocatoriaData[0].DNombre + "." +ConvocatoriaData[0].DExtension);
-                Response.BinaryWrite(bytes);
-                Response.Flush();
-                Response.End();
-            }
+
+            Byte[] bytes = (Byte[])ConvocatoriaData[0].Documento;
+            Response.Buffer = true;
+            Response.Charset = "";
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = ConvocatoriaData[0].DExtension;
+            Response.AddHeader("content-disposition", "attachment;filename="
+            + ConvocatoriaData[0].DNombre);
+            Response.BinaryWrite(bytes);
+            Response.Flush();
+            Response.End();
+        }
 
         protected void Button8_Click(object sender, EventArgs e)
         {
@@ -1298,8 +1338,29 @@ namespace Prueba.Views
         {
 
         }
+
+        protected void Button8_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm6.aspx?z="+zB);
+        }
+
+        protected void Button8_Click2(object sender, EventArgs e)
+        {
+            List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), new Convocatoria { IdConvocatoria = zB.ToString() }).Content);
+
+            Byte[] bytes = (Byte[])ConvocatoriaData[0].Documento;
+            Response.Buffer = true;
+            Response.Charset = "";
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = ConvocatoriaData[0].DExtension;
+            Response.AddHeader("content-disposition", "attachment;filename="
+            + ConvocatoriaData[0].DNombre);
+            Response.BinaryWrite(bytes);
+            Response.Flush();
+            Response.End();
+        }
     }
-    
+
 
 }
 

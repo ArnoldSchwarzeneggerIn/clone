@@ -32,9 +32,8 @@
 	<script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
 
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
-	<!-- /theme JS files -->
+
+
     <script type="text/javascript">
         function EnviarCode(variable) {
             var query = window.location.search.substring(1);
@@ -49,6 +48,14 @@
         }
 
     </script>
+
+
+
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
+	<!-- /theme JS files -->
+
 
 
 

@@ -18,7 +18,9 @@ namespace Prueba.Models
         public static RestClient Jurado = new RestClient("http://191.102.85.226/Electoral/api/jurados");
         public static RestClient Autenticacion = new RestClient("http://chaira.udla.edu.co/api/v0.1/");
         public static RestClient Persona = new RestClient("http://191.102.85.226/Electoral/api/persona");
-        public static RestClient Fecha = new RestClient("http://191.102.85.226/Electoral/api/fecha");
+        public static RestClient Fecha = new RestClient("http://191.102.85.226/Electoralapi/api/fecha");
+        public static RestClient Candidatura = new RestClient("http://191.102.85.226/Electoralapi/api/candidatura");
+        public static RestClient Requisito = new RestClient("http://191.102.85.226/Electoralapi/api/requisito");
 
 
         //Rutas locales de pruea

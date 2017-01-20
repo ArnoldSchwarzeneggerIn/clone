@@ -12,12 +12,12 @@
 
     <!--Organizando los datos de la seleccion de los cargo-->
     <style>
-        .invisible{
-            display:none;
+        .invisible {
+            display: none;
         }
 
-        .flotarIzquierda{
-            float:left;
+        .flotarIzquierda {
+            float: left;
         }
 
         .camuflaje {
@@ -25,7 +25,7 @@
         }
 
 
-         .buttl2 {
+        .buttl2 {
             /*margin-left:90%;*/
             float: left;
             padding-top: 0.7em;
@@ -35,9 +35,8 @@
             background-color: #26A69A;
             color: white;
             border: none;
-            border-bottom-right-radius:20%;
-            border-top-right-radius:20%;
-            
+            border-bottom-right-radius: 20%;
+            border-top-right-radius: 20%;
             /*clear: both;*/
             font-weight: bold;
         }
@@ -203,12 +202,12 @@
 
 
     <!-- Global stylesheets -->
-  <%--  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">--%>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
     <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
     <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fileinput-->
-    <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <%--  <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />--%>
     <%--/Fileinput--%>
 
     <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
@@ -224,7 +223,7 @@
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
     <!-- Fileinput-->
-    <script src="../js/fileinput.js" type="text/javascript"></script>
+    <%--  <script src="../js/fileinput.js" type="text/javascript"></script>--%>
     <!--/Fileinput-->
 
 
@@ -511,14 +510,30 @@
             }
         }
 
-        function Refresh_page(){
-            window.location.assign('http://localhost:25597/Views/VConvocatoria.aspx')        
-        };
-
+       
+       
 
         function hola(){
             alert('wtf');
         }
+
+    </script>
+
+    <script>
+
+        
+
+        function Refresh_page(){
+            document.location.href = document.location.href
+        }
+
+        
+
+        function Refresh_page2() {
+            setTimeout(Refresh_page,1500);
+        }
+            
+        
 
     </script>
 
@@ -668,6 +683,20 @@
         function EstablecerFechaMin(e){
             
             switch (e){
+                case "FRegistro":
+                    $("#InicioInscripcion").attr("min", new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+                    $("#ffindeinscripcion").attr("min", new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+                    $("#resultadosconvo").attr("min", new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+                    $("#juradosconvoca").attr("min", new Date($("#FRegistro").val()).toISOString().substring(0, 10) );
+                    $("#candidatoshconvo").attr("min", new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+                    $("#epresenciaconvo").attr("min",  new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+                    $("#edistanciaconvo").attr("min",  new Date($("#FRegistro").val()).toISOString().substring(0, 10));
+
+                    //Callserver for get number convocatoria According the year creation convocatoria
+                    //CallServer('CNmroCnvt');
+
+                    break;
+
                 case "InicioInscripcion":
 
                     $("#ffindeinscripcion").attr("min", new Date($("#InicioInscripcion").val()).toISOString().substring(0, 10));
@@ -688,6 +717,27 @@
                     $("#edistanciaconvo").attr("min",  new Date($("#ffindeinscripcion").val()).toISOString().substring(0, 10));
                     break;
 
+
+                case  "edistanciaconvo":
+                    $("#resultadosconvo").attr("min",  new Date($("#edistanciaconvo").val()).toISOString().substring(0, 10));
+                    break;
+
+                case "candidatoshconvo":
+                    $("#epresenciaconvo").attr("min",new Date($("#candidatoshconvo").val()).toISOString().substring(0, 10));
+                    $("#edistanciaconvo").attr("min",  new Date($("#candidatoshconvo").val()).toISOString().substring(0, 10));
+                    $("#resultadosconvo").attr("min",  new Date($("#candidatoshconvo").val()).toISOString().substring(0, 10));
+                    break;
+
+
+                case "Date1":
+                    $("#Date2").attr("min", new Date($("#Date1").val()).toISOString().substring(0, 10));
+                    $("#Date4").attr("min", new Date($("#Date1").val()).toISOString().substring(0, 10));
+                    $("#Date5").attr("min", new Date($("#Date1").val()).toISOString().substring(0, 10) );
+                    $("#Date6").attr("min", new Date($("#Date1").val()).toISOString().substring(0, 10));
+                    $("#Date7").attr("min",  new Date($("#Date1").val()).toISOString().substring(0, 10));
+                    $("#Date8").attr("min",  new Date($("#Date1").val()).toISOString().substring(0, 10));
+            
+
                 case "Date2":
                     $("#Date3").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10));
                     $("#Date4").attr("min", new Date($("#Date2").val()).toISOString().substring(0, 10));
@@ -705,6 +755,21 @@
                     $("#Date7").attr("min",new Date($("#Date3").val()).toISOString().substring(0, 10));
                     $("#Date8").attr("min",  new Date($("#Date3").val()).toISOString().substring(0, 10));
                     break;
+
+                case "Date8":
+                    $("#Date4").attr("min",  new Date($("#Date8").val()).toISOString().substring(0, 10));
+                    break;
+
+                case "Date6":
+                    $("#Date7").attr("min",new Date($("#Date6").val()).toISOString().substring(0, 10));
+                    $("#Date8").attr("min",  new Date($("#Date6").val()).toISOString().substring(0, 10));
+                    $("#Date4").attr("min",  new Date($("#Date6").val()).toISOString().substring(0, 10));
+                    break;
+
+
+
+
+
 
 
             }
@@ -803,7 +868,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click"> <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+                                <asp:LinkButton ID="Salir" runat="server"  OnClick="Salir_Click"> <i class="icon-switch2"></i>  Salir </asp:LinkButton>
                             </li>
                         </ul>
                     </li>
@@ -957,7 +1022,9 @@
                                                                     <div class="form-group">
                                                                         <label>Fecha de creación <span class="text-danger">*</span>  </label>
                                                                         <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
-                                                                        <input id="FRegistro" type="date" runat="server" onchange="CallServer('CNmroCnvt')" class="form-control" />
+                                                                        <%-- --%>
+
+                                                                        <input id="FRegistro" type="date" runat="server" onchange="EstablecerFechaMin('FRegistro');" class="form-control" />
                                                                     </div>
                                                                 </div>
 
@@ -991,13 +1058,12 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>
-                                                                            Publicación de
+                                                                            Publicación de candidatos  y
                                                                             <br />
-                                                                            resultados <span class="text-danger">*</span>
+                                                                            testigos habilitados  <span class="text-danger">*</span>
                                                                         </label>
-                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo" required="required" />
+                                                                        <input type="date" class="form-control" runat="server" id="candidatoshconvo" required="required" onchange="EstablecerFechaMin('candidatoshconvo')" />
                                                                     </div>
-
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
@@ -1012,16 +1078,7 @@
 
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label>
-                                                                            Publicación de candidatos  y
-                                                                            <br />
-                                                                            testigos habilitados  <span class="text-danger">*</span>
-                                                                        </label>
-                                                                        <input type="date" class="form-control" runat="server" id="candidatoshconvo" required="required" />
-                                                                    </div>
-                                                                </div>
+
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <label>
@@ -1039,7 +1096,18 @@
                                                                             <br />
                                                                             distancia <span class="text-danger">*</span>
                                                                         </label>
-                                                                        <input type="date" class="form-control" runat="server" id="edistanciaconvo" required="required" />
+                                                                        <input type="date" class="form-control" runat="server" id="edistanciaconvo" required="required" onchange="EstablecerFechaMin('edistanciaconvo')" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>
+                                                                            Publicación de
+                                                                            <br />
+                                                                            resultados <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="date" class="form-control" runat="server" id="resultadosconvo" required="required" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1058,8 +1126,8 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <asp:FileUpload ID="FileUpload1" CssClass="file-input" runat ="server" />
-                                                                       <%-- <input type="file" class="file-input" runat="server"/>--%>
+                                                                        <asp:FileUpload ID="FileUpload1" CssClass="file-input" runat="server" />
+                                                                        <%-- <input type="file" class="file-input" runat="server"/>--%>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1094,9 +1162,10 @@
                                                 <div class="panel-heading">
                                                     <h6 class="panel-title" style="font-size: 1em"></h6>
                                                     <div class="heading-elements" style="margin-top: 0.5%">
-                                                        <span class="label bg-success heading-text">
-                                                            <asp:Label ID="NumeroR" runat="server" Text="Label" CssClass=""></asp:Label>
-                                                            Borradores </span>
+                                                        <span id="TxtoBrrds" class="label bg-success heading-text" runat="server">
+                                                            <asp:Label ID="NmroBrrds" runat="server" Text="Label" CssClass=""></asp:Label>
+                                                            BORRADOR
+                                                        </span>
                                                         <ul class="icons-list">
                                                             <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
                                                         </ul>
@@ -1171,7 +1240,7 @@
                                                                     <div class="panel-footer">
                                                                         <ul>
                                                                             <li>
-                                                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="icon-thumbs-up3 position-left" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="LinkButton1_Command" >  </asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="icon-thumbs-up3 position-left" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="LinkButton1_Command">  </asp:LinkButton>
 
                                                                             </li>
                                                                             <li>
@@ -1193,83 +1262,94 @@
 
                                         <%--tab convocatorias publicadas--%>
                                         <div class="tab-pane fade" id="TPblc">
-                                            <div class="panel-heading">
-                                                <h6 class="panel-title">Borradores</h6>
-                                                <div class="heading-elements">
-                                                    <span class="label bg-success heading-text">
-                                                        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                                                        Publicadas </span>
-                                                    <ul class="icons-list">
-                                                        <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
-                                                    </ul>
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <%--<h6 class="panel-title">Borradores</h6>--%>
+                                                    <div class="heading-elements" style="margin-top: 0.5%">
+                                                        <span class="label bg-success heading-text">
+                                                            <asp:Label ID="NmroPblcs" runat="server" Text="Label"></asp:Label>
+                                                            Convocatoria publicada </span>
+                                                        <ul class="icons-list">
+                                                            <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="panel-body">
-                                                <%--Lista de convocatoria en la Uniamazonia--%>
-                                                <br />
-                                                <%--     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                                <div class="panel-body">
+                                                    <p style="font-size: 2em; width: 100%; text-align: center">Lista de convocatorias publicadas </p>
+                                                    <br />
+                                                    <%--Lista de convocatoria en la Uniamazonia--%>
+                                                    <br />
+                                                    <%--     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                                         <Triggers>
                                                             <asp:AsyncPostBackTrigger ControlID="Agregar1" EventName="click" />
                                                         </Triggers>
                                                         <ContentTemplate>--%>
-                                                <%--lista de borradores de convocatoria--%>
-                                                <asp:ListView ID="ListaConvocatoria" runat="server">
-                                                    <ItemTemplate>
-                                                        <div class="col-md-6">
-                                                            <div class="thumbnail">
-                                                                <div class="thumb">
-                                                                    <img src="assets/images/r.jpg" alt="">
-                                                                </div>
-
-                                                                <div class="caption">
-                                                                    <h6 class="text-semibold no-margin-top text-uppercase">
-                                                                        <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>
-                                                                    </h6>
-
-                                                                    <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
-
-                                                                    <div class="row">
-
-                                                                        <div class="col-sm-6">
-                                                                            <h6 class="text-semibold no-margin-top"></h6>
-                                                                            <ul class="list list-unstyled">
-                                                                                <li>Fecha inicio de inscripcion:</li>
-                                                                                <li>
-                                                                                    <%#Eval("Fechainicioinscripcion")%>
-                                                                                </li>
-                                                                                <li>Fecha limite de inscripcion:
-                                                                                </li>
-                                                                                <li>
-                                                                                    <%#Eval("Fechafininscripcion")%>
-                                                                                </li>
-                                                                            </ul>
-
-                                                                        </div>
-
-                                                                        <div class="col-sm-6">
-                                                                            <h6 class="text-semibold text-right no-margin-top"></h6>
-                                                                            <ul class="list list-unstyled text-right">
-                                                                                <li>Estado: <span class="text-semibold"><%#Eval("estado") %></span></li>
-                                                                            </ul>
-                                                                        </div>
+                                                    <%--lista de borradores de convocatoria--%>
+                                                    <asp:ListView ID="LVPblc" runat="server">
+                                                        <ItemTemplate>
+                                                            <div class="col-md-10 col-md-offset-1">
+                                                                <div class="thumbnail">
+                                                                    <div class="thumb text-center">
+                                                                        <label style="font-size: 2em; margin-top: 2em">
+                                                                            CONVOCATORIA ELECTORAL
+                                                                            <br />
+                                                                            N#
+                                                                        <asp:Label ID="titu" runat="server" Text='<%#Eval("NUMEROCONVOCATORIA") %>'>  </asp:Label>
+                                                                            de 
+                                                                            <asp:Label ID="Label5" runat="server" Text='<%#Eval("fecharegistro") %>'>  </asp:Label>
+                                                                        </label>
                                                                     </div>
 
+                                                                    <div class="caption">
+                                                                        <%-- <h6 class="text-semibold no-margin-top text-uppercase">
+                                                                            <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>
+                                                                        </h6>--%>
 
-                                                                </div>
+                                                                        <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
 
-                                                                <div class="panel-footer">
-                                                                    <ul>
-                                                                        <li>
-                                                                            <asp:LinkButton ID="LBPblc" runat="server" CssClass="icon-eye8" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="LBPblc_Command"> </asp:LinkButton>
-                                                                        </li>
-                                                                    </ul>
+                                                                        <div class="row">
+
+                                                                            <div class="col-sm-6">
+                                                                                <h6 class="text-semibold no-margin-top"></h6>
+                                                                                <ul class="list list-unstyled">
+                                                                                    <li>Fecha inicio de inscripcion:</li>
+                                                                                    <li>
+                                                                                        <%#Eval("Fechainicioinscripcion")%>
+                                                                                    </li>
+                                                                                    <li>Fecha limite de inscripcion:
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("Fechafininscripcion")%>
+                                                                                    </li>
+                                                                                </ul>
+
+                                                                            </div>
+
+                                                                            <div class="col-sm-6">
+                                                                                <h6 class="text-semibold text-right no-margin-top"></h6>
+                                                                                <ul class="list list-unstyled text-right">
+                                                                                    <li>Estado: <span class="text-semibold"><%#Eval("estado") %></span></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="panel-footer">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <asp:LinkButton ID="LBPblc" runat="server" CssClass="icon-eye8" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="VerPblc"> </asp:LinkButton>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </ItemTemplate>
-                                                </asp:ListView>
-                                                <%--      </ContentTemplate>
+                                                        </ItemTemplate>
+                                                    </asp:ListView>
+                                                    <%--      </ContentTemplate>
                                                     </asp:UpdatePanel>--%>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -1278,7 +1358,7 @@
                                         <div class="tab-pane fade" id="RBrrd">
                                             <div class="panel col-md-10 col-md-offset-1 ">
                                                 <div style="width: 100%" class="text-center">
-                                                    <h6 style="margin-bottom: 1.5em; margin-top: 1.5em; font-size:1.5em">Datos del borrador seleccionado</h6>
+                                                    <h6 style="margin-bottom: 1.5em; margin-top: 1.5em; font-size: 1.5em">Datos del borrador seleccionado</h6>
                                                 </div>
                                                 <fieldset>
                                                     <div class="row col-md-10 col-md-offset-1 ">
@@ -1317,17 +1397,15 @@
                                                                     <input type="date" class="form-control" placeholder="DD/MM/YY" runat="server" id="Date3" required="required" onchange="EstablecerFechaMin('Date3')" />
                                                                 </div>
                                                             </div>
-
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label>
-                                                                        Publicación de
+                                                                        Publicación de candidatos  y
                                                                             <br />
-                                                                        resultados <span class="text-danger">*</span>
+                                                                        testigos habilitados  <span class="text-danger">*</span>
                                                                     </label>
-                                                                    <input type="date" class="form-control" runat="server" id="Date4" required="required" />
+                                                                    <input type="date" class="form-control" runat="server" id="Date6" required="required" onchange="EstablecerFechaMin('Date6')" />
                                                                 </div>
-
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
@@ -1342,16 +1420,7 @@
 
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label>
-                                                                        Publicación de candidatos  y
-                                                                            <br />
-                                                                        testigos habilitados  <span class="text-danger">*</span>
-                                                                    </label>
-                                                                    <input type="date" class="form-control" runat="server" id="Date6" required="required" />
-                                                                </div>
-                                                            </div>
+
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label>
@@ -1369,8 +1438,19 @@
                                                                             <br />
                                                                         distancia <span class="text-danger">*</span>
                                                                     </label>
-                                                                    <input type="date" class="form-control" runat="server" id="Date8" required="required" />
+                                                                    <input type="date" class="form-control" runat="server" id="Date8" required="required" onchange="EstablecerFechaMin('Date8')" />
                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Publicación de
+                                                                            <br />
+                                                                        resultados <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    <input type="date" class="form-control" runat="server" id="Date4" required="required" />
+                                                                </div>
+
                                                             </div>
                                                         </div>
 
@@ -1388,34 +1468,36 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label id="MDocumento2" runat="server" style="float:left;padding-right:20%" class="btn btn-default btn-file text-left">>                                                                        />
+                                                                    <label id="MDocumento2" runat="server" style="float: left; padding-right: 20%" class="btn btn-default btn-file text-left">
+                                                                        >                                                                        />
                                                                     </label>
-                                                                    <input type="button" value="Editar" class="btn btn-success flotarIzquierda" onclick="CambiarDocumento()"  />
-                                                                    
+                                                                    <input type="button" value="Editar" class="btn btn-success flotarIzquierda" onclick="CambiarDocumento()" />
+
                                                                     <asp:Button ID="Button7" runat="server" Text="Ver" CssClass="buttl2" OnClick="Button7_Click" />
 
                                                                     <asp:FileUpload ID="FileUpload2" onchange="CambiarDocumento2()" CssClass="invisible" runat="server" />
-                                                                   <%-- <input id="Documento" type="file" class="invisible" />   --%>                        
+                                                                    <%-- <input id="Documento" type="file" class="invisible" />   --%>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <input type="button" value="Siguiente" onclick="PBrrd()" class="butt"/>
+                                                                    <%--<asp:Button ID="Button8" runat="server" Text="Button" OnClick="Button8_Click1" /> --%>
+                                                                    <input type="button" value="Siguiente" onclick="PBrrd()" class="butt" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <%-- <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
                                                     </div>
-                                                   
+
                                                 </fieldset>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="PBrrd">
                                             <div class="panel col-md-10 col-md-offset-1 ">
 
-<%--                                                <h6 style="margin-bottom: 1em; margin-top: 1em">Cargos a convocar</h6>--%>
+                                                <%--                                                <h6 style="margin-bottom: 1em; margin-top: 1em">Cargos a convocar</h6>--%>
                                                 <fieldset>
 
 
@@ -1443,9 +1525,9 @@
 
 
 
-                                                             <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
+                                                            <asp:Button ID="Button3" runat="server" Text="Publicar" OnClick="Button3_Click" CssClass="butt" CausesValidation="false" />
                                                             <asp:Button ID="Button4" runat="server" Text="Eliminar" OnClick="Button4_Click1" CssClass="buttE" CausesValidation="false" />
-                                                            
+
 
                                                         </div>
                                                     </div>
@@ -1458,46 +1540,195 @@
                                         <%-- panel publicados --%>
 
                                         <div class="tab-pane fade" id="PPblc">
-                                            <div class="panel col-md-12">
+                                            <div class="panel">
+                                                <%--  <div class="panel-heading">
+                                                    <h6 class="panel-title">Borradores</h6>
+                                                    <div class="heading-elements">
+                                                        <span class="label bg-success heading-text">
+                                                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                                            Publicada </span>
+                                                        <ul class="icons-list">
+                                                            <li><a data-toggle="modal" href="#" title="Agregar"><i class="icon-add"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>--%>
+                                                <div class="panel-body">
+                                                    <%--Lista de convocatoria en la Uniamazonia--%>
+                                                    <br />
+                                                    <%--     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                                        <Triggers>
+                                                            <asp:AsyncPostBackTrigger ControlID="Agregar1" EventName="click" />
+                                                        </Triggers>
+                                                        <ContentTemplate>--%>
+                                                    <%--lista de borradores de convocatoria--%>
+                                                    <asp:ListView ID="ListView1" runat="server">
+                                                        <ItemTemplate>
+                                                            <div class="col-md-10 col-md-offset-1">
+                                                                <div class="thumbnail">
+                                                                    <div class="thumb text-center">
+                                                                        <label style="font-size: 2em; margin-top: 2em">
+                                                                            CONVOCATORIA ELECTORAL
+                                                                            <br />
+                                                                            N#
+                                                                        <asp:Label ID="titu" runat="server" Text='<%#Eval("NUMEROCONVOCATORIA") %>'>  </asp:Label>
+                                                                            de 
+                                                                            <asp:Label ID="Label5" runat="server" Text='<%#Eval("fecharegistro") %>'>  </asp:Label>
+                                                                        </label>
+                                                                    </div>
 
-                                                <div class="row col-md-10 col-md-offset-1 ">
-                                                    <div class="panel-body">
+                                                                    <div class="caption">
+                                                                        <%-- <h6 class="text-semibold no-margin-top text-uppercase">
+                                                                            <asp:Label ID="tituloconv" runat="server" Text='<%#Eval("TituloConvocatoria")%>'> </asp:Label>
+                                                                        </h6>--%>
+
+                                                                        <asp:Label ID="descripcionconv" CssClass="text-uppercase" runat="server" Text='<%#Eval("DescripcionConvocatoria") %>'></asp:Label>
+
+                                                                        <div class="row">
+
+                                                                            <div class="col-sm-6">
+                                                                                <h6 class="text-semibold no-margin-top"></h6>
+                                                                                <ul class="list list-unstyled">
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Fecha inicio de inscripcion:</span></li>
+                                                                                    <li>
+                                                                                        <%#Eval("Fechainicioinscripcion")%>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Fecha limite de inscripcion:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("Fechafininscripcion")%>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Publicacion de jurados:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("fechapublicacionjurados")%>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Publicacion de jurados:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("fechapublicacionjurados")%>
+                                                                                    </li>
+                                                                                </ul>
+
+                                                                            </div>
+
+                                                                            <div class="col-sm-6">
+                                                                                <h6 class="text-semibold text-right no-margin-top"></h6>
+                                                                                <ul class="list list-unstyled text-right">
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Estado:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("estado") %>
+
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Elecciones modalidad presencial:</span>
+
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("fechaeleccionespresenciales") %>
+
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Elecciones modalidad distancia y posgrados:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("fechaeleccionesdistancia") %>
+
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <span class="text-semibold">Publicación de resultados:</span>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <%#Eval("fechapublicacionresultados") %>
+
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="panel-footer">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <%--<asp:LinkButton ID="LBPblc" runat="server" CssClass="icon-eye8" CommandArgument='<%#Eval("IDCONVOCATORIA")%>' OnCommand="VerPblc"> </asp:LinkButton>--%>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ItemTemplate>
+                                                    </asp:ListView>
+                                                    <%--      </ContentTemplate>
+                                                    </asp:UpdatePanel>--%>
+
+
+
+
+                                                    <div class="col-md-10 col-md-offset-1">
+
                                                         <div class="widget">
                                                             <div class="widget-header text-center">
-                                                                <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">CONVOCATORIA N 004...</label>
+                                                                <label class="hTittle" style="align-content: center; align-items: center; font-weight: bold;">
+                                                                    CARGOS SOLICITADOS EN CONVOCATORIA N#
+                                                                <label id="CntvPblc" runat="server"></label>
+                                                                </label>
                                                                 <%--<h3 class="hTittle">Selecciona los cargos a convocar</h3>--%>
                                                             </div>
 
                                                             <div class="widget-content">
-                                                                <div id="panel3" runat="server">
+                                                                <div id="Panel3" runat="server">
                                                                 </div>
 
                                                             </div>
                                                         </div>
+
                                                     </div>
+
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label id="Label3" runat="server" style="float: left; padding-right: 20%" class="btn btn-default btn-file text-left">
+                                                                </label>
+
+
+                                                                <asp:Button ID="Button8" runat="server" Text="Ver" CssClass="buttl2" OnClick="Button8_Click2" />
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
-
                                         </div>
+
                                     </div>
                                 </div>
-
-
-
                             </div>
+
+
+
                         </div>
                     </div>
-                    <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
-                    <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
                 </div>
-                <!-- Footer -->
-                <div class="footer text-muted">
-                    &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-                </div>
-                <!-- /footer -->
-
+                <asp:Button ID="Agregar1" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
+                <asp:Button ID="Agregar" runat="server" Text="Button" OnClick="Agregar_Click" Style="display: none;" />
             </div>
-            <!-- /content area -->
+            <!-- Footer -->
+            <div class="footer text-muted">
+                &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+            </div>
+            <!-- /footer -->
+
+        </div>
+        <!-- /content area -->
 
         </div>
         <!-- /main content -->
@@ -1563,17 +1794,17 @@
 
 <%--functions fileinputs--%>
 <script>
-    $(document).on('ready', function() {
-        $("#input-44").fileinput({
-            uploadUrl: 'assets/Js/fileinput/prueba.js',
-            uploadAsync: false,
-            maxFilePreviewSize: 10240,
-            minFileCount: 1,
-            maxFileCount: 5,
-            showUpload: true,
-            showRemove: false
-        });
-    });
+    //$(document).on('ready', function() {
+    //    $("#input-44").fileinput({
+    //        uploadUrl: 'assets/Js/fileinput/prueba.js',
+    //        uploadAsync: false,
+    //        maxFilePreviewSize: 10240,
+    //        minFileCount: 1,
+    //        maxFileCount: 5,
+    //        showUpload: true,
+    //        showRemove: false
+    //    });
+    //});
 
     //$('#file-fr').fileinput({
     //    language: 'fr',

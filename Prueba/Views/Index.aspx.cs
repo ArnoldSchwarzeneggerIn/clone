@@ -16,22 +16,22 @@ namespace Prueba.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                //if ( Session["Token"]!=null)
-                //{
-                //  scope("public_profile");
-                //}
-                //else
-                //{
-                // Session["Code"] = Request.QueryString["code"].ToString();
-                 //Autenticacion();
-                //}
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("Loggin.aspx");
-            }
+            //try
+            //{
+            //    //if (Session["Token"] != null)
+            //    //{
+            //    //    scope("public_profile");
+            //    //}
+            //    //else
+            //    //{
+            //    //    Session["Code"] = Request.QueryString["code"].ToString();
+            //        Autenticacion();
+            //    //}
+            //}
+            //catch (Exception ex)
+            //{
+            //    Response.Redirect("Loggin.aspx");
+            //}
         }
         protected void Autenticacion()
         {
