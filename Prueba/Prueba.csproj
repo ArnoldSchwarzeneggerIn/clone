@@ -119,6 +119,7 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Candidatos.aspx" />
     <Content Include="Views\Causaderetiro.aspx" />
+    <Content Include="Views\ConsultarCandidatos.aspx" />
     <Content Include="Views\ConvocatoriaDetalle.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\InstancConformacion.aspx" />
@@ -175,6 +176,13 @@
     </Compile>
     <Compile Include="Views\Causaderetiro.aspx.designer.cs">
       <DependentUpon>Causaderetiro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultarCandidatos.aspx.cs">
+      <DependentUpon>ConsultarCandidatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ConsultarCandidatos.aspx.designer.cs">
+      <DependentUpon>ConsultarCandidatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ConvocatoriaDetalle.aspx.cs">
       <DependentUpon>ConvocatoriaDetalle.aspx</DependentUpon>
