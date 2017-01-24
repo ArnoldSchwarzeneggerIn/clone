@@ -498,8 +498,6 @@
                     //$("#liTRBrrd").attr("class", "");
                     //$("#liTBrrd").attr("class", "active");
 
-                    CallServer('asdf')
-
                     x = document.getElementById('LTBrrd');
                     x.click();
                     break;
@@ -919,14 +917,18 @@
                         <!-- Main navigation -->
                         <div class="sidebar-category sidebar-category-visible">
                             <div class="category-content no-padding">
-                                <ul class="navigation navigation-main navigation-accordion">
+                                <ul id="MenuConvocatoria" class="navigation navigation-main navigation-accordion" runat="server">
 
                                     <!-- Main -->
-                                    <li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
+                                    <li  class="navigation-header"><span style="text-transform:capitalize" >CONVOCATORIAS</span> 
+                                            <i class="icon-menu" title="Convocatorias">
+                                            </i>
+                                    </li>
                                     <li class="active"><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
-                                    <li>
+                                   <%-- <li>
                                         <a href="#"><i class="icon-stack2"></i><span>Convocatorias</span></a>
-                                        <ul>
+                                        <ul id="MenuConvocatoria" runat="server">
+                                            
                                             <li><a id="recargar" href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
                                             <li><a href="#">Lanzar convocatoria</a></li>
                                         </ul>
@@ -953,7 +955,7 @@
                                             <li><a href="Votar.aspx">Votar</a></li>
                                             <li><a href="#">Resultados</a></li>
                                         </ul>
-                                    </li>
+                                    </li>--%>
 
                                 </ul>
                             </div>

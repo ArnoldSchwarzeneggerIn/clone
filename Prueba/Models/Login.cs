@@ -6,19 +6,19 @@ using System.Web;
 
 namespace Prueba.Models
 {
-    public class Login
+    public class Loggin
     {
         private string hola = string.Empty;
 
         public string UsuarioLogin { get; set; }
         public string ContraceniaLogin { get; set; }
    
-        public Login(string loggin)
+        public Loggin(string loggin)
         {
             this.UsuarioLogin = loggin;
         }
     
-        public Login()
+        public Loggin()
         {
         }
 

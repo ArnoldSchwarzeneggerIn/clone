@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using Prueba.Utileria;
 using System.Data;
 using System.IO;
+using System.Web.UI.HtmlControls;
 
 namespace Prueba.Views
 {
@@ -76,10 +77,6 @@ namespace Prueba.Views
         static public ConvocatoriaDetalle[] condA;
 
 
-
-       
-
-
         //the objects for create the panel of convocatorias published
         static string zB;
         static DataTable TablaInstanciasB = new DataTable();
@@ -99,6 +96,9 @@ namespace Prueba.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
+            string s = Request.Params["__EVENTTARGET"];
             switch (Request.Params["__EVENTTARGET"])
             {
                 case "CNmroCnvt":
@@ -271,6 +271,68 @@ namespace Prueba.Views
                 //NConv.Value = Numero(s);
                 //End Fill field number convocatoria
 
+
+                //menu
+                //Loggin log = new Loggin { UsuarioLogin = usser.Value, ContraceniaLogin = pwd.Value };
+
+                ////List<Loggin> user = JsonConvert.DeserializeObject<List<Login>>(ConsumirAppi.ConsumirGet)
+                //List<Login> user = JsonConvert.DeserializeObject<List<Login>>(ConsumirAppi.ConsumirPost(Rutas.Login, new RestRequest("signin", Method.POST), log)).Content;
+
+                //menu
+                DataTable dtOutput = (DataTable)Session["usuario"];
+
+                foreach (DataRow drOutput in dtOutput.Rows)
+                {
+
+
+                    HtmlGenericControl li = new HtmlGenericControl("li");                    
+                    MenuConvocatoria.Controls.Add(li);
+
+                    HtmlGenericControl anchor = new HtmlGenericControl("a");
+                    anchor.Attributes.Add("href", "#");
+                    anchor.Attributes.Add("class", "has-ul");
+                    anchor.Attributes.Add("style", "text-transform: capitalize");
+                    anchor.InnerText = drOutput["MENUNOMBRE"].ToString();
+
+                    HtmlGenericControl icon = new HtmlGenericControl("i");
+                    icon.Attributes.Add("class", "icon-stack2");
+                    anchor.Controls.Add(icon);
+
+                    li.Controls.Add(anchor);
+
+                    //< i class="icon-stack2"></i>
+
+
+                    //HtmlGenericControl span = new HtmlGenericControl("span");
+                    //li.Attributes.Add("class", "navigation-header");
+
+                    
+                    HtmlGenericControl ul = new HtmlGenericControl("ul");
+                    ul.Attributes.Add("class","hidden-ul");
+                    ul.Attributes.Add("style", "display: none");
+                    li.Controls.Add(ul);
+                    
+
+                    DataView data = new DataView(dtOutput);
+
+                    DataTable dtOutputList = data.ToTable(true, "SUBMENUMENU", "RUTA","SUBMENU");
+
+                    foreach (DataRow drOutputList in dtOutputList.Rows)
+                    {
+                        HtmlGenericControl ili = new HtmlGenericControl("li");                     
+                        ul.Controls.Add(ili);
+                        HtmlGenericControl ianchor = new HtmlGenericControl("a");
+                        ianchor.Attributes.Add("style", "text-transform: capitalize");
+                        foreach (DataColumn dcOutputList in dtOutputList.Columns)
+                        {
+                            ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
+                        }
+                        
+                        ianchor.InnerText = Convert.ToString(drOutputList["SUBMENU"]);
+                        ili.Controls.Add(ianchor);
+                    }
+                    //tabs.Controls.Add(li);
+                }
 
 
 

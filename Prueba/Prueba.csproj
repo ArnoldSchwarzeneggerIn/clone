@@ -141,6 +141,7 @@
     <Content Include="Views\WebForm2.aspx" />
     <Content Include="Views\WebForm3.aspx" />
     <Content Include="Views\WebForm4.aspx" />
+    <Content Include="Views\WebForm5.aspx" />
     <Content Include="Views\WebForm6.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="Views\WebForm4.aspx.designer.cs">
       <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\WebForm6.aspx.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>

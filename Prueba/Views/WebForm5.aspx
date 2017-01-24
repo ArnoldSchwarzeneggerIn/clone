@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Loggin2.aspx.cs" Inherits="Prueba.Views.loggin2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm5.aspx.cs" Inherits="Prueba.Views.WebForm5" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
+<head runat="server">
+   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sistema Electoral</title>
 
@@ -39,22 +40,26 @@
         .invisible{
             display:none;
         }
+
     </style>
 
+
+
     <script>
-        function loggin() {
-            var x = document.getElementById('Button1');
-            x.click();
+        function loggin(id) {
+            __doPostBack(id);
+
         }
-
-
     </script>
 
 </head>
 <body>
 
+   
 
-    <!-- Main navbar -->
+
+                    <form id="form1" runat="server">
+                         <!-- Main navbar -->
     <div class="navbar navbar-inverse">
         <div class="navbar-header">
             <a class="navbar-brand" href="index.aspx">
@@ -104,11 +109,10 @@
                 <!-- Content area -->
                 <div class="content">
 
-                    <!-- Unlock user -->
-                    <form id="Formulario" runat="server">
+
                         <div class="panel login-form">
                             <div class="thumb">
-                                <img src="assets/images/LogoGIECOM.png" alt=""/>
+                                <img src="assets/images/LogoGIECOM.png" alt="" />
                             </div>
 
                             <div class="panel-body">
@@ -130,25 +134,18 @@
                                     </div>
                                 </div>
 
-                               <%-- <div class="row col-md-10 col-md-offset-3">
-                                    <button id="IniciarSesion" type="submit" runat="server" class="btn btn-primary position-right" onclick="loggin()">
+                                <div class="row col-md-10 col-md-offset-3">
+                                    <button id="IniciarSesion" type="submit" class="btn btn-primary position-right" onclick="loggin('login')">
                                         Iniciar sesion <i class="icon-home2 position-right"></i>
                                     </button>
-                                </div>--%>
-
-
-                                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Iniciar sesion" OnClick="Button1_Click" />
-
+                                </div>
+                                <asp:Button ID="Button1" runat="server" Text="Button" CssClass="invisible" OnClick="Button1_Click" />
+                                <asp:Button ID="Button2" runat="server" Text="Button" CssClass="invisible" OnClick="Button1_Click" />
 
                                 <%--  <a class="btn btn-primary btn-block" href="index.aspx">Ingresar <i class="icon-arrow-right14 position-right"></i></a>--%>
                             </div>
-                            </div>
-                      
-                    </form>
-                    <!-- /unlock user -->
-
-
-                    <!-- Footer -->
+                        </div>
+                              <!-- Footer -->
                     <div class="footer text-muted">
                         &copy; 2016. <a href="#">Sistema electoral</a> by <a href="200.21.7.94" target="_blank">Giecom</a>
                     </div>
@@ -163,6 +160,11 @@
         </div>
     </div>
     <!-- /page container -->
+
+                    </form>
+                    <!-- /unlock user -->
+
+
+          
 </body>
 </html>
-

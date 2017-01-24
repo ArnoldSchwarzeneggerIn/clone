@@ -19,7 +19,7 @@ namespace Prueba.views
 {
     public partial class Instancias : System.Web.UI.Page
     {
-
+        public static string z;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -33,6 +33,7 @@ namespace Prueba.views
                     //scope("public_profile");
                     Cargar_instancias();
                     Cargar_cobertura(CoberturaIns);
+                    Cargar_cobertura(DropDownList1);
 
                 }
                 catch (Exception ex)
@@ -139,7 +140,7 @@ namespace Prueba.views
                 VotacionInstanciadetalle = TipoV.SelectedValue,
                 CupoInstanciadetalle = Cupos.SelectedValue,
                 PeriodoInstranciadetalle = Perido.SelectedValue,
-                IdInstancia = e.CommandArgument.ToString()
+                IdInstancia = z
             };
             switch (e.CommandName)
             {
@@ -181,6 +182,7 @@ namespace Prueba.views
             TextBox nombreInstancia = (TextBox) Instancialista.Items[e.ItemIndex].FindControl("nombre");
             DropDownList estadoInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("EstadoInst");
             DropDownList coberturaInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("COberItem");
+
             var Ins = new Instancia()
             {
                 IdInstancia = Instancialista.DataKeys[e.ItemIndex].Values[0].ToString(),
@@ -211,7 +213,34 @@ namespace Prueba.views
                     Session["InstanciaDetalle"] = Ins;
                     Response.Redirect("instanciaDetalle.aspx");
                 break;
+                //case "Configurar":
+                //    var insd = new InstanciaDetalle()
+                //    {
+                //        NombreInstanciadetalle = Insdnombre.Value,
+
+                //    }
+                //    break;
             }
+        }
+
+        protected void AgregarInstancia_Click(object sender, EventArgs e)
+        {
+            var Ins = new Instancia()
+            {
+                
+                IdCobertura = DropDownList1.SelectedValue,
+                NombreInstancia = instancian.Value
+           
+            };
+
+            ConsumirAppi.ConsumirPost(Rutas.Instancia, new RestRequest("InsertarInstancia", Method.POST), Ins);
+            Cargar_instancias();
+        }
+
+        protected void LinkButton2_Command(object sender, CommandEventArgs e)
+        {
+            z = e.CommandArgument.ToString();
+            ScriptManager.RegisterStartupScript(this.Page, GetType(), "alertss", "rinsd()", true);
         }
     }
 }

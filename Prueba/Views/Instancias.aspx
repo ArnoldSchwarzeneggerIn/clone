@@ -31,9 +31,20 @@
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
     <!-- /theme JS files -->
+
+
+    <script>
+
+        function rinsd() {
+            var x = document.getElementById('rinsd');
+            x.click();
+        }
+
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
+        <a id="rinsd" data-toggle="modal" href="#modal_form_vertical"></a>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <!-- Main navbar -->
@@ -187,11 +198,17 @@
                         <div class="panel panel-flat">
                             <div class="panel-heading">
                                 <h5 class="panel-title">Lista de instancias</h5>
-                                <div class="heading-elements">
+                                <%-- <div class="heading-elements">
                                     <ul class="icons-list">
                                         <li><a data-action="collapse"></a></li>
                                         <li><a data-action="reload"></a></li>
                                         <li><a data-action="close"></a></li>
+                                    </ul>
+                                </div>--%>
+                                <div class="heading-elements visible">
+                                    <span class="label bg-success heading-text"><span id="NumeroR">12</span>  Registros</span>
+                                    <ul class="icons-list">
+                                        <li><a data-toggle="modal" href="#modal_form_vertical2" title="Agregar"><i class="icon-add"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -243,27 +260,26 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First Name: activate to sort column descending">Nombre instancia</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Descripcion</th>
+                                                <%--<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending">Descripcion</th>--%>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending">Cobertura</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Estado</th>
                                                 <th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 200px;">Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             <asp:ListView ID="Instancialista" runat="server" OnItemEditing="Instancialista_ItemEditing" DataKeyNames="IdInstancia" OnItemCanceling="Instancialista_ItemCanceling" OnItemUpdating="Instancialista_ItemUpdating" OnItemCommand="Instancialista_ItemCommand">
                                                 <ItemTemplate>
                                                     <tr role="row" class="">
                                                         <td class="sorting_1">
                                                             <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("IdInstancia") %>' Text='<%#Eval("NombreInstancia")%>' CommandName="ver"></asp:LinkButton>
                                                         </td>
-                                                        <td>Instancia creada 2016 De la univerdiad de la amazonia
-                                                        </td>
+                                                        <%-- <td>Instancia creada 2016 De la univerdiad de la amazonia
+                                                        </td>--%>
                                                         <td>
                                                             <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("IdCobertura")%>'> </asp:Label>
                                                         </td>
                                                         <td>
-                                                            <span class='label label-success'>
+                                                            <span class='<%#(Eval("ESTADOINSTANCIA").ToString()=="ACTIVO")?"label label-success":"label label-default"%>'>
                                                                 <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("ESTADOINSTANCIA")%>'></asp:Label>
                                                             </span>
 
@@ -273,8 +289,12 @@
                                                                 <li>
                                                                     <asp:LinkButton ID="Agregarcargo" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' data-popup="tooltip" title data-original-title="Editar" CommandName="Edit"> <i class="icon-pencil7" title="Agregar cargo"></i></asp:LinkButton>
                                                                 </li>
-                                                                <li><a href="#"><i class="icon-trash"></i></a></li>
-                                                                <li><a href="#"><i class="icon-cog7"></i></a></li>
+                                                                <%--<li><a href="#"><i class="icon-trash"></i></a></li>--%>
+                                                                <li>
+                                                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%#Eval("IdInstancia")%>' data-popup="tooltip" title data-original-title="Configurar"  OnCommand="LinkButton2_Command"> <i class="icon-cog7" title="Agregar cargo"></i></asp:LinkButton>
+                                                                  
+                                                                   
+                                                                </li>
                                                             </ul>
                                                         </td>
                                                     </tr>
@@ -284,8 +304,8 @@
                                                         <td class="sorting_1">
                                                             <asp:TextBox ID="nombre" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </td>
-                                                        <td>Instancia creada 2016 De la univerdiad de la amazonia
-                                                        </td>
+                                                        <%--<td>Instancia creada 2016 De la univerdiad de la amazonia
+                                                        </td>--%>
                                                         <td>
                                                             <asp:DropDownList ID="COberItem" runat="server" CssClass="form-control">
                                                             </asp:DropDownList>
@@ -435,6 +455,33 @@
             </div>
             <!-- /page content -->
         </div>
+        <!--Ventana modal Formulario registro -->
+        <div id="modal_form_vertical2" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('Causar');">&times;</button>
+                        <h5 class="modal-title">Agregar instancia</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nombre Instancia</label>
+                            <input type="text" class="form-control" id="instancian" placeholder="Nombre Instancia" runat="server">
+                            <label>Cobertura</label>
+                            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Value="null">Seleccione opcion...</asp:ListItem>
+                            </asp:DropDownList>
+                            <%-- <select type="text" class="form-control" id="select1" placeholder="Causa retiro" runat="server"></select>--%>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('Causar');">Cerrar</button>
+                        <asp:Button ID="AgregarCausa" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarInstancia_Click" data-dismiss="modal" UseSubmitBehavior="false" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
 </body>
 </html>

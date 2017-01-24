@@ -808,7 +808,7 @@
         <asp:Button ID="Buttonttt" runat="server" Text="Button" OnClick="NuevoClick12" Style="display: none" />
         <asp:Button ID="Button5" runat="server" Text="Button" OnClick="ICnvtC" Style="display: none" />
 
-
+        
 
 
         <a id="aa" data-toggle="modal" href="#modal_form_vertical" title="Agregar" style="display: none"><i class="icon-add"></i></a>

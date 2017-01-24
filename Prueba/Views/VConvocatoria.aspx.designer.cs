@@ -130,6 +130,15 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.Label Ubicacion;
         
         /// <summary>
+        /// Control MenuConvocatoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuConvocatoria;
+        
+        /// <summary>
         /// Control FRegistro.
         /// </summary>
         /// <remarks>

@@ -10,10 +10,10 @@ namespace Prueba.Models
     {
         public static RestClient Convocatoria = new RestClient("http://191.102.85.226/Electoralapi/api/convocatoria/");
         public static RestClient ConvocatoriaDetalle = new RestClient("http://191.102.85.226/Electoralapi/api/ConvocatoriaDetalle/");
-        public static RestClient Cobertura = new RestClient("http://191.102.85.226/Electoral/api/cobertura/");
+        public static RestClient Cobertura = new RestClient("http://191.102.85.226/Electoralapi/api/cobertura/");
         public static RestClient Instancia = new RestClient("http://191.102.85.226/Electoralapi/api/instancia/");
         public static RestClient InstanciaConformacion = new RestClient("http://191.102.85.226/Electoral/api/instanciaconformacion/");
-        public static RestClient CausaRetiro = new RestClient("http://191.102.85.226/Electoral/api/causaretiro/");
+        public static RestClient CausaRetiro = new RestClient("http://191.102.85.226/Electoralapi/api/causaretiro/");
         public static RestClient InstaciaDetalle = new RestClient("http://191.102.85.226/ElectoralApi/api/instanciadetalle/");
         public static RestClient Jurado = new RestClient("http://191.102.85.226/Electoral/api/jurados");
         public static RestClient Autenticacion = new RestClient("http://chaira.udla.edu.co/api/v0.1/");
@@ -21,6 +21,7 @@ namespace Prueba.Models
         public static RestClient Fecha = new RestClient("http://191.102.85.226/Electoralapi/api/fecha");
         public static RestClient Candidatura = new RestClient("http://191.102.85.226/Electoralapi/api/candidatura");
         public static RestClient Requisito = new RestClient("http://191.102.85.226/Electoralapi/api/requisito");
+        public static RestClient Login = new RestClient("http://191.102.85.226/Electoralapi/api/login");
 
 
         //Rutas locales de pruea
