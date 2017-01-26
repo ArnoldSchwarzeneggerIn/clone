@@ -19,6 +19,8 @@ namespace Prueba.Models
         public static RestClient Persona = new RestClient("http://191.102.85.226/Electoralapi/api/persona");
         public static RestClient Requisito = new RestClient("http://191.102.85.226/Electoralapi/api/Requisito/");
         public static RestClient Fecha = new RestClient("http://191.102.85.226/Electoralapi/api/Fecha/");
+
+        public static RestClient Documento = new RestClient("http://191.102.85.226/Electoralapi/api/Documento/");
         public static RestClient Candidatura = new RestClient("http://191.102.85.226/Electoral/api/Candidatura/");
     }
 }

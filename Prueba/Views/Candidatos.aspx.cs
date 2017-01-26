@@ -19,7 +19,7 @@ namespace Prueba.Views
     {
         static string z="";
         static string c="";
-
+       
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,8 +50,10 @@ namespace Prueba.Views
     {
         Boolean fileOK = false;
         String path = Server.MapPath("~/Views/assets/images/");
+
         if (FileUpload1.HasFile) 
         {
+                    
             String fileExtension = 
                 System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
             String[] allowedExtensions = 
@@ -71,7 +73,10 @@ namespace Prueba.Views
             {
                 FileUpload1.PostedFile.SaveAs(path 
                     + FileUpload1.FileName);
+                        EnviarRuta(path + FileUpload1.FileName);
                 Label1.Text = "Archivo Cargado";
+
+
             }
             catch (Exception ex)
             {
@@ -139,6 +144,11 @@ namespace Prueba.Views
 
          }
 
+        protected void EnviarRuta(string ruta)
+        {
+            var docu = new Documento() { Candidato = "1", Nombre = Nombre.Text, Observacion= obser.InnerText, Ruta= ruta};
+            var response = ConsumirAppi.ConsumirPost(Rutas.Documento, new RestRequest("IDcmtCndt", Method.POST), docu);
+        }
      
 
         
