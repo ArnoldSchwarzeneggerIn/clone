@@ -24,7 +24,10 @@ $(function() {
         transitionEffect: "fade",
         titleTemplate: '<span class="number">#index#</span> #title#',
         labels: {
-            finish: 'Registrar'
+            finish: 'Registrar',
+            next: 'Siguiente',
+            previous: 'Anterior'
+
         },
         onStepChanging: function (event, currentIndex, newIndex) {
             // Needed in some cases if the user went back (clean up)

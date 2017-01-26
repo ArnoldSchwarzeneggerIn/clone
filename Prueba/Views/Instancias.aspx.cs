@@ -20,6 +20,7 @@ namespace Prueba.views
     public partial class Instancias : System.Web.UI.Page
     {
         public static string z;
+        //public static DataTable json = JsonConvert.DeserializeObject<string>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -67,6 +68,8 @@ namespace Prueba.views
             List<Instancia> model = JsonConvert.DeserializeObject<List<Instancia>>(ConsumirAppi.ConsumirGet(Rutas.Instancia, new RestRequest("ConsultarInstancia", Method.GET)).Content);
             Instancialista.DataSource = model;
             Instancialista.DataBind();
+            //ListView1.DataSource = model;
+            //ListView1.DataBind();
         }
         protected void Cargar_cobertura(DropDownList Listacober)
         {
@@ -156,7 +159,7 @@ namespace Prueba.views
         {
             Instancialista.EditIndex = e.NewEditIndex;
             //Encontrando los elementos
-            Label Estado = (Label) Instancialista.Items[e.NewEditIndex].FindControl("Estadolabel");
+            Label Estado = (Label)Instancialista.Items[e.NewEditIndex].FindControl("Estadolabel");
             Label cobertura = (Label)Instancialista.Items[e.NewEditIndex].FindControl("coberturaid");
             LinkButton Nombre = (LinkButton)Instancialista.Items[e.NewEditIndex].FindControl("LinkButton1");
             //Recargando elemento list
@@ -168,7 +171,7 @@ namespace Prueba.views
             Cargar_cobertura(drop);
             drop.ClearSelection();
             drop.SelectedValue = drop.Items.FindByText(cobertura.Text).Value;
-            TextBox Nombreeditable = (TextBox) Instancialista.Items[e.NewEditIndex].FindControl("nombre");
+            TextBox Nombreeditable = (TextBox)Instancialista.Items[e.NewEditIndex].FindControl("nombre");
             Nombreeditable.Text = Nombre.Text;
         }
         protected void Instancialista_ItemCanceling(object sender, ListViewCancelEventArgs e)
@@ -179,14 +182,14 @@ namespace Prueba.views
         protected void Instancialista_ItemUpdating(object sender, ListViewUpdateEventArgs e)
         {
 
-            TextBox nombreInstancia = (TextBox) Instancialista.Items[e.ItemIndex].FindControl("nombre");
+            TextBox nombreInstancia = (TextBox)Instancialista.Items[e.ItemIndex].FindControl("nombre");
             DropDownList estadoInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("EstadoInst");
             DropDownList coberturaInstancia = (DropDownList)Instancialista.Items[e.ItemIndex].FindControl("COberItem");
 
             var Ins = new Instancia()
             {
                 IdInstancia = Instancialista.DataKeys[e.ItemIndex].Values[0].ToString(),
-                IdCobertura =coberturaInstancia.SelectedValue ,
+                IdCobertura = coberturaInstancia.SelectedValue,
                 NombreInstancia = nombreInstancia.Text,
                 EstadoInstancia = estadoInstancia.SelectedValue
             };

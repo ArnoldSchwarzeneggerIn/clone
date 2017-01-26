@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Votar.aspx.cs" Inherits="Prueba.Views.Votar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Resultado.aspx.cs" Inherits="Prueba.Views.Resultado" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sistema Electoral</title>
 
@@ -23,7 +24,7 @@
     <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-    <script type="text/javascript" src="assets/js/cespas.js"></script> <!-- este es el js nuevo -->
+    <script type="text/javascript" src="assets/js/cespas.js"></script>
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
@@ -181,7 +182,7 @@
 
                         <div class="panel panel-white">
                             <div class="panel-heading">
-                                <h6 class="panel-title">Targeton </h6>
+                                <h6 class="panel-title">Resultados </h6>
                                 <div class="heading-elements">
                                     <ul class="icons-list">
                                         <li><a data-action=""></a></li>
@@ -338,38 +339,16 @@
 
                                                                                     </h6>
                                                                                     <div class="thumb">
-                                                                                        <asp:LinkButton ID="infocandi" runat="server" data-toggle="modal" data-target="#myModal"> <img src="assets/images/trom.jpg" alt=""> </asp:LinkButton>
+                                                                                        <asp:LinkButton ID="infocandi" runat="server" OnCommand="Verconvocatoria_Command" CommandArgument='<%#Eval("CONV_ID")%>' CommandName="candidato"> <img src="assets/images/trom.jpg" alt=""> </asp:LinkButton>
                                                                                     </div>
                                                                                     <div class="row">
                                                                                         <div class="col-sm-12 text-semibold">
                                                                                             <h6 class="text-semibold no-margin-top"></h6>
                                                                                             <ul class="list list-unstyled">
-                                                                                                <div class="text-center">
-                                                                                                    <li class="text-semibold text-center"><small><%#Eval("NOMBRE")%></small></li>
-                                                                                                    <li class="text-semibold text-center"><small><%#Eval("PROG_NOMBRE")%></small></li>
-                                                                                                    <asp:LinkButton ID="verpropu" class="btn btn-info btn-lg" runat="server" OnCommand="Verconvocatoria_Command" CommandArgument='<%#Eval("CODIGO")%>' CommandName="candidato">Propuestas</asp:LinkButton>
-
-                                                                                                </div>
-
-                                                                                                <!--  Content Ventana Votacion     -->
-                                                                                                <div class="modal fade" id="myModal" role="dialog" style="display: none;">
-                                                                                                    <div class="modal-dialog modal-sm">
-                                                                                                        <div class="modal-content">
-                                                                                                            <div class="modal-header">
-                                                                                                                <button type="button" class="close" data-dismiss="modal">×</button>
-                                                                                                                <h4 class="modal-title">¡.Alerta.!</h4>
-                                                                                                            </div>
-                                                                                                            <div class="modal-body">
-                                                                                                                <p>¿estas seguro de botar por <small><%#Eval("NOMBRE")%></small> ?.</p>
-                                                                                                            </div>
-                                                                                                            <div class="modal-footer center">
-                                                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                                                                                                <asp:LinkButton ID="LinkButton2" class="btn btn " runat="server" OnCommand="Verconvocatoria_Command" CommandArgument='<%#Eval("CODIGO")%>' CommandName="Votar">Si</asp:LinkButton>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--  /Content Ventana Votacion-->
+                                                                                                <li class="text-semibold text-center"><small><%#Eval("NOMBRE")%></small></li>
+                                                                                                <li class="text-semibold text-center"><small><%#Eval("PROG_NOMBRE")%></small></li>
+                                                                                                <li class="text-semibold text-center" style="font-size: 20px">Votos </li>
+                                                                                                <li class="text-center" style="font-size: 50px">300 </li>
                                                                                             </ul>
                                                                                         </div>
                                                                                     </div>

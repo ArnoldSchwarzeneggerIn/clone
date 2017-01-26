@@ -26,6 +26,8 @@
 
     <!-- Theme JS files -->
     <script type="text/javascript" src="assets/js/plugins/uploaders/fileinput.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/uploaders/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/uploaders/plupload/plupload.queue.min.js"></script>
 
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/pages/uploader_bootstrap.js"></script>
@@ -34,6 +36,12 @@
     <script type="text/javascript" src="assets/js/campos.js"></script>
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
     <!-- /theme JS files -->
+    <script> function prueba() {
+     _doPostBack('AS');
+ }
+
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -186,193 +194,322 @@
 
                     <!-- Content area -->
                     <div class="content">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="panel panel-flat">
+                                    <div class="panel-heading">
+                                        <h5 id="titu" runat="server" class="panel-title">Datos Convocatoria</h5>
+
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Número convocatoria </label>
+                                                            <asp:TextBox runat="server" ID="NumeroConvo" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label>Aspirante al cargo de: </label>
+
+                                                            <asp:TextBox runat="server" ID="cargo" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <br />
+                                                <h5 class="panel-title">Datos persona</h5>
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Nombres <span class="text-danger">*</span></label>
+                                                            <asp:TextBox runat="server" ID="Nombre" ValidateRequestMode="Disabled" Class="form-control" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Apellidos</label>
+                                                            <asp:TextBox runat="server" ID="Apellido" class="form-control" ValidateRequestMode="Disabled" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Identificación</label>
+                                                            <asp:TextBox runat="server" ID="Identificacion" class="form-control" ValidateRequestMode="Disabled" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label>Fecha inscripción</label>
+                                                            <asp:TextBox runat="server" ID="fecha" Class="form-control" ReadOnly="true"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-lg-2">Observaciones</label>
+                                                            <div>
+                                                                <textarea rows="5" cols="5" class="form-control" placeholder="" id="obser" runat="server"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div>
+                                    <div>
+                                        <div class="thumbnail no-padding">
+                                            <div class="thumb">
+                                                <asp:Image ID="Image1" runat="server" Height="70%" Width="90%" />
+                                                <div class="caption-overflow">
+                                                    <span>
+                                                        <a href="assets/images/placeholder.jpg" class="btn bg-success-400 btn-icon btn-xs" data-popup="lightbox"><i class="icon-plus2"></i></a>
+                                                        <a href="user_pages_profile.html" class="btn bg-success-400 btn-icon btn-xs"><i class="icon-link"></i></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <%-- <div class="caption text-center">
+                                                <h6 class="text-semibold no-margin">NOMBRE PISCO</h6>
+
+                                            </div>--%>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
 
                         <div class="panel panel-flat">
                             <div class="panel-heading">
-                                <h5 class="panel-title">Datos Convocatoria</h5>
+                                <h5 class="panel-title">Propuestas</h5>
+                                <div class="heading-elements">
+                                    <ul class="icons-list">
+                                        <li><a data-action="collapse"></a></li>
+                                        <li><a data-action="reload"></a></li>
+                                        <li><a data-action="close"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="heading-elements visible">
+                                    <span class="label bg-success heading-text"><span id="NumeroR" runat="server">12</span>  Registros</span>
+                                    <ul class="icons-list">
+                                        <li><a data-toggle="modal" href="#modal_form_vertical2" title="Agregar"><i class="icon-add"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                Porfavor agrege sus propuestas.
+                            </div>
 
+                            <table class="table datatable-html table-bordered">
+                                <thead>
+                                    <tr>
+                                        <%--<th>Numero </th>--%>
+                                        <th>Propuesta</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:ListView ID="ListView1" runat="server">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td>
+                                                     <asp:Label runat="server" ID="lprps" class="text-semibold" Text='<%#Eval("prop_detalle")%>' > </asp:Label>
+                                                </td>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </tbody>
+                            </table>
+                            </div>
+
+
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Soportes</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                            <li><a data-action="close"></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="heading-elements visible">
+                                        <%--<span class="label bg-success heading-text"><span id="NumeroR">12</span>  Registros</span>
+                                    <ul class="icons-list">
+                                        <li><a data-toggle="modal" href="#modal_form_vertical2" title="Agregar"><i class="icon-add"></i></a></li>
+                                    </ul>--%>
+                                    </div>
+                                </div>
                                 <div class="panel-body">
-                                    <div class="row">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Número convocatoria </label>
-                                                    <asp:TextBox runat="server" ID="NumeroConvo" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Cargo</label>
-                                                    <asp:TextBox runat="server" ID="cargo" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <img src="" class="img-circle " alt="" runat="server" id="Img2" />
-                                            </div>
-                                        </div>
-                                        <h5 class="panel-title">Datos persona</h5>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Nombres <span class="text-danger">*</span></label>
-                                                    <asp:TextBox runat="server" ID="Nombre" ValidateRequestMode="Disabled" Class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Apellidos</label>
-                                                    <asp:TextBox runat="server" ID="Apellido" class="form-control" ValidateRequestMode="Disabled"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Identificación</label>
-                                                    <asp:TextBox runat="server" ID="Identificacion" class="form-control" ValidateRequestMode="Disabled"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Fecha inscripción</label>
-                                                    <asp:TextBox runat="server" ID="fecha" Class="form-control"  ></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                      <div class="form-group">
-										<label class="control-label col-lg-2">Observaciones</label>
-										<div class="col-lg-10">
-											<textarea rows="5" cols="5" class="form-control" placeholder="" id="obser" runat="server"></textarea>
-										</div>
-									</div>
+                                    Porfavor adjunte los soportes requeridos.
                                 </div>
 
+                                <table class="table datatable-html table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre </th>
+                                            <th>Soporte requerido</th>
+                                            <th>Adjuntar archivo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <asp:ListView ID="requisitos" runat="server" OnItemEditing="requisitos_ItemEditing" OnItemCommand="requisitos_ItemCommand">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("REQU_NOMBRE")%>'> </asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <span class='<%#(Eval("REQU_SOPORTE").ToString()=="SI")?"label label-success":"label label-default"%>'>
+                                                            <asp:Label class="" data-toggle="dropdown" ID="Label1" runat="server" Text='<%#Eval("REQU_SOPORTE")%>'></asp:Label>
+                                                        </span>
+                                                    </td>
+
+                                                    <td class="text-center">
+                                                        <%--	<ul class="icons-list">
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal_default" >
+													<i class="icon-file-plus" ></i>
+												</a>
+
+											<%--	<ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+													<li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+													<li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+												</ul>
+											</li>
+										</ul>--%>
+
+                                                        <asp:FileUpload ID="FileUpload1" runat="server" class="file-input" />
+                                                    </td>
+
+
+                                                </tr>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                            </EditItemTemplate>
+                                        </asp:ListView>
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+
+                        <%--     <div>
+                                <label class="control-label">Adjuntar archivos</label>
+                                <asp:FileUpload ID="input24" name="input24[]" class="file-input" runat="server" />
                               
+                                <script>
+                                    $(document).on('ready', function () {
+                                        $("#input24").fileinput({
+                                            uploadUrl: "prueba()",
+                                            initialPreview: [
 
-                                <div class="datatable-scroll">
-                                    <table class="table datatable-basic dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            ],
+                                            initialPreviewAsData: true,
+                                            initialPreviewConfig: [
 
-                                        <tbody>
+                                            ],
+                                            deleteUrl: "/site/file-delete",
+                                            overwriteInitial: false,
+                                            maxFileSize: 100,
+                                            initialCaption: "The Moon and the Earth"
+                                        });
+                                    });
+                                </script>
+                            </div>--%>
 
-                                            <asp:ListView ID="requisitos" runat="server">
-                                                <ItemTemplate>
-                                                    <tr role="row" class="">
-                                                        <td class="sorting_1">
-                                                            <asp:Label runat="server" ID="Label2" class="text-semibold" Text='<%#Eval("REQU_ID")%>'> </asp:Label>
-                                                        </td>
 
-                                                        <td>
-                                                            <asp:Label runat="server" ID="coberturaid" class="text-semibold" Text='<%#Eval("REQU_NOMBRE")%>'> </asp:Label>
-                                                        </td>
-                                                        <td>
-                                                            <span class='label label-success'>
-                                                                <asp:Label class="" data-toggle="dropdown" ID="Estadolabel" runat="server" Text='<%#Eval("REQU_ESTADO")%>'></asp:Label>
-                                                            </span>
+                        <div class="text-right">
+                            <asp:Button runat="server" ID="Button" Class="btn btn-primary" Text="Guardar" OnClick="Button_Click" />
+                        </div>
+                        <div class="row">
+                        </div>
+                        <!-- Footer -->
+                        <div class="footer text-muted">
+                            &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+                        </div>
+                        <!-- /footer -->
 
-                                                        </td>
-                                                        <td>
-                                                            <span class='label label-success'>
-                                                                <asp:Label class="" data-toggle="dropdown" ID="Label1" runat="server" Text='<%#Eval("REQU_SOPORTE")%>'></asp:Label>
-                                                            </span>
-
-                                                        </td>
-                                                        <td>
-                                                            <ul>
-
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-2 control-label text-semibold"></label>
-                                                                    <div class="col-lg-10">
-                                                                        <input type="file" id="file1" class="file-input" data-show-preview="false">
-                                                                        <span class="help-block"></span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <%--  <div class="btn btn-primary btn-xs btn-icon btn-file"> 
-
-                                                                      <i class="icon-plus22"></i>
-                                                                      <input  type="file" class="file-input" data-show-caption="false" data-show-upload="false" data-browse-class="btn btn-primary btn-xs btn-icon" data-remove-clas="btn btn-danger btn-xs btn-icon"/>
-                                                                  </div>--%>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                </ItemTemplate>
-                                                <EditItemTemplate>
-                                                    <tr role="row" class="">
-                                                        <td class="sorting_1">
-                                                            <asp:TextBox ID="nombre" CssClass="form-control" runat="server"></asp:TextBox>
-                                                        </td>
-                                                        <td>
-                                                            </td>
-                                                        <td>
-                                                            <asp:DropDownList ID="COberItem" runat="server" CssClass="form-control">
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                        <td>
-                                                            <span class='label label-success'>
-                                                                <asp:DropDownList ID="EstadoInst" runat="server" CssClass="form-control">
-                                                                    <asp:ListItem Value=""> Seleccione</asp:ListItem>
-                                                                    <asp:ListItem Value="ACTIVO"> ACTIVO</asp:ListItem>
-                                                                    <asp:ListItem Value="INACTIVO">INACTIVO </asp:ListItem>
-                                                                </asp:DropDownList>
-                                                            </span>
-
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <ul class="icons-list">
-                                                                <li>
-                                                                    <asp:LinkButton ID="Actualizar" runat="server" Text="Actualizar" CommandName="Update" title data-original-title="Guardar">
-                                                                            <i class="icon-floppy-disk"  ></i>
-                                                                        </asp:LinkButton>
-                                                                </li>
-                                                                <li>
-                                                                    <asp:LinkButton ID="Cancelar" runat="server" Text="Cancelar" CommandName="Cancel" title data-original-title="Cancelar">
-                                                                          <i class="icon-cancel-square" ></i>
-                                                                        </asp:LinkButton>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                </EditItemTemplate>
-                                            </asp:ListView>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <asp:Button runat="server" ID="Button" Class="btn btn-primary" Text="Guardar" OnClick="Button_Click"/>
-                                </div>
-                                <div class="row">
-                                </div>
-                                <!-- Footer -->
-                                <div class="footer text-muted">
-                                    &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
-                                </div>
-                                <!-- /footer -->
-
-                                <div id="modal_form_vertical" class="modal fade">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            </div>
-
-                                            <div class="modal-footer">
-                                            </div>
-                                        </div>
+                        <!-- modal-->
+                        <div id="modal_default" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                        <h5 class="modal-title">Basic modal</h5>
                                     </div>
 
-                                </div>
-                                <div id="Agregar_instancia" class="modal fade">
+                                    <div class="modal-body">
+                                        <h6 class="text-semibold">Cargue su documento</h6>
+                                        <asp:FileUpload ID="FileUpload1" runat="server" class="file-input" />
+                                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                                        <hr />
+
+
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary">Guardar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- /modal -->
+
                     </div>
                 </div>
-                <!-- /content area -->
             </div>
-            <!-- /main content -->
+                     <div class="footer text-muted">
+                &copy; 2016. <a href="#">Sistema electoral</a> by <a href="#" target="_blank">Giecom</a>
+            </div>
+            <!-- /footer -->
         </div>
-        <!-- /page content -->
+
+         <!--Ventana modal Formulario registro -->
+        <div id="modal_form_vertical2" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="limpiar_textbox('Causar');">&times;</button>
+                        <h5 class="modal-title">Agregar Propuesta</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Propuesta</label>
+                            <textarea rows="5" class="form-control" id="propuesta" placeholder="Ingrese su propuesta" runat="server"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal" onclick="limpiar_textbox('Causar');">Cerrar</button>
+                        <asp:Button ID="AgregarPropuesta" runat="server" CssClass="btn btn-fill btn-info" Text="Agregar" OnClick="AgregarPropuesta_Click" data-dismiss="modal" UseSubmitBehavior="false" />
+                    </div>
+                </div>
+            </div>
         </div>
+   
    
     </form>
 </body>

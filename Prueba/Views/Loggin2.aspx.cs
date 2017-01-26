@@ -21,7 +21,7 @@ namespace Prueba.Views
 
             if (!IsPostBack)
             {
-               
+
             }
 
 
@@ -53,13 +53,15 @@ namespace Prueba.Views
 
             Loggin log = new Loggin { UsuarioLogin = usser.Value, ContraceniaLogin = pwd.Value };
             DataTable user = JsonConvert.DeserializeObject<DataTable>(ConsumirAppi.ConsumirPost(Rutas.Login, new RestRequest("Singnin", Method.POST), log).Content);
-            if(user.Rows[0]["MENUNOMBRE"].ToString() != null)
+            List<Persona> user1 = JsonConvert.DeserializeObject<List<Persona>>(ConsumirAppi.ConsumirPost(Rutas.Login, new RestRequest("Singnin", Method.POST), log).Content);
+            if (user1[0].menunombre != null)
             {
                 Session["usuario"] = user;
-                Response.Redirect("VConvocatoria.aspx");
+                Session["usuario1"] = user1;
+                Response.Redirect("convocatoriapublica.aspx");
             }
-            
-           
+
+
         }
     }
 }

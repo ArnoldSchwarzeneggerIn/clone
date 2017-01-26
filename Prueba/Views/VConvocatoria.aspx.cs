@@ -96,7 +96,7 @@ namespace Prueba.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
             string s = Request.Params["__EVENTTARGET"];
             switch (Request.Params["__EVENTTARGET"])
@@ -179,12 +179,12 @@ namespace Prueba.Views
 
                 ArregloCheckCargos[j] = new CheckBox();
                 ArregloCheckCargos[j].CssClass = "ArregloCheckCargos";
-                ArregloCheckCargos[j].ID = "ArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloCheckCargos[j].ID = "ArregloCheckCargos" + j;
                 ArregloCheckCargos[j].Attributes.Add("name", "NArregloCheckCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString());
 
 
                 ArregloLabelCargos[j] = new Label();
-                ArregloLabelCargos[j].ID = "ArregloLabelCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloLabelCargos[j].ID = "ArregloLabelCargos" + j;
                 ArregloLabelCargos[j].CssClass = "ArregloLabelCargos";
                 ArregloLabelCargos[j].Text = TablaCargos.Rows[j]["NombreInstanciadetalle"].ToString();
 
@@ -193,7 +193,7 @@ namespace Prueba.Views
 
 
                 ArregloDropDownListCargos[j] = new DropDownList();
-                ArregloDropDownListCargos[j].ID = "ArregloDropDownListCargos" + TablaCargos.Rows[j]["idinstanciadetalle"].ToString();
+                ArregloDropDownListCargos[j].ID = "ArregloDropDownListCargos" + j;
                 ArregloDropDownListCargos[j].CssClass = "ArregloDropDownListCargos";
                 ArregloDropDownListCargos[j].Items.Insert(0, new ListItem("Selccione Opcion...", " "));
                 ArregloDropDownListCargos[j].AppendDataBoundItems = true;
@@ -271,69 +271,14 @@ namespace Prueba.Views
                 //NConv.Value = Numero(s);
                 //End Fill field number convocatoria
 
-
-                //menu
                 //Loggin log = new Loggin { UsuarioLogin = usser.Value, ContraceniaLogin = pwd.Value };
 
                 ////List<Loggin> user = JsonConvert.DeserializeObject<List<Login>>(ConsumirAppi.ConsumirGet)
                 //List<Login> user = JsonConvert.DeserializeObject<List<Login>>(ConsumirAppi.ConsumirPost(Rutas.Login, new RestRequest("signin", Method.POST), log)).Content;
 
                 //menu
-                DataTable dtOutput = (DataTable)Session["usuario"];
-
-                foreach (DataRow drOutput in dtOutput.Rows)
-                {
-
-
-                    HtmlGenericControl li = new HtmlGenericControl("li");                    
-                    MenuConvocatoria.Controls.Add(li);
-
-                    HtmlGenericControl anchor = new HtmlGenericControl("a");
-                    anchor.Attributes.Add("href", "#");
-                    anchor.Attributes.Add("class", "has-ul");
-                    anchor.Attributes.Add("style", "text-transform: capitalize");
-                    anchor.InnerText = drOutput["MENUNOMBRE"].ToString();
-
-                    HtmlGenericControl icon = new HtmlGenericControl("i");
-                    icon.Attributes.Add("class", "icon-stack2");
-                    anchor.Controls.Add(icon);
-
-                    li.Controls.Add(anchor);
-
-                    //< i class="icon-stack2"></i>
-
-
-                    //HtmlGenericControl span = new HtmlGenericControl("span");
-                    //li.Attributes.Add("class", "navigation-header");
-
-                    
-                    HtmlGenericControl ul = new HtmlGenericControl("ul");
-                    ul.Attributes.Add("class","hidden-ul");
-                    ul.Attributes.Add("style", "display: none");
-                    li.Controls.Add(ul);
-                    
-
-                    DataView data = new DataView(dtOutput);
-
-                    DataTable dtOutputList = data.ToTable(true, "SUBMENUMENU", "RUTA","SUBMENU");
-
-                    foreach (DataRow drOutputList in dtOutputList.Rows)
-                    {
-                        HtmlGenericControl ili = new HtmlGenericControl("li");                     
-                        ul.Controls.Add(ili);
-                        HtmlGenericControl ianchor = new HtmlGenericControl("a");
-                        ianchor.Attributes.Add("style", "text-transform: capitalize");
-                        foreach (DataColumn dcOutputList in dtOutputList.Columns)
-                        {
-                            ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
-                        }
-                        
-                        ianchor.InnerText = Convert.ToString(drOutputList["SUBMENU"]);
-                        ili.Controls.Add(ianchor);
-                    }
-                    //tabs.Controls.Add(li);
-                }
-
+                CargarMenu();
+                //menu
 
 
                 FRegistro.Value = fe.ToString("yyyy-MM-dd");
@@ -734,15 +679,15 @@ namespace Prueba.Views
                 }
 
 
-                    for (int i = 0; i < TablaCargosAA.Rows.Count; i++)
+                for (int i = 0; i < TablaCargosAA.Rows.Count; i++)
+                {
+                    if (TablaCargosA.Rows[j]["IDINSTANCIADETALLE"].ToString() == TablaCargosAA.Rows[i]["INSD_ID"].ToString())
                     {
-                        if (TablaCargosA.Rows[j]["IDINSTANCIADETALLE"].ToString() == TablaCargosAA.Rows[i]["INSD_ID"].ToString())
-                        {
-                            ArregloCheckCargosA[j].Checked = true;
-                            ArregloDropDownListCargosA[j].SelectedValue = TablaCargosAA.Rows[i]["COND_CUPOS"].ToString();
-                        }
+                        ArregloCheckCargosA[j].Checked = true;
+                        ArregloDropDownListCargosA[j].SelectedValue = TablaCargosAA.Rows[i]["COND_CUPOS"].ToString();
                     }
-                
+                }
+
 
                 ArregloPanelCargosBA[j] = new Panel();
                 ArregloPanelCargosBA[j].CssClass = "accordion-inner";
@@ -1093,10 +1038,13 @@ namespace Prueba.Views
         protected void VerPblc(object sender, CommandEventArgs e)
         {
 
+            //menu
+            CargarMenu();
+            //menu
             zB = e.CommandArgument.ToString();
             CntvPblc.InnerText = zB;
 
-            Convocatoria conv = new Convocatoria() { IdConvocatoria = zB};
+            Convocatoria conv = new Convocatoria() { IdConvocatoria = zB };
 
             List<Convocatoria> ConvocatoriaData = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("Ccnvt", Method.POST), conv).Content);
             Label3.InnerText = ConvocatoriaData[0].DNombre;
@@ -1106,7 +1054,7 @@ namespace Prueba.Views
             foreach (DataRow row in Data.Rows)
             {
                 row["fecharegistro"] = Convert.ToDateTime(row["fecharegistro"]).Year.ToString();
-            }    
+            }
 
             ListView1.DataSource = Data;
             ListView1.DataBind();
@@ -1115,7 +1063,7 @@ namespace Prueba.Views
             //NmroPblcs.Text = LVPblc.Items.Count.ToString();
             TablaCargosB = CInstancia(new Convocatoria() { IdConvocatoria = zB }, false);
             DataView view10 = new DataView(TablaCargosB);
-            TablaInstanciasB = view10.ToTable(true, "INST_ID","INST_NOMBRE");
+            TablaInstanciasB = view10.ToTable(true, "INST_ID", "INST_NOMBRE");
             int NTablaInstanciasB = TablaInstanciasB.Rows.Count;
 
             ArregloPanelGroupB = new Panel[NTablaInstanciasB];
@@ -1123,7 +1071,7 @@ namespace Prueba.Views
             ArregloPanelBodyB = new Panel[NTablaInstanciasB];
             ArregloLabelInstanciasB = new Label[NTablaInstanciasB];
 
-        
+
 
 
             for (int i = 0; i < NTablaInstanciasB; i++)
@@ -1148,7 +1096,7 @@ namespace Prueba.Views
 
             }
 
-            
+
             NTablaCargosB = TablaCargosB.Rows.Count;
             ArregloPanelCargosB = new Panel[NTablaCargosB];
             ArregloLabelCargosB = new Label[NTablaCargosB];
@@ -1403,7 +1351,7 @@ namespace Prueba.Views
 
         protected void Button8_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("WebForm6.aspx?z="+zB);
+            Response.Redirect("WebForm6.aspx?z=" + zB);
         }
 
         protected void Button8_Click2(object sender, EventArgs e)
@@ -1420,6 +1368,134 @@ namespace Prueba.Views
             Response.BinaryWrite(bytes);
             Response.Flush();
             Response.End();
+        }
+
+        //menu
+        void CargarMenu()
+        {
+            DataTable dtOutput = (DataTable)Session["usuario"];
+            DataView data = new DataView(dtOutput);
+            DataTable MenuEncabezado = data.ToTable(true, "MENUNOMBRE", "ID_MENU");
+            DataTable MenuDetalle = data.ToTable(true, "SUBMENUMENU", "SUBMENU", "RUTA");
+
+            foreach (DataRow drOutput in MenuEncabezado.Rows)
+            {
+
+
+                HtmlGenericControl li = new HtmlGenericControl("li");
+
+
+                HtmlGenericControl anchor = new HtmlGenericControl("a");
+                anchor.Attributes.Add("href", "#");
+                anchor.Attributes.Add("class", "has-ul text-capitalize");
+                anchor.InnerText = drOutput["MENUNOMBRE"].ToString();
+
+                HtmlGenericControl icon = new HtmlGenericControl("i");
+                icon.Attributes.Add("class", "icon-stack2");
+                anchor.Controls.Add(icon);
+
+                li.Controls.Add(anchor);
+
+                HtmlGenericControl ul = new HtmlGenericControl("ul");
+                ul.Attributes.Add("class", "hidden-ul");
+                ul.Attributes.Add("style", "display: none");
+                li.Controls.Add(ul);
+
+
+
+
+                //DataView data = new DataView(dtOutput);
+
+
+                //DataRow[] foundRows;
+                ////for (int i = 0; i<dtOutput.Rows.Count)
+                ////{
+
+                //foundRows = dtOutput.Select("ID_MENU =" + drOutput["ID_MENU"].ToString());
+
+                //DataTable dtOutputList = new DataTable();
+                //for (int i = 0; i < foundRows.Length;i++)
+                //{
+                //    //dtOutputList.Rows.Add(foundRows[i]);
+                //    dtOutputList.ImportRow(foundRows[i]);
+                //}
+
+
+                ////DataView menu = new DataView(dtOutput);
+                ////DataTable dtOutputList = menu.ToTable(true, "ID_MENU", "RUTA", "SUBMENU");
+                ////int[] numero = new int[dtOutputList.Rows.Count];
+                ////for (int i = 0; i < dtOutputList.Rows.Count; i++)
+                ////{
+
+                ////    if (dtOutputList.Rows[i]["ID_MENU"].ToString() != drOutput["ID_MENU"].ToString())
+                ////    {
+                ////        numero[i] = i+1;
+                ////    }
+                ////}
+
+                ////for(int i = 0; i < numero.Length;i++)
+                ////{
+                ////    if (numero[i] != 0)
+                ////    {
+                ////        dtOutputList.Rows.Remove(dtOutputList.Rows[numero[i]-1]);
+                ////    }
+                ////}
+
+
+
+                ////DataTable dtOutputList = data.ToTable(true, "SUBMENUMENU", "RUTA","SUBMENU");
+
+
+
+
+
+                //    foreach (DataRow drOutputList in MenuDetalle.Rows)
+                //    {
+                //        HtmlGenericControl ili = new HtmlGenericControl("li");
+                //        ul.Controls.Add(ili);
+
+                //        HtmlGenericControl ianchor = new HtmlGenericControl("a");
+                //        ianchor.Attributes.Add("class", "text-capitalize");
+
+                //        ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
+
+                //        //foreach (DataColumn dcOutputList in dtOutputList.Columns)
+                //        //{
+                //        //    ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
+                //        //}
+
+                //        ianchor.InnerText = Convert.ToString(drOutputList["SUBMENU"]);
+                //        ili.Controls.Add(ianchor);
+                //    }
+                //    MenuConvocatoria.Controls.Add(li);
+                //}
+
+
+                foreach (DataRow drOutputList in MenuDetalle.Rows)
+                {
+                    if (drOutput["ID_MENU"].ToString() == drOutputList["SUBMENUMENU"].ToString())
+                    {
+                        HtmlGenericControl ili = new HtmlGenericControl("li");
+
+
+                        HtmlGenericControl ianchor = new HtmlGenericControl("a");
+                        ianchor.Attributes.Add("class", "text-capitalize");
+
+                        ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
+
+                        //foreach (DataColumn dcOutputList in dtOutputList.Columns)
+                        //{
+                        //    ianchor.Attributes.Add("href", Convert.ToString(drOutputList["RUTA"]));
+                        //}
+
+                        ianchor.InnerText = Convert.ToString(drOutputList["SUBMENU"]);
+                        ili.Controls.Add(ianchor);
+                        ul.Controls.Add(ili);
+                    }
+                }
+                MenuConvocatoria.Controls.Add(li);
+            }
+            //end menu
         }
     }
 

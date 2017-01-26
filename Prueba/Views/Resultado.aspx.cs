@@ -12,18 +12,16 @@ using RestSharp;
 
 namespace Prueba.Views
 {
-    
-    public partial class Votar : System.Web.UI.Page
+    public partial class Resultado : System.Web.UI.Page
     {
-
         static List<Votacion> detall;
         static List<Convocatoria> list_conv;
         static List<Votacion> list_ins;
         static List<Votacion> list_can;
-        static List<Votacion> list_pro;
         static Convocatoria con;
-        static Votacion ins,pro;       
-        static bool recargo=false;
+        static Votacion ins;
+        static bool recargo = false;
+
         /* Datos de las convocatorias*/
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,10 +38,8 @@ namespace Prueba.Views
                         DescripcionConvocatoria = detall[i].CONV_DESCRIPCION,
                         Fechainicioinscripcion = detall[i].CONV_FECH_INIC_INSC,
                         Fechafininscripcion = detall[i].CONV_FECH_FIN_INSC,
-                        IdConvocatoria = detall[i].CONV_ID,
-
+                        IdConvocatoria = detall[i].CONV_ID
                     };
-
 
                     if (i > 0 && list_conv[list_conv.Count - 1].IdConvocatoria != convocatoria.IdConvocatoria)
                     {
@@ -71,45 +67,27 @@ namespace Prueba.Views
         /* Metodo para saver cual de los item selecciono */
         protected void Verconvocatoria_Command(object sender, CommandEventArgs e)
         {
-            //19293949
             try
             {
-                bool ban = false;
-                string url = "";
                 switch (e.CommandName)
                 {
                     case "calendario":
                         Session["Convocatoria"] = e.CommandArgument.ToString();
-                        Response.Redirect("VConvocatoriaDetalle.aspx");
+                        Response.Redirect("Views/ConvocatoriaDetalle.aspx");
                         break;
                     case "convocatoria":
                         con = new Convocatoria() { IdConvocatoria = e.CommandArgument.ToString() };
                         instancias(con);
-                        ban = true;
-                        url = "<script>javascript:cargo();</script>";                       
+                        ClientScript.RegisterStartupScript(this.GetType(), "assets/js/cespas.js", "<script>javascript:cargo();</script>");
                         break;
-                    case "instancia":                        
+                    case "instancia":
                         string[] arr = e.CommandArgument.ToString().Split(',');
                         ins = new Votacion() { CONV_ID = arr[0], INST_NOMBRE = arr[1], INSD_NOMBRE = arr[2] };
                         Candidatos(ins);
-                        ban = true;
-                        url = "<script>javascript:cargo2();</script>";                       
+                        ClientScript.RegisterStartupScript(this.GetType(), "assets/js/cespas.js", "<script>javascript:cargo2();</script>");
                         break;
-                    case "candidato":                       
-                        pro = new Votacion() { CODIGO= e.CommandArgument.ToString() };
-                        string aux = Propuestas(pro);
-                        Response.Redirect("Propuestas.aspx?tamano="+ list_pro.Count + "&lista=" + aux );                                              
-                        break;
-                    case "Votar":
-                        ban = true;
-                        /* Resivo los parametros del candidato a votar  */
-                        break;
-                }
 
-                if (ban) {                    
-                    ClientScript.RegisterStartupScript(this.GetType(), "assets/js/cespas.js",url);
                 }
-
             }
             catch (Exception ex) { }
 
@@ -140,7 +118,6 @@ namespace Prueba.Views
                     }
 
                 }
-                 
                 ListaInstacia.DataSource = list_ins;
                 ListaInstacia.DataBind();
 
@@ -182,49 +159,5 @@ namespace Prueba.Views
             }
             catch (Exception ex) { }
         }
-
-        /* Propuestas de los Candidatos*/
-        protected string Propuestas(Votacion conv)
-        {
-            try
-            {                
-                list_pro = new List<Votacion>();
-                for (int i = 0; i < detall.Count; i++)
-                {
-                    if (detall[i].CODIGO==conv.CODIGO)
-                    {
-                        var propuesta = new Votacion()
-                        {
-                            PROP_DETALLE = detall[i].PROP_DETALLE,
-                            PROP_ID=detall[i].PROP_ID
-                        };
-                        if (i>0&&list_pro[list_pro.Count-1].PROP_ID!=propuesta.PROP_ID)
-                        {
-                            list_pro.Add(propuesta);
-                        }else if(i==0)
-                        {
-                            list_pro.Add(propuesta);
-                        }                        
-                    }                   
-                }
-                
-                return formato(list_pro);             
-            }
-            catch (Exception ex) {
-                return null;
-            }
-        }
-
-        /* metodo de formateo de las propuestas*/
-        protected string formato(List<Votacion> aux)
-        {
-            string mos = "";
-            for (int i = 0; i < aux.Count; i++)
-            {
-                mos=""+ aux[i].PROP_ID + ","+aux[i].PROP_DETALLE+"."+mos;
-            }
-            return mos;
-        }
-
     }
 }

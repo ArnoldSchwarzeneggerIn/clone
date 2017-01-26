@@ -10,34 +10,25 @@
 namespace Prueba.Views {
     
     
-    public partial class ConvocatoriaPublica {
+    public partial class Candidatos {
         
         /// <summary>
-        /// Control Formulario.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Formulario;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control Label1.
+        /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// Control Label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// Control imagen_Perfil.
@@ -56,15 +47,6 @@ namespace Prueba.Views {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Nombre1;
-        
-        /// <summary>
-        /// Control Salir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Salir;
         
         /// <summary>
         /// Control Imagen_perfil2.
@@ -94,66 +76,93 @@ namespace Prueba.Views {
         protected global::System.Web.UI.WebControls.Label Ubicacion;
         
         /// <summary>
-        /// Control MenuA.
+        /// Control NumeroConvo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuA;
+        protected global::System.Web.UI.WebControls.TextBox NumeroConvo;
         
         /// <summary>
-        /// Control NmroPblcs.
+        /// Control cargo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NmroPblcs;
+        protected global::System.Web.UI.WebControls.TextBox cargo;
         
         /// <summary>
-        /// Control LVPblc.
+        /// Control Img2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LVPblc;
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img2;
         
         /// <summary>
-        /// Control CntvPblc.
+        /// Control Nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CntvPblc;
+        protected global::System.Web.UI.WebControls.TextBox Nombre;
         
         /// <summary>
-        /// Control Panel3.
+        /// Control Apellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Panel3;
+        protected global::System.Web.UI.WebControls.TextBox Apellido;
         
         /// <summary>
-        /// Control Label3.
+        /// Control Identificacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
+        protected global::System.Web.UI.WebControls.TextBox Identificacion;
         
         /// <summary>
-        /// Control Button8.
+        /// Control fecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button8;
+        protected global::System.Web.UI.WebControls.TextBox fecha;
+        
+        /// <summary>
+        /// Control obser.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea obser;
+        
+        /// <summary>
+        /// Control requisitos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView requisitos;
+        
+        /// <summary>
+        /// Control Button.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button;
     }
 }

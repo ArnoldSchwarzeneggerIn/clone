@@ -207,7 +207,7 @@
     <link href="assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fileinput-->
-    <%--  <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />--%>
+    <%--      <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />--%>
     <%--/Fileinput--%>
 
     <link href="assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
@@ -223,7 +223,7 @@
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
     <!-- Fileinput-->
-    <%--  <script src="../js/fileinput.js" type="text/javascript"></script>--%>
+    <%--<script src="../js/fileinput.js" type="text/javascript"></script>--%>
     <!--/Fileinput-->
 
 
@@ -238,7 +238,6 @@
     <script type="text/javascript" src="assets/js/plugins/notifications/pnotify.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
     <script type="text/javascript" src="assets/js/pages/wizard_steps.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/wizards/steps.min.js"></script>
     <%--No deja lanzar la alerta--%>
 
     <!-- /Theme JS files -->
@@ -247,9 +246,9 @@
 
 
 
-    <%--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--%>
+    <%-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>--%>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>--%>
 
 
 
@@ -325,15 +324,15 @@
             var obj2 = document.getElementById('erros');
             obj2.innerText = "";
            
-            for (var i = 1; i <= <%=TablaCargos.Rows.Count%>; i++)
+            for (var i = 0; i < <%=TablaCargos.Rows.Count%>; i++)
 
             {
                 s = 'ArregloCheckCargos'+i;
                 obj = document.getElementById(s);             
-                if(obj != null){
+                //if(obj != null){
                     if (obj.checked) {
                         n = n + 1;
-                    }
+                    //}
                 }
             
             }
@@ -358,7 +357,7 @@
 
                 var obj5 = document.getElementById('titleerror');
 
-                for (var i = 1; i <= <%=TablaCargos.Rows.Count%>; i++)
+                for (var i = 0; i < <%=TablaCargos.Rows.Count%>; i++)
                 {
 
                     s = 'ArregloCheckCargos'+i;
@@ -639,10 +638,13 @@
                     }
                 },
                 messages: {
-                    "tituloconvo": {
+                    "FRegistro": {
                         required: "Datos no validos",
-                        minlength: "Ingrese un nombre mas largo"
                     },
+                    "InicioInscripcion": {
+                        required: "Datos no validos",
+                    },
+                
                     "finscripcionconvo": {
                         required: "Datos no validos",
                     },
@@ -665,6 +667,12 @@
                         required: "Datos no validos",
                     },
                     "observacionconvo": {
+                        required: "Datos no validos",
+                    },
+                    "descripcion": {
+                        required: "Datos no validos",
+                    },
+                    "FileUpload1": {
                         required: "Datos no validos",
                     }
                 }
@@ -866,7 +874,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <asp:LinkButton ID="Salir" runat="server"  OnClick="Salir_Click"> <i class="icon-switch2"></i>  Salir </asp:LinkButton>
+                                <asp:LinkButton ID="Salir" runat="server" OnClick="Salir_Click"> <i class="icon-switch2"></i>  Salir </asp:LinkButton>
                             </li>
                         </ul>
                     </li>
@@ -920,12 +928,11 @@
                                 <ul id="MenuConvocatoria" class="navigation navigation-main navigation-accordion" runat="server">
 
                                     <!-- Main -->
-                                    <li  class="navigation-header"><span style="text-transform:capitalize" >CONVOCATORIAS</span> 
-                                            <i class="icon-menu" title="Convocatorias">
-                                            </i>
+                                    <li class="navigation-header"><span style="text-transform: capitalize">CONVOCATORIAS</span>
+                                        <i class="icon-menu" title="Convocatorias"></i>
                                     </li>
-                                    <li class="active"><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
-                                   <%-- <li>
+                                    <li><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
+                                    <%-- <li>
                                         <a href="#"><i class="icon-stack2"></i><span>Convocatorias</span></a>
                                         <ul id="MenuConvocatoria" runat="server">
                                             
@@ -956,7 +963,6 @@
                                             <li><a href="#">Resultados</a></li>
                                         </ul>
                                     </li>--%>
-
                                 </ul>
                             </div>
                         </div>
@@ -1026,7 +1032,7 @@
                                                                         <%--<input type="text" runat="server" id="Datepicker1"  required="required" />--%>
                                                                         <%-- --%>
 
-                                                                        <input id="FRegistro" type="date" runat="server" onchange="EstablecerFechaMin('FRegistro');" class="form-control" />
+                                                                        <input id="FRegistro" type="date" runat="server" onchange="EstablecerFechaMin('FRegistro');" class="form-control" required="required"/>
                                                                     </div>
                                                                 </div>
 
@@ -1128,13 +1134,13 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <asp:FileUpload ID="FileUpload1" CssClass="file-input" runat="server" />
+                                                                        <asp:FileUpload ID="FileUpload1" CssClass="file-input" runat="server" required />
                                                                         <%-- <input type="file" class="file-input" runat="server"/>--%>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <%-- <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
+                                                        <%--   <input id="input-44" name="input44[]" type="file" multiple class="file-loading">--%>
                                                     </fieldset>
 
                                                     <h6>Cargos a convocar</h6>

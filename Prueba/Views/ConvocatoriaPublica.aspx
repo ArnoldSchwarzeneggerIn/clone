@@ -404,41 +404,16 @@
                             <!-- Main navigation -->
                             <div class="sidebar-category sidebar-category-visible">
                                 <div class="category-content no-padding">
-                                    <ul class="navigation navigation-main navigation-accordion">
+                                    <ul id="MenuA" class="navigation navigation-main navigation-accordion" runat="server">
 
                                         <!-- Main -->
-                                        <li class="navigation-header"><span>Convocatorias</span> <i class="icon-menu" title="Convocatorias"></i></li>
-                                        <li class="active"><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
-                                        <li>
-                                            <a href="#"><i class="icon-stack2"></i><span>Convocatorias</span></a>
-                                            <ul>
-                                                <li><a id="recargar" href="VConvocatoria.aspx">Gestionar convocatoria</a></li>
-                                                <li><a href="#">Lanzar convocatoria</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="icon-vcard"></i><span>Candidatos</span></a>
-                                            <ul>
-                                                <li><a href="VCandidato.aspx">Gestionar candidatos</a></li>
-                                                <li><a href="#">Mi candidatura</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="icon-puzzle"></i><span>Parametricas</span></a>
-                                            <ul>
-                                                <li><a href="VCobertura.aspx">Cobertura</a></li>
-                                                <li><a href="Causaderetiro.aspx">Causa de retiro</a></li>
-                                                <li><a href="Instancias.aspx">Instancias</a></li>
-                                                <li><a href="InstancConformacion.aspx">Instancia conformacion</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="icon-stack-text"></i><span>Votaciones</span></a>
-                                            <ul>
-                                                <li><a href="Votar.aspx">Votar</a></li>
-                                                <li><a href="#">Resultados</a></li>
-                                            </ul>
-                                        </li>
+                                    <li class="navigation-header"><span style="text-transform: capitalize">CONVOCATORIAS</span>
+                                        <i class="icon-menu" title="Convocatorias"></i>
+                                    </li>
+                                    <li><a href="Index.aspx"><i class="icon-home4"></i><span>Principal</span></a></li>
+                                        <!-- End Main -->
+
+                                       
 
                                     </ul>
                                 </div>

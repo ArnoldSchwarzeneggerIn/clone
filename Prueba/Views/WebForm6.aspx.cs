@@ -299,6 +299,7 @@ namespace Prueba.Views
                     {
 
                         ConvocatoriaDetalle objeto = new ConvocatoriaDetalle();
+                        
                         objeto.InstanciadetalleConvocatoriaDetalle = IdCargosA[i].ToString();
                         objeto.CuposConvocatoriaDetalle = ArregloDropDownListCargosA[i].SelectedValue;
                         objeto.ConvocatoriaConvocatoriaDetalle = z;

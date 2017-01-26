@@ -46,7 +46,7 @@ namespace Prueba.Views
             var Convo = new Convocatoria() { IdConvocatoria = 1.ToString() };
             List<Convocatoria> Convocatoria = JsonConvert.DeserializeObject<List<Convocatoria>>(ConsumirAppi.ConsumirPost(Rutas.Convocatoria, new RestRequest("ConsultarConvocatoriaPorNumero", Method.POST), Convo).Content);
             // organizar calendario
-            //tituloconvo.Value = Convocatoria[0].TituloCovocatoria;
+            tituloconvo.Value = Convocatoria[0].TituloConvocatoria;
             finscripcionconvo.Value = Convocatoria[0].Fechainicioinscripcion;
             ffindeinscripcion.Value =Convocatoria[0].Fechafininscripcion;
             candidatoshconvo.Value = Convocatoria[0].Fechapublicacionhabilitado;
